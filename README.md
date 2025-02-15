@@ -1,2 +1,3 @@
 # Repository-DevTix
-DevTix - Web Development Ticketing Website
+
+The README file will soon be updated.
