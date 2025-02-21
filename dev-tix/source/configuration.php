@@ -1,4 +1,5 @@
 <?php
 
-// Full server path.
-define('SERVER', 'http://devtix.local');
+// Environment constants.
+define('DEV_ENV', 'http://devtix.local');
+define('PRO_ENV', 'https://devtix.com');

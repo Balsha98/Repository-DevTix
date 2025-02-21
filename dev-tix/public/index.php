@@ -1,5 +1,6 @@
 <?php
 
 require_once __DIR__ . '/../source/configuration.php';
+require_once __DIR__ . '/../source/classes/Router.php';
 
-echo $_GET['request'] ?? '/';
+echo Router::renderPage($_GET['request'] ?? '/');
