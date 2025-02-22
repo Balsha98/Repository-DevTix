@@ -1,5 +1,6 @@
-    <!-- LOGIN SECTION -->
+    <!-- MAIN CONTAINER -->
     <main class="main-container absolute-center grid-2-columns">
+        <!-- FORM SECTION -->
         <section class="section-form">
             <header class="section-form-header">
                 <h2 class="heading-secondary">Welcome to DevTix!</h2>
@@ -27,6 +28,7 @@
                 <p>Don't have an account? <a class="link-signup" href="<?php echo SERVER_PATH; ?>/signup">Sign Up!</a></p>
             </div>
         </section>
+        <!-- IMAGE CONTAINER -->
         <div class="div-image-container">
             <img src="<?php echo SERVER_PATH ?>/core/assets/media/images/login-image.jpg" alt="Image">
         </div>
