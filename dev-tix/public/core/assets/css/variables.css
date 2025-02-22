@@ -1,0 +1,18 @@
+:root {
+    --font-family: "Nunito", sans-serif;
+    --white: white;
+    --gray-tint: #f4f4f4;
+    --gray-shade: #333;
+    --primary: #91a7ff;
+    --primary-tint: #bac8ff;
+    --primary-shade: #748ffc;
+    --secondary: #63e6be;
+    --secondary-tint: #96f2d7;
+    --secondary-shade: #38d9a9;
+    --shadow-sm: rgba(0, 0, 0, 0.1);
+    --shadow-md: rgba(0, 0, 0, 0.15);
+    --shadow-lg: rgba(0, 0, 0, 0.2);
+    --border-radius-sm: 0.2rem;
+    --border-radius-md: 0.4rem;
+    --border-radius-lg: 0.8rem;
+}
