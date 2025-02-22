@@ -9,12 +9,12 @@ class Session
         }
     }
 
-    public static function getVar($key)
+    public static function get($key)
     {
         return $_SESSION[$key];
     }
 
-    public static function setVar($key, $value)
+    public static function set($key, $value)
     {
         $_SESSION[$key] = $value;
     }

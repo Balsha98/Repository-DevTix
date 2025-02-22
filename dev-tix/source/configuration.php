@@ -1,8 +1,9 @@
 <?php
 
 // Environment constants.
-define('DEV_ENV', 'http://devtix.local');
-define('PRO_ENV', 'https://devtix.com');
+define('PROTOCOL', $_SERVER['REQUEST_SCHEME']);
+define('SERVER_NAME', $_SERVER['SERVER_NAME']);
+define('SERVER_PATH', PROTOCOL . '://' . SERVER_NAME);
 
 // Database configurations.
 define('DB_NAME', 'dev_tix');
