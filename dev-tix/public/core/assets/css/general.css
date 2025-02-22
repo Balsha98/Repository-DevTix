@@ -1,10 +1,51 @@
-:root {
-}
-
+/* ROOT */
 html {
     font-size: 10px;
 }
 
+/* BODY */
 body {
     height: 100vh;
+    background-image: linear-gradient(to right top, var(--primary), var(--secondary-tint));
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* ALL */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    color: var(--gray-shade);
+    box-sizing: border-box;
+}
+
+/* LISTS */
+ul {
+    list-style: none;
+}
+
+/* LINKS */
+a:link,
+a:visited,
+a:active {
+    text-decoration: none;
+}
+
+/* INPUTS */
+input:focus {
+    box-shadow: inset 0 0 0 0.2rem var(--primary-tint) !important;
+}
+
+input::placeholder {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+/* ICONS */
+ion-icon {
+    font-size: 2.4rem;
+    color: var(--primary-tint);
 }

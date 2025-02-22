@@ -1,0 +1,99 @@
+/* POSITION */
+.absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.absolute-x-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.absolute-y-center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* GRID LAYOUTS */
+.grid-2-columns {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3-columns {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4-columns {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* HEADINGS */
+.heading-primary {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.heading-secondary {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.heading-tertiary {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+/* INPUT CONTAINERS */
+.div-input-container {
+    position: relative;
+    display: flex;
+}
+
+.div-input-container label {
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.div-input-container input {
+    all: unset;
+    width: 100%;
+    display: inline-block;
+    padding: 1.2rem;
+    font-size: 1.6rem;
+    background-color: var(--gray-tint);
+    border-radius: var(--border-radius-md);
+    caret-color: var(--gray-shade);
+}
+
+/* BUTTON CONTAINER */
+.div-grid-btn-container {
+    display: grid;
+    margin-top: 0.4rem;
+}
+
+/* BUTTONS */
+.btn {
+    all: unset;
+    display: inline-block;
+    width: 100%;
+    padding: 1.2rem 0;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: var(--border-radius-md);
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.btn-primary {
+    color: var(--white);
+    background-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-shade);
+}

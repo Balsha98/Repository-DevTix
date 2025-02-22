@@ -1,0 +1,33 @@
+    <!-- LOGIN SECTION -->
+    <main class="main-container absolute-center grid-2-columns">
+        <section class="section-form">
+            <header class="section-form-header">
+                <h2 class="heading-secondary">Welcome to DevTix!</h2>
+                <p>Please provide your <span>valid</span> credentials.</p>
+            </header>
+            <form class="form" action="">
+                <div class="div-input-container">
+                    <label class="absolute-y-center" for="username">
+                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>
+                    </label>
+                    <input id="username" type="text" name="username" placeholder="Username">
+                </div>
+                <div class="div-input-container">
+                    <label class="absolute-y-center" for="password">
+                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/lock.svg"></ion-icon>
+                    </label>
+                    <input id="password" type="password" name="password" placeholder="Password">
+                    <a class="link-forgot-password" href="#">Forgot your passsword?</a>
+                </div>
+                <div class="div-grid-btn-container">
+                    <button class="btn btn-primary">Login</button>
+                </div>
+            </form>
+            <div class="div-signup-container">
+                <p>Don't have an account? <a class="link-signup" href="<?php echo SERVER_PATH; ?>/signup">Sign Up!</a></p>
+            </div>
+        </section>
+        <div class="div-image-container">
+            <img src="<?php echo SERVER_PATH ?>/core/assets/media/images/login-image.jpg" alt="Image">
+        </div>
+    </main>
