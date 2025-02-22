@@ -5,8 +5,9 @@ class ApiRoutes
     public const ROUTES = [
         'GET' =>
             '',
-        'POST' =>
+        'POST' => [
             'login',
+        ],
         'PUT' =>
             '',
         'DELETE' =>
