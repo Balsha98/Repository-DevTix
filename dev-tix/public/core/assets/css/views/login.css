@@ -90,6 +90,7 @@
     font-size: 1.6rem;
 }
 
+/* SIGNUP LINK */
 .link-signup:link,
 .link-signup:visited {
     color: var(--primary);

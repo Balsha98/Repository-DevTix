@@ -6,7 +6,7 @@
                 <h2 class="heading-secondary">Welcome to DevTix!</h2>
                 <p>Please provide your <span>valid</span> credentials.</p>
             </header>
-            <form class="form" action="">
+            <form class="form" action="/api/" method="POST">
                 <div class="div-input-container">
                     <label class="absolute-y-center" for="username">
                         <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>
@@ -21,7 +21,10 @@
                     <a class="link-forgot-password" href="#">Forgot your passsword?</a>
                 </div>
                 <div class="div-grid-btn-container">
-                    <button class="btn btn-primary">Login</button>
+                    <button class="btn btn-primary btn-login">Login</button>
+                </div>
+                <div class="div-hidden-inputs">
+                    <input id="page" type="hidden" value="<?php echo $page; ?>">
                 </div>
             </form>
             <div class="div-signup-container">

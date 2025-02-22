@@ -2,7 +2,7 @@
 
 class ApiRoutes
 {
-    public static const ROUTES = [
+    public const ROUTES = [
         'GET' =>
             '',
         'POST' =>
