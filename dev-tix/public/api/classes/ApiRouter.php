@@ -6,9 +6,16 @@ require_once __DIR__ . '/ApiRoutes.php';
 
 class ApiRouter
 {
+    // Attributes.
     private static string $method;
     private static object $controller;
 
+    /**
+     * Get reponse based on the request.
+     * @param string $method - API request method.
+     * @param array $data - input data.
+     * @return string - JSON formatted response.
+     */
     public static function getResponse(string $method, array $data)
     {
         $page = $data['page'];
@@ -29,53 +36,70 @@ class ApiRouter
 
         // Return JSON response.
         header('Content-Type: application/json');
-        return Encode::toJSON(self::proccessRequest($data, $id));
+        return Encode::toJSON(self::proccessRequest($id, $data));
     }
 
-    private static function proccessRequest(array $data, int $id)
+    /**
+     * Process API request.
+     * @param array $data - input data.
+     * @param int $id - record id.
+     */
+    private static function proccessRequest(int $id, array $data)
     {
-        $return = [];
-        switch (self::$method) {
-            case 'GET':
-                if ($id !== 0) {
-                    self::$controller->setId($id);
-                }
+        return match (self::$method) {
+            'GET' => self::processGET($id),
+            'POST' => self::processPOST($data),
+            'PUT' => self::processPUT($id, $data),
+            'DELETE' => self::processDELETE($id)
+        };
+    }
 
-                $return = self::$controller->get();
-
-                break;
-            case 'POST':
-                if (empty($data)) {  // Guard clause.
-                    return Encode::toJSON(ApiMessage::invalidData());
-                }
-
-                self::$controller->setData($data);
-                $return = self::$controller->post();
-
-                break;
-            case 'PUT':
-                if ($id === 0) {  // Guard clauses.
-                    return Encode::toJSON(ApiMessage::invalidId());
-                } else if (empty($data)) {
-                    return Encode::toJSON(ApiMessage::invalidData());
-                }
-
-                self::$controller->setId($id);
-                self::$controller->setData($data);
-                $return = self::$controller->put();
-
-                break;
-            case 'DELETE':
-                if ($id === 0) {  // Guard clause.
-                    return Encode::toJSON(ApiMessage::invalidId());
-                }
-
-                self::$controller->setId($id);
-                $return = self::$controller->delete();
-
-                break;
+    private static function processGET(int $id)
+    {
+        if ($id !== 0) {
+            self::$controller->setId($id);
         }
 
-        return $return;
+        // Return API response.
+        return self::$controller->get();
+    }
+
+    private static function processPOST(array $data)
+    {
+        if (empty($data)) {  // Guard clause.
+            return Encode::toJSON(ApiMessage::invalidData());
+        }
+
+        self::$controller->setData($data);
+
+        // Return API response.
+        return self::$controller->post();
+    }
+
+    private static function processPUT(int $id, array $data)
+    {
+        if ($id === 0) {  // Guard clause.
+            return Encode::toJSON(ApiMessage::invalidId());
+        } else if (empty($data)) {  // Guard clause.
+            return Encode::toJSON(ApiMessage::invalidData());
+        }
+
+        self::$controller->setId($id);
+        self::$controller->setData($data);
+
+        // Return API response.
+        return self::$controller->put();
+    }
+
+    private static function processDELETE(int $id)
+    {
+        if ($id === 0) {  // Guard clause.
+            return Encode::toJSON(ApiMessage::invalidId());
+        }
+
+        self::$controller->setId($id);
+
+        // Return API response.
+        return self::$controller->delete();
     }
 }

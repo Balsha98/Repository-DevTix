@@ -1,6 +1,8 @@
 <?php
 
-abstract class AbsApiController
+require_once __DIR__ . '/IApiController.php';
+
+abstract class AbsApiController implements IApiController
 {
     // API attributes.
     private int $id;
