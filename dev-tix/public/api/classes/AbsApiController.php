@@ -16,12 +16,30 @@ abstract class AbsApiController
     }
 
     /**
+     * Setting record id.
+     * @param int - record id.
+     */
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
+    /**
      * Data sent via AJAX
      * @return array - new/existing record data.
      */
     public function getData()
     {
         return $this->data;
+    }
+
+    /**
+     * Setting input data.
+     * @param array - API resources.
+     */
+    public function setData(array $data)
+    {
+        $this->data = $data;
     }
 
     /**

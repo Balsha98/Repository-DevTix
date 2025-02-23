@@ -12,4 +12,4 @@ require_once __DIR__ . '/classes/ApiRouter.php';
 // API resources.
 $method = $_SERVER['REQUEST_METHOD'];
 $input = Encode::fromJSON(file_get_contents('php://input'));
-echo ApiRouter::echoResponse($method, $input);
+echo ApiRouter::getResponse($method, $input);
