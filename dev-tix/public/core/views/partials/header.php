@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="<?php echo SERVER_PATH; ?>/core/assets/css/variables.css">
     <link rel="stylesheet" href="<?php echo SERVER_PATH; ?>/core/assets/css/general.css">
     <link rel="stylesheet" href="<?php echo SERVER_PATH; ?>/core/assets/css/reusable.css">
-    <link rel="stylesheet" href="<?php echo SERVER_PATH; ?>/core/assets/css/views/<?php echo $page; ?>.css">
+    <?php echo Template::buildStyleDependencies($page); ?>
     <!-- PAGE TITLE -->
     <title>DevTix | <?php echo Template::buildTitle($page); ?></title>
 </head>

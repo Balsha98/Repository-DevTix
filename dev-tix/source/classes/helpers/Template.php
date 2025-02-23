@@ -21,12 +21,29 @@ class Template
     {
         $controller = __DIR__ . "/../../../public/core/assets/js/controllers/{$page}Controller.js";
         if (file_exists($controller)) {
-            $return = '
-                <script src="' . SERVER_PATH . '/core/assets/js/lib/jQuery.js"></script>
-                <script type="module" src="' . SERVER_PATH . '/core/assets/js/controllers/' . $page . 'Controller.js"></script>
-            ';
+            $return = "
+                <script 
+                    type='module' 
+                    src='" . SERVER_PATH . "/core/assets/js/controllers/{$page}Controller.js'
+                ></script>
+            ";
         }
 
         return $return ?? '<!-- NONE -->';
+    }
+
+    public static function buildStyleDependencies(string $page)
+    {
+        $stylesheet = __DIR__ . "/../../../public/core/assets/css/views/{$page}.css";
+        if (file_exists($stylesheet)) {
+            $return = "
+                <link 
+                    rel='stylesheet' 
+                    href='" . SERVER_PATH . "/core/assets/css/views/{$page}.css'
+                >
+            ";
+        }
+
+        return $return ?? '';
     }
 }
