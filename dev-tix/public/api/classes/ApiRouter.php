@@ -7,7 +7,7 @@ require_once __DIR__ . '/ApiRoutes.php';
 class ApiRouter
 {
     private static string $method;
-    private static AbsApiController $controller;
+    private static object $controller;
 
     public static function getResponse(string $method, array $data)
     {
