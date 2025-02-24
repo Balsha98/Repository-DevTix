@@ -26,7 +26,7 @@ class ApiMessage
         return [
             'status' => $isValid ? 'success' : 'error',
             'response' => [
-                'heading' => ($isValid ? 'Successfull' : 'Unsuccessful') . 'Login',
+                'heading' => ($isValid ? 'Successfull' : 'Unsuccessful') . ' Login',
                 'message' => $isValid ? 'Your login was successful!' : 'Invalid credentials provided.'
             ]
         ];
