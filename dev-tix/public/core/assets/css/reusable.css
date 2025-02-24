@@ -33,6 +33,13 @@
     opacity: var(--opacity-xl);
 }
 
+/* FLEX LAYOUTS */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* GRID LAYOUTS */
 .grid-2-columns {
     grid-template-columns: repeat(2, 1fr);
@@ -99,7 +106,7 @@
 /* BUTTONS */
 .btn {
     all: unset;
-    display: inline-block;
+    display: block;
     width: 100%;
     padding: 1.2rem 0;
     font-size: 1.4rem;

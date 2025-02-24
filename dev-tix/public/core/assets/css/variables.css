@@ -9,14 +9,23 @@
     --secondary: #63e6be;
     --secondary-tint: #96f2d7;
     --secondary-shade: #38d9a9;
+    --success: #51cf66;
+    --error: #ff6b6b;
+    --transparent-black-sm: rgba(0, 0, 0, var(--opacity-sm));
+    --transparent-black-md: rgba(0, 0, 0, var(--opacity-md));
+    --transparent-black-lg: rgba(0, 0, 0, var(--opacity-lg));
+    --transparent-black-xl: rgba(0, 0, 0, var(--opacity-xl));
     --shadow-sm: rgba(0, 0, 0, 0.1);
     --shadow-md: rgba(0, 0, 0, 0.15);
     --shadow-lg: rgba(0, 0, 0, 0.2);
     --border-radius-sm: 0.2rem;
     --border-radius-md: 0.4rem;
     --border-radius-lg: 0.8rem;
+    --border-radius-circle: 50%;
+    --opacity-none: 0;
     --opacity-sm: 0.2;
     --opacity-md: 0.4;
     --opacity-lg: 0.6;
     --opacity-xl: 0.8;
+    --opacity-full: 1;
 }
