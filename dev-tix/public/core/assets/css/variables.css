@@ -15,4 +15,8 @@
     --border-radius-sm: 0.2rem;
     --border-radius-md: 0.4rem;
     --border-radius-lg: 0.8rem;
+    --opacity-sm: 0.2;
+    --opacity-md: 0.4;
+    --opacity-lg: 0.6;
+    --opacity-xl: 0.8;
 }

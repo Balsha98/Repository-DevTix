@@ -18,6 +18,21 @@
     transform: translateY(-50%);
 }
 
+/* OVERLAYS */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* OVERLAY TYPES */
+.image-overlay {
+    backdrop-filter: blur(0.2rem);
+    opacity: var(--opacity-xl);
+}
+
 /* GRID LAYOUTS */
 .grid-2-columns {
     grid-template-columns: repeat(2, 1fr);
@@ -45,6 +60,12 @@
 .heading-tertiary {
     font-size: 1.8rem;
     font-weight: 500;
+}
+
+/* MULTIPLE INPUTS GRID */
+.div-multiple-inputs-grid {
+    display: grid;
+    gap: 1.6rem;
 }
 
 /* INPUT CONTAINERS */
@@ -85,10 +106,11 @@
     text-transform: uppercase;
     text-align: center;
     border-radius: var(--border-radius-md);
-    transition: background-color 0.3s;
+    transition: all 0.3s;
     cursor: pointer;
 }
 
+/* PRIMARY BUTTON TYPES */
 .btn-primary {
     color: var(--white);
     background-color: var(--primary);
@@ -96,4 +118,33 @@
 
 .btn-primary:hover {
     background-color: var(--primary-shade);
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    background-color: transparent;
+    box-shadow: inset 0 0 0 0.2rem var(--primary-tint);
+}
+
+.btn-outline-primary:hover {
+    color: var(--white);
+    background-color: var(--primary-tint);
+}
+
+/* IMAGE CONTAINER */
+.div-image-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.div-image-container img {
+    width: inherit;
+    object-position: center;
+    object-fit: cover;
+}
+
+/* HIDDEN INPUTS */
+.div-hidden-inputs {
+    display: none;
 }
