@@ -3,7 +3,7 @@
 class Database
 {
     private PDO $pdo;
-    private $pdoStatement;
+    private PDOStatement $pdoStatement;
     private static Database $instance;
 
     private function __construct(string $dbName, string $dbUser, string $dbPass)

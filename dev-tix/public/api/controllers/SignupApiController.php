@@ -6,6 +6,24 @@ class SignupApiController extends AbsApiController
 {
     public function post()
     {
-        return $this->getData();
+        $query = '
+            SELECT 
+                * 
+            FROM 
+                users 
+            WHERE 
+                
+        ';
+
+        $query = '
+            INSERT INTO 
+                users 
+            SET 
+                first_name = :frist_name, 
+                last_name = :last_name, 
+                email = :email, 
+                username = :username, 
+                password = :password;
+        ';
     }
 }
