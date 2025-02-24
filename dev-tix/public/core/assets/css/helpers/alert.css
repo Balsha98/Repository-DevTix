@@ -3,6 +3,7 @@
     width: 100%;
     height: 100%;
     background-color: var(--transparent-black-md);
+    transition: all 0.5s;
     z-index: 9999;
 }
 
@@ -12,6 +13,12 @@
     padding: 3.2rem;
     background-color: var(--white);
     border-radius: var(--border-radius-lg);
+}
+
+/* ALERT TOGGLER */
+.hide-alert {
+    opacity: 0;
+    z-index: -1;
 }
 
 /* ICON CONTAINER */
@@ -62,7 +69,7 @@
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
     animation-direction: alternate-reverse;
-    animation-duration: 0.5s;
+    animation-duration: 0.8s;
 }
 
 @keyframes icon-indicator {
