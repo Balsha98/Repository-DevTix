@@ -39,81 +39,83 @@
                 <p>Please provide your <span>valid</span> credentials.</p>
             </header>
             <form class="form" action="/api/" method="POST">
-                <div class="div-signup-step-container" data-step="1">
-                    <div class="div-multiple-inputs-grid grid-2-columns">
-                        <div class="div-input-container required-container">
-                            <label class="absolute-y-center" for="first_name">
-                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>
-                            </label>
-                            <input id="first_name" type="text" name="first_name" placeholder="First Name" autofocus>
+                <div class="div-scrollable-steps-container">
+                    <div class="div-form-step-container" data-step="1">
+                        <div class="div-multiple-inputs-grid grid-2-columns">
+                            <div class="div-input-container required-container">
+                                <label class="absolute-y-center" for="first_name">
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>
+                                </label>
+                                <input id="first_name" type="text" name="first_name" placeholder="First Name" autofocus>
+                            </div>
+                            <div class="div-input-container required-container">
+                                <label class="absolute-y-center" for="last_name">
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>
+                                </label>
+                                <input id="last_name" type="text" name="last_name" placeholder="Last Name">
+                            </div>
                         </div>
                         <div class="div-input-container required-container">
-                            <label class="absolute-y-center" for="last_name">
+                            <label class="absolute-y-center" for="email">
+                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/mail.svg"></ion-icon>
+                            </label>
+                            <input id="email" type="email" name="email" placeholder="Email Address">
+                        </div>
+                        <div class="div-multiple-inputs-grid grid-2-columns">
+                            <div class="div-input-container">
+                                <label class="absolute-y-center" for="age">
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/bar-chart-2.svg"></ion-icon>
+                                </label>
+                                <input id="age" type="number" name="age" min="0" placeholder="Age">
+                            </div>
+                            <div class="div-input-container">
+                                <label class="label-select absolute-y-center" for="gender">
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
+                                </label>
+                                <select id="gender" name="gender">
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="div-grid-btn-container">
+                            <button class="btn btn-primary btn-step" type="button" data-step="2">
+                                Next
+                            </button>
+                        </div>
+                    </div>
+                    <div class="div-form-step-container" data-step="2">
+                        <div class="div-input-container required-container">
+                            <label class="absolute-y-center" for="username">
                                 <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>
                             </label>
-                            <input id="last_name" type="text" name="last_name" placeholder="Last Name">
-                        </div>
-                    </div>
-                    <div class="div-input-container required-container">
-                        <label class="absolute-y-center" for="email">
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/mail.svg"></ion-icon>
-                        </label>
-                        <input id="email" type="email" name="email" placeholder="Email Address">
-                    </div>
-                    <div class="div-multiple-inputs-grid grid-2-columns">
-                        <div class="div-input-container">
-                            <label class="absolute-y-center" for="age">
-                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/bar-chart-2.svg"></ion-icon>
-                            </label>
-                            <input id="age" type="number" name="age" min="0" placeholder="Age">
+                            <input id="username" type="text" name="username" placeholder="Username">
                         </div>
                         <div class="div-input-container">
-                            <label class="label-select absolute-y-center" for="gender">
+                            <label class="label-select absolute-y-center" for="role">
                                 <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
                             </label>
-                            <select id="gender" name="gender">
-                                <option value="">Select Gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
+                            <select id="role" name="role">
+                                <option value="">Select Role</option>
+                                <option value="2">Assistant</option>
+                                <option value="3">Patron</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="div-grid-btn-container">
-                        <button class="btn btn-primary btn-step" type="button" data-step="2">
-                            Next
-                        </button>
-                    </div>
-                </div>
-                <div class="div-signup-step-container hide-element" data-step="2">
-                    <div class="div-input-container required-container">
-                        <label class="absolute-y-center" for="username">
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>
-                        </label>
-                        <input id="username" type="text" name="username" placeholder="Username">
-                    </div>
-                    <div class="div-input-container">
-                        <label class="label-select absolute-y-center" for="role">
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
-                        </label>
-                        <select id="role" name="role">
-                            <option value="">Select Role</option>
-                            <option value="2">Assistant</option>
-                            <option value="3">Patron</option>
-                        </select>
-                    </div>
-                    <div class="div-input-container required-container">
-                        <label class="absolute-y-center" for="password">
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/mail.svg"></ion-icon>
-                        </label>
-                        <input id="password" type="password" name="password" placeholder="Password">
-                    </div>
-                    <div class="div-grid-btn-container grid-2-columns">
-                        <button class="btn btn-outline-primary btn-step" type="button" data-step="1">
-                            Previous
-                        </button>
-                        <button class="btn btn-primary btn-signup" type="submit">
-                            Signup
-                        </button>
+                        <div class="div-input-container required-container">
+                            <label class="absolute-y-center" for="password">
+                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/mail.svg"></ion-icon>
+                            </label>
+                            <input id="password" type="password" name="password" placeholder="Password">
+                        </div>
+                        <div class="div-grid-btn-container grid-2-columns">
+                            <button class="btn btn-outline-primary btn-step" type="button" data-step="1">
+                                Previous
+                            </button>
+                            <button class="btn btn-primary btn-signup" type="submit">
+                                Signup
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="div-hidden-inputs">

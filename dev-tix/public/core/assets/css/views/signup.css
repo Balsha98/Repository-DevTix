@@ -122,13 +122,23 @@
     flex-direction: column;
     gap: 1.6rem;
     margin-bottom: 2.4rem;
+    overflow: hidden;
+}
+
+/* SCROLLABLE FORM STEPS CONTAINER */
+.div-scrollable-steps-container {
+    display: inherit;
+    width: 100%;
 }
 
 /* FORM STEP CONTAINER */
-.div-signup-step-container {
+.div-form-step-container {
+    flex-shrink: 0;
     display: inherit;
-    flex-direction: inherit;
-    gap: inherit;
+    flex-direction: column;
+    gap: 1.6rem;
+    width: inherit;
+    transition: all 0.5s;
 }
 
 /* INPUT CONTAINER (OVERRIDE) */

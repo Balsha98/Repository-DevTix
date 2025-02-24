@@ -1,5 +1,8 @@
 import { handleRequest } from "../helpers/request.js";
+import signupModel from "./../models/signupModel.js";
 import signupView from "../views/signupView.js";
+
+const controlSwitchStepContainer = function () {};
 
 const controlUserSignup = function (formEvent) {
     formEvent.preventDefault();
@@ -19,6 +22,7 @@ const controlUserSignup = function (formEvent) {
 };
 
 const initController = function () {
+    signupView.addEvenSwitchStepContainer(controlSwitchStepContainer);
     signupView.addEventUserSignup(controlUserSignup);
 };
 
