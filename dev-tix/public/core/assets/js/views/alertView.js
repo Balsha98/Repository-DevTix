@@ -15,7 +15,7 @@ class AlertView {
     }
 
     displayVisuals(response) {
-        const alertType = response["success"] ? "success" : "error";
+        const alertType = response["status"];
 
         // Reload page after some time.
         if (alertType === "success") setTimeout(() => location.reload(), 2000);
@@ -27,11 +27,11 @@ class AlertView {
         this.#iconContainer.css("background-color", `var(--${alertType}`);
 
         // Wait for alert to load.
-        setTimeout(() => this.#alertIcon.addClass("icon-animation"), 500);
+        setTimeout(() => this.#alertIcon.addClass("icon-animation"), 200);
 
         // Set alert content.
-        // this.#alertHeading.text();
-        this.#alertMessage.text(response[alertType]);
+        this.#alertHeading.text(response["response"]["heading"]);
+        this.#alertMessage.text(response["response"]["message"]);
 
         // Set alert button.
         this.#btnClose.text(alertType === "success" ? "Confirm" : "Close");

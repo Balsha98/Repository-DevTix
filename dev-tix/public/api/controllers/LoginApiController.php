@@ -21,15 +21,15 @@ class LoginApiController extends AbsApiController
 
         // Guard caluse.
         if (empty($result)) {
-            return ['error' => "It seems you don't have a registered account."];
+            return ApiMessage::unregisteredAccount();
         }
 
         $passwordHash = hash('sha256', $this->getData()['password']);
         if ($result['password'] === $passwordHash) {
-            return ['success' => 'Your login was successful!'];
+            return ApiMessage::attemptedLogin(true);
         }
 
         // Lastly, if credentials are invalid.
-        return ['error' => 'Invalid credentials provided.'];
+        return ApiMessage::attemptedLogin(false);
     }
 }
