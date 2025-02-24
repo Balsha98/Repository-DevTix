@@ -12,23 +12,26 @@ class Router
         } else {
             $uri = explode('/', $url);
             if (!in_array($uri[0], Routes::ROUTES)) {
-                return self::require('invalid-route');
+                return self::requireView('invalid-route');
+            } else if (count($uri) === 2) {
+                [1 => $id] = $uri;
             }
 
-            [$page] = $uri;
+            [0 => $page] = $uri;
         }
 
-        ob_start();
-
-        self::require($page);
-
-        return ob_get_clean();
+        return self::requireView($page);
     }
 
-    private static function require(string $page)
+    private static function requireView(string $page)
     {
+        ob_start();
+
+        // Bind the page with the partials.
         require_once __DIR__ . '/../../public/core/views/partials/header.php';
         require_once __DIR__ . "/../../public/core/views/{$page}.php";
         require_once __DIR__ . '/../../public/core/views/partials/footer.php';
+
+        return ob_get_clean();
     }
 }

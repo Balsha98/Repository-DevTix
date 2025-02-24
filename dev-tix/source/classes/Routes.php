@@ -4,6 +4,7 @@ class Routes
 {
     public const ROUTES = [
         'login',
+        'forgot-password',
         'signup',
         'logout',
         'admin-dashboard',
