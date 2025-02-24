@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../classes/AbsApiController.php';
 
-class LoginApiController extends AbsApiController
+class SignupApiController extends AbsApiController
 {
     public function post()
     {

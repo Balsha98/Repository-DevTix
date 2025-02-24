@@ -7,6 +7,7 @@ class ApiRoutes
             '',
         'POST' => [
             'login',
+            'signup',
         ],
         'PUT' =>
             '',
