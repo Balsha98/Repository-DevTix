@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/Database.php';
+
 class Session
 {
     public static function start()
@@ -12,6 +14,11 @@ class Session
     public static function get($key)
     {
         return $_SESSION[$key];
+    }
+
+    public static function getDbInstance()
+    {
+        return Database::getInstance();
     }
 
     public static function isSet($key)
