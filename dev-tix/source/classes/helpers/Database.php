@@ -40,7 +40,7 @@ class Database
             return ['error' => 'Error processing prepared statement.'];
         }
 
-        if (preg_match('#^SELECT#', $this->pdoStatement->queryString)) {
+        if (str_contains($this->pdoStatement->queryString, 'SELECT')) {
             $multipleRows = $this->pdoStatement->fetchAll($isAssoc ? PDO::FETCH_ASSOC : PDO::FETCH_DEFAULT);
 
             if (count($multipleRows) === 1) {
