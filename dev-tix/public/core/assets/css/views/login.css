@@ -6,7 +6,6 @@
     background-color: var(--white);
     box-shadow: 0 0.4rem 1.6rem var(--shadow-lg);
     border-radius: var(--border-radius-lg);
-    overflow: hidden;
 }
 
 /* SECTION FORM */
@@ -35,17 +34,6 @@
     flex-direction: column;
     gap: 1.6rem;
     margin-bottom: 2.4rem;
-}
-
-/* INPUT CONTAINERS (OVERRIDE) */
-.div-input-container label {
-    left: 1.2rem;
-    display: flex;
-    cursor: pointer;
-}
-
-.div-input-container input {
-    padding: 1.2rem 1.2rem 1.2rem 4.8rem;
 }
 
 /* FORGOT PASSWORD LINK */
@@ -101,4 +89,9 @@
 .link-signup:hover,
 .link-signup:active {
     color: var(--primary-shade);
+}
+
+/* IMAGE CONTAINER (OVERRIDE) */
+.div-image-container {
+    border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0;
 }
