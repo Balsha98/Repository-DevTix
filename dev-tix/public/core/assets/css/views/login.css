@@ -1,6 +1,7 @@
 /* MAIN CONTAINER */
 .main-container {
     display: grid;
+    grid-template-columns: 60fr 40fr;
     width: 80rem;
     background-color: var(--white);
     box-shadow: 0 0.4rem 1.6rem var(--shadow-lg);
@@ -100,15 +101,4 @@
 .link-signup:hover,
 .link-signup:active {
     color: var(--primary-shade);
-}
-
-/* IMAGE CONTAINER */
-.div-image-container {
-    display: flex;
-}
-
-.div-image-container img {
-    width: 100%;
-    object-position: center;
-    object-fit: cover;
 }

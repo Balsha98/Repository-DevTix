@@ -1,5 +1,5 @@
     <!-- MAIN CONTAINER -->
-    <main class="main-container absolute-center grid-2-columns">
+    <main class="main-container absolute-center">
         <!-- FORM SECTION -->
         <section class="section-form">
             <header class="section-form-header">
@@ -33,6 +33,7 @@
         </section>
         <!-- IMAGE CONTAINER -->
         <div class="div-image-container">
-            <img src="<?php echo SERVER_PATH ?>/core/assets/media/images/login-image.jpg" alt="Image">
+            <div class="overlay image-overlay">&nbsp;</div>
+            <img src="<?php echo SERVER_PATH ?>/core/assets/media/images/login-banner.jpg" alt="Image">
         </div>
     </main>
