@@ -11,14 +11,16 @@
                     <label class="absolute-y-center" for="username">
                         <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>
                     </label>
-                    <input id="username" type="text" name="username" placeholder="Username">
+                    <input id="username" type="text" name="username" placeholder="Username" autofocus>
                 </div>
                 <div class="div-input-container">
                     <label class="absolute-y-center" for="password">
                         <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/lock.svg"></ion-icon>
                     </label>
                     <input id="password" type="password" name="password" placeholder="Password">
-                    <a class="link-forgot-password" href="#">Forgot your passsword?</a>
+                    <a class="link-forgot-password" href="<?php SERVER_PATH; ?>/forgot-password">
+                        Forgot your passsword?
+                    </a>
                 </div>
                 <div class="div-grid-btn-container">
                     <button class="btn btn-primary btn-login">Login</button>

@@ -6,6 +6,8 @@ class LoginApiController extends AbsApiController
 {
     public function post()
     {
-        return $this->getData();
+        $query = 'SELECT password FROM users WHERE username = :username;';
+
+        print_r(Session::getDbInstance()->executePreparedStatement($query, [':username' => 'Admin'])->getQueryResult());
     }
 }
