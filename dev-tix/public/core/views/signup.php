@@ -5,7 +5,7 @@
         <!-- STEP INDICATORS CONTAINER -->
         <div class="div-step-indicators-container">
             <header class="step-indicators-header grid-2-columns">
-                <div class="div-step-indicator active-step-indicator" data-step="1">
+                <div class="div-step-indicator active-header-indicator" data-step="1">
                     <p>Personal Information</p>
                 </div>
                 <div class="div-step-indicator" data-step="2">
@@ -40,7 +40,7 @@
             </header>
             <form class="form" action="/api/" method="POST">
                 <div class="div-scrollable-steps-container">
-                    <div class="div-form-step-container" data-step="1">
+                    <div class="div-form-step-container">
                         <div class="div-multiple-inputs-grid grid-2-columns">
                             <div class="div-input-container required-container">
                                 <label class="absolute-y-center" for="first_name">
@@ -85,7 +85,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="div-form-step-container" data-step="2">
+                    <div class="div-form-step-container">
                         <div class="div-input-container required-container">
                             <label class="absolute-y-center" for="username">
                                 <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>

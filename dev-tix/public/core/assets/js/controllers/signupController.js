@@ -2,7 +2,18 @@ import { handleRequest } from "../helpers/request.js";
 import signupModel from "./../models/signupModel.js";
 import signupView from "../views/signupView.js";
 
-const controlSwitchStepContainer = function () {};
+const controlSwitchStepContainer = function () {
+    signupModel.setStateValue("step", +$(this).data("step"));
+    const step = signupModel.getStateValue("step");
+
+    // SSwitch input containers.
+    signupView.setActiveStepContainer(signupModel.getStateValue("css")[step - 1]);
+
+    // Switch top step indicators.
+    signupView.setActiveStepIndicatorHeader(step);
+    signupView.incrementProgress(signupModel.getStateValue("progress")[step - 1]);
+    signupView.setActiveStepIndicatorSpan(step);
+};
 
 const controlUserSignup = function (formEvent) {
     formEvent.preventDefault();

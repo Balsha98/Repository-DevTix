@@ -28,9 +28,10 @@
     padding: 0.8rem 0;
     text-align: center;
     background-color: var(--transparent-black-sm);
+    transition: background-color 0.5s;
 }
 
-.active-step-indicator {
+.active-header-indicator {
     background-color: var(--white);
 }
 
@@ -53,9 +54,11 @@
     position: absolute;
     top: 0;
     left: 0;
+    width: 0;
     height: inherit;
     background-color: var(--primary);
     border-radius: inherit;
+    transition: all 0.5s;
 }
 
 /* CIRCLE STEP INDICATOR LIST */
@@ -90,6 +93,7 @@
     background-color: var(--white);
     box-shadow: 0 0 1.2rem var(--shadow-md);
     border-radius: var(--border-radius-circle);
+    transition: background-color 0.5s;
 }
 
 .active-span-indicator {
