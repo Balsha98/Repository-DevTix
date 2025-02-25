@@ -22,14 +22,16 @@ class Database
         return self::$instance;
     }
 
-    public function executePreparedStatement(string $query, array $params)
+    public function executePreparedStatement(string $query, array $params = [])
     {
-        $this->pdoStatement = $this->pdo->prepare($query);
+        $this->pdoStatement = empty($params) ? $this->pdo->query($query) : $this->pdo->prepare($query);
 
         if ($this->isQueryOfType('SELECT')) {
-            foreach ($params as $name => $value) {
-                $dataType = is_numeric($value) ? PDO::PARAM_INT : PDO::PARAM_STR;
-                $this->pdoStatement->bindParam($name, $value, $dataType);
+            if (!empty($params)) {
+                foreach ($params as $name => $value) {
+                    $dataType = is_numeric($value) ? PDO::PARAM_INT : PDO::PARAM_STR;
+                    $this->pdoStatement->bindParam($name, $value, $dataType);
+                }
             }
         } else {
             $this->params = $params;

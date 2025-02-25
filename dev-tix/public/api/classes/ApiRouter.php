@@ -23,7 +23,7 @@ class ApiRouter
 
         // Guard clause.
         if (!in_array($page, ApiRoutes::ROUTES[$method])) {
-            return Encode::toJSON(ApiMessage::invalidRoute());
+            return Encode::toJSON(ApiMessage::apiError('route'));
         }
 
         // Set request method.
@@ -35,7 +35,7 @@ class ApiRouter
         self::$controller = new $className();
 
         // Return JSON response.
-        // header('Content-Type: application/json');
+        header('Content-Type: application/json');
         return Encode::toJSON(self::proccessRequest($id, $data));
     }
 
@@ -67,7 +67,7 @@ class ApiRouter
     private static function processPOST(array $data)
     {
         if (empty($data)) {  // Guard clause.
-            return Encode::toJSON(ApiMessage::invalidData());
+            return Encode::toJSON(ApiMessage::apiError('input'));
         }
 
         self::$controller->setData($data);
@@ -79,9 +79,9 @@ class ApiRouter
     private static function processPUT(int $id, array $data)
     {
         if ($id === 0) {  // Guard clause.
-            return Encode::toJSON(ApiMessage::invalidId());
+            return Encode::toJSON(ApiMessage::apiError('id'));
         } else if (empty($data)) {  // Guard clause.
-            return Encode::toJSON(ApiMessage::invalidData());
+            return Encode::toJSON(ApiMessage::apiError('input'));
         }
 
         self::$controller->setId($id);
@@ -94,7 +94,7 @@ class ApiRouter
     private static function processDELETE(int $id)
     {
         if ($id === 0) {  // Guard clause.
-            return Encode::toJSON(ApiMessage::invalidId());
+            return Encode::toJSON(ApiMessage::apiError('id'));
         }
 
         self::$controller->setId($id);

@@ -4,54 +4,38 @@ class ApiMessage
 {
     // ***** INVALID API ACCESS ***** //
 
-    public static function invalidRoute()
+    public static function apiError(string $type)
     {
-        return ['error' => 'Invalid API route.'];
+        return ['error' => match ($type) {
+            'route' => 'Invalid API route.',
+            'input' => 'Record ID not specified.',
+            'id' => "Input data can't be empty."
+        }];
     }
 
-    public static function invalidId()
-    {
-        return ['error' => "Record ID isn't specified."];
-    }
+    // ***** USER AUTHENTICATION (LOGIN & SIGNUP) ***** //
 
-    public static function invalidData()
-    {
-        return ['error' => 'Input data cannot be empty.'];
-    }
-
-    // ***** USER AUTHENTICATION (LOGIN) ***** //
-
-    public static function attemptedLogin(bool $isValid)
+    public static function authAttempt(string $type, bool $isValid)
     {
         return [
             'status' => $isValid ? 'success' : 'error',
             'response' => [
-                'heading' => ($isValid ? 'Successfull' : 'Unsuccessful') . ' Login',
-                'message' => $isValid ? 'Your login was successful!' : 'Invalid credentials provided.'
+                'heading' => ($isValid ? 'Successfull ' : 'Unsuccessful ') . ucfirst($type),
+                'message' => $isValid ? "Your {$type} was successful!" : 'Invalid credentials provided.'
             ]
         ];
     }
 
-    public static function unregisteredAccount()
+    public static function authAccountIssues(string $type, string $issue)
     {
         return [
             'status' => 'error',
             'response' => [
-                'heading' => 'Unsuccessful Login',
-                'message' => "It seems you don't have a registered account."
-            ]
-        ];
-    }
-
-    // ***** USER AUTHENTICATION (SIGNUP) ***** //
-
-    public static function accountNotUnique()
-    {
-        return [
-            'status' => 'error',
-            'response' => [
-                'heading' => 'Unsuccessful Signup',
-                'message' => 'The username you chose is already taken.'
+                'heading' => 'Unsuccessful ' . ucfirst($type),
+                'message' => match ($issue) {
+                    'register' => "You don't have a registered account.",
+                    'unique' => 'The username you chose is already taken.'
+                }
             ]
         ];
     }

@@ -7,12 +7,8 @@ class LoginApiController extends AbsApiController
     public function post()
     {
         $query = '
-            SELECT 
-                password 
-            FROM 
-                users 
-            WHERE 
-                username = :username;
+            SELECT password FROM users 
+            WHERE username = :username;
         ';
 
         $result = Session::getDbInstance()->executePreparedStatement($query, [
@@ -21,15 +17,15 @@ class LoginApiController extends AbsApiController
 
         // Guard caluse.
         if (empty($result)) {
-            return ApiMessage::unregisteredAccount();
+            return ApiMessage::authAccountIssues('login', 'register');
         }
 
         $passwordHash = hash('sha256', $this->getData()['password']);
         if ($result['password'] === $passwordHash) {
-            return ApiMessage::attemptedLogin(true);
+            return ApiMessage::authAttempt('login', true);
         }
 
         // Lastly, if credentials are invalid.
-        return ApiMessage::attemptedLogin(false);
+        return ApiMessage::authAttempt('login', false);
     }
 }

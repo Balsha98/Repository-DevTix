@@ -4,7 +4,7 @@ import alertView from "./../views/alertView.js";
 const controlAlert = function (response) {
     alertModel.setStateVal("page", location.pathname.split("/")[1]);
     if (alertModel.getStateVal("page") === "signup") {
-        alertModel.addLocalStorageItem("isValid", response["status"] ? 1 : 0);
+        alertModel.addLocalStorageItem("isValid", response["status"] === "success" ? 1 : 0);
     }
 
     alertView.displayVisuals(response);
