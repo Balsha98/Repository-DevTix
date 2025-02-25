@@ -3,12 +3,19 @@ class SignUpView {
     #spanIndicators = $(".span-circle-indicator");
     #stepContainers = $(".div-form-step-container");
     #divProgress = $(".div-progress");
+    #requiredInputs = $("*[required]");
     #btnsStep = $(".btn-step");
     #btnSignup = $(".btn-signup");
 
     isInputEmpty(handlerFunction, step) {
         const clName = `.step-validate-${step}`;
         return handlerFunction(true, clName);
+    }
+
+    addEventResetInput(handlerFunction) {
+        this.#requiredInputs.each((_, input) => {
+            $(input).click(handlerFunction);
+        });
     }
 
     addEvenSwitchStepContainer(handlerFunction) {

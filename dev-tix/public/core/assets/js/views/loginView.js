@@ -1,5 +1,5 @@
 class LoginView {
-    #requiredInputs = $("input[required]");
+    #requiredInputs = $("*[required]");
     #btnLogin = $(".btn-login");
 
     addEventUserLogin(handlerFunction) {

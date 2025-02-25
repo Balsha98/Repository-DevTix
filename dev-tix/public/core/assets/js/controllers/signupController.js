@@ -3,6 +3,13 @@ import { handleRequest } from "./../helpers/request.js";
 import signupModel from "./../models/signupModel.js";
 import signupView from "./../views/signupView.js";
 
+const controlResetInputs = function () {
+    const parent = $(this.closest(".div-input-container"));
+    if (parent.hasClass("empty-input-container")) {
+        parent.removeClass("empty-input-container");
+    }
+};
+
 const controlSwitchStepContainer = function () {
     signupModel.setStateVal("step", +$(this).data("step"));
     const step = signupModel.getStateVal("step");
@@ -52,6 +59,7 @@ const controlUserSignup = function (formEvent) {
 };
 
 const initController = function () {
+    signupView.addEventResetInput(controlResetInputs);
     signupView.addEvenSwitchStepContainer(controlSwitchStepContainer);
     signupView.addEventUserSignup(controlUserSignup);
 };
