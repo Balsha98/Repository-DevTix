@@ -1,3 +1,4 @@
+import { isInputEmpty } from "./../helpers/validate.js";
 import { handleRequest } from "../helpers/request.js";
 import signupModel from "./../models/signupModel.js";
 import signupView from "../views/signupView.js";
@@ -28,6 +29,8 @@ const controlUserSignup = function (formEvent) {
     data["email"] = $("#email").val();
     data["password"] = $("#password").val();
     data["page"] = $("#page").val();
+
+    if (isInputEmpty()) return;
 
     handleRequest(url, method, data);
 
