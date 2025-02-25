@@ -12,20 +12,34 @@ class SignupApiController extends AbsApiController
             FROM 
                 users 
             WHERE 
-                
+                username = :username;      
         ';
+
+        $data = $this->getData();
+        $result = Session::getDbInstance()->executePreparedStatement($query, [
+            ':username' => $data['username']
+        ])->getQueryResult();
+
+        if (!empty($result)) {
+            return ApiMessage::accountNotUnique();
+        }
 
         $query = '
-            INSERT INTO 
-                users 
-            SET 
-                first_name = :frist_name, 
-                last_name = :last_name, 
-                email = :email, 
-                username = :username, 
-                password = :password;
+            INSERT INTO users (
+                role_id, first_name, last_name, 
+                email, username, password, joined_at
+            ) VALUES (
+                :role_id, :first_name, :last_name, 
+                :email, :username, :password, :joined_at
+            );
         ';
 
-        return ApiMessage::attemptedLogin(true);
+        $result = Session::getDbInstance()->executePreparedStatement($query, [
+            ':role_id' => (int) $data['role'], ':first_name' => $data['first_name'],
+            ':last_name' => $data['last_name'], ':email' => $data['email'], ':username' => $data['username'],
+            ':password' => hash('sha256', $data['password']), ':joined_at' => time()
+        ])->getQueryResult();
+
+        return $result;
     }
 }

@@ -19,7 +19,7 @@ class ApiMessage
         return ['error' => 'Input data cannot be empty.'];
     }
 
-    // ***** USER AUTHENTICATION ***** //
+    // ***** USER AUTHENTICATION (LOGIN) ***** //
 
     public static function attemptedLogin(bool $isValid)
     {
@@ -39,6 +39,19 @@ class ApiMessage
             'response' => [
                 'heading' => 'Unsuccessful Login',
                 'message' => "It seems you don't have a registered account."
+            ]
+        ];
+    }
+
+    // ***** USER AUTHENTICATION (SIGNUP) ***** //
+
+    public static function accountNotUnique()
+    {
+        return [
+            'status' => 'error',
+            'response' => [
+                'heading' => 'Unsuccessful Signup',
+                'message' => 'The username you chose is already taken.'
             ]
         ];
     }

@@ -36,6 +36,10 @@ const controlUserSignup = function (formEvent) {
     data["first_name"] = $("#first_name").val();
     data["last_name"] = $("#last_name").val();
     data["email"] = $("#email").val();
+    data["age"] = $("#age").val();
+    data["gender"] = $("#gender").val();
+    data["username"] = $("#username").val();
+    data["role"] = $("#role").val();
     data["password"] = $("#password").val();
     data["page"] = $("#page").val();
 

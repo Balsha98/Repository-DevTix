@@ -5,6 +5,7 @@ class Database
     private PDO $pdo;
     private PDOStatement $pdoStatement;
     private static Database $instance;
+    private array $params;
 
     private function __construct(string $dbName, string $dbUser, string $dbPass)
     {
@@ -25,9 +26,13 @@ class Database
     {
         $this->pdoStatement = $this->pdo->prepare($query);
 
-        foreach ($params as $name => $value) {
-            $dataType = is_numeric($value) ? PDO::PARAM_INT : PDO::PARAM_STR;
-            $this->pdoStatement->bindParam($name, $value, $dataType);
+        if ($this->isQueryOfType('SELECT')) {
+            foreach ($params as $name => $value) {
+                $dataType = is_numeric($value) ? PDO::PARAM_INT : PDO::PARAM_STR;
+                $this->pdoStatement->bindParam($name, $value, $dataType);
+            }
+        } else {
+            $this->params = $params;
         }
 
         return $this;
@@ -35,12 +40,11 @@ class Database
 
     public function getQueryResult(bool $isAssoc = true)
     {
-        // Guard clause.
-        if (!$this->pdoStatement->execute()) {
-            return ['error' => 'Error processing prepared statement.'];
-        }
+        if ($this->isQueryOfType('SELECT')) {
+            if (!$this->pdoStatement->execute()) {  // Guard clause.
+                return ['error' => 'Error processing prepared statement.'];
+            }
 
-        if (str_contains($this->pdoStatement->queryString, 'SELECT')) {
             $multipleRows = $this->pdoStatement->fetchAll($isAssoc ? PDO::FETCH_ASSOC : PDO::FETCH_DEFAULT);
 
             if (count($multipleRows) === 1) {
@@ -58,6 +62,16 @@ class Database
             return $multipleRows;
         }
 
+        // Guard clause.
+        if (!$this->pdoStatement->execute($this->params)) {
+            return ['error' => 'Error processing prepared statement.'];
+        }
+
         return ['success' => 'Prepared statement executed successfully.'];
+    }
+
+    private function isQueryOfType(string $type)
+    {
+        return str_contains($this->pdoStatement->queryString, $type);
     }
 }

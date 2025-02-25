@@ -6,6 +6,7 @@ export const handleRequest = function (url, method, data) {
         method: method,
         data: JSON.stringify(data),
         success: (response) => {
+            console.log(response);
             initContoller(response);
         },
     });
