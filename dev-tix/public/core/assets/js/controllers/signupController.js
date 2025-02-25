@@ -33,7 +33,7 @@ const controlUserSignup = function (formEvent) {
 
     // Wait for response.
     setTimeout(() => {
-        const isValid = Boolean(localStorage.getItem("isValid"));
+        const isValid = +localStorage.getItem("isValid");
         signupModel.setStateValue("step", +$(this).data("step"));
         const step = signupModel.getStateValue("step");
 
