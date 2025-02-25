@@ -1,11 +1,13 @@
 import { isInputEmpty } from "./../helpers/validate.js";
-import { handleRequest } from "../helpers/request.js";
+import { handleRequest } from "./../helpers/request.js";
 import signupModel from "./../models/signupModel.js";
-import signupView from "../views/signupView.js";
+import signupView from "./../views/signupView.js";
 
 const controlSwitchStepContainer = function () {
     signupModel.setStateVal("step", +$(this).data("step"));
     const step = signupModel.getStateVal("step");
+
+    if (signupView.isInputEmpty(isInputEmpty, step - 1)) return;
 
     // SSwitch input containers.
     signupView.setActiveStepContainer(signupModel.getStateVal("css")[step - 1]);
@@ -30,7 +32,7 @@ const controlUserSignup = function (formEvent) {
     data["password"] = $("#password").val();
     data["page"] = $("#page").val();
 
-    if (isInputEmpty()) return;
+    if (signupView.isInputEmpty(isInputEmpty, signupModel.getStateVal("step"))) return;
 
     handleRequest(url, method, data);
 

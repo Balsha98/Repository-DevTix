@@ -6,6 +6,11 @@ class SignUpView {
     #btnsStep = $(".btn-step");
     #btnSignup = $(".btn-signup");
 
+    isInputEmpty(handlerFunction, step) {
+        const clName = `.step-validate-${step}`;
+        return handlerFunction(true, clName);
+    }
+
     addEvenSwitchStepContainer(handlerFunction) {
         this.#btnsStep.each((_, btn) => {
             $(btn).click(handlerFunction);

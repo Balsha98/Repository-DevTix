@@ -46,20 +46,29 @@
                                 <label class="absolute-y-center" for="first_name">
                                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>
                                 </label>
-                                <input id="first_name" type="text" name="first_name" placeholder="First Name" autofocus>
+                                <input 
+                                    id="first_name" class="step-validate-1" type="text" 
+                                    name="first_name" placeholder="First Name" required autofocus
+                                >
                             </div>
                             <div class="div-input-container required-container">
                                 <label class="absolute-y-center" for="last_name">
                                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>
                                 </label>
-                                <input id="last_name" type="text" name="last_name" placeholder="Last Name">
+                                <input 
+                                    id="last_name" class="step-validate-1" type="text" 
+                                    name="last_name" placeholder="Last Name" required
+                                >
                             </div>
                         </div>
                         <div class="div-input-container required-container">
                             <label class="absolute-y-center" for="email">
                                 <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/mail.svg"></ion-icon>
                             </label>
-                            <input id="email" type="email" name="email" placeholder="Email Address">
+                            <input 
+                                id="email" class="step-validate-1" type="email" 
+                                name="email" placeholder="Email Address" required
+                            >
                         </div>
                         <div class="div-multiple-inputs-grid grid-2-columns">
                             <div class="div-input-container">
@@ -90,13 +99,16 @@
                             <label class="absolute-y-center" for="username">
                                 <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>
                             </label>
-                            <input id="username" type="text" name="username" placeholder="Username">
+                            <input 
+                                id="username" class="step-validate-2" type="text" 
+                                name="username" placeholder="Username" required
+                            >
                         </div>
                         <div class="div-input-container required-container">
                             <label class="label-select absolute-y-center" for="role">
                                 <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
                             </label>
-                            <select id="role" name="role">
+                            <select id="role" class="step-validate-2" name="role" required>
                                 <option value="">Select Role</option>
                                 <option value="2">Assistant</option>
                                 <option value="3">Patron</option>
@@ -106,7 +118,10 @@
                             <label class="absolute-y-center" for="password">
                                 <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/mail.svg"></ion-icon>
                             </label>
-                            <input id="password" type="password" name="password" placeholder="Password">
+                            <input 
+                                id="password" class="step-validate-2" type="password" 
+                                name="password" placeholder="Password" required
+                            >
                         </div>
                         <div class="div-grid-btn-container grid-2-columns">
                             <button class="btn btn-outline-primary btn-step" type="button" data-step="1">

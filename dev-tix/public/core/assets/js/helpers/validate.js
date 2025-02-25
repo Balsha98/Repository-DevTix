@@ -1,11 +1,13 @@
-export const isInputEmpty = function () {
+export const isInputEmpty = function (isCustom = false, customClName = null) {
     let isEmpty = false;
-    $("input[required]").each((_, input) => {
-        const parent = $(input.closest(".div-input-container"));
-        if ($(input).val() === "") {
-            parent.addClass("empty-input-container");
-            isEmpty = true;
-        } else parent.removeClass("empty-input-container");
+    ["input", "select"].forEach((element) => {
+        $(`${isCustom ? customClName : element}[required]`).each((_, input) => {
+            const parent = $(input.closest(".div-input-container"));
+            if ($(input).val() === "") {
+                parent.addClass("empty-input-container");
+                isEmpty = true;
+            } else parent.removeClass("empty-input-container");
+        });
     });
 
     return isEmpty;
