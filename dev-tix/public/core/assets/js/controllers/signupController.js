@@ -3,15 +3,15 @@ import signupModel from "./../models/signupModel.js";
 import signupView from "../views/signupView.js";
 
 const controlSwitchStepContainer = function () {
-    signupModel.setStateValue("step", +$(this).data("step"));
-    const step = signupModel.getStateValue("step");
+    signupModel.setStateVal("step", +$(this).data("step"));
+    const step = signupModel.getStateVal("step");
 
     // SSwitch input containers.
-    signupView.setActiveStepContainer(signupModel.getStateValue("css")[step - 1]);
+    signupView.setActiveStepContainer(signupModel.getStateVal("css")[step - 1]);
 
     // Switch top step indicators.
     signupView.setActiveStepIndicatorHeader(step);
-    signupView.incrementProgress(signupModel.getStateValue("progress")[step - 1]);
+    signupView.incrementProgress(signupModel.getStateVal("progress")[step - 1]);
     signupView.setActiveStepIndicatorSpan(step);
 };
 
@@ -34,11 +34,11 @@ const controlUserSignup = function (formEvent) {
     // Wait for response.
     setTimeout(() => {
         const isValid = +localStorage.getItem("isValid");
-        signupModel.setStateValue("step", +$(this).data("step"));
-        const step = signupModel.getStateValue("step");
+        signupModel.setStateVal("step", +$(this).data("step"));
+        const step = signupModel.getStateVal("step");
 
         if (isValid) {
-            signupView.incrementProgress(signupModel.getStateValue("progress")[step - 1]);
+            signupView.incrementProgress(signupModel.getStateVal("progress")[step - 1]);
             signupView.setActiveStepIndicatorSpan(step);
         }
 

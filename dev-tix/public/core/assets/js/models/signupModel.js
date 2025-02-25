@@ -1,5 +1,7 @@
-class SignupModel {
-    #state = {
+import Model from "./model.js";
+
+class SignupModel extends Model {
+    _state = {
         step: 1,
         isValid: false,
         progress: [0, 50, 100],
@@ -8,14 +10,6 @@ class SignupModel {
             { opacity: ["none", "full"], translateX: [-100, -100] },
         ],
     };
-
-    getStateValue(key) {
-        return this.#state[key];
-    }
-
-    setStateValue(key, value) {
-        this.#state[key] = value;
-    }
 }
 
 export default new SignupModel();

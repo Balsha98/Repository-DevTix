@@ -92,7 +92,7 @@
                             </label>
                             <input id="username" type="text" name="username" placeholder="Username">
                         </div>
-                        <div class="div-input-container">
+                        <div class="div-input-container required-container">
                             <label class="label-select absolute-y-center" for="role">
                                 <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
                             </label>
