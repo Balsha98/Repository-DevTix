@@ -17,6 +17,9 @@ class AlertView {
     displayVisuals(response) {
         const alertType = response["status"];
 
+        // Use localStorage for user signup.
+        localStorage.setItem("isValid", alertType === "success");
+
         // Reload page after some time.
         if (alertType === "success") setTimeout(() => location.reload(), 2000);
 

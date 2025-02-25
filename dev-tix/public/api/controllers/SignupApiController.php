@@ -25,5 +25,7 @@ class SignupApiController extends AbsApiController
                 username = :username, 
                 password = :password;
         ';
+
+        return ApiMessage::attemptedLogin(true);
     }
 }

@@ -30,6 +30,20 @@ const controlUserSignup = function (formEvent) {
     data["page"] = $("#page").val();
 
     handleRequest(url, method, data);
+
+    // Wait for response.
+    setTimeout(() => {
+        const isValid = Boolean(localStorage.getItem("isValid"));
+        signupModel.setStateValue("step", +$(this).data("step"));
+        const step = signupModel.getStateValue("step");
+
+        if (isValid) {
+            signupView.incrementProgress(signupModel.getStateValue("progress")[step - 1]);
+            signupView.setActiveStepIndicatorSpan(step);
+        }
+
+        localStorage.clear();
+    }, 200);
 };
 
 const initController = function () {

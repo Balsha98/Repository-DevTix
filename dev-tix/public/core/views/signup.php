@@ -112,7 +112,7 @@
                             <button class="btn btn-outline-primary btn-step" type="button" data-step="1">
                                 Previous
                             </button>
-                            <button class="btn btn-primary btn-signup" type="submit">
+                            <button class="btn btn-primary btn-signup" type="submit" data-step="3">
                                 Signup
                             </button>
                         </div>
