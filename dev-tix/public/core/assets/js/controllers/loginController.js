@@ -2,6 +2,13 @@ import { isInputEmpty } from "./../helpers/validate.js";
 import { handleRequest } from "./../helpers/request.js";
 import loginView from "./../views/loginView.js";
 
+const controlResetInputs = function () {
+    const parent = $(this.closest(".div-input-container"));
+    if (parent.hasClass("empty-input-container")) {
+        parent.removeClass("empty-input-container");
+    }
+};
+
 const controlUserLogin = function (formEvent) {
     formEvent.preventDefault();
 
@@ -20,6 +27,7 @@ const controlUserLogin = function (formEvent) {
 };
 
 const initController = function () {
+    loginView.addEventResetInput(controlResetInputs);
     loginView.addEventUserLogin(controlUserLogin);
 };
 
