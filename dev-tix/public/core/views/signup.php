@@ -16,13 +16,13 @@
                 <div class="div-progress">&nbsp;</div>
                 <ul class="circle-indicator-list">
                     <li class="circle-indicator-list-item flex-center absolute-y-center left-circle-indicator-list-item">
-                        <span class="span-circle-indicator active-span-indicator" data-step="1">&nbsp;</span>
+                        <span class="span-circle-indicator flex-center active-span-indicator" data-step="1">1</span>
                     </li>
                     <li class="circle-indicator-list-item flex-center absolute-y-center middle-circle-indicator-list-item">
-                        <span class="span-circle-indicator" data-step="2">&nbsp;</span>
+                        <span class="span-circle-indicator flex-center" data-step="2">2</span>
                     </li>
                     <li class="circle-indicator-list-item flex-center absolute-y-center right-circle-indicator-list-item">
-                        <span class="span-circle-indicator" data-step="3">&nbsp;</span>
+                        <span class="span-circle-indicator flex-center" data-step="3">3</span>
                     </li>
                 </ul>
             </div>
