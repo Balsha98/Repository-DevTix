@@ -5,6 +5,11 @@ require_once __DIR__ . '/helpers/Debug.php';
 
 class Router
 {
+    /**
+     * Render teh page based on the uri.
+     * @param string $url - request uri.
+     * @return - approprate view.
+     */
     public static function renderPage(string $url)
     {
         if ($url === '/') {
@@ -23,6 +28,11 @@ class Router
         return self::requireView($page);
     }
 
+    /**
+     * Get view contents.
+     * @param string $page - allowed view name.
+     * @return - appropriate view.
+     */
     private static function requireView(string $page)
     {
         ob_start();

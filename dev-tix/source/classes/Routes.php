@@ -2,6 +2,7 @@
 
 class Routes
 {
+    // Attributes.
     public const ROUTES = [
         'login',
         'forgot-password',

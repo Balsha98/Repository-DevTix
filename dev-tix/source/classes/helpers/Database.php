@@ -2,17 +2,28 @@
 
 class Database
 {
+    // Attributes.
     private PDO $pdo;
     private PDOStatement $pdoStatement;
     private static Database $instance;
     private array $params;
 
+    /**
+     * Singleton contructor.
+     * @param string $dbName - database name.
+     * @param string $dbUser - db access username.
+     * @param string $dbPass - db access password.
+     */
     private function __construct(string $dbName, string $dbUser, string $dbPass)
     {
         $dsn = "mysql:dbname={$dbName};host=localhost";
         $this->pdo = new PDO($dsn, $dbUser, $dbPass);
     }
 
+    /**
+     * Get Singleton instance.
+     * @return Database - Database instance.
+     */
     public static function getInstance()
     {
         if (!isset(self::$instance)) {
@@ -22,6 +33,12 @@ class Database
         return self::$instance;
     }
 
+    /**
+     * Create a prepared statement.
+     * @param string $query - query to be prepared.
+     * @param array $params - query parameters.
+     * @return - same instance ($this).
+     */
     public function executePreparedStatement(string $query, array $params = [])
     {
         $this->pdoStatement = empty($params) ? $this->pdo->query($query) : $this->pdo->prepare($query);
@@ -40,6 +57,11 @@ class Database
         return $this;
     }
 
+    /**
+     * Get prepared statement results.
+     * @param bool $isAssoc - will data be associative.
+     * @return array - result or success/error message.
+     */
     public function getQueryResult(bool $isAssoc = true)
     {
         if ($this->isQueryOfType('SELECT')) {
@@ -72,6 +94,11 @@ class Database
         return ['success' => 'Prepared statement executed successfully.'];
     }
 
+    /**
+     * Check type of query.
+     * @param string $type - possible query type.
+     * @return bool - whether it mathes or not.
+     */
     private function isQueryOfType(string $type)
     {
         return str_contains($this->pdoStatement->queryString, $type);
