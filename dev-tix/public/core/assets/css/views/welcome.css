@@ -5,8 +5,6 @@
     justify-content: space-between;
     height: 8rem;
     padding: 0 2.4rem;
-    /* background-color: var(--white); */
-    background-color: transparent;
 }
 
 /* LOGO CONTAINER */
@@ -23,4 +21,105 @@
 .div-logo-container h2 {
     font-size: 2.4rem;
     color: var(--white);
+}
+
+/* HEADER NAVIGATION */
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+}
+
+.nav-link:link,
+.nav-link:visited {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--white);
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link:active {
+    color: var(--primary);
+}
+
+.active-nav-link {
+    color: var(--primary) !important;
+}
+
+/* DROPDOWN */
+.dropdown-container {
+    position: relative;
+}
+
+/* DROPDOWN BUTTON */
+.btn-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--white);
+}
+
+.btn-dropdown span,
+.btn-dropdown ion-icon {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: inherit;
+}
+
+.btn-dropdown:hover {
+    color: var(--primary);
+}
+
+.active-btn-dropdown {
+    color: var(--primary) !important;
+}
+
+/* DROPDOWN MENU LIST */
+.dropdown-menu-list {
+    position: absolute;
+    bottom: -7.4rem;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 15.6rem;
+    padding: 0.8rem;
+    background-color: var(--white);
+    box-shadow: 0 0.4rem 1.6rem var(--shadow-sm);
+    border-radius: var(--border-radius-md);
+    transition: all 0.5s;
+}
+
+.hide-dropdown {
+    transform: translateY(50%);
+    opacity: 0;
+    z-index: -1;
+}
+
+.dropdown-menu-list::before {
+    content: "";
+    position: absolute;
+    top: -0.4rem;
+    right: 0.8rem;
+    width: 3.2rem;
+    aspect-ratio: 1 / 1;
+    background-color: var(--white);
+    border-radius: var(--border-radius-md);
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+/* DROPDOWN LINK */
+.dropdown-link:link,
+.dropdown-link:visited {
+    display: inline-block;
+    width: 100%;
+    padding: 0.4rem 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: var(--border-radius-md);
+    transition: background-color 0.3s;
 }
