@@ -18,6 +18,13 @@
     transform: translateY(-50%);
 }
 
+/* CENTERED CONTAINER */
+.centered-container {
+    width: 100%;
+    max-width: 140rem;
+    margin: 0 auto;
+}
+
 /* OVERLAYS */
 .overlay {
     position: absolute;
@@ -38,6 +45,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* GRID LAYOUTS */
