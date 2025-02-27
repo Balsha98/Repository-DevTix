@@ -19,22 +19,25 @@ class Validate
         foreach ($data as $key => $value) {
             if (isset($rules[$key])) {
                 $keyRules = $rules[$key];
-                $dataType = $keyRules['type'];
 
-                if ($dataType === 'email') {  // Validate emails.
+                if ($keyRules['type'] === 'email') {  // Validate emails.
                     if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
-                        return self::$response = self::buildErrorResponse($key, 'email', $keyRules);
+                        return self::$response = self::buildErrorResponse(
+                            $key, 'email', $keyRules
+                        );
                     }
 
                     continue;
                 }
 
-                if ($dataType === 'num') {  // Validate numbers.
+                if ($keyRules['type'] === 'num') {  // Validate numbers.
                     ['min' => $min, 'max' => $max] = $keyRules['length'];
 
                     if (!empty($value)) {
                         if ((int) $value < $min || (int) $value > $max) {  // Validate number size.
-                            return self::$response = self::buildErrorResponse($key, 'length', $keyRules, $dataType);
+                            return self::$response = self::buildErrorResponse(
+                                $key, 'length', $keyRules, 'int'
+                            );
                         }
                     }
 
@@ -44,13 +47,17 @@ class Validate
                 // Validate strings.
                 $pattern = self::PATTERNS[$keyRules['pattern']];
                 if (preg_match($pattern, $value)) {  // Validate string format.
-                    return self::$response = self::buildErrorResponse($key, 'pattern', $keyRules);
+                    return self::$response = self::buildErrorResponse(
+                        $key, 'pattern', $keyRules
+                    );
                 }
 
                 $strLen = strlen($value);
                 ['min' => $min, 'max' => $max] = $keyRules['length'];
                 if ($strLen < $min || $strLen > $max) {  // Validate string length.
-                    return self::$response = self::buildErrorResponse($key, 'length', $keyRules);
+                    return self::$response = self::buildErrorResponse(
+                        $key, 'length', $keyRules
+                    );
                 }
             }
         }
@@ -60,7 +67,6 @@ class Validate
 
     private static function buildErrorResponse(string $name, string $key, array $rules, string $dataType = 'str')
     {
-        $ruleValues = $rules[$key];
         $capitalized = self::capitalizeName($name);
         $lengthCase = $dataType === 'str' ? 'characters' : 'inclusively';
 
@@ -69,11 +75,11 @@ class Validate
             'response' => [
                 'heading' => "Invalid {$capitalized}",
                 'message' => match ($key) {
-                    'pattern' => match ($ruleValues) {
+                    'pattern' => match ($rules[$key]) {
                         'only_letters' => "{$capitalized} can contain only letters.",
                         'no_symbols' => "{$capitalized} cannot contain special characters."
                     },
-                    'length' => "{$capitalized} must be between {$ruleValues['min']} & {$ruleValues['max']} {$lengthCase}.",
+                    'length' => "{$capitalized} must be between {$rules[$key]['min']} & {$rules[$key]['max']} {$lengthCase}.",
                     'email' => "{$capitalized} is of the wrong format."
                 }
             ]

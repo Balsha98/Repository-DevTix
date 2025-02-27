@@ -35,7 +35,7 @@ class ApiRouter
         self::$controller = new $className();
 
         // Return JSON response.
-        // header('Content-Type: application/json');
+        header('Content-Type: application/json');
         return Encode::toJSON(self::proccessRequest($id, $data));
     }
 
