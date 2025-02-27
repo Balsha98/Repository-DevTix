@@ -18,6 +18,7 @@ class WelcomeView {
     toggleDropdrownMenu(container) {
         const containerClass = $(container).attr("class").split(" ")[2];
         $(`.${containerClass} .btn-dropdown`).toggleClass("active-btn-dropdown");
+        $(`.${containerClass} ion-icon`).toggleClass("rotate-chevron-down");
         $(`.${containerClass} .dropdown-menu-list`).toggleClass("hide-dropdown");
     }
 }
