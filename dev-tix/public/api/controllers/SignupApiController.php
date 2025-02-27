@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../classes/AbsApiController.php';
+require_once __DIR__ . '/data/SignupInputRules.php';
 
 class SignupApiController extends AbsApiController
 {
@@ -8,48 +9,8 @@ class SignupApiController extends AbsApiController
     {
         $data = $this->getData();
 
-        $rules = [
-            'first_name' => [
-                'pattern' => 'only_letters',
-                'length' => [
-                    'min:8',
-                    'max:50',
-                ],
-            ],
-            'last_name' => [
-                'pattern' => 'only_letters',
-                'length' => [
-                    'min:8',
-                    'max:50',
-                ],
-            ],
-            'email' => [
-                'email'
-            ],
-            'age' => [
-                'length' => [
-                    'min:1',
-                    'max:100'
-                ]
-            ],
-            'username' => [
-                'pattern' => 'no_symbols',
-                'length' => [
-                    'min:8',
-                    'max:25',
-                ],
-            ],
-            'password' => [
-                'pattern' => 'no_symbols',
-                'length' => [
-                    'min:8',
-                    'max:25'
-                ]
-            ]
-        ];
-
-        if (!Validate::validateInputs($data, $rules)) {
-            return [];
+        if (!empty(Validate::validateInputs($data, SignupInputRules::RULES))) {
+            return Validate::getResponse();
         }
 
         // If username exists.
