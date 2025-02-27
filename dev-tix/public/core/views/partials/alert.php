@@ -4,8 +4,7 @@
             <div class="div-icon-container flex-center">
                 <ion-icon 
                     class="alert-icon" 
-                    src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/check.svg" 
-                    data-server-path="<?php echo SERVER_PATH; ?>"
+                    src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/check.svg"
                 ></ion-icon>
             </div>
             <div class="div-alert-content-container">

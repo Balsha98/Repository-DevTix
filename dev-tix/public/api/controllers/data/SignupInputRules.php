@@ -23,7 +23,7 @@ class SignupInputRules
             'type' => 'email'
         ],
         'age' => [
-            'type' => 'num',
+            'type' => 'int',
             'length' => [
                 'min' => 1,
                 'max' => 100

@@ -9,8 +9,9 @@ class SignupApiController extends AbsApiController
     {
         $data = $this->getData();
 
+        // Validate inputs, one by one.
         if (!empty(Validate::validateInputs($data, SignupInputRules::RULES))) {
-            return Validate::getResponse();
+            return Validate::getValidationResult();
         }
 
         // If username exists.

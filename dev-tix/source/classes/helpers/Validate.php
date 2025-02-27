@@ -2,41 +2,43 @@
 
 class Validate
 {
-    private static array $response;
+    private static array $result;
 
     private const PATTERNS = [
         'only_letters' => '#[^a-zA-Z]#',
         'no_symbols' => '#[^a-zA-Z0-9]#'
     ];
 
-    public static function getResponse()
+    public static function getValidationResult()
     {
-        return self::$response;
+        return self::$result;
     }
 
     public static function validateInputs(array $data, array $rules)
     {
-        foreach ($data as $key => $value) {
-            if (isset($rules[$key])) {
-                $keyRules = $rules[$key];
+        foreach ($data as $id => $value) {
+            if (isset($rules[$id])) {
+                $keyRules = $rules[$id];
 
-                if ($keyRules['type'] === 'email') {  // Validate emails.
+                // Validate emails.
+                if ($keyRules['type'] === 'email') {
                     if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
-                        return self::$response = self::buildErrorResponse(
-                            $key, 'email', $keyRules
+                        return self::$result = self::buildErrorResponse(
+                            $id, 'email', $keyRules
                         );
                     }
 
                     continue;
                 }
 
-                if ($keyRules['type'] === 'num') {  // Validate numbers.
+                // Validate numbers.
+                if ($keyRules['type'] === 'int') {
                     ['min' => $min, 'max' => $max] = $keyRules['length'];
 
                     if (!empty($value)) {
-                        if ((int) $value < $min || (int) $value > $max) {  // Validate number size.
-                            return self::$response = self::buildErrorResponse(
-                                $key, 'length', $keyRules, 'int'
+                        if ((int) $value < $min || (int) $value > $max) {
+                            return self::$result = self::buildErrorResponse(
+                                $id, 'length', $keyRules, 'int'
                             );
                         }
                     }
@@ -44,19 +46,20 @@ class Validate
                     continue;
                 }
 
-                // Validate strings.
+                // Validate string format.
                 $pattern = self::PATTERNS[$keyRules['pattern']];
-                if (preg_match($pattern, $value)) {  // Validate string format.
-                    return self::$response = self::buildErrorResponse(
-                        $key, 'pattern', $keyRules
+                if (preg_match($pattern, $value)) {
+                    return self::$result = self::buildErrorResponse(
+                        $id, 'pattern', $keyRules
                     );
                 }
 
+                // Validate string length.
                 $strLen = strlen($value);
                 ['min' => $min, 'max' => $max] = $keyRules['length'];
-                if ($strLen < $min || $strLen > $max) {  // Validate string length.
-                    return self::$response = self::buildErrorResponse(
-                        $key, 'length', $keyRules
+                if ($strLen < $min || $strLen > $max) {
+                    return self::$result = self::buildErrorResponse(
+                        $id, 'length', $keyRules
                     );
                 }
             }
@@ -65,9 +68,9 @@ class Validate
         return [];
     }
 
-    private static function buildErrorResponse(string $name, string $key, array $rules, string $dataType = 'str')
+    private static function buildErrorResponse(string $id, string $key, array $rules, string $dataType = 'str')
     {
-        $capitalized = self::capitalizeName($name);
+        $capitalized = self::capitalizeName($id);
         $lengthCase = $dataType === 'str' ? 'characters' : 'inclusively';
 
         return [
@@ -82,20 +85,21 @@ class Validate
                     'length' => "{$capitalized} must be between {$rules[$key]['min']} & {$rules[$key]['max']} {$lengthCase}.",
                     'email' => "{$capitalized} is of the wrong format."
                 }
-            ]
+            ],
+            'input_id' => $id,
         ];
     }
 
-    private static function capitalizeName(string $name)
+    private static function capitalizeName(string $id)
     {
-        if (str_contains($name, '_')) {
+        if (str_contains($id, '_')) {
             return implode(' ', array_map(
                 function ($part) {
                     return ucfirst($part);
-                }, explode('_', $name)
+                }, explode('_', $id)
             ));
         }
 
-        return ucfirst($name);
+        return ucfirst($id);
     }
 }

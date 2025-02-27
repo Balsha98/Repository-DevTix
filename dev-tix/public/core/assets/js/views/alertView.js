@@ -21,9 +21,8 @@ class AlertView {
         if (alertType === "success") setTimeout(() => location.reload(), 2000);
 
         // Set alert message.
-        const serverPath = this.#alertIcon.data("server-path");
         const iconType = alertType === "success" ? "check" : "x";
-        this.#alertIcon.attr("src", `${serverPath}/core/assets/media/icons/${iconType}.svg`);
+        this.#alertIcon.attr("src", `/core/assets/media/icons/${iconType}.svg`);
         this.#iconContainer.css("background-color", `var(--${alertType}`);
 
         // Wait for alert to load.
@@ -33,9 +32,17 @@ class AlertView {
         this.#alertHeading.text(response["response"]["heading"]);
         this.#alertMessage.text(response["response"]["message"]);
 
+        // Mark a field as invalid if validation is failed.
+        if (response["input_id"]) this.#markInputInvalid(response["input_id"]);
+
         // Set alert button.
         this.#btnClose.text(alertType === "success" ? "Confirm" : "Close");
         this.#btnClose.data("alert-type", alertType);
+    }
+
+    #markInputInvalid(inputID) {
+        const parent = $($(`#${inputID}`).closest(".div-input-container"));
+        parent.addClass("invalid-input-container");
     }
 
     toggleAlert(clicked = false) {

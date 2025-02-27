@@ -5,8 +5,8 @@ import signupView from "./../views/signupView.js";
 
 const controlResetInputs = function () {
     const parent = $(this.closest(".div-input-container"));
-    if (parent.hasClass("empty-input-container")) {
-        parent.removeClass("empty-input-container");
+    if (parent.hasClass("invalid-input-container")) {
+        parent.removeClass("invalid-input-container");
     }
 };
 

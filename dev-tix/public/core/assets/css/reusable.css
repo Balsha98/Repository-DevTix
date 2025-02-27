@@ -126,7 +126,7 @@
     transform: rotate(45deg);
 }
 
-.empty-input-container::after {
+.invalid-input-container::after {
     content: "";
     position: absolute;
     bottom: 0;

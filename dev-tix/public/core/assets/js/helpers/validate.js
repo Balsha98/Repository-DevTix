@@ -3,9 +3,9 @@ export const isInputEmpty = function (isCustom = false, customClName = null) {
     $(`${isCustom ? customClName : "*"}[required]`).each((_, input) => {
         const parent = $(input.closest(".div-input-container"));
         if ($(input).val() === "") {
-            parent.addClass("empty-input-container");
+            parent.addClass("invalid-input-container");
             isEmpty = true;
-        } else parent.removeClass("empty-input-container");
+        } else parent.removeClass("invalid-input-container");
     });
 
     return isEmpty;
