@@ -16,21 +16,21 @@ class SignupApiController extends AbsApiController
 
         // If username exists.
         if (!empty($this->getAccount($data))) {
-            return ApiMessage::authAccountIssues($data['page'], 'unique');
+            return ApiMessage::authAccountError($data, 'unique');
         }
 
         // Any issues inserting the user.
         if (isset($this->insertUser($data)['error'])) {
-            return ApiMessage::authAttempt($data['page'], false);
+            return ApiMessage::authAttempt($data, false);
         }
 
         // Any issues inserting the user details.
         if (isset($this->insertUserDetails($data)['error'])) {
-            return ApiMessage::authAttempt($data['page'], false);
+            return ApiMessage::authAttempt($data, false);
         }
 
         // If signup was successful.
-        return ApiMessage::authAttempt($data['page'], true);
+        return ApiMessage::authAttempt($data, true);
     }
 
     private function getAccount($data)

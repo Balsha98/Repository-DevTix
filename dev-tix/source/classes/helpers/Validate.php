@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/Sanitize.php';
+
 class Validate
 {
     private static array $result;
@@ -19,10 +21,11 @@ class Validate
         foreach ($data as $id => $value) {
             if (isset($rules[$id])) {
                 $keyRules = $rules[$id];
+                $sanitizedValue = Sanitize::sanitizeString($value);
 
                 // Validate emails.
                 if ($keyRules['type'] === 'email') {
-                    if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
+                    if (!filter_var($sanitizedValue, FILTER_VALIDATE_EMAIL)) {
                         return self::$result = self::buildErrorResponse(
                             $id, 'email', $keyRules
                         );
@@ -35,8 +38,8 @@ class Validate
                 if ($keyRules['type'] === 'int') {
                     ['min' => $min, 'max' => $max] = $keyRules['length'];
 
-                    if (!empty($value)) {
-                        if ((int) $value < $min || (int) $value > $max) {
+                    if (!empty($sanitizedValue)) {
+                        if ((int) $sanitizedValue < $min || (int) $sanitizedValue > $max) {
                             return self::$result = self::buildErrorResponse(
                                 $id, 'length', $keyRules, 'int'
                             );
@@ -48,14 +51,14 @@ class Validate
 
                 // Validate string format.
                 $pattern = self::PATTERNS[$keyRules['pattern']];
-                if (preg_match($pattern, $value)) {
+                if (preg_match($pattern, $sanitizedValue)) {
                     return self::$result = self::buildErrorResponse(
                         $id, 'pattern', $keyRules
                     );
                 }
 
                 // Validate string length.
-                $strLen = strlen($value);
+                $strLen = strlen($sanitizedValue);
                 ['min' => $min, 'max' => $max] = $keyRules['length'];
                 if ($strLen < $min || $strLen > $max) {
                     return self::$result = self::buildErrorResponse(

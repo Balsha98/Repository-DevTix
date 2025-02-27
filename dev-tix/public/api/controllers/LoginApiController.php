@@ -10,16 +10,16 @@ class LoginApiController extends AbsApiController
 
         // Guard caluse.
         if (empty($this->getAccount($data))) {
-            return ApiMessage::authAccountIssues('login', 'register');
+            return ApiMessage::authAccountError($data, 'register');
         }
 
         $passwordHash = hash('sha256', $data['password']);
         if ($this->getAccount($data)['password'] === $passwordHash) {
-            return ApiMessage::authAttempt('login', true);
+            return ApiMessage::authAttempt($data, true);
         }
 
         // Lastly, if credentials are invalid.
-        return ApiMessage::authAttempt('login', false);
+        return ApiMessage::authAttempt($data, false);
     }
 
     private function getAccount($data)

@@ -7,15 +7,15 @@ class Router
 {
     /**
      * Render teh page based on the uri.
-     * @param string $url - request uri.
+     * @param string $uri - request uri.
      * @return - approprate view.
      */
-    public static function renderPage(string $url)
+    public static function renderPage(string $uri)
     {
-        if ($url === '/') {
-            $page = 'login';
+        if ($uri === '/') {
+            $page = 'welcome';
         } else {
-            $uri = explode('/', $url);
+            $uri = explode('/', $uri);
             if (!in_array($uri[0], Routes::ROUTES)) {
                 return self::requireView('invalid-route');
             } else if (count($uri) === 2) {
