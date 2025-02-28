@@ -102,6 +102,8 @@
 /* ALERT BUTTON CONTAINER */
 .div-alert-btn-container {
     position: relative;
+    display: flex;
+    justify-content: center;
     padding-top: 2rem;
 }
 
@@ -118,5 +120,4 @@
 
 .btn-alert-close {
     width: 19.6rem;
-    margin: 0 auto;
 }
