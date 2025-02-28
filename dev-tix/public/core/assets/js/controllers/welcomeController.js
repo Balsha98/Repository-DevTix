@@ -10,7 +10,7 @@ const controlToggleNav = function () {
     $(".dropdown-container").each((_, item) => {
         const itemClass = $(item).attr("class").split(" ")[2];
         $(`.${itemClass} ion-icon`).removeClass("rotate-chevron-down");
-        $(`.${itemClass} .dropdown-menu-list`).addClass("hide-dropdown");
+        $(`.${itemClass} .dropdown-menu`).addClass("hide-dropdown");
     });
 
     $(this.querySelector(".nav-link")).addClass("active-nav-link");

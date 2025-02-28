@@ -25,14 +25,17 @@
                                 <span>Account</span>
                                 <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
                             </button>
-                            <ul class="dropdown-menu-list hide-dropdown">
-                                <li class="dropdown-menu-list-item">
-                                    <a class="dropdown-link link-outline-primary" href="/login">Login</a>
-                                </li>
-                                <li class="dropdown-menu-list-item">
-                                    <a class="dropdown-link link-primary" href="/signup">Signup</a>
-                                </li>
-                            </ul>
+                            <div class="dropdown-menu hide-dropdown">
+                                <span class="span-dropdown-indicator">&nbsp;</span>
+                                <ul class="dropdown-menu-list">
+                                    <li class="dropdown-menu-list-item">
+                                        <a class="dropdown-link link-outline-primary" href="/login">Login</a>
+                                    </li>
+                                    <li class="dropdown-menu-list-item">
+                                        <a class="dropdown-link link-primary" href="/signup">Signup</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                 </nav>
