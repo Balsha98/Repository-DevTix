@@ -4,18 +4,30 @@ require_once __DIR__ . '/Sanitize.php';
 
 class Validate
 {
+    // Attributes.
     private static array $result;
 
+    // Constants.
     private const PATTERNS = [
         'only_letters' => '#[^a-zA-Z]#',
         'no_symbols' => '#[^a-zA-Z0-9]#'
     ];
 
+    /**
+     * Get validation results.
+     * @return array - result response.
+     */
     public static function getValidationResult()
     {
         return self::$result;
     }
 
+    /**
+     * Dynamically validate inputs.
+     * @param array $data - input data to be validated.
+     * @param array $rules - array of validation rules.
+     * @return array - empty/results array.
+     */
     public static function validateInputs(array $data, array $rules)
     {
         foreach ($data as $id => $value) {
@@ -71,6 +83,14 @@ class Validate
         return [];
     }
 
+    /**
+     * Dynamically build a results response.
+     * @param string $id - input id.
+     * @param string $key - name of the rule
+     * @param array $rules - array of validaton rules.
+     * @param string $dataType - type of data being checked.
+     * @return array - results response.
+     */
     private static function buildErrorResponse(string $id, string $key, array $rules, string $dataType = 'str')
     {
         $capitalized = self::capitalizeName($id);
