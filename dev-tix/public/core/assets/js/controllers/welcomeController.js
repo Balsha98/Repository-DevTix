@@ -1,23 +1,21 @@
 import welcomeView from "./../views/welcomeView.js";
 
 const controlToggleNav = function () {
-    if ($(this).hasClass("dropdown-container")) {
-        return welcomeView.toggleDropdrownMenu(this);
-    }
-
     welcomeView.resetNavLinks();
+    $(this).addClass("active-nav-link");
+};
 
-    $(".dropdown-container").each((_, item) => {
-        const itemClass = $(item).attr("class").split(" ")[2];
-        $(`.${itemClass} ion-icon`).removeClass("rotate-chevron-down");
-        $(`.${itemClass} .dropdown-menu`).addClass("hide-dropdown");
-    });
+const controlToggleDropdown = function () {
+    $(this).toggleClass("active-btn-dropdown");
 
-    $(this.querySelector(".nav-link")).addClass("active-nav-link");
+    const container = $(this.closest(".dropdown-container"));
+    const containerClass = container.attr("class").split(" ")[1];
+    $(`.${containerClass} .dropdown-menu`).toggleClass("hide-dropdown");
 };
 
 const initController = function () {
     welcomeView.addEventToggleNavLinks(controlToggleNav);
+    welcomeView.addEventToggleDropdown(controlToggleDropdown);
 };
 
 initController();

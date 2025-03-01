@@ -20,25 +20,39 @@
                         <li class="nav-list-item">
                             <a class="nav-link" href="#testimonials">Testimonials</a>
                         </li>
-                        <li class="nav-list-item dropdown-container dropdown-account">
-                            <button class="btn btn-dropdown">
-                                <span>Account</span>
-                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
-                            </button>
-                            <div class="dropdown-menu hide-dropdown">
-                                <span class="span-dropdown-indicator">&nbsp;</span>
-                                <ul class="dropdown-menu-list">
-                                    <li class="dropdown-menu-list-item">
-                                        <a class="dropdown-link link-outline-primary" href="/login">Login</a>
-                                    </li>
-                                    <li class="dropdown-menu-list-item">
-                                        <a class="dropdown-link link-primary" href="/signup">Signup</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
                     </ul>
                 </nav>
+                <div class="dropdown-container dropdown-account">
+                    <button class="btn btn-dropdown">Account</button>
+                    <div class="dropdown-menu hide-dropdown">
+                        <span class="span-dropdown-indicator">&nbsp;</span>
+                        <ul class="dropdown-menu-list">
+                            <li class="dropdown-menu-list-item">
+                                <a 
+                                    class="dropdown-link link-outline-primary" 
+                                    href="<?php echo SERVER_PATH; ?>/login" 
+                                    target="_blank"
+                                >
+                                    Login
+                                </a>
+                            </li>
+                            <li class="dropdown-menu-list-item">
+                                <a 
+                                    class="dropdown-link link-primary" 
+                                    href="<?php echo SERVER_PATH; ?>/signup" 
+                                    target="_blank"
+                                >
+                                    Signup
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
+
+    <!-- HERO SECTION -->
+    <section class="section-hero">
+
+    </section>
