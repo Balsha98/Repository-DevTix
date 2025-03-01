@@ -54,5 +54,26 @@
 
     <!-- HERO SECTION -->
     <section class="section-hero">
-
+        <div class="overlay image-overlay"></div>
+        <div class="div-hero-content-container">
+            <header class="hero-content-header">
+                <h1 class="heading-primary">Welcome to DevTix</h1>
+                <p>Anything developer-related, we got you covered...</p>
+            </header>
+            <div class="div-grid-btn-container grid-2-columns">
+                <a 
+                    class="link link-primary"
+                    href="<?php echo SERVER_PATH; ?>/signup" 
+                    target="_blank"
+                >
+                    Signup
+                </a>
+                <a 
+                    class="link link-outline-primary"
+                    href="#about"
+                >
+                    Get Started
+                </a>
+            </div>
+        </div>
     </section>
