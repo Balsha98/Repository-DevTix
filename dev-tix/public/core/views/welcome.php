@@ -29,7 +29,7 @@
                         <ul class="dropdown-menu-list">
                             <li class="dropdown-menu-list-item">
                                 <a 
-                                    class="dropdown-link link-outline-primary" 
+                                    class="dropdown-link" 
                                     href="<?php echo SERVER_PATH; ?>/login" 
                                     target="_blank"
                                 >
@@ -38,7 +38,7 @@
                             </li>
                             <li class="dropdown-menu-list-item">
                                 <a 
-                                    class="dropdown-link link-primary" 
+                                    class="dropdown-link" 
                                     href="<?php echo SERVER_PATH; ?>/signup" 
                                     target="_blank"
                                 >

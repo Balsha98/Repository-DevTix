@@ -105,7 +105,7 @@
 /* DROPDOWN MENU */
 .dropdown-menu {
     position: absolute;
-    bottom: -10rem;
+    bottom: -9.6rem;
     right: 0;
     transition: all 0.5s;
 }
@@ -127,14 +127,11 @@
 /* DROPDOWN MENU LIST */
 .dropdown-menu-list {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
     width: 15.6rem;
-    padding: 1.6rem;
     background-color: var(--white);
     box-shadow: 0 0.4rem 1.6rem var(--shadow-sm);
     border-radius: var(--border-radius-md);
+    overflow: hidden;
     z-index: 2;
 }
 
@@ -144,17 +141,65 @@
     z-index: -1;
 }
 
+/* DROPDOWN MENU LIST ITEM */
+.dropdown-menu-list-item {
+    position: relative;
+    border-top-left-radius: inherit;
+    overflow: hidden;
+}
+
 /* DROPDOWN LINK */
 .dropdown-link:link,
 .dropdown-link:visited {
     display: inline-block;
     width: 100%;
-    padding: 0.4rem 0;
+    padding: 1.2rem 2.4rem;
     font-size: 1.2rem;
     text-transform: uppercase;
-    text-align: center;
-    border-radius: var(--border-radius-md);
+    text-align: right;
+    color: var(--primary);
+    border-radius: inherit;
+    transition: all 0.3s;
+}
+
+.dropdown-link:link::before,
+.dropdown-link:visited::before {
+    content: "";
+    position: absolute;
+    top: -1.6rem;
+    left: -1.6rem;
+    width: 3.2rem;
+    aspect-ratio: 1 / 1;
+    background-color: inherit;
+    transform: rotate(-45deg);
     transition: background-color 0.3s;
+}
+
+.dropdown-link:hover::before,
+.dropdown-link:active::before {
+    background-color: var(--primary-tint);
+}
+
+.dropdown-link:link::after,
+.dropdown-link:visited::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0.4rem;
+    height: 100%;
+    background-color: var(--primary);
+    transition: background-color 0.3s;
+}
+
+.dropdown-link:hover::after,
+.dropdown-link:active::after {
+    background-color: var(--primary-tint);
+}
+
+.dropdown-link:hover,
+.dropdown-link:active {
+    color: var(--primary-tint);
 }
 
 /* HERO SECTION */
