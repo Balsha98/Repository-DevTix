@@ -54,11 +54,17 @@
 
     <!-- HERO SECTION -->
     <section class="section-hero">
-        <div class="overlay image-overlay"></div>
-        <div class="div-hero-content-container">
+        <div class="overlay hero-overlay">&nbsp;</div>
+        <div class="div-hero-content-container hide-hero-content">
             <header class="hero-content-header">
-                <h1 class="heading-primary">Welcome to DevTix</h1>
-                <p>Anything developer-related, we got you covered...</p>
+                <h1 class="heading-primary">
+                    There's no issue we cannot solve. Post a new request in seconds.
+                </h1>
+                <p>
+                    At <span>DevTix</span> our customers are our #1 priority. We want to make sure
+                    that everybody is heard, one way or the other. You've encountered some unresorvalbe
+                    issues? Open an account as of TODAY!
+                </p>
             </header>
             <div class="div-grid-btn-container grid-2-columns">
                 <a 
@@ -74,6 +80,43 @@
                 >
                     Get Started
                 </a>
+            </div>
+            <div class="div-hero-data-container">
+                <ul class="hero-users-list">
+                    <li class="hero-users-list-item">
+                        <img 
+                            src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-1.jpg" 
+                            alt="User Image"
+                        >
+                    </li>
+                    <li class="hero-users-list-item">
+                        <img 
+                            src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-2.jpg" 
+                            alt="User Image"
+                        >
+                    </li>
+                    <li class="hero-users-list-item">
+                        <img 
+                            src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-3.jpg" 
+                            alt="User Image"
+                        >
+                    </li>
+                    <li class="hero-users-list-item">
+                        <img 
+                            src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-4.jpg" 
+                            alt="User Image"
+                        >
+                    </li>
+                    <li class="hero-users-list-item">
+                        <img 
+                            src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-5.jpg" 
+                            alt="User Image"
+                        >
+                    </li>
+                </ul>
+                <p class="hero-data-description">
+                    <span>100,000+</span> users, and counting!
+                </p>
             </div>
         </div>
     </section>

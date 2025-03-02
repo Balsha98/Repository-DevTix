@@ -154,6 +154,7 @@
 /* BUTTON CONTAINER (OVERRIDE) */
 .div-grid-btn-container {
     column-gap: 1.6rem;
+    margin-top: 0.4rem;
 }
 
 /* LOGIN CONTAINER */

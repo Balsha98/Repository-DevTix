@@ -35,6 +35,11 @@
 }
 
 /* OVERLAY TYPES */
+.hero-overlay {
+    background-color: var(--transparent-black-xs);
+    backdrop-filter: blur(0.2rem);
+}
+
 .image-overlay {
     backdrop-filter: blur(0.2rem);
     opacity: var(--opacity-xl);
@@ -158,7 +163,6 @@
 /* BUTTON CONTAINER */
 .div-grid-btn-container {
     display: grid;
-    margin-top: 0.4rem;
 }
 
 /* BUTTONS */

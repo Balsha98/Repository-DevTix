@@ -210,28 +210,75 @@
 .div-hero-content-container {
     position: absolute;
     top: 50%;
-    left: 22.4rem;
+    left: 24rem;
     display: flex;
     flex-direction: column;
-    gap: 1.6rem;
+    gap: 2.4rem;
+    width: 56rem;
     padding: 2.4rem;
     background-color: var(--white);
-    box-shadow: 0 0.4rem 1.2rem var(--shadow-sm);
+    box-shadow: 0 0.8rem 1.6rem var(--shadow-sm);
     border-radius: var(--border-radius-lg);
     transform: translateY(-50%);
+    transition: transform 1s;
     z-index: 1;
+}
+
+.hide-hero-content {
+    transform: translate(-150%, -50%);
 }
 
 /* HERO CONTENT HEADER */
 .hero-content-header h1 {
+    margin-bottom: 1.2rem;
     font-size: 3.2rem;
 }
 
 .hero-content-header p {
     font-size: 2rem;
+    line-height: 1.5;
+}
+
+.hero-content-header span {
+    font-weight: 500;
+    color: var(--primary);
 }
 
 /* BUTTON CONTAINER (OVERRIDE) */
 .div-grid-btn-container {
     column-gap: 1.6rem;
+    margin-top: 0;
+}
+
+/* HERO DATA CONTAINER */
+.div-hero-data-container {
+    display: inherit;
+    align-items: center;
+    gap: inherit;
+}
+
+/* HERO USERS LIST */
+.hero-users-list {
+    display: inherit;
+    align-items: center;
+}
+
+.hero-users-list-item {
+    margin-right: -1.2rem;
+}
+
+.hero-users-list-item img {
+    width: 4.8rem;
+    border: 0.2rem solid var(--white);
+    border-radius: var(--border-radius-circle);
+}
+
+/* HERO DATA DESCRIPTION */
+.hero-data-description {
+    font-size: 1.6rem;
+}
+
+.hero-data-description span {
+    font-weight: 500;
+    color: var(--primary);
 }
