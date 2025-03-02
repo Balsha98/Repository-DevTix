@@ -225,7 +225,7 @@
 }
 
 .hide-hero-content {
-    transform: translate(-150%, -50%);
+    transform: translateY(150%);
 }
 
 /* HERO CONTENT HEADER */
