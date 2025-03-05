@@ -127,7 +127,7 @@
         <div class="centered-cotainer">
             <div class="section-container">
                 <header class="section-header">
-                    <span class="section-subheading">Features</span>
+                    <span class="section-subheading primary-subheading">Features</span>
                     <h2 class="section-heading">What are some features that stand out?</h2>
                 </header>
                 <ul class="features-list grid-4-columns">
@@ -186,7 +186,7 @@
         <div class="centered-container">
             <div class="section-container">
                 <header class="section-header">
-                    <span class="section-subheading">Testimonials</span>
+                    <span class="section-subheading white-subheading">Testimonials</span>
                     <h2 class="section-heading">What our customers think of us?</h2>
                 </header>
                 <ul class="testimonials-list">
