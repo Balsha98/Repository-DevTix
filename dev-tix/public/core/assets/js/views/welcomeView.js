@@ -48,7 +48,7 @@ class WelcomeView {
                     observer.unobserve(target);
                 }
             },
-            { root: null, threshold: 0.5 }
+            { root: null, threshold: 0.2 }
         );
 
         this.#contentSections.each((_, section) => {

@@ -216,6 +216,11 @@
     background-size: cover;
 }
 
+/* HERO CENTERED CONTAINER */
+.section-hero .centered-container {
+    height: 100%;
+}
+
 /* HERO CONTENT */
 .div-hero-content-container {
     position: absolute;
@@ -767,13 +772,13 @@
     gap: 2.4rem;
 }
 
-.div-footer-content h2 {
+.footer-content-heading {
     position: relative;
     font-size: 1.8rem;
     font-weight: 700;
 }
 
-.div-footer-content h2::after {
+.footer-content-heading::after {
     content: "";
     position: absolute;
     bottom: -0.4rem;
@@ -784,11 +789,11 @@
     border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
 }
 
-.div-footer-content p {
+.footer-content-description {
     font-size: 1.4rem;
 }
 
-.div-footer-content span {
+.footer-content-description span {
     color: var(--primary);
 }
 

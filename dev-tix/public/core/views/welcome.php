@@ -55,67 +55,69 @@
     <!-- HERO SECTION -->
     <section id="hero" class="section-hero">
         <div class="overlay hero-overlay">&nbsp;</div>
-        <div class="div-hero-content-container hide-hero-content">
-            <header class="hero-content-header">
-                <h1 class="heading-primary">
-                    There's no issue we cannot solve. Post a new request in seconds.
-                </h1>
-                <p>
-                    At <span>DevTix</span> our customers are our #1 priority. We want to make sure
-                    that everybody is heard, one way or the other. You've encountered some unresorvalbe
-                    issues? Open an account as of TODAY!
-                </p>
-            </header>
-            <div class="div-grid-btn-container grid-2-columns">
-                <a class="link link-primary" href="<?php echo SERVER_PATH; ?>/signup" target="_blank">
-                    Signup
-                </a>
-                <a class="link link-outline-primary" href="#about">
-                    Get Started
-                </a>
-            </div>
-            <div class="div-hero-data-container">
-                <ul class="hero-users-list">
-                    <li class="hero-users-list-item">
-                        <img 
-                            src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-1.jpg" 
-                            alt="User Image"
-                        >
-                    </li>
-                    <li class="hero-users-list-item">
-                        <img 
-                            src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-2.jpg" 
-                            alt="User Image"
-                        >
-                    </li>
-                    <li class="hero-users-list-item">
-                        <img 
-                            src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-3.jpg" 
-                            alt="User Image"
-                        >
-                    </li>
-                    <li class="hero-users-list-item">
-                        <img 
-                            src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-4.jpg" 
-                            alt="User Image"
-                        >
-                    </li>
-                    <li class="hero-users-list-item">
-                        <img 
-                            src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-5.jpg" 
-                            alt="User Image"
-                        >
-                    </li>
-                </ul>
-                <p class="hero-data-description">
-                    <span>100,000+</span> users, and counting!
-                </p>
+        <div class="centered-container">
+            <div class="div-hero-content-container hide-hero-content">
+                <header class="hero-content-header">
+                    <h1 class="heading-primary">
+                        There's no issue we cannot solve. Post a new request in seconds.
+                    </h1>
+                    <p>
+                        At <span>DevTix</span> our customers are our #1 priority. We want to make sure
+                        that everybody is heard, one way or the other. You've encountered some unresorvalbe
+                        issues? Open an account as of TODAY!
+                    </p>
+                </header>
+                <div class="div-grid-btn-container grid-2-columns">
+                    <a class="link link-primary" href="<?php echo SERVER_PATH; ?>/signup" target="_blank">
+                        Signup
+                    </a>
+                    <a class="link link-outline-primary" href="#about">
+                        Get Started
+                    </a>
+                </div>
+                <div class="div-hero-data-container">
+                    <ul class="hero-users-list">
+                        <li class="hero-users-list-item">
+                            <img 
+                                src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-1.jpg" 
+                                alt="User Image"
+                            >
+                        </li>
+                        <li class="hero-users-list-item">
+                            <img 
+                                src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-2.jpg" 
+                                alt="User Image"
+                            >
+                        </li>
+                        <li class="hero-users-list-item">
+                            <img 
+                                src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-3.jpg" 
+                                alt="User Image"
+                            >
+                        </li>
+                        <li class="hero-users-list-item">
+                            <img 
+                                src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-4.jpg" 
+                                alt="User Image"
+                            >
+                        </li>
+                        <li class="hero-users-list-item">
+                            <img 
+                                src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-5.jpg" 
+                                alt="User Image"
+                            >
+                        </li>
+                    </ul>
+                    <p class="hero-data-description">
+                        <span>100,000+</span> users, and counting!
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ABOUT SECTION -->
-    <section id="about" class="section-content section-about">
+    <section id="about" class="section-content section-about hide-section">
         <div class="centered-container">
             <div class="section-container">
                 <header class="section-header">
@@ -152,7 +154,7 @@
     
     
     <!-- HOT IT WORKS SECTION -->
-    <section id="how-it-works" class="section-content section-how-it-works">
+    <section id="how-it-works" class="section-content section-how-it-works hide-section">
         <div class="centered-container">
             <div class="section-container">
                 <header class="section-header">
@@ -223,7 +225,7 @@
 
 
     <!-- FEATURES SECTION -->
-    <section id="features" class="section-content section-features">
+    <section id="features" class="section-content section-features hide-section">
         <div class="centered-container">
             <div class="section-container">
                 <header class="section-header">
@@ -282,7 +284,7 @@
 
 
     <!-- TESTIMONIALS SECTION -->
-    <section id="testimonials" class="section-content section-testimonials">
+    <section id="testimonials" class="section-content section-testimonials hide-section">
         <div class="centered-container">
             <div class="section-container">
                 <header class="section-header">
@@ -416,7 +418,7 @@
                     </a>
                 </header>
                 <div class="div-footer-content">
-                    <h2>Follow Us</h2>
+                    <h2 class="footer-content-heading">Follow Us</h2>
                     <ul class="socials-list">
                         <li class="socials-list-item flex-center">
                             <a class="socials-link flex-center" href="https://www.facebook.com/" target="_blank">
@@ -441,51 +443,51 @@
                     </ul>
                 </div>
                 <div class="div-footer-content">
-                    <h2>Company Notice</h2>
+                    <h2 class="footer-content-heading">Company Notice</h2>
                     <ul class="footer-links-list">
                         <li class="footer-links-list-item">
                             <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/external-link.svg"></ion-icon>
-                            <p>Privacy Policy</p>
+                            <p class="footer-content-description">Privacy Policy</p>
                         </li>
                         <li class="footer-links-list-item">
                             <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/external-link.svg"></ion-icon>
-                            <p>Terms & Conditions</p>
+                            <p class="footer-content-description">Terms & Conditions</p>
                         </li>
                         <li class="footer-links-list-item">
                             <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/external-link.svg"></ion-icon>
-                            <p>User Agreement</p>
+                            <p class="footer-content-description">User Agreement</p>
                         </li>
                         <li class="footer-links-list-item">
                             <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/external-link.svg"></ion-icon>
-                            <p>Services</p>
+                            <p class="footer-content-description">Services</p>
                         </li>
                     </ul>
                 </div>
                 <div class="div-footer-content">
-                    <h2>Contact Us</h2>
+                    <h2 class="footer-content-heading">Contact Us</h2>
                     <ul class="footer-links-list">
                         <li class="footer-links-list-item">
                             <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/map-pin.svg"></ion-icon>
-                            <p>Dubrovnik, Croatia</p>
+                            <p class="footer-content-description">Dubrovnik, Croatia</p>
                         </li>
                         <li class="footer-links-list-item">
                             <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/mail.svg"></ion-icon>
-                            <p>support@devtix.hr</p>
+                            <p class="footer-content-description">support@devtix.hr</p>
                         </li>
                         <li class="footer-links-list-item">
                             <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/phone.svg"></ion-icon>
-                            <p>+385 99 123 4567</p>
+                            <p class="footer-content-description">+385 99 123 4567</p>
                         </li>
                         <li class="footer-links-list-item">
                             <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/home.svg"></ion-icon>
-                            <p>+385 20 433 000</p>
+                            <p class="footer-content-description">+385 20 433 000</p>
                         </li>
                     </ul>
                 </div>
                 <div class="div-footer-content">
-                    <h2>Newsletter</h2>
+                    <h2 class="footer-content-heading">Newsletter</h2>
                     <div class="div-newsletter-form-container">
-                        <p>Wish to receive the <span>latest</span> updates?</p>
+                        <p class="footer-content-description">Wish to receive the <span>latest</span> updates?</p>
                         <form class="form" action="/api/" method="POST">
                             <div class="div-input-group-container">
                                 <label class="absolute-y-center" for="newsletter">
