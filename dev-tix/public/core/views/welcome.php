@@ -115,34 +115,116 @@
     </section>
 
     <!-- ABOUT SECTION -->
-    <section id="about" class="section-content section-about hide-section">
+    <section id="about" class="section-content section-about">
         <div class="centered-container">
             <div class="section-container">
                 <header class="section-header">
                     <span class="section-subheading primary-subheading">About</span>
-                    <h2 class="section-heading">How are we, and what do we care about?</h2>
+                    <h2 class="section-heading">Who are we, and what do we care about?</h2>
                 </header>
+                <ul class="about-list">
+                    <li class="about-list-item grid-2-columns">
+                        <div class="div-about-content-container left-about-content-container">
+                            <h4 class="about-heading">Some Cool Heading</h4>
+                            <p class="about-description">
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus accusantium possimus iusto omnis vero itaque molestiae, aperiam eligendi alias corporis maiores veritatis ipsum, incidunt velit qui totam nihil magni. Dolorem odio aliquid expedita, possimus, veniam minus necessitatibus non hic accusamus quod dolor vero nesciunt, nemo culpa! Voluptate tempore beatae in?
+                            </p>
+                        </div>
+                        <div class="div-image-container">
+                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/login-banner.jpg" alt="About Image">
+                        </div>
+                    </li>
+                    <li class="about-list-item grid-2-columns">
+                        <div class="div-image-container">
+                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/signup-banner.jpg" alt="About Image">
+                        </div>
+                        <div class="div-about-content-container right-about-content-container">
+                            <h4 class="about-heading">Some Cool Heading</h4>
+                            <p class="about-description">
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus accusantium possimus iusto omnis vero itaque molestiae, aperiam eligendi alias corporis maiores veritatis ipsum, incidunt velit qui totam nihil magni. Dolorem odio aliquid expedita, possimus, veniam minus necessitatibus non hic accusamus quod dolor vero nesciunt, nemo culpa! Voluptate tempore beatae in?
+                            </p>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
     
     
     <!-- HOT IT WORKS SECTION -->
-    <section id="how-it-works" class="section-content section-how-it-works hide-section">
+    <section id="how-it-works" class="section-content section-how-it-works">
         <div class="centered-container">
             <div class="section-container">
                 <header class="section-header">
                     <span class="section-subheading white-subheading">How It Works</span>
-                    <h2 class="section-heading">What to look for when starting with DevTix?</h2>
+                    <h2 class="section-heading">How to get started with our platform?</h2>
                 </header>
+                <ul class="steps-list">
+                    <li class="steps-list-item grid-2-columns">
+                        <div class="div-steps-content-container">
+                            <header class="steps-content-header">
+                                <span class="span-steps-counter">01</span>
+                                <h2 class="steps-heading">Some Cool Heading</h2>
+                            </header>
+                            <p class="steps-description">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut voluptatem ad earum blanditiis quasi architecto nihil assumenda qui maxime quaerat. Doloribus, consequatur aperiam expedita quos velit sequi. Quidem doloribus assumenda dolor eius magnam perferendis veniam aut necessitatibus recusandae quis repellat natus reprehenderit, ipsa impedit quas, omnis velit eaque. Exercitationem, unde.
+                            </p>
+                        </div>
+                        <div class="div-image-container">
+                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/welcome-banner.jpg" alt="How It Works Image">
+                        </div>
+                    </li>
+                    <li class="steps-list-item grid-2-columns">
+                        <div class="div-image-container">
+                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/welcome-banner.jpg" alt="How It Works">
+                        </div>
+                        <div class="div-steps-content-container">
+                            <header class="steps-content-header">
+                                <span class="span-steps-counter">02</span>
+                                <h2 class="steps-heading">Some Cool Heading</h2>
+                            </header>
+                            <p class="steps-description">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut voluptatem ad earum blanditiis quasi architecto nihil assumenda qui maxime quaerat. Doloribus, consequatur aperiam expedita quos velit sequi. Quidem doloribus assumenda dolor eius magnam perferendis veniam aut necessitatibus recusandae quis repellat natus reprehenderit, ipsa impedit quas, omnis velit eaque. Exercitationem, unde.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="steps-list-item grid-2-columns">
+                        <div class="div-steps-content-container">
+                            <header class="steps-content-header">
+                                <span class="span-steps-counter">03</span>
+                                <h2 class="steps-heading">Some Cool Heading</h2>
+                            </header>
+                            <p class="steps-description">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut voluptatem ad earum blanditiis quasi architecto nihil assumenda qui maxime quaerat. Doloribus, consequatur aperiam expedita quos velit sequi. Quidem doloribus assumenda dolor eius magnam perferendis veniam aut necessitatibus recusandae quis repellat natus reprehenderit, ipsa impedit quas, omnis velit eaque. Exercitationem, unde.
+                            </p>
+                        </div>
+                        <div class="div-image-container">
+                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/welcome-banner.jpg" alt="How It Works Image">
+                        </div>
+                    </li>
+                    <li class="steps-list-item grid-2-columns">
+                        <div class="div-image-container">
+                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/welcome-banner.jpg" alt="How It Works Image">
+                        </div>
+                        <div class="div-steps-content-container">
+                            <header class="steps-content-header">
+                                <span class="span-steps-counter">04</span>
+                                <h2 class="steps-heading">Some Cool Heading</h2>
+                            </header>
+                            <p class="steps-description">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut voluptatem ad earum blanditiis quasi architecto nihil assumenda qui maxime quaerat. Doloribus, consequatur aperiam expedita quos velit sequi. Quidem doloribus assumenda dolor eius magnam perferendis veniam aut necessitatibus recusandae quis repellat natus reprehenderit, ipsa impedit quas, omnis velit eaque. Exercitationem, unde.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
 
 
     <!-- FEATURES SECTION -->
-    <section id="features" class="section-content section-features hide-section">
-        <div class="centered-cotainer">
+    <section id="features" class="section-content section-features">
+        <div class="centered-container">
             <div class="section-container">
                 <header class="section-header">
                     <span class="section-subheading primary-subheading">Features</span>
@@ -200,7 +282,7 @@
 
 
     <!-- TESTIMONIALS SECTION -->
-    <section id="testimonials" class="section-content section-testimonials hide-section">
+    <section id="testimonials" class="section-content section-testimonials">
         <div class="centered-container">
             <div class="section-container">
                 <header class="section-header">
@@ -315,7 +397,7 @@
 
     <!-- BACK TO TOP BUTTON -->
     <div class="div-to-top-btn-container hide-to-top-btn">
-        <button class="btn btn-primary btn-to-top flex-center">
+        <button class="btn btn-white btn-to-top flex-center">
             <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-up.svg"></ion-icon>
         </button>
     </div>
