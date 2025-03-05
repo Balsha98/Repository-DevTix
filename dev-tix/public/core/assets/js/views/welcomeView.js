@@ -1,13 +1,59 @@
 class WelcomeView {
+    #pageHeader = $(".page-header");
+    #sectionHero = $(".section-hero");
     #heroContent = $(".div-hero-content-container");
     #navLinks = $(".nav-link");
     #btnsDropdown = $(".btn-dropdown");
+    #contentSections = $(".section-content");
     #testimonialItems = $(".testimonials-list-item");
     #btnsStep = $(".btn-testimonials-step");
     #spanIndicators = $(".span-indicator");
+    #btnToTopContainer = $(".div-to-top-btn-container");
+    #btnToTop = $(".btn-to-top");
 
     constructor() {
-        setTimeout(() => this.#heroContent.removeClass("hide-hero-content"), 1000);
+        setTimeout(() => this.#heroContent.removeClass("hide-hero-content"), 200);
+        this.#observeHeroSection();
+        this.#observeContentSections();
+    }
+
+    #observeHeroSection() {
+        const observer = new IntersectionObserver(
+            (entry) => {
+                const [{ isIntersecting }] = entry;
+
+                if (!isIntersecting) {
+                    this.#pageHeader.addClass("fixed-header");
+                    this.#btnToTopContainer.removeClass("hide-to-top-btn");
+                    return;
+                }
+
+                this.#pageHeader.removeClass("fixed-header");
+                this.#btnToTopContainer.addClass("hide-to-top-btn");
+            },
+            { root: null, rootMargin: "-80px", threshold: 0 }
+        );
+
+        const [heroElement] = this.#sectionHero;
+        observer.observe(heroElement);
+    }
+
+    #observeContentSections() {
+        const observer = new IntersectionObserver(
+            (entry, observer) => {
+                const [{ target, isIntersecting }] = entry;
+
+                if (isIntersecting) {
+                    $(target).removeClass("hide-section");
+                    observer.unobserve(target);
+                }
+            },
+            { root: null, threshold: 0.5 }
+        );
+
+        this.#contentSections.each((_, section) => {
+            observer.observe(section);
+        });
     }
 
     addEventToggleNavLinks(handlerFunction) {
@@ -40,6 +86,10 @@ class WelcomeView {
         this.#spanIndicators.each((_, span) => {
             $(span).click(handlerFunction);
         });
+    }
+
+    addEventToTopBtn(handlerFunction) {
+        this.#btnToTop.click(handlerFunction);
     }
 
     turnTestimonialItems(id) {

@@ -53,9 +53,9 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section class="section-hero">
+    <section id="hero" class="section-hero">
         <div class="overlay hero-overlay">&nbsp;</div>
-        <div class="div-hero-content-container hide-hero-conten">
+        <div class="div-hero-content-container hide-hero-content">
             <header class="hero-content-header">
                 <h1 class="heading-primary">
                     There's no issue we cannot solve. Post a new request in seconds.
@@ -115,15 +115,33 @@
     </section>
 
     <!-- ABOUT SECTION -->
-    <!-- 2 parts (z-shape) -->
+    <section id="about" class="section-content section-about hide-section">
+        <div class="centered-container">
+            <div class="section-container">
+                <header class="section-header">
+                    <span class="section-subheading primary-subheading">About</span>
+                    <h2 class="section-heading">How are we, and what do we care about?</h2>
+                </header>
+            </div>
+        </div>
+    </section>
     
     
     <!-- HOT IT WORKS SECTION -->
-    <!-- 3 parts (z-shape) -->
+    <section id="how-it-works" class="section-content section-how-it-works hide-section">
+        <div class="centered-container">
+            <div class="section-container">
+                <header class="section-header">
+                    <span class="section-subheading white-subheading">How It Works</span>
+                    <h2 class="section-heading">What to look for when starting with DevTix?</h2>
+                </header>
+            </div>
+        </div>
+    </section>
 
 
     <!-- FEATURES SECTION -->
-    <section id="features" class="section-features">
+    <section id="features" class="section-content section-features hide-section">
         <div class="centered-cotainer">
             <div class="section-container">
                 <header class="section-header">
@@ -182,7 +200,7 @@
 
 
     <!-- TESTIMONIALS SECTION -->
-    <section id="testimonials" class="section-testimonials">
+    <section id="testimonials" class="section-content section-testimonials hide-section">
         <div class="centered-container">
             <div class="section-container">
                 <header class="section-header">
@@ -294,6 +312,13 @@
             </div>
         </div>
     </section>
+
+    <!-- BACK TO TOP BUTTON -->
+    <div class="div-to-top-btn-container hide-to-top-btn">
+        <button class="btn btn-primary btn-to-top flex-center">
+            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-up.svg"></ion-icon>
+        </button>
+    </div>
 
     <!-- PAGE FOOTER -->
     <footer class="page-footer">

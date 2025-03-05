@@ -42,11 +42,17 @@ const controlTurnCarouselBySpan = function () {
     welcomeModel.setStateVal("testimonialID", testimonialID);
 };
 
+const controlToTopBtn = function () {
+    welcomeView.resetNavLinks();
+    window.scrollTo(0, 0);
+};
+
 const initController = function () {
     welcomeView.addEventToggleNavLinks(controlToggleNav);
     welcomeView.addEventToggleDropdown(controlToggleDropdown);
     welcomeView.addEventTurnCarouselByBtn(controlTurnCarouselByBtn);
     welcomeView.addEventTurnCarouselBySpan(controlTurnCarouselBySpan);
+    welcomeView.addEventToTopBtn(controlToTopBtn);
 };
 
 initController();
