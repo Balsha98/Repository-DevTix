@@ -8,6 +8,7 @@ html {
 body {
     height: 100vh;
     background-image: var(--gradient-theme);
+    background-attachment: fixed;
 }
 
 body::-webkit-scrollbar {

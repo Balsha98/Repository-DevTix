@@ -115,12 +115,70 @@
     </section>
 
     <!-- ABOUT SECTION -->
+    <!-- 2 parts (z-shape) -->
     
-
+    
     <!-- HOT IT WORKS SECTION -->
+    <!-- 3 parts (z-shape) -->
 
 
     <!-- FEATURES SECTION -->
+    <section id="features" class="section-features">
+        <div class="centered-cotainer">
+            <div class="section-container">
+                <header class="section-header">
+                    <span class="section-subheading">Features</span>
+                    <h2 class="section-heading">What are some features that stand out?</h2>
+                </header>
+                <ul class="features-list grid-4-columns">
+                    <li class="features-list-item">
+                        <div class="div-features-icon-container flex-center">
+                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/activity.svg"></ion-icon>
+                        </div>
+                        <div class="div-features-content-container">
+                            <h4 class="features-heading">Some Cool Heading</h4>
+                            <p class="features-description">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero asperiores, deleniti deserunt pariatur maiores aliquid fugiat inventore cum explicabo aliquam ad voluptatibus!
+                            </p>
+                        </div>
+                    </li>
+                    <li class="features-list-item">
+                        <div class="div-features-icon-container flex-center">
+                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/headphones.svg"></ion-icon>
+                        </div>
+                        <div class="div-features-content-container">
+                            <h4 class="features-heading">Some Cool Heading</h4>
+                            <p class="features-description">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero asperiores, deleniti deserunt pariatur maiores aliquid fugiat inventore cum explicabo aliquam ad voluptatibus!
+                            </p>
+                        </div>
+                    </li>
+                    <li class="features-list-item">
+                        <div class="div-features-icon-container flex-center">
+                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/wind.svg"></ion-icon>
+                        </div>
+                        <div class="div-features-content-container">
+                            <h4 class="features-heading">Some Cool Heading</h4>
+                            <p class="features-description">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero asperiores, deleniti deserunt pariatur maiores aliquid fugiat inventore cum explicabo aliquam ad voluptatibus!
+                            </p>
+                        </div>
+                    </li>
+                    <li class="features-list-item">
+                        <div class="div-features-icon-container flex-center">
+                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/feather.svg"></ion-icon>
+                        </div>
+                        <div class="div-features-content-container">
+                            <h4 class="features-heading">Some Cool Heading</h4>
+                            <p class="features-description">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero asperiores, deleniti deserunt pariatur maiores aliquid fugiat inventore cum explicabo aliquam ad voluptatibus!
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
 
     <!-- TESTIMONIALS SECTION -->
