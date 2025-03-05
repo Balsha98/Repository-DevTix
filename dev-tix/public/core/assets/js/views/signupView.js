@@ -1,4 +1,4 @@
-class SignUpView {
+class SignupView {
     #divIndicators = $(".div-step-indicator");
     #spanIndicators = $(".span-circle-indicator");
     #stepContainers = $(".div-form-step-container");
@@ -24,9 +24,13 @@ class SignUpView {
         });
     }
 
-    setActiveStepContainer(css) {
+    addEventUserSignup(handlerFunction) {
+        this.#btnSignup.click(handlerFunction);
+    }
+
+    setActiveStepContainer(step, css) {
         this.#stepContainers.each((i, div) => {
-            $(div).css("transform", `translateX(calc(${css["translateX"][i]}%))`);
+            $(div).css("transform", `translateX(${(step - 1) * -100}%)`);
             $(div).css("opacity", `var(--opacity-${css["opacity"][i]})`);
         });
     }
@@ -54,10 +58,6 @@ class SignUpView {
             }
         });
     }
-
-    addEventUserSignup(handlerFunction) {
-        this.#btnSignup.click(handlerFunction);
-    }
 }
 
-export default new SignUpView();
+export default new SignupView();

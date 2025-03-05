@@ -17,7 +17,7 @@ const controlSwitchStepContainer = function () {
     if (signupView.isInputEmpty(isInputEmpty, step - 1)) return;
 
     // SSwitch input containers.
-    signupView.setActiveStepContainer(signupModel.getStateVal("css")[step - 1]);
+    signupView.setActiveStepContainer(step, signupModel.getStateVal("css")[step - 1]);
 
     // Switch top step indicators.
     signupView.setActiveStepIndicatorHeader(step);
