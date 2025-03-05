@@ -11,6 +11,7 @@
     --secondary-shade: #38d9a9;
     --gradient-theme: linear-gradient(to right top, var(--primary), var(--secondary-tint));
     --success: #51cf66;
+    --warning: #fcc419;
     --error: #ff6b6b;
     --transparent-black-xs: rgba(0, 0, 0, var(--opacity-xs));
     --transparent-black-sm: rgba(0, 0, 0, var(--opacity-sm));

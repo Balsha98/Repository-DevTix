@@ -1,5 +1,5 @@
     <!-- PAGE HEADER -->
-    <header class="page-header ">
+    <header class="page-header">
         <div class="centered-container">
             <div class="flex-between">
                 <div class="div-logo-container">
@@ -55,7 +55,7 @@
     <!-- HERO SECTION -->
     <section class="section-hero">
         <div class="overlay hero-overlay">&nbsp;</div>
-        <div class="div-hero-content-container hide-hero-content">
+        <div class="div-hero-content-container hide-hero-conten">
             <header class="hero-content-header">
                 <h1 class="heading-primary">
                     There's no issue we cannot solve. Post a new request in seconds.
@@ -67,17 +67,10 @@
                 </p>
             </header>
             <div class="div-grid-btn-container grid-2-columns">
-                <a 
-                    class="link link-primary"
-                    href="<?php echo SERVER_PATH; ?>/signup" 
-                    target="_blank"
-                >
+                <a class="link link-primary" href="<?php echo SERVER_PATH; ?>/signup" target="_blank">
                     Signup
                 </a>
-                <a 
-                    class="link link-outline-primary"
-                    href="#about"
-                >
+                <a class="link link-outline-primary" href="#about">
                     Get Started
                 </a>
             </div>
@@ -120,3 +113,229 @@
             </div>
         </div>
     </section>
+
+    <!-- ABOUT SECTION -->
+    
+
+    <!-- HOT IT WORKS SECTION -->
+
+
+    <!-- FEATURES SECTION -->
+
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="section-testimonials">
+        <div class="centered-container">
+            <div class="section-container">
+                <header class="section-header">
+                    <span class="section-subheading">Testimonials</span>
+                    <h2 class="section-heading">What our customers think of us?</h2>
+                </header>
+                <ul class="testimonials-list">
+                    <li class="testimonials-list-item active-testimonial" data-testimonial-id="1">
+                        <div class="div-image-container testimonials-image-container">
+                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-1.jpg" alt="User Image">
+                        </div>
+                        <div class="div-testimonials-data-container">
+                            <h4 class="testimonials-heading">Some Cool Heading</h4>
+                            <blockquote class="testimonials-quote">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, distinctio ea maiores doloribus deserunt obcaecati iusto incidunt possimus, perspiciatis eveniet at ab, quam illo quae ipsa id accusantium aut. Cupiditate!
+                            </blockquote>
+                            <div class="div-testimonials-author-container">
+                                <p>First & Last</p>
+                                <span>Location</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="testimonials-list-item" data-testimonial-id="2">
+                        <div class="div-image-container testimonials-image-container">
+                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-2.jpg" alt="User Image">
+                        </div>
+                        <div class="div-testimonials-data-container">
+                            <h4 class="testimonials-heading">Some Cool Heading</h4>
+                            <blockquote class="testimonials-quote">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, distinctio ea maiores doloribus deserunt obcaecati iusto incidunt possimus, perspiciatis eveniet at ab, quam illo quae ipsa id accusantium aut. Cupiditate!
+                            </blockquote>
+                            <div class="div-testimonials-author-container">
+                                <p>First & Last</p>
+                                <span>Location</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="testimonials-list-item" data-testimonial-id="3">
+                        <div class="div-image-container testimonials-image-container">
+                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-3.jpg" alt="User Image">
+                        </div>
+                        <div class="div-testimonials-data-container">
+                            <h4 class="testimonials-heading">Some Cool Heading</h4>
+                            <blockquote class="testimonials-quote">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, distinctio ea maiores doloribus deserunt obcaecati iusto incidunt possimus, perspiciatis eveniet at ab, quam illo quae ipsa id accusantium aut. Cupiditate!
+                            </blockquote>
+                            <div class="div-testimonials-author-container">
+                                <p>First & Last</p>
+                                <span>Location</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="testimonials-list-item" data-testimonial-id="4">
+                        <div class="div-image-container testimonials-image-container">
+                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-4.jpg" alt="User Image">
+                        </div>
+                        <div class="div-testimonials-data-container">
+                            <h4 class="testimonials-heading">Some Cool Heading</h4>
+                            <blockquote class="testimonials-quote">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, distinctio ea maiores doloribus deserunt obcaecati iusto incidunt possimus, perspiciatis eveniet at ab, quam illo quae ipsa id accusantium aut. Cupiditate!
+                            </blockquote>
+                            <div class="div-testimonials-author-container">
+                                <p>First & Last</p>
+                                <span>Location</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="testimonials-list-item" data-testimonial-id="5">
+                        <div class="div-image-container testimonials-image-container">
+                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-5.jpg" alt="User Image">
+                        </div>
+                        <div class="div-testimonials-data-container">
+                            <h4 class="testimonials-heading">Some Cool Heading</h4>
+                            <blockquote class="testimonials-quote">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, distinctio ea maiores doloribus deserunt obcaecati iusto incidunt possimus, perspiciatis eveniet at ab, quam illo quae ipsa id accusantium aut. Cupiditate!
+                            </blockquote>
+                            <div class="div-testimonials-author-container">
+                                <p>First & Last</p>
+                                <span>Location</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="div-testimonials-controls-container">
+                    <button class="btn btn-white flex-center btn-testimonials-step" data-direction="prev">
+                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-left.svg"></ion-icon>
+                    </button>
+                    <ul class="indicators-list">
+                        <li class="indicators-list-item" data-testimonial-id="1">
+                            <span class="span-indicator active-span-indicator">&nbsp;</span>
+                        </li>
+                        <li class="indicators-list-item" data-testimonial-id="2">
+                            <span class="span-indicator">&nbsp;</span>
+                        </li>
+                        <li class="indicators-list-item" data-testimonial-id="3">
+                            <span class="span-indicator">&nbsp;</span>
+                        </li>
+                        <li class="indicators-list-item" data-testimonial-id="4">
+                            <span class="span-indicator">&nbsp;</span>
+                        </li>
+                        <li class="indicators-list-item" data-testimonial-id="5">
+                            <span class="span-indicator">&nbsp;</span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-white flex-center btn-testimonials-step" data-direction="next">
+                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-right.svg"></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE FOOTER -->
+    <footer class="page-footer">
+        <div class="centered-container">
+            <div class="div-footer-content-container grid-4-columns">
+                <header class="footer-content-container-header grid-span-accross-all">
+                    <div class="div-logo-container">
+                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/images/page-logo.svg"></ion-icon>
+                        <h2>DevTix</h2>
+                    </div>
+                    <a class="link link-primary" href="<?php echo SERVER_PATH; ?>/signup" target="_blank">
+                        Become a Member
+                    </a>
+                </header>
+                <div class="div-footer-content">
+                    <h2>Follow Us</h2>
+                    <ul class="socials-list">
+                        <li class="socials-list-item flex-center">
+                            <a class="socials-link flex-center" href="https://www.facebook.com/" target="_blank">
+                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/facebook.svg"></ion-icon>
+                            </a>
+                        </li>
+                        <li class="socials-list-item flex-center">
+                            <a class="socials-link flex-center" href="https://www.instagram.com/" target="_blank">
+                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/instagram.svg"></ion-icon>
+                            </a>
+                        </li>
+                        <li class="socials-list-item flex-center">
+                            <a class="socials-link flex-center" href="https://x.com/" target="_blank">
+                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/twitter.svg"></ion-icon>
+                            </a>
+                        </li>
+                        <li class="socials-list-item flex-center">
+                            <a class="socials-link flex-center" href="https://www.linkedin.com/" target="_blank">
+                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/linkedin.svg"></ion-icon>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="div-footer-content">
+                    <h2>Company Notice</h2>
+                    <ul class="footer-links-list">
+                        <li class="footer-links-list-item">
+                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/external-link.svg"></ion-icon>
+                            <p>Privacy Policy</p>
+                        </li>
+                        <li class="footer-links-list-item">
+                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/external-link.svg"></ion-icon>
+                            <p>Terms & Conditions</p>
+                        </li>
+                        <li class="footer-links-list-item">
+                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/external-link.svg"></ion-icon>
+                            <p>User Agreement</p>
+                        </li>
+                        <li class="footer-links-list-item">
+                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/external-link.svg"></ion-icon>
+                            <p>Services</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="div-footer-content">
+                    <h2>Contact Us</h2>
+                    <ul class="footer-links-list">
+                        <li class="footer-links-list-item">
+                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/map-pin.svg"></ion-icon>
+                            <p>Dubrovnik, Croatia</p>
+                        </li>
+                        <li class="footer-links-list-item">
+                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/mail.svg"></ion-icon>
+                            <p>support@devtix.hr</p>
+                        </li>
+                        <li class="footer-links-list-item">
+                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/phone.svg"></ion-icon>
+                            <p>+385 99 123 4567</p>
+                        </li>
+                        <li class="footer-links-list-item">
+                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/home.svg"></ion-icon>
+                            <p>+385 20 433 000</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="div-footer-content">
+                    <h2>Newsletter</h2>
+                    <div class="div-newsletter-form-container">
+                        <p>Wish to receive the <span>latest</span> updates?</p>
+                        <form class="form" action="/api/" method="POST">
+                            <div class="div-input-group-container">
+                                <label class="absolute-y-center" for="newsletter">
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/mail.svg"></ion-icon>
+                                </label>
+                                <input id="newsletter" type="email" name="newsletter" placeholder="Email Address">
+                                <button class="btn btn-primary">Yes!</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="div-copyright-container">
+                <p>&copy; <?php echo date('Y'); ?> <span>DevTix Inc.</span></p>
+                <p>Designed by RIT Croatia students.</p>
+            </div>
+        </div>
+    </footer>

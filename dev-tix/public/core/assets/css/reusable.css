@@ -47,15 +47,15 @@
 
 /* FLEX LAYOUTS */
 .flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .flex-between {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
 }
 
 /* GRID LAYOUTS */
@@ -69,6 +69,11 @@
 
 .grid-4-columns {
     grid-template-columns: repeat(4, 1fr);
+}
+
+/* GRID SPAN ACCROSS COLUMNS */
+.grid-span-accross-all {
+    grid-column: 1 / -1;
 }
 
 /* DISPLAY TOGGLERS */
@@ -108,7 +113,6 @@
 .div-input-container label {
     left: 1.2rem;
     display: flex;
-    text-transform: uppercase;
     cursor: pointer;
 }
 
@@ -160,6 +164,36 @@
     border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
 }
 
+/* INPUT GROUP CONTAINERS */
+.div-input-group-container {
+    position: relative;
+    display: flex;
+}
+
+.div-input-group-container label {
+    left: 1.2rem;
+    display: flex;
+    cursor: pointer;
+}
+
+.div-input-group-container ion-icon {
+    font-size: 2.4rem;
+    color: var(--primary-tint);
+}
+
+.div-input-group-container input {
+    flex-grow: 1;
+    padding: 1.2rem 1.2rem 1.2rem 4.8rem;
+    font-size: 1.6rem;
+    background-color: var(--gray-tint);
+    border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+    transition: all 0.3s;
+}
+
+.div-input-group-container button {
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+}
+
 /* BUTTON CONTAINER */
 .div-grid-btn-container {
     display: grid;
@@ -170,7 +204,7 @@
 .link {
     all: unset;
     display: inline-block;
-    padding: 1.2rem 0;
+    padding: 1.2rem;
     font-size: 1.4rem;
     text-transform: uppercase;
     text-align: center;
@@ -202,6 +236,18 @@
 .link-outline-primary:hover {
     color: var(--white);
     background-color: var(--primary-tint);
+}
+
+/* WHITE BUTTON/LINK TPYES */
+.btn-white,
+.link-white {
+    color: var(--primary);
+    background-color: var(--white);
+}
+
+.btn-white:hover,
+.link-white:hover {
+    background-color: var(--gray-tint);
 }
 
 /* ICONS */
