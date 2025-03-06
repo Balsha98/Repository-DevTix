@@ -15,14 +15,18 @@ class LoginApiController extends AbsApiController
 
         $passwordHash = hash('sha256', $data['password']);
         if ($this->getAccount($data)['password'] === $passwordHash) {
-            return ApiMessage::authAttempt($data, true);
+            // Set session variable.
+            Session::set('active', true);
+
+            // If login was successful.
+            return ApiMessage::authAttempt($data, true, '/dashboard');
         }
 
         // Lastly, if credentials are invalid.
         return ApiMessage::authAttempt($data, false);
     }
 
-    private function getAccount($data)
+    private function getAccount(array $data)
     {
         $query = '
             SELECT password FROM users 

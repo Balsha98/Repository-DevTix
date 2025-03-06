@@ -34,6 +34,9 @@ class ApiRouter
         require_once __DIR__ . "/../controllers/{$className}.php";
         self::$controller = new $className();
 
+        // Start session.
+        Session::start();
+
         // Return JSON response.
         header('Content-Type: application/json');
         return Encode::toJSON(self::proccessRequest($id, $data));

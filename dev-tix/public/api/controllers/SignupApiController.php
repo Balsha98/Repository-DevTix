@@ -29,8 +29,11 @@ class SignupApiController extends AbsApiController
             return ApiMessage::authAttempt($data, false);
         }
 
+        // Set session variable.
+        Session::set('active', true);
+
         // If signup was successful.
-        return ApiMessage::authAttempt($data, true);
+        return ApiMessage::authAttempt($data, true, '/dashboard');
     }
 
     private function getAccount($data)

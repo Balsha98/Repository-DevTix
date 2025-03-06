@@ -15,14 +15,15 @@ class ApiMessage
 
     // ***** USER AUTHENTICATION (LOGIN & SIGNUP) ***** //
 
-    public static function authAttempt(array $data, bool $isValid)
+    public static function authAttempt(array $data, bool $isValid, string $redirect = 'this')
     {
         return [
             'status' => $isValid ? 'success' : 'error',
             'response' => [
                 'heading' => ($isValid ? 'Successfull ' : 'Unsuccessful ') . ucfirst($data['page']),
                 'message' => $isValid ? "Your {$data['page']} was successful!" : 'Invalid credentials provided.'
-            ]
+            ],
+            'redirect' => $redirect
         ];
     }
 
