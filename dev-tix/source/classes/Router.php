@@ -24,8 +24,13 @@ class Router
             [0 => $page] = $uri;
         }
 
-        // Start session.
+        // Session check.
         Session::start();
+        if ($page === 'login' || $page === 'signup') {
+            if (Session::isSet('active')) {
+                Redirect::toRoute('/dashboard');
+            }
+        }
 
         // Render target page.
         return self::requireView($page);
