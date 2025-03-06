@@ -8,7 +8,7 @@ class WelcomeApiController extends AbsApiController
     {
         $data = $this->getData();
 
-        if (!Validate::validateInputs($data, WelcomeInputRules::RULES)) {
+        if (!empty(Validate::validateInputs($data, WelcomeInputRules::RULES))) {
             return Validate::getValidationResult();
         }
     }

@@ -1,5 +1,5 @@
     <!-- ALERT -->
-    <div class="div-alert-container absolute-center hide-alert">
+    <div class="div-alert-container fixed-center hide-alert">
         <div class="div-alert-modal absolute-center">
             <div class="div-alert-icon-container flex-center">
                 <ion-icon 
