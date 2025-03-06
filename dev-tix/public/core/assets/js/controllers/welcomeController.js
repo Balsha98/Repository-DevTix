@@ -1,3 +1,4 @@
+import { isInputEmpty } from "./../helpers/validate.js";
 import { handleRequest } from "./../helpers/request.js";
 import { controlHideLoader } from "./loaderController.js";
 import welcomeModel from "./../models/welcomeModel.js";
@@ -53,6 +54,8 @@ const controlToTopBtn = function () {
 
 const controlNewsletterSubmit = function (formEvent) {
     formEvent.preventDefault();
+
+    if (isInputEmpty()) return;
 
     const form = $(this.closest(".form"));
     const url = form.attr("action");

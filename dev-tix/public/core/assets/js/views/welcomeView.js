@@ -30,6 +30,7 @@ class WelcomeView {
                     return;
                 }
 
+                this.resetNavLinks();
                 this.#pageHeader.removeClass("fixed-header");
                 this.#btnToTopContainer.addClass("hide-to-top-btn");
             },
