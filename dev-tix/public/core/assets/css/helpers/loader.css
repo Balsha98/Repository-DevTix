@@ -33,8 +33,21 @@
 }
 
 .loader-content-header h2 {
+    position: relative;
     font-size: 3.6rem;
     text-transform: uppercase;
+}
+
+.loader-content-header h2::after {
+    content: "";
+    position: absolute;
+    bottom: -0.2rem;
+    left: 50%;
+    width: 75%;
+    height: 0.2rem;
+    background-image: var(--gradient-theme);
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    transform: translateX(-50%);
 }
 
 .loader-content-header span {
