@@ -1,10 +1,12 @@
 class AlertView {
     #alertContainer = $(".div-alert-container");
-    #iconContainer = $(".div-icon-container");
+    #iconContainer = $(".div-alert-icon-container");
     #alertIcon = $(".alert-icon");
     #alertHeading = $(".alert-heading");
     #alertMessage = $(".alert-message");
     #btnClose = $(".btn-alert-close");
+    #alertType;
+    #redirect;
 
     constructor() {
         this.#btnClose.click(this.toggleAlert.bind(this, true));
@@ -15,15 +17,16 @@ class AlertView {
     }
 
     displayVisuals(response) {
-        const alertType = response["status"];
+        this.#alertType = response["status"];
+        this.#redirect = response["redirect"];
 
         // Reload page after some time.
-        if (alertType === "success") setTimeout(() => location.reload(), 2000);
+        if (this.#alertType === "success") setTimeout(this.#redirectToPage.bind(this), 2000);
 
         // Set alert message.
-        const iconType = alertType === "success" ? "check" : "x";
+        const iconType = this.#alertType === "success" ? "check" : "x";
         this.#alertIcon.attr("src", `/core/assets/media/icons/${iconType}.svg`);
-        this.#iconContainer.css("background-color", `var(--${alertType}`);
+        this.#iconContainer.css("background-color", `var(--${this.#alertType}`);
 
         // Wait for alert to load.
         setTimeout(() => this.#alertIcon.addClass("alert-icon-animation"), 200);
@@ -36,8 +39,7 @@ class AlertView {
         if (response["input_id"]) this.#markInputInvalid(response["input_id"]);
 
         // Set alert button.
-        this.#btnClose.text(alertType === "success" ? "Confirm" : "Close");
-        this.#btnClose.data("alert-type", alertType);
+        this.#btnClose.text(this.#alertType === "success" ? "Confirm" : "Close");
     }
 
     #markInputInvalid(inputID) {
@@ -49,8 +51,12 @@ class AlertView {
         this.#alertContainer.toggleClass("hide-alert");
         this.#alertIcon.removeClass("alert-icon-animation");
 
-        const alertType = this.#btnClose.data("alert-type");
-        if (clicked && alertType === "success") location.reload();
+        if (clicked && this.#alertType === "success") this.#redirectToPage();
+    }
+
+    #redirectToPage() {
+        if (this.#redirect === "this") location.reload();
+        else window.open(this.#redirect, "_self");
     }
 }
 

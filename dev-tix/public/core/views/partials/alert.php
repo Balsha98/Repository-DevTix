@@ -13,7 +13,7 @@
                     <p class="alert-message">Message received through the API.</p>
                 </header>
                 <div class="div-alert-btn-container">
-                    <button class="btn btn-primary btn-alert-close" data-alert-type="success">
+                    <button class="btn btn-primary btn-alert-close">
                         Confirm
                     </button>
                 </div>
