@@ -1,4 +1,4 @@
-/* POSITION */
+/* POSITION ABSOULTE */
 .absolute-center {
     position: absolute;
     top: 50%;
@@ -16,6 +16,14 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+}
+
+/* POSITION FIXED */
+.fixed-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* CENTERED CONTAINER */

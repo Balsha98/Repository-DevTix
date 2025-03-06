@@ -39,7 +39,7 @@ class Template
             ";
         }
 
-        return $return ?? '<!-- NONE -->';
+        return $return ?? '<!-- END -->';
     }
 
     /**

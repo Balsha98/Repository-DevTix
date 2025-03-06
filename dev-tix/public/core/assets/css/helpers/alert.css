@@ -7,6 +7,12 @@
     z-index: 9999;
 }
 
+/* ALERT TOGGLER */
+.hide-alert {
+    opacity: 0;
+    z-index: -1;
+}
+
 /* ALERT MODAL */
 .div-alert-modal {
     width: 56rem;
@@ -15,14 +21,8 @@
     border-radius: var(--border-radius-lg);
 }
 
-/* ALERT TOGGLER */
-.hide-alert {
-    opacity: 0;
-    z-index: -1;
-}
-
 /* ICON CONTAINER */
-.div-icon-container {
+.div-alert-icon-container {
     position: relative;
     width: 9.6rem;
     aspect-ratio: 1 / 1;
@@ -31,7 +31,7 @@
     border-radius: var(--border-radius-circle);
 }
 
-.div-icon-container::before {
+.div-alert-icon-container::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -41,13 +41,13 @@
     background-color: inherit;
     border-radius: inherit;
     transform: translate(-50%, -50%);
-    animation-name: circle-indicator;
+    animation-name: alert-circle-indicator;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
     animation-duration: 1s;
 }
 
-@keyframes circle-indicator {
+@keyframes alert-circle-indicator {
     from {
         width: inherit;
         opacity: var(--opacity-full);
@@ -59,20 +59,20 @@
     }
 }
 
-.div-icon-container ion-icon {
+.div-alert-icon-container ion-icon {
     font-size: 5.6rem;
     color: var(--white);
 }
 
-.icon-animation {
-    animation-name: icon-indicator;
+.alert-icon-animation {
+    animation-name: alert-icon-indicator;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
     animation-direction: alternate-reverse;
     animation-duration: 0.8s;
 }
 
-@keyframes icon-indicator {
+@keyframes alert-icon-indicator {
     from {
         transform: rotate(0deg);
     }
