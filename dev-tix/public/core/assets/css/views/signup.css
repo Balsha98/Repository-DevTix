@@ -5,7 +5,7 @@
     width: 80rem;
     background-color: var(--white);
     box-shadow: 0 0.4rem 1.6rem var(--shadow-lg);
-    border-radius: var(--border-radius-lg);
+    border-radius: var(--border-radius-xl);
 }
 
 /* STEP INDICATORS CONTAINER */
