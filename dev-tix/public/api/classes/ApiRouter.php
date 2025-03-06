@@ -38,7 +38,7 @@ class ApiRouter
         Session::start();
 
         // Return JSON response.
-        header('Content-Type: application/json');
+        // header('Content-Type: application/json');
         return Encode::toJSON(self::proccessRequest($id, $data));
     }
 
