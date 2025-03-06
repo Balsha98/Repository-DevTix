@@ -174,7 +174,7 @@
     border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
 }
 
-/* INPUT GROUP CONTAINERS */
+/* INPUT GROUP CONTAINERS (FUTURE USE) */
 .div-input-group-container {
     position: relative;
     display: flex;

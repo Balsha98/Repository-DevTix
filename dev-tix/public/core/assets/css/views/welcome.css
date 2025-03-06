@@ -823,22 +823,34 @@
     gap: 0.4rem;
 }
 
-/* INPUT GROUP CONTAINER (OVERRIDE) */
-.div-input-group-container label {
+/* NEWSLETTER FORM */
+.newsletter-form {
+    display: flex;
+}
+
+/* INPUT CONTAINER (OVERRIDE) */
+.div-input-container {
+    flex-grow: 1;
+}
+
+.div-input-container label {
     left: 1.6rem;
 }
 
-.div-input-group-container ion-icon {
+.div-input-container ion-icon {
     font-size: 1.8rem;
 }
 
-.div-input-group-container input {
+.div-input-container input {
     padding: 0.8rem 1.2rem 0.8rem 4.8rem;
     font-size: 1.4rem;
+    background-color: var(--gray-tint);
+    border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
 }
 
-.div-input-group-container button {
+.btn-newsletter {
     padding: 0.8rem 1.2rem;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
 }
 
 /* SOCIALS LIST */

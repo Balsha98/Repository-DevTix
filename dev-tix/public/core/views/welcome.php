@@ -477,14 +477,14 @@
                     <h2 class="footer-content-heading">Newsletter</h2>
                     <div class="div-newsletter-form-container">
                         <p class="footer-content-description">Wish to receive the <span>latest</span> updates?</p>
-                        <form class="form" action="/api/" method="POST">
-                            <div class="div-input-group-container">
+                        <form class="form newsletter-form" action="/api/" method="POST">
+                            <div class="div-input-container">
                                 <label class="absolute-y-center" for="email">
                                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/mail.svg"></ion-icon>
                                 </label>
                                 <input id="email" type="email" name="email" placeholder="Email Address" required>
-                                <button class="btn btn-primary btn-newsletter">Yes!</button>
                             </div>
+                            <button class="btn btn-primary btn-newsletter">Yes!</button>
                             <div class="div-hidden-inputs">
                                 <input id="page" type="hidden" value="<?php echo $page; ?>">
                             </div>
