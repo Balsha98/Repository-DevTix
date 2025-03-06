@@ -1,3 +1,5 @@
+    <?php require_once __DIR__ . '/partials/loader.php'; ?>
+
     <!-- PAGE HEADER -->
     <header class="page-header">
         <div class="centered-container">

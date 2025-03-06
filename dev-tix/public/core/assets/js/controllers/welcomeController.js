@@ -1,3 +1,4 @@
+import { controlHideLoader } from "./loaderController.js";
 import welcomeModel from "./../models/welcomeModel.js";
 import welcomeView from "./../views/welcomeView.js";
 
@@ -48,6 +49,8 @@ const controlToTopBtn = function () {
 };
 
 const initController = function () {
+    controlHideLoader();
+
     welcomeView.addEventToggleNavLinks(controlToggleNav);
     welcomeView.addEventToggleDropdown(controlToggleDropdown);
     welcomeView.addEventTurnCarouselByBtn(controlTurnCarouselByBtn);

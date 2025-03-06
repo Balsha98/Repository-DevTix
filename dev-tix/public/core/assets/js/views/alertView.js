@@ -26,7 +26,7 @@ class AlertView {
         this.#iconContainer.css("background-color", `var(--${alertType}`);
 
         // Wait for alert to load.
-        setTimeout(() => this.#alertIcon.addClass("icon-animation"), 200);
+        setTimeout(() => this.#alertIcon.addClass("alert-icon-animation"), 200);
 
         // Set alert content.
         this.#alertHeading.text(response["response"]["heading"]);
@@ -47,7 +47,7 @@ class AlertView {
 
     toggleAlert(clicked = false) {
         this.#alertContainer.toggleClass("hide-alert");
-        this.#alertIcon.removeClass("icon-animation");
+        this.#alertIcon.removeClass("alert-icon-animation");
 
         const alertType = this.#btnClose.data("alert-type");
         if (clicked && alertType === "success") location.reload();

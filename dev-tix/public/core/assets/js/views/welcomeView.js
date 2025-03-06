@@ -12,7 +12,7 @@ class WelcomeView {
     #btnToTop = $(".btn-to-top");
 
     constructor() {
-        setTimeout(() => this.#heroContent.removeClass("hide-hero-content"), 200);
+        setTimeout(() => this.#heroContent.removeClass("hide-hero-content"), 2200);
         this.#observeHeroSection();
         this.#observeContentSections();
     }
