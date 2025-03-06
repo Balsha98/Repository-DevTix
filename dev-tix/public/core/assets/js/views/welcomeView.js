@@ -11,6 +11,7 @@ class WelcomeView {
     #spanIndicators = $(".span-indicator");
     #btnToTopContainer = $(".div-to-top-btn-container");
     #btnToTop = $(".btn-to-top");
+    #btnNewsletter = $(".btn-newsletter");
 
     constructor() {
         setTimeout(() => this.#heroContent.removeClass("hide-hero-content"), 2200);
@@ -102,6 +103,10 @@ class WelcomeView {
 
     addEventToTopBtn(handlerFunction) {
         this.#btnToTop.click(handlerFunction);
+    }
+
+    addEventNewsletterSubmit(handlerFunction) {
+        this.#btnNewsletter.click(handlerFunction);
     }
 
     turnTestimonialItems(id) {

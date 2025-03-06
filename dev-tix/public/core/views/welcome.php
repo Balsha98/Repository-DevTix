@@ -1,4 +1,7 @@
-    <?php require_once __DIR__ . '/partials/loader.php'; ?>
+    <?php
+    require_once __DIR__ . '/partials/loader.php';
+    require_once __DIR__ . '/partials/alert.php';
+    ?>
 
     <!-- PAGE HEADER -->
     <header class="page-header">
@@ -30,22 +33,10 @@
                         <span class="span-dropdown-indicator">&nbsp;</span>
                         <ul class="dropdown-menu-list">
                             <li class="dropdown-menu-list-item">
-                                <a 
-                                    class="dropdown-link" 
-                                    href="<?php echo SERVER_PATH; ?>/login" 
-                                    target="_blank"
-                                >
-                                    Login
-                                </a>
+                                <a class="dropdown-link" href="/login" target="_blank">Login</a>
                             </li>
                             <li class="dropdown-menu-list-item">
-                                <a 
-                                    class="dropdown-link" 
-                                    href="<?php echo SERVER_PATH; ?>/signup" 
-                                    target="_blank"
-                                >
-                                    Signup
-                                </a>
+                                <a class="dropdown-link" href="/signup" target="_blank">Signup</a>
                             </li>
                         </ul>
                     </div>
@@ -70,12 +61,8 @@
                     </p>
                 </header>
                 <div class="div-grid-btn-container grid-2-columns">
-                    <a class="link link-primary" href="<?php echo SERVER_PATH; ?>/signup" target="_blank">
-                        Signup
-                    </a>
-                    <a class="link link-outline-primary" href="#about">
-                        Get Started
-                    </a>
+                    <a class="link link-primary" href="/signup" target="_blank">Signup</a>
+                    <a class="link link-outline-primary" href="#about">Get Started</a>
                 </div>
                 <div class="div-hero-data-container">
                     <ul class="hero-users-list">
@@ -492,11 +479,14 @@
                         <p class="footer-content-description">Wish to receive the <span>latest</span> updates?</p>
                         <form class="form" action="/api/" method="POST">
                             <div class="div-input-group-container">
-                                <label class="absolute-y-center" for="newsletter">
+                                <label class="absolute-y-center" for="email">
                                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/mail.svg"></ion-icon>
                                 </label>
-                                <input id="newsletter" type="email" name="newsletter" placeholder="Email Address">
-                                <button class="btn btn-primary">Yes!</button>
+                                <input id="email" type="email" name="email" placeholder="Email Address">
+                                <button class="btn btn-primary btn-newsletter">Yes!</button>
+                            </div>
+                            <div class="div-hidden-inputs">
+                                <input id="page" type="hidden" value="<?php echo $page; ?>">
                             </div>
                         </form>
                     </div>

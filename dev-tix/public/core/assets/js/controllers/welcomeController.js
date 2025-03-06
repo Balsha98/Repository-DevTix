@@ -1,3 +1,4 @@
+import { handleRequest } from "./../helpers/request.js";
 import { controlHideLoader } from "./loaderController.js";
 import welcomeModel from "./../models/welcomeModel.js";
 import welcomeView from "./../views/welcomeView.js";
@@ -50,6 +51,20 @@ const controlToTopBtn = function () {
     window.scrollTo(0, 0);
 };
 
+const controlNewsletterSubmit = function (formEvent) {
+    formEvent.preventDefault();
+
+    const form = $(this.closest(".form"));
+    const url = form.attr("action");
+    const method = form.attr("method");
+
+    const data = {};
+    data["email"] = $("#email").val();
+    data["page"] = $("#page").val();
+
+    handleRequest(url, method, data);
+};
+
 const initController = function () {
     controlHideLoader(2);
 
@@ -58,6 +73,7 @@ const initController = function () {
     welcomeView.addEventTurnCarouselByBtn(controlTurnCarouselByBtn);
     welcomeView.addEventTurnCarouselBySpan(controlTurnCarouselBySpan);
     welcomeView.addEventToTopBtn(controlToTopBtn);
+    welcomeView.addEventNewsletterSubmit(controlNewsletterSubmit);
 };
 
 initController();
