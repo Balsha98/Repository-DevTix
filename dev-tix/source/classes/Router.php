@@ -1,7 +1,6 @@
 <?php
 
 require_once __DIR__ . '/Routes.php';
-require_once __DIR__ . '/helpers/Debug.php';
 
 class Router
 {
@@ -25,6 +24,10 @@ class Router
             [0 => $page] = $uri;
         }
 
+        // Start session.
+        Session::start();
+
+        // Render target page.
         return self::requireView($page);
     }
 
