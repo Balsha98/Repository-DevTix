@@ -4,6 +4,7 @@ class WelcomeView {
     #heroContent = $(".div-hero-content-container");
     #navLinks = $(".nav-link");
     #btnsDropdown = $(".btn-dropdown");
+    #dropdownLinks = $(".dropdown-link");
     #contentSections = $(".section-content");
     #testimonialItems = $(".testimonials-list-item");
     #btnsStep = $(".btn-testimonials-step");
@@ -71,8 +72,19 @@ class WelcomeView {
     }
 
     addEventToggleDropdown(handlerFunction) {
+        this.#btnToggleDropdown(handlerFunction);
+        this.#linkToggleDropdown(handlerFunction);
+    }
+
+    #btnToggleDropdown(handlerFunction) {
         this.#btnsDropdown.each((_, btn) => {
             $(btn).click(handlerFunction);
+        });
+    }
+
+    #linkToggleDropdown(handlerFunction) {
+        this.#dropdownLinks.each((_, link) => {
+            $(link).click(handlerFunction);
         });
     }
 
