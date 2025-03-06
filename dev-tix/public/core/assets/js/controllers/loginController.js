@@ -1,5 +1,6 @@
 import { isInputEmpty } from "./../helpers/validate.js";
 import { handleRequest } from "./../helpers/request.js";
+import { controlHideLoader } from "./loaderController.js";
 import loginView from "./../views/loginView.js";
 
 const controlResetInputs = function () {
@@ -27,6 +28,8 @@ const controlUserLogin = function (formEvent) {
 };
 
 const initController = function () {
+    controlHideLoader(1);
+
     loginView.addEventResetInput(controlResetInputs);
     loginView.addEventUserLogin(controlUserLogin);
 };

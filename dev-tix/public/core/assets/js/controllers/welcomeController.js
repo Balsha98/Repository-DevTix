@@ -49,7 +49,7 @@ const controlToTopBtn = function () {
 };
 
 const initController = function () {
-    controlHideLoader();
+    controlHideLoader(2);
 
     welcomeView.addEventToggleNavLinks(controlToggleNav);
     welcomeView.addEventToggleDropdown(controlToggleDropdown);

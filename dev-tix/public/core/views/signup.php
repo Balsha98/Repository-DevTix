@@ -1,4 +1,7 @@
-    <?php require_once __DIR__ . '/partials/alert.php'; ?>
+    <?php
+    require_once __DIR__ . '/partials/loader.php';
+    require_once __DIR__ . '/partials/alert.php';
+    ?>
 
     <!-- MAIN CONTAINER -->
     <main class="main-container absolute-center">

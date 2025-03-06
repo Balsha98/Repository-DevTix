@@ -1,8 +1,8 @@
 class LoaderView {
     #loaderContainer = $(".div-loader-container");
 
-    hideLoaderContainer() {
-        setTimeout(() => this.#loaderContainer.addClass("hide-loader"), 2000);
+    hideLoaderContainer(seconds) {
+        setTimeout(() => this.#loaderContainer.addClass("hide-loader"), seconds * 1000);
     }
 }
 
