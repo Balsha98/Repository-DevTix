@@ -52,6 +52,13 @@ const controlToTopBtn = function () {
     window.scrollTo(0, 0);
 };
 
+const controlResetInputs = function () {
+    const parent = $(this.closest(".div-input-container"));
+    if (parent.hasClass("invalid-input-container")) {
+        parent.removeClass("invalid-input-container");
+    }
+};
+
 const controlNewsletterSubmit = function (formEvent) {
     formEvent.preventDefault();
 
@@ -76,6 +83,7 @@ const initController = function () {
     welcomeView.addEventTurnCarouselByBtn(controlTurnCarouselByBtn);
     welcomeView.addEventTurnCarouselBySpan(controlTurnCarouselBySpan);
     welcomeView.addEventToTopBtn(controlToTopBtn);
+    welcomeView.addEventResetInput(controlResetInputs);
     welcomeView.addEventNewsletterSubmit(controlNewsletterSubmit);
 };
 

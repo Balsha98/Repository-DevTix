@@ -11,6 +11,7 @@ class WelcomeView {
     #spanIndicators = $(".span-indicator");
     #btnToTopContainer = $(".div-to-top-btn-container");
     #btnToTop = $(".btn-to-top");
+    #requiredInputs = $("*[required]");
     #btnNewsletter = $(".btn-newsletter");
 
     constructor() {
@@ -104,6 +105,12 @@ class WelcomeView {
 
     addEventToTopBtn(handlerFunction) {
         this.#btnToTop.click(handlerFunction);
+    }
+
+    addEventResetInput(handlerFunction) {
+        this.#requiredInputs.each((_, input) => {
+            $(input).click(handlerFunction);
+        });
     }
 
     addEventNewsletterSubmit(handlerFunction) {

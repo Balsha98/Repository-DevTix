@@ -482,7 +482,10 @@
                                 <label class="absolute-y-center" for="email">
                                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/mail.svg"></ion-icon>
                                 </label>
-                                <input id="email" type="email" name="email" placeholder="Email Address" required>
+                                <input 
+                                    id="email" type="email" name="email" 
+                                    placeholder="Email Address" autocomplete="on" required
+                                >
                             </div>
                             <button class="btn btn-primary btn-newsletter">Yes!</button>
                             <div class="div-hidden-inputs">
