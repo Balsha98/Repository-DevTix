@@ -56,7 +56,7 @@ class Session
     /**
      * End a session if it exists.
      */
-    public static function end()
+    public static function stop()
     {
         if (PHP_SESSION_ACTIVE) {
             session_destroy();
