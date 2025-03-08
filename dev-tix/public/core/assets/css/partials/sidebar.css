@@ -14,12 +14,12 @@
 }
 
 .sidebar-container-expand {
-    display: none;
+    /* display: none; */
     width: 32rem;
 }
 
 .sidebar-container-collapse {
-    /* display: none; */
+    display: none;
     width: 9.6rem;
 }
 
