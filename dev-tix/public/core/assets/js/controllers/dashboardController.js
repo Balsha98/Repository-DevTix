@@ -5,7 +5,7 @@ import sidebarView from "./../views/sidebarView.js";
 import { controlToggleSidebar } from "./sidebarController.js";
 
 const initController = function () {
-    controlHideLoader(0.1);
+    controlHideLoader(2);
 
     navigationView.setWelcomeMessage();
     navigationView.addEventToggleDropdown(controlToggleDropdown);
