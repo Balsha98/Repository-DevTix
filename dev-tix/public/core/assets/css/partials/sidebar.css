@@ -299,9 +299,15 @@
 .div-sidebar-user-content-container {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
+    justify-content: space-between;
     height: inherit;
     padding: 0 2.4rem;
+}
+
+.div-sidebar-user-info-container {
+    display: inherit;
+    align-items: inherit;
+    gap: 1.2rem;
 }
 
 /* IMAGE CONTAINER (OVERRIDE) */

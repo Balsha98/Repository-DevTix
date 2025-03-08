@@ -407,18 +407,24 @@
 }
 
 /* ICON BUTTON */
-.btn-icon {
+.btn-icon,
+.link-icon:link,
+.link-icon:visited {
     padding: 0;
     color: var(--primary);
 }
 
-.btn-icon ion-icon {
+.btn-icon ion-icon,
+.link-icon:link ion-icon,
+.link-icon:visited ion-icon {
     font-size: 2rem;
     color: inherit;
     transition: color 0.3s;
 }
 
-.btn-icon:hover ion-icon {
+.btn-icon:hover ion-icon,
+.link-icon:hover ion-icon,
+.link-icon:active ion-icon {
     color: var(--primary-tint);
 }
 
