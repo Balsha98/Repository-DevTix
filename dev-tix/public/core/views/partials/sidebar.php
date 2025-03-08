@@ -190,6 +190,10 @@
                                         src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/grid.svg"
                                     ></ion-icon>
                                 </a>
+                                <div class="div-sidebar-link-name-container-collapse">
+                                    <span class="span-sidebar-link-indicator-collapse">&nbsp;</span>
+                                    <p class="text-sidebar-link-name-collapse">Dashboard</p>
+                                </div>
                             </li>
                             <li class="sidebar-links-list-item">
                                 <a 
