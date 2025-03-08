@@ -180,7 +180,7 @@
                 <ul class="sidebar-nav-list sidebar-nav-list-collapse">
                     <li class="sidebar-nav-list-item sidebar-nav-list-item-collapse">
                         <ul class="sidebar-links-list">
-                            <li class="sidebar-links-list-item">
+                            <li class="sidebar-links-list-item flex-center">
                                 <a 
                                     class="sidebar-link sidebar-link-collapse <?php echo $page === 'dashboard' ? 'active-sidebar-link' : ''; ?>" 
                                     href="/dashboard"
@@ -195,7 +195,7 @@
                                     <p class="text-sidebar-link-name-collapse">Dashboard</p>
                                 </div>
                             </li>
-                            <li class="sidebar-links-list-item">
+                            <li class="sidebar-links-list-item flex-center">
                                 <a 
                                     class="sidebar-link sidebar-link-collapse <?php echo $page === 'tickets' ? 'active-sidebar-link' : ''; ?>" 
                                     href="/tickets"
@@ -205,8 +205,12 @@
                                         src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/paperclip.svg"
                                     ></ion-icon>
                                 </a>
+                                <div class="div-sidebar-link-name-container-collapse">
+                                    <span class="span-sidebar-link-indicator-collapse">&nbsp;</span>
+                                    <p class="text-sidebar-link-name-collapse">Tickets</p>
+                                </div>
                             </li>
-                            <li class="sidebar-links-list-item">
+                            <li class="sidebar-links-list-item flex-center">
                                 <a 
                                     class="sidebar-link sidebar-link-collapse <?php echo $page === 'profile' ? 'active-sidebar-link' : ''; ?>" 
                                     href="/profile"
@@ -216,12 +220,16 @@
                                         src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"
                                     ></ion-icon>
                                 </a>
+                                <div class="div-sidebar-link-name-container-collapse">
+                                    <span class="span-sidebar-link-indicator-collapse">&nbsp;</span>
+                                    <p class="text-sidebar-link-name-collapse">Profile</p>
+                                </div>
                             </li>
                         </ul>
                     </li>
                     <li class="sidebar-nav-list-item sidebar-nav-list-item-collapse">
                         <ul class="sidebar-links-list">
-                            <li class="sidebar-links-list-item">
+                            <li class="sidebar-links-list-item flex-center">
                                 <a 
                                     class="sidebar-link sidebar-link-collapse <?php echo $page === 'leagues' ? 'active-sidebar-link' : ''; ?>" 
                                     href="/leagues"
@@ -231,8 +239,12 @@
                                         src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/zap.svg"
                                     ></ion-icon>
                                 </a>
+                                <div class="div-sidebar-link-name-container-collapse">
+                                    <span class="span-sidebar-link-indicator-collapse">&nbsp;</span>
+                                    <p class="text-sidebar-link-name-collapse">Leagues</p>
+                                </div>
                             </li>
-                            <li class="sidebar-links-list-item">
+                            <li class="sidebar-links-list-item flex-center">
                                 <a 
                                     class="sidebar-link sidebar-link-collapse <?php echo $page === 'leaderboard' ? 'active-sidebar-link' : ''; ?>" 
                                     href="/leaderboard"
@@ -242,12 +254,16 @@
                                         src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/bar-chart-2.svg"
                                     ></ion-icon>
                                 </a>
+                                <div class="div-sidebar-link-name-container-collapse">
+                                    <span class="span-sidebar-link-indicator-collapse">&nbsp;</span>
+                                    <p class="text-sidebar-link-name-collapse">Leaderboard</p>
+                                </div>
                             </li>
                         </ul>
                     </li>
                     <li class="sidebar-nav-list-item sidebar-nav-list-item-collapse">
                         <ul class="sidebar-links-list">
-                            <li class="sidebar-links-list-item">
+                            <li class="sidebar-links-list-item flex-center">
                                 <a 
                                     class="sidebar-link sidebar-link-collapse <?php echo $page === 'notifications' ? 'active-sidebar-link' : ''; ?>" 
                                     href="/notifications"
@@ -257,13 +273,17 @@
                                         src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/bell.svg"
                                     ></ion-icon>
                                 </a>
+                                <div class="div-sidebar-link-name-container-collapse">
+                                    <span class="span-sidebar-link-indicator-collapse">&nbsp;</span>
+                                    <p class="text-sidebar-link-name-collapse">Notifcations</p>
+                                </div>
                             </li>
                         </ul>
                     </li>
                     <?php if ((int) Session::get('role') === 1) { ?>
                     <li class="sidebar-nav-list-item sidebar-nav-list-item-collapse">
                         <ul class="sidebar-links-list">
-                            <li class="sidebar-links-list-item">
+                            <li class="sidebar-links-list-item flex-center">
                                 <a 
                                     class="sidebar-link sidebar-link-collapse <?php echo $page === 'users' ? 'active-sidebar-link' : ''; ?>" 
                                     href="/users"
@@ -273,8 +293,12 @@
                                         src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/users.svg"
                                     ></ion-icon>
                                 </a>
+                                <div class="div-sidebar-link-name-container-collapse">
+                                    <span class="span-sidebar-link-indicator-collapse">&nbsp;</span>
+                                    <p class="text-sidebar-link-name-collapse">Users</p>
+                                </div>
                             </li>
-                            <li class="sidebar-links-list-item">
+                            <li class="sidebar-links-list-item flex-center">
                                 <a 
                                     class="sidebar-link sidebar-link-collapse <?php echo $page === 'statistics' ? 'active-sidebar-link' : ''; ?>" 
                                     href="/statistics"
@@ -284,10 +308,14 @@
                                         src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/pie-chart.svg"
                                     ></ion-icon>
                                 </a>
+                                <div class="div-sidebar-link-name-container-collapse">
+                                    <span class="span-sidebar-link-indicator-collapse">&nbsp;</span>
+                                    <p class="text-sidebar-link-name-collapse">Statistics</p>
+                                </div>
                             </li>
-                            <li class="sidebar-links-list-item">
+                            <li class="sidebar-links-list-item flex-center">
                                 <a 
-                                    class="sidebar-link sidebar-link-collapse <?php echo $page === 'statistics' ? 'active-sidebar-link' : ''; ?>" 
+                                    class="sidebar-link sidebar-link-collapse <?php echo $page === 'logs' ? 'active-sidebar-link' : ''; ?>" 
                                     href="/logs"
                                 >
                                     <ion-icon 
@@ -295,6 +323,10 @@
                                         src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/list.svg"
                                     ></ion-icon>
                                 </a>
+                                <div class="div-sidebar-link-name-container-collapse">
+                                    <span class="span-sidebar-link-indicator-collapse">&nbsp;</span>
+                                    <p class="text-sidebar-link-name-collapse">Logs</p>
+                                </div>
                             </li>
                         </ul>
                     </li>
