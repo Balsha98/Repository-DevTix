@@ -1,6 +1,8 @@
     <!-- NAVIGATION -->
     <div class="div-navigation-container">
-        <h2 class="navigation-heading">Good morning, User!</h2>
+        <h2 class="navigation-heading">
+            <span class="span-welcome-message">&nbsp;</span>, User!
+        </h2>
         <nav class="dashboard-navigation">
             <ul class="dashboard-nav-list">
                 <li class="dropdown-container dropdown-notifications">

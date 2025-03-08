@@ -12,6 +12,7 @@ const controlToggleDropdown = function () {
 const initController = function () {
     controlHideLoader(0.1);
 
+    dashboardView.setWelcomeMessage();
     dashboardView.addEventToggleDropdown(controlToggleDropdown);
 };
 
