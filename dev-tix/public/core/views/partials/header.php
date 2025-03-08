@@ -14,8 +14,10 @@
     <link rel="stylesheet" href="<?php echo SERVER_PATH; ?>/core/assets/css/variables.css">
     <link rel="stylesheet" href="<?php echo SERVER_PATH; ?>/core/assets/css/general.css">
     <link rel="stylesheet" href="<?php echo SERVER_PATH; ?>/core/assets/css/reusable.css">
-    <link rel="stylesheet" href="<?php echo SERVER_PATH; ?>/core/assets/css/helpers/loader.css">
-    <link rel="stylesheet" href="<?php echo SERVER_PATH; ?>/core/assets/css/helpers/alert.css">
+    <link rel="stylesheet" href="<?php echo SERVER_PATH; ?>/core/assets/css/partials/loader.css">
+    <link rel="stylesheet" href="<?php echo SERVER_PATH; ?>/core/assets/css/partials/alert.css">
+    <link rel="stylesheet" href="<?php echo SERVER_PATH; ?>/core/assets/css/partials/sidebar.css">
+    <link rel="stylesheet" href="<?php echo SERVER_PATH; ?>/core/assets/css/partials/navigation.css">
     <?php echo Template::buildStyleDependencies($page); ?>
     <!-- PAGE TITLE -->
     <title>DevTix | <?php echo Template::buildTitle($page); ?></title>

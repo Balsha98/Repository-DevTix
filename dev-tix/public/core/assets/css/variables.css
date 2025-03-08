@@ -9,7 +9,7 @@
     --secondary: #63e6be;
     --secondary-tint: #96f2d7;
     --secondary-shade: #38d9a9;
-    --gradient-theme: linear-gradient(to right top, var(--primary), var(--secondary-tint));
+    --gradient-theme: linear-gradient(to right top, var(--primary-tint), var(--secondary-tint));
     --success: #51cf66;
     --warning: #fcc419;
     --error: #ff6b6b;

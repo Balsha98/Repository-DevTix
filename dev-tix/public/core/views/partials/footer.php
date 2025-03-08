@@ -4,4 +4,5 @@
     <!-- CUSTOM JS SCRIPTS -->
     <?php echo Template::buildModuleDependencies($page); ?>
 </body>
+
 </html>
