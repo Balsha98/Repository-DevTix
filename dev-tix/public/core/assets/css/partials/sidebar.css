@@ -109,11 +109,11 @@
 }
 
 .sidebar-nav-list-expand {
-    gap: 2.4rem;
+    gap: 1.6rem;
 }
 
 .sidebar-nav-list-collapse {
-    gap: 3.2rem;
+    gap: 2.4rem;
 }
 
 /* SIDEBAR NAV LIST ITEM */
@@ -127,7 +127,7 @@
 .sidebar-nav-list-item-collapse:not(:first-child)::before {
     content: "";
     position: absolute;
-    top: -1.6rem;
+    top: -1.2rem;
     left: 50%;
     width: 4rem;
     height: 0.2rem;
