@@ -8,7 +8,7 @@
         <div class="centered-container">
             <div class="flex-between">
                 <div class="div-logo-container">
-                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/images/page-logo.svg"></ion-icon>
+                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/page-logo.svg"></ion-icon>
                     <h2>DevTix</h2>
                 </div>
                 <nav class="header-navigation">
@@ -399,7 +399,7 @@
             <div class="div-footer-content-container grid-4-columns">
                 <header class="footer-content-container-header grid-span-accross-all">
                     <div class="div-logo-container">
-                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/images/page-logo.svg"></ion-icon>
+                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/page-logo.svg"></ion-icon>
                         <h2>DevTix</h2>
                     </div>
                     <a class="link link-primary" href="<?php echo SERVER_PATH; ?>/signup" target="_blank">
