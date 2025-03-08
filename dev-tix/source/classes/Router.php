@@ -11,6 +11,8 @@ class Router
      */
     public static function renderPage(string $uri)
     {
+        Session::start();
+
         if ($uri === '/') {
             $page = 'welcome';
         } else {
@@ -25,7 +27,7 @@ class Router
         }
 
         // Session check.
-        Session::start();
+        Session::set('last_route', "/{$page}");
         if ($page === 'login' || $page === 'signup') {
             if (Session::isSet('active')) {
                 Redirect::toRoute('/dashboard');

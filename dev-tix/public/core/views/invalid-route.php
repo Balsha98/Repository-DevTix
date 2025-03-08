@@ -6,6 +6,8 @@
                 <h3>Requested Page Was Not Found</h3>
                 <p>The page you are looking for unfortunately does not exist.</p>
             </header>
-            <a class="link link-primary" href="/welcome">Back To Home</a>
+            <a class="link link-primary" href="<?php echo Session::get('last_route'); ?>">
+                Back To Previous
+            </a>
         </div>
     </div>
