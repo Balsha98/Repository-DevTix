@@ -1,7 +1,7 @@
     <!-- NAVIGATION -->
     <div class="div-navigation-container">
         <h2 class="navigation-heading">
-            <span class="span-welcome-message">&nbsp;</span>, User!
+            <span class="span-welcome-message">&nbsp;</span>, <?php echo $user->getFirstName(); ?>!
         </h2>
         <nav class="dashboard-navigation">
             <ul class="dashboard-nav-list">

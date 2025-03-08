@@ -115,7 +115,7 @@
                             </li>
                         </ul>
                     </li>
-                    <?php if ((int) Session::get('role') === 1) { ?>
+                    <?php if ($user->getRoleId() === 1) { ?>
                     <li class="sidebar-nav-list-item list-item-administrator">
                         <header class="sidebar-nav-list-item-header">
                             <h4 class="sidebar-nav-heading">Administrator</h4>
@@ -167,13 +167,22 @@
             </nav>
             <footer class="sidebar-footer">
                 <div class="div-sidebar-user-content-container">
-                    <div class="div-image-container div-sidebar-user-image-container">
-                        <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/placeholder-user.jpg" alt="User Image">
+                    <div class="div-sidebar-user-info-container">
+                        <div class="div-image-container div-sidebar-user-image-container">
+                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/placeholder-user.jpg" alt="User Image">
+                        </div>
+                        <div class="div-sidebar-user-description-container">
+                            <p class="text-username">
+                                <?php echo $user->getFullName(); ?>
+                            </p>
+                            <span class="text-role-name">
+                                <?php echo $user->getRoleName(); ?>
+                            </span>
+                        </div>
                     </div>
-                    <div class="div-sidebar-user-description-container">
-                        <p class="text-username">First & Last</p>
-                        <span class="text-role-name">Role Name</span>
-                    </div>
+                    <a class="link link-icon flex-center" href="/logout">
+                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/log-out.svg"></ion-icon>
+                    </a>
                 </div>
             </footer>
         </div>
@@ -288,7 +297,7 @@
                             </li>
                         </ul>
                     </li>
-                    <?php if ((int) Session::get('role') === 1) { ?>
+                    <?php if ($user->getRoleId() === 1) { ?>
                     <li class="sidebar-nav-list-item sidebar-nav-list-item-collapse">
                         <ul class="sidebar-links-list">
                             <li class="sidebar-links-list-item flex-center">

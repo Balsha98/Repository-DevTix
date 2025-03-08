@@ -17,7 +17,8 @@ class LoginApiController extends AbsApiController
         if ($account['password'] === $passwordHash) {
             // Set session variable.
             Session::set('active', true);
-            Session::set('role', $account['role_id']);
+            Session::set('user_id', $account['user_id']);
+            Session::set('role_id', $account['role_id']);
 
             // If login was successful.
             return ApiMessage::authAttempt($data, true, '/dashboard');
