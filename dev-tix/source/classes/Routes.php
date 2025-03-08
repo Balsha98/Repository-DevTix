@@ -16,7 +16,9 @@ class Routes
         'logout',
         'profile',
         'signup',
-        'ticket-request',
+        'statistics',
+        'ticket-details',
+        'users',
         'welcome'
     ];
 }

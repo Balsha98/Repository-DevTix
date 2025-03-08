@@ -30,6 +30,12 @@ class Router
             if (Session::isSet('active')) {
                 Redirect::toRoute('/dashboard');
             }
+        } else if ($page === 'logout') {
+            if (Session::isSet('active')) {
+                Session::stop();
+            }
+
+            Redirect::toRoute('/login');
         }
 
         // Render target page.
