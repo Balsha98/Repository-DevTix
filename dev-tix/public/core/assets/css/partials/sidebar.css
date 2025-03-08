@@ -148,9 +148,13 @@
     color: var(--white);
 }
 
-.sidebar-nav-list-item-header ion-icon {
+.btn-sidebar-dropdown ion-icon {
     font-size: 1.8rem;
     color: var(--white);
+}
+
+.rotate-chevron-to-right {
+    transform: rotate(-90deg);
 }
 
 /* SIDEBAR NAV LINKS LIST */

@@ -13,10 +13,12 @@
             </header>
             <nav class="sidebar-navigation">
                 <ul class="sidebar-nav-list sidebar-nav-list-expand">
-                    <li class="sidebar-nav-list-item">
+                    <li class="sidebar-nav-list-item list-item-general">
                         <header class="sidebar-nav-list-item-header">
                             <h4 class="sidebar-nav-heading">General</h4>
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
+                            <button class="btn btn-icon btn-sidebar-dropdown flex-center">
+                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
+                            </button>
                         </header>
                         <ul class="sidebar-links-list">
                             <li class="sidebar-links-list-item">
@@ -57,10 +59,12 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="sidebar-nav-list-item">
+                    <li class="sidebar-nav-list-item list-item-interactive">
                         <header class="sidebar-nav-list-item-header">
                             <h4 class="sidebar-nav-heading">Interactive</h4>
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
+                            <button class="btn btn-icon btn-sidebar-dropdown flex-center">
+                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
+                            </button>
                         </header>
                         <ul class="sidebar-links-list">
                             <li class="sidebar-links-list-item">
@@ -89,10 +93,12 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="sidebar-nav-list-item">
+                    <li class="sidebar-nav-list-item list-item-accessories">
                         <header class="sidebar-nav-list-item-header">
                             <h4 class="sidebar-nav-heading">Accessories</h4>
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
+                            <button class="btn btn-icon btn-sidebar-dropdown flex-center">
+                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
+                            </button>
                         </header>
                         <ul class="sidebar-links-list">
                             <li class="sidebar-links-list-item">
@@ -110,10 +116,12 @@
                         </ul>
                     </li>
                     <?php if ((int) Session::get('role') === 1) { ?>
-                    <li class="sidebar-nav-list-item">
+                    <li class="sidebar-nav-list-item list-item-administrator">
                         <header class="sidebar-nav-list-item-header">
                             <h4 class="sidebar-nav-heading">Administrator</h4>
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
+                            <button class="btn btn-icon btn-sidebar-dropdown flex-center">
+                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
+                            </button>
                         </header>
                         <ul class="sidebar-links-list">
                             <li class="sidebar-links-list-item">
