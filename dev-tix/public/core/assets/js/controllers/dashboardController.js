@@ -1,19 +1,15 @@
 import { controlHideLoader } from "./loaderController.js";
-import dashboardView from "./../views/dashboardView.js";
-
-const controlToggleDropdown = function () {
-    $(this).toggleClass("active-btn-icon");
-
-    const container = $(this.closest(".dropdown-container"));
-    const containerClass = container.attr("class").split(" ")[1];
-    $(`.${containerClass} .dropdown-menu`).toggleClass("hide-dropdown");
-};
+import navigationView from "./../views/navigationView.js";
+import { controlToggleDropdown } from "./navigationController.js";
+import sidebarView from "./../views/sidebarView.js";
+import { controlToggleSidebar } from "./sidebarController.js";
 
 const initController = function () {
     controlHideLoader(0.1);
 
-    dashboardView.setWelcomeMessage();
-    dashboardView.addEventToggleDropdown(controlToggleDropdown);
+    navigationView.setWelcomeMessage();
+    navigationView.addEventToggleDropdown(controlToggleDropdown);
+    sidebarView.addEventToggleSidebar(controlToggleSidebar);
 };
 
 initController();

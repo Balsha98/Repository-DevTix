@@ -1,26 +1,36 @@
 /* SIDEBAR CONTAINER */
 .div-sidebar-container {
+    width: 32rem;
     height: inherit;
     background-color: var(--primary);
     box-shadow: 0.2rem 0 0.8rem var(--shadow-sm);
+    transition: width 0.5s;
 }
 
 /* SIDER CONTAINER TYPES */
 .sidebar-container-expand,
 .sidebar-container-collapse {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
+    transition: transform 0.5s;
 }
 
 .sidebar-container-expand {
-    /* display: none; */
     width: 32rem;
+    z-index: 2;
 }
 
 .sidebar-container-collapse {
-    display: none;
     width: 9.6rem;
+    z-index: 1;
+}
+
+.collapse-sidebar {
+    transform: translateX(-100%);
 }
 
 /* SIDEBAR HEADER */

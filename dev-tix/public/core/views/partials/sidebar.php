@@ -7,7 +7,7 @@
                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/page-logo.svg"></ion-icon>
                     <h2>DevTix</h2>
                 </div>
-                <button class="btn btn-icon btn-sidebar-menu-close flex-center">
+                <button class="btn btn-icon btn-sidebar-menu btn-sidebar-menu-close flex-center">
                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/bar-chart.svg"></ion-icon>
                 </button>
             </header>
@@ -170,9 +170,9 @@
             </footer>
         </div>
         <!-- COLLAPSED SIDEBAR -->
-        <div class="sidebar-container-collapse">
+        <div class="sidebar-container-collapse collapse-sidebar">
             <header class="sidebar-header flex-center">
-                <button class="btn btn-icon btn-sidebar-menu-open flex-center">
+                <button class="btn btn-icon btn-sidebar-menu btn-sidebar-menu-open flex-center">
                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/menu.svg"></ion-icon>
                 </button>
             </header>
