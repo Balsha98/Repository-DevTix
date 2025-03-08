@@ -19,8 +19,51 @@
     gap: 2.4rem;
 }
 
-/* DROPDOWN CONTAINER (OVERRIDE) */
-.dropdown-container .btn-icon::before {
+/* NOTIFICATIONS INDICATOR */
+.span-notifications-indicator {
+    position: absolute;
+    top: -0.2rem;
+    right: 0.2rem;
+    display: block;
+    width: 0.8rem;
+    aspect-ratio: 1 / 1;
+    font-size: 0.2rem; /* Minimize empty space. */
+    background-color: var(--success);
+    border-radius: var(--border-radius-circle);
+    z-index: 1;
+}
+
+.span-notifications-indicator::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.8rem;
+    aspect-ratio: 1 / 1;
+    font-size: 0.2rem; /* Minimize empty space. */
+    background-color: var(--success);
+    border-radius: var(--border-radius-circle);
+    transform: translate(-50%, -50%);
+    animation-name: notifications-indicator;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+@keyframes notifications-indicator {
+    from {
+        width: 0.8rem;
+        opacity: var(--opacity-full);
+    }
+
+    to {
+        width: 2.4rem;
+        opacity: var(--opacity-none);
+    }
+}
+
+/* BUTTON ICON (OVERRIDE) */
+.btn-nav-icon::before {
     content: "";
     position: absolute;
     top: -1.6rem;
@@ -32,17 +75,10 @@
     transition: all 0.3s;
 }
 
-.dropdown-container .btn-icon:hover::before {
+.active-btn-icon::before,
+.btn-nav-icon:hover::before {
     left: unset;
     right: 0;
     width: 100%;
     background-color: var(--primary-tint);
-}
-
-/* ACTIVE BUTTON ICON (OVERRIDE) */
-.active-btn-icon::before {
-    left: unset !important;
-    right: 0 !important;
-    width: 100% !important;
-    background-color: var(--primary-tint) !important;
 }

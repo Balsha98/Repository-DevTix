@@ -75,6 +75,7 @@
 /* DROPDOWN */
 .dropdown-container {
     position: relative;
+    cursor: pointer;
 }
 
 /* DROPDOWN MENU */

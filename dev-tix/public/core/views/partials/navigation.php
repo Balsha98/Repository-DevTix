@@ -6,6 +6,7 @@
         <nav class="dashboard-navigation">
             <ul class="dashboard-nav-list">
                 <li class="dropdown-container dropdown-notifications">
+                    <span class="span-notifications-indicator">&nbsp;</span>
                     <button class="btn btn-icon btn-nav-icon flex-center">
                         <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/bell.svg"></ion-icon>
                     </button>
