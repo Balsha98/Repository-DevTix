@@ -6,16 +6,18 @@ class LoginApiController extends AbsApiController
     public function post()
     {
         $data = $this->getData();
+        $account = $this->getAccount($data);
 
         // Guard caluse.
-        if (empty($this->getAccount($data))) {
+        if (empty($account)) {
             return ApiMessage::authAccountError($data, 'register');
         }
 
         $passwordHash = hash('sha256', $data['password']);
-        if ($this->getAccount($data)['password'] === $passwordHash) {
+        if ($account['password'] === $passwordHash) {
             // Set session variable.
             Session::set('active', true);
+            Session::set('role', $account['role_id']);
 
             // If login was successful.
             return ApiMessage::authAttempt($data, true, '/dashboard');
@@ -28,7 +30,7 @@ class LoginApiController extends AbsApiController
     private function getAccount(array $data)
     {
         $query = '
-            SELECT password FROM users 
+            SELECT * FROM users 
             WHERE username = :username;
         ';
 
