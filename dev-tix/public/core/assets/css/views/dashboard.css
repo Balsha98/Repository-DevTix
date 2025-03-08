@@ -1,0 +1,51 @@
+/* CENTERED CONTAINER (OVERRIDE) */
+.centered-container {
+    height: inherit;
+}
+
+/* MAIN CONTAINER */
+.main-container {
+    display: flex;
+    height: inherit;
+}
+
+/* DASHBOARD CONTAINER */
+.div-dashboard-container {
+    flex-grow: 1;
+    display: inherit;
+    flex-direction: column;
+    gap: 2.4rem;
+    height: inherit;
+    padding: 2.4rem;
+}
+
+/* DASHBOARD CONTENT CONTAINER */
+.div-dashboard-content-container {
+    flex-grow: 1;
+    display: inherit;
+    flex-direction: inherit;
+    gap: 2.4rem;
+}
+
+/* DASHBOARD OVERVIEW LIST */
+.dashboard-overview-list {
+    display: grid;
+    gap: 2.4rem;
+}
+
+/* DASHBOARD OVERVIEW LIST ITEM */
+.dashboard-overview-list-item {
+    padding: 1.6rem;
+    background-color: var(--white);
+    box-shadow: 0 0.4rem 1.6rem var(--shadow-sm);
+    border-radius: var(--border-radius-lg);
+}
+
+/* DASHBOARD REQUESTS CONTAINER */
+.div-dashboard-requests-container {
+    flex-grow: inherit;
+    padding: 1.6rem;
+    background-color: var(--white);
+    box-shadow: 0 0.4rem 1.6rem var(--shadow-sm);
+    border-radius: var(--border-radius-lg);
+}
