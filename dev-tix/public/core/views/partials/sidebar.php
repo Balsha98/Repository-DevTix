@@ -180,7 +180,7 @@
                             </span>
                         </div>
                     </div>
-                    <a class="link link-icon flex-center" href="/logout">
+                    <a class="link link-icon link-sidebar-logout flex-center" href="/logout">
                         <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/log-out.svg"></ion-icon>
                     </a>
                 </div>
