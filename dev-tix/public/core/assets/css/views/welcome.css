@@ -593,15 +593,10 @@
 .btn-to-top {
     width: 4.8rem;
     aspect-ratio: 1 / 1;
-    padding: 0;
+    color: var(--primary);
+    background-color: var(--white);
     box-shadow: 0 0.4rem 1.6rem var(--shadow-sm);
     border-radius: var(--border-radius-circle);
-}
-
-.btn-to-top ion-icon {
-    font-size: 2rem;
-    color: var(--primary);
-    transition: transform 0.3s;
 }
 
 .btn-to-top:hover ion-icon {

@@ -410,6 +410,9 @@
 .btn-icon,
 .link-icon:link,
 .link-icon:visited {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0;
     color: var(--primary);
 }
@@ -419,7 +422,7 @@
 .link-icon:visited ion-icon {
     font-size: 2rem;
     color: inherit;
-    transition: color 0.3s;
+    transition: all 0.3s;
 }
 
 .btn-icon:hover ion-icon,

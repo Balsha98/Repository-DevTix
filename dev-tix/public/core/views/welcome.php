@@ -388,7 +388,7 @@
 
     <!-- BACK TO TOP BUTTON -->
     <div class="div-to-top-btn-container hide-to-top-btn">
-        <button class="btn btn-white btn-to-top flex-center">
+        <button class="btn btn-icon btn-to-top">
             <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-up.svg"></ion-icon>
         </button>
     </div>

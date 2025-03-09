@@ -18,10 +18,18 @@ require_once __DIR__ . '/partials/loader.php';
                 <div class="div-dashboard-content-container">
                     <?php if ($user->getRoleId() === 1) { ?>
                     <ul class="dashboard-overview-list grid-4-columns">
-                        <li class="dashboard-overview-list-item"></li>
-                        <li class="dashboard-overview-list-item"></li>
-                        <li class="dashboard-overview-list-item"></li>
-                        <li class="dashboard-overview-list-item"></li>
+                        <li class="dashboard-overview-list-item">
+                            <!-- TOTAL TICKETS -->
+                        </li>
+                        <li class="dashboard-overview-list-item">
+                            <!-- TOTAL SOLVED TICKETS -->
+                        </li>
+                        <li class="dashboard-overview-list-item">
+                            <!-- TOTAL CANCELED TICKETS -->
+                        </li>
+                        <li class="dashboard-overview-list-item">
+                            <!-- TOTAL USERS -->
+                        </li>
                     </ul>
                     <?php } ?>
                     <div class="div-dashboard-requests-container">

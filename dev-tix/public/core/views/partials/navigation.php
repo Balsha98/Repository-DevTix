@@ -7,7 +7,7 @@
             <ul class="dashboard-nav-list">
                 <li class="dropdown-container dropdown-notifications">
                     <span class="span-notifications-indicator">&nbsp;</span>
-                    <button class="btn btn-icon btn-nav-icon flex-center">
+                    <button class="btn btn-icon btn-nav-icon">
                         <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/bell.svg"></ion-icon>
                     </button>
                     <div class="dropdown-menu hide-dropdown">
@@ -23,7 +23,7 @@
                     </div>
                 </li>
                 <li class="dropdown-container dropdown-user">
-                    <button class="btn btn-icon btn-nav-icon flex-center">
+                    <button class="btn btn-icon btn-nav-icon">
                         <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>
                     </button>
                     <div class="dropdown-menu hide-dropdown">

@@ -7,7 +7,7 @@
                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/page-logo.svg"></ion-icon>
                     <h2>DevTix</h2>
                 </div>
-                <button class="btn btn-icon btn-sidebar-menu btn-sidebar-menu-close flex-center">
+                <button class="btn btn-icon btn-sidebar-menu btn-sidebar-menu-close">
                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/bar-chart.svg"></ion-icon>
                 </button>
             </header>
@@ -16,7 +16,7 @@
                     <li class="sidebar-nav-list-item list-item-general">
                         <header class="sidebar-nav-list-item-header">
                             <h4 class="sidebar-nav-heading">General</h4>
-                            <button class="btn btn-icon btn-sidebar-dropdown flex-center">
+                            <button class="btn btn-icon btn-sidebar-dropdown">
                                 <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
                             </button>
                         </header>
@@ -62,7 +62,7 @@
                     <li class="sidebar-nav-list-item list-item-interactive">
                         <header class="sidebar-nav-list-item-header">
                             <h4 class="sidebar-nav-heading">Interactive</h4>
-                            <button class="btn btn-icon btn-sidebar-dropdown flex-center">
+                            <button class="btn btn-icon btn-sidebar-dropdown">
                                 <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
                             </button>
                         </header>
@@ -96,7 +96,7 @@
                     <li class="sidebar-nav-list-item list-item-accessories">
                         <header class="sidebar-nav-list-item-header">
                             <h4 class="sidebar-nav-heading">Accessories</h4>
-                            <button class="btn btn-icon btn-sidebar-dropdown flex-center">
+                            <button class="btn btn-icon btn-sidebar-dropdown">
                                 <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
                             </button>
                         </header>
@@ -119,7 +119,7 @@
                     <li class="sidebar-nav-list-item list-item-administrator">
                         <header class="sidebar-nav-list-item-header">
                             <h4 class="sidebar-nav-heading">Administrator</h4>
-                            <button class="btn btn-icon btn-sidebar-dropdown flex-center">
+                            <button class="btn btn-icon btn-sidebar-dropdown">
                                 <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
                             </button>
                         </header>
@@ -189,7 +189,7 @@
         <!-- COLLAPSED SIDEBAR -->
         <div class="sidebar-container-collapse collapse-sidebar">
             <header class="sidebar-header flex-center">
-                <button class="btn btn-icon btn-sidebar-menu btn-sidebar-menu-open flex-center">
+                <button class="btn btn-icon btn-sidebar-menu btn-sidebar-menu-open">
                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/menu.svg"></ion-icon>
                 </button>
             </header>
