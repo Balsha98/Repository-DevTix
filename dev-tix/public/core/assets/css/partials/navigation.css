@@ -28,7 +28,7 @@
     width: 0.8rem;
     aspect-ratio: 1 / 1;
     font-size: 0.2rem; /* Minimize empty space. */
-    background-color: var(--success);
+    background-color: var(--secondary);
     border-radius: var(--border-radius-circle);
     z-index: 1;
 }
@@ -41,7 +41,7 @@
     width: 0.8rem;
     aspect-ratio: 1 / 1;
     font-size: 0.2rem; /* Minimize empty space. */
-    background-color: var(--success);
+    background-color: var(--secondary);
     border-radius: var(--border-radius-circle);
     transform: translate(-50%, -50%);
     animation-name: notifications-indicator;
