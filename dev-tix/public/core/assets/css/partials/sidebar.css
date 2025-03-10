@@ -1,13 +1,13 @@
 /* SIDEBAR CONTAINER */
 .div-sidebar-container {
-    width: 32rem;
+    width: 9.6rem;
     height: inherit;
     background-color: var(--primary);
     box-shadow: 0.2rem 0 0.8rem var(--shadow-sm);
     transition: width 0.5s;
 }
 
-/* SIDER CONTAINER TYPES */
+/* SIDEBAR CONTAINER TYPES */
 .sidebar-container-expand,
 .sidebar-container-collapse {
     position: absolute;

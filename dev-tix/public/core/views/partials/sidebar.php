@@ -1,7 +1,7 @@
     <!-- SIDEBAR -->
     <div class="div-sidebar-container">
         <!-- EXPANDED SIDEBAR -->
-        <div class="sidebar-container-expand">
+        <div class="sidebar-container-expand collapse-sidebar">
             <header class="sidebar-header">
                 <div class="div-logo-container dashboard-logo-container">
                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/page-logo.svg"></ion-icon>
@@ -187,7 +187,7 @@
             </footer>
         </div>
         <!-- COLLAPSED SIDEBAR -->
-        <div class="sidebar-container-collapse collapse-sidebar">
+        <div class="sidebar-container-collapse">
             <header class="sidebar-header flex-center">
                 <button class="btn btn-icon btn-sidebar-menu btn-sidebar-menu-open">
                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/menu.svg"></ion-icon>
