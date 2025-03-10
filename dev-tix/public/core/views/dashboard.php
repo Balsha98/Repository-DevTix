@@ -36,6 +36,14 @@ require_once __DIR__ . '/partials/loader.php';
                         <header class="tickets-container-header flex-between">
                             <h2 class="tickets-container-header-heading">Tickets Overview</h2>
                             <div class="div-tickets-actions-container">
+                                <div class="div-input-container">
+                                    <label class="label-select absolute-y-center" for="filter">
+                                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
+                                    </label>
+                                    <select id="filter" name="filter">
+                                        <option value="0">Select Filter</option>
+                                    </select>
+                                </div>
                                 <a class="link link-primary" href="/ticket">
                                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/plus.svg"></ion-icon>
                                     <span>New Ticket</span>

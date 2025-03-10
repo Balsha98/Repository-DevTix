@@ -55,7 +55,7 @@
 .tickets-container-header {
     position: relative;
     height: 6.4rem;
-    padding: 1.6rem;
+    padding: 0 2.4rem;
 }
 
 .tickets-container-header::after {
@@ -80,6 +80,21 @@
     gap: 0.8rem;
 }
 
+/* INPUT CONTAINER (OVERRIDE) */
+.div-input-container .label-select {
+    right: 0.8rem;
+}
+
+.div-input-container select {
+    width: 16rem;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.4rem;
+}
+
+.div-input-container ion-icon {
+    font-size: 2rem;
+}
+
 /* LINK (OVERRIDE) */
 .div-tickets-actions-container a:link,
 .div-tickets-actions-container a:visited {
@@ -96,7 +111,7 @@
     display: inherit;
     flex-direction: inherit;
     gap: 1.6rem;
-    padding: 1.6rem;
+    padding: 2.4rem;
 }
 
 /* TICKETS LIST HEADER */
@@ -105,7 +120,7 @@
     grid-template-columns: repeat(3, 1fr) 12rem;
     align-items: center;
     height: 2rem;
-    padding: 0 3.2rem 0 1.6rem;
+    padding: 0 3.6rem 0 1.6rem;
 }
 
 .tickets-list-header p {
@@ -121,7 +136,7 @@
 .tickets-list {
     display: inherit;
     flex-direction: inherit;
-    padding-right: 0.8rem;
+    padding-right: 1.2rem;
     border-radius: var(--border-radius-lg);
     overflow-y: scroll;
 }
@@ -223,7 +238,7 @@
 .tickets-container-footer {
     position: relative;
     height: 4.8rem;
-    padding: 1.6rem;
+    padding: 0 2.4rem;
 }
 
 .tickets-container-footer::before {

@@ -3,7 +3,7 @@
     display: inherit;
     align-items: center;
     justify-content: space-between;
-    padding: 1.6rem;
+    padding: 1.6rem 2.4rem;
     background-color: var(--white);
     box-shadow: 0 0.4rem 1.6rem var(--shadow-sm);
     border-radius: var(--border-radius-lg);

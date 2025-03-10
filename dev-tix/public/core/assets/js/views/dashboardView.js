@@ -14,7 +14,7 @@ class DashboardView {
         );
 
         const elementHeightDifference = containerHeight - innerElementHeightTotal;
-        this.#ticketsList.css("height", `calc(${elementHeightDifference}px - 48px)`);
+        this.#ticketsList.css("height", `calc(${elementHeightDifference}px - 64px)`);
 
         for (const ticket of tickets) {
             this.#ticketsList.append(`
