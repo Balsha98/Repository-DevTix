@@ -18,7 +18,7 @@ class ApiRouter
      */
     public static function getResponse(string $method, array $data)
     {
-        $page = $data['page'];
+        $page = $data['page'] ?? $_GET['page'];
         $id = $data['id'] ?? 0;
 
         // Guard clause.
@@ -39,7 +39,7 @@ class ApiRouter
 
         // Return JSON response.
         header('Content-Type: application/json');
-        return Encode::toJSON(self::proccessRequest($id, $data));
+        return Encode::toJSON(self::processRequest($id, $data));
     }
 
     /**
@@ -47,7 +47,7 @@ class ApiRouter
      * @param array $data - input data.
      * @param int $id - record id.
      */
-    private static function proccessRequest(int $id, array $data)
+    private static function processRequest(int $id, array $data)
     {
         return match (self::$method) {
             'GET' => self::processGET($id),

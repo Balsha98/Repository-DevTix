@@ -3,8 +3,9 @@
 class ApiRoutes
 {
     public const ROUTES = [
-        'GET' =>
-            '',
+        'GET' => [
+            'dashboard',
+        ],
         'POST' => [
             'login',
             'signup',
