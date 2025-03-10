@@ -1,4 +1,4 @@
-import { initContoller } from "./../controllers/alertController.js";
+import { initController } from "./../controllers/alertController.js";
 
 export const handleRequest = function (url, method, data) {
     $.ajax({
@@ -7,7 +7,7 @@ export const handleRequest = function (url, method, data) {
         data: JSON.stringify(data),
         success: (response) => {
             console.log(response);
-            initContoller(response);
+            initController(response);
         },
     });
 };

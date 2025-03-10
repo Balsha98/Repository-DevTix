@@ -18,7 +18,7 @@ class DashboardView {
 
         for (const ticket of tickets) {
             this.#ticketsList.append(`
-                <li class="tickets-list-item" data-href="/ticket/{id}">
+                <li class="tickets-list-item" data-href="ticket/{id}">
                     <div class="div-tickets-patron-content-container">
                         <div class="div-image-container div-tickets-patron-image-container">
                             <img src="" alt="User Image">
@@ -44,6 +44,12 @@ class DashboardView {
         }
 
         this.#spanTotalTickets.text(tickets.length);
+    }
+
+    addEventViewTicketDetails(handlerFunction) {
+        $(".tickets-list-item").each((_, item) => {
+            $(item).click(handlerFunction);
+        });
     }
 }
 

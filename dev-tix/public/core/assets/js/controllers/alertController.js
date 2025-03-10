@@ -11,6 +11,6 @@ const controlAlert = function (response) {
     alertView.toggleAlert();
 };
 
-export const initContoller = function (response) {
+export const initController = function (response) {
     alertView.addEventToggleAlert(controlAlert, response);
 };

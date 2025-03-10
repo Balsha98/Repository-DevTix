@@ -60,5 +60,8 @@ require_once __DIR__ . '/partials/loader.php';
                     </div>
                 </div>
             </div>
+            <div class="div-hidden-inputs">
+                <input id="page" type="hidden" name="page" value="<?php echo $page; ?>">
+            </div>
         </main>
     </div>

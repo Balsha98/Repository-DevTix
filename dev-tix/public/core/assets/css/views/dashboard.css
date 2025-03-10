@@ -133,7 +133,7 @@
 }
 
 .tickets-list::-webkit-scrollbar-thumb {
-    background-color: var(--primary);
+    background-color: var(--primary-tint);
     border-radius: inherit;
 }
 
