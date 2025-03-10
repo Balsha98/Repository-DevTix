@@ -17,7 +17,8 @@ class Routes
         'profile',
         'signup',
         'statistics',
-        'ticket-details',
+        'ticket',
+        'tickets',
         'users',
         'welcome'
     ];

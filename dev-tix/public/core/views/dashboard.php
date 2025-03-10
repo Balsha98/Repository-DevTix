@@ -32,8 +32,31 @@ require_once __DIR__ . '/partials/loader.php';
                         </li>
                     </ul>
                     <?php } ?>
-                    <div class="div-dashboard-requests-container">
-                        
+                    <div class="div-dashboard-tickets-container">
+                        <header class="tickets-container-header flex-between">
+                            <h2 class="tickets-container-header-heading">Tickets Overview</h2>
+                            <div class="div-tickets-actions-container">
+                                <a class="link link-primary" href="/ticket">
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/plus.svg"></ion-icon>
+                                    <span>New Ticket</span>
+                                </a>
+                            </div>
+                        </header>
+                        <div class="div-tickets-list-container">
+                            <header class="tickets-list-header">
+                                <p>Patron</p>
+                                <p>Subject</p>
+                                <p>Assistant</p>
+                                <p>Status</p>
+                            </header>
+                            <ul class="tickets-list">
+                                <!-- DYNAMICALLY GENERATED TICKETS -->
+                            </ul>
+                        </div>
+                        <footer class="tickets-container-footer flex-between">
+                            <p>Viewing <span class="span-total-tickets">&nbsp;</span> total tickets.</p>
+                            <p>&copy; <?php echo date('Y'); ?> <span>DevTix Inc.</span></p>
+                        </footer>
                     </div>
                 </div>
             </div>

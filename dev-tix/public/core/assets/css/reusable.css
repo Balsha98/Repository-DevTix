@@ -1,4 +1,4 @@
-/* POSITION ABSOULTE */
+/* POSITION ABSOLUTE */
 .absolute-center {
     position: absolute;
     top: 50%;
@@ -202,8 +202,12 @@
     grid-template-columns: repeat(4, 1fr);
 }
 
-/* GRID SPAN ACCROSS COLUMNS */
-.grid-span-accross-all {
+.grid-5-columns {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+/* GRID SPAN ACROSS COLUMNS */
+.grid-span-across-all {
     grid-column: 1 / -1;
 }
 
@@ -347,6 +351,15 @@
     cursor: pointer;
 }
 
+.btn span,
+.btn ion-icon,
+.link:link span,
+.link:link ion-icon,
+.link:visited span,
+.link:visited ion-icon {
+    color: inherit;
+}
+
 /* PRIMARY BUTTON/LINK TYPES */
 .btn-primary,
 .link-primary:link,
@@ -376,7 +389,7 @@
     background-color: var(--primary-tint);
 }
 
-/* WHITE BUTTON/LINK TPYES */
+/* WHITE BUTTON/LINK TYPES */
 .btn-white,
 .link-white:link,
 .link-white:visited {

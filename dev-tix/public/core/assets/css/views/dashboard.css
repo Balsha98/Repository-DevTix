@@ -41,11 +41,207 @@
     border-radius: var(--border-radius-lg);
 }
 
-/* DASHBOARD REQUESTS CONTAINER */
-.div-dashboard-requests-container {
+/* DASHBOARD TICKETS CONTAINER */
+.div-dashboard-tickets-container {
     flex-grow: inherit;
-    padding: 1.6rem;
+    display: inherit;
+    flex-direction: inherit;
     background-color: var(--white);
     box-shadow: 0 0.4rem 1.6rem var(--shadow-sm);
     border-radius: var(--border-radius-lg);
+}
+
+/* TICKETS CONTAINER HEADER */
+.tickets-container-header {
+    position: relative;
+    height: 6.4rem;
+    padding: 1.6rem;
+}
+
+.tickets-container-header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--gray-tint);
+    transform: translateY(50%);
+}
+
+.tickets-container-header-heading {
+    font-size: 1.6rem;
+}
+
+/* TICKETS ACTIONS CONTAINER */
+.div-tickets-actions-container {
+    display: inherit;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* LINK (OVERRIDE) */
+.div-tickets-actions-container a:link,
+.div-tickets-actions-container a:visited {
+    display: inherit;
+    align-items: inherit;
+    gap: 0.4rem;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.2rem;
+}
+
+/* TICKETS LIST CONTAINER */
+.div-tickets-list-container {
+    flex-grow: 1;
+    display: inherit;
+    flex-direction: inherit;
+    gap: 1.6rem;
+    padding: 1.6rem;
+}
+
+/* TICKETS LIST HEADER */
+.tickets-list-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 12rem;
+    align-items: center;
+    height: 2rem;
+    padding: 0 3.2rem 0 1.6rem;
+}
+
+.tickets-list-header p {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+
+.tickets-list-header p:last-child {
+    text-align: right;
+}
+
+/* TICKETS LIST */
+.tickets-list {
+    display: inherit;
+    flex-direction: inherit;
+    padding-right: 0.8rem;
+    border-radius: var(--border-radius-lg);
+    overflow-y: scroll;
+}
+
+.tickets-list::-webkit-scrollbar {
+    width: 0.8rem;
+    background-color: var(--gray-tint);
+    border-radius: inherit;
+}
+
+.tickets-list::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: inherit;
+}
+
+/* TICKETS LIST */
+.tickets-list-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 12rem;
+    align-items: center;
+    padding: 1.6rem;
+    background-color: var(--gray-tint);
+    border-radius: inherit;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+
+.tickets-list-item:not(:first-child)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--white);
+    transform: translateY(-50%);
+}
+
+.tickets-list-item:hover {
+    opacity: var(--opacity-md);
+}
+
+/* TICKETS PATRON CONTENT CONTAINER */
+.div-tickets-patron-content-container {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* IMAGE CONTAINER (OVERRIDE) */
+.div-tickets-patron-image-container {
+    width: 3.6rem;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--border-radius-circle);
+}
+
+/* TICKETS PATRON/SUBJECT/ASSISTANT INFO CONTAINER */
+.div-tickets-patron-info-container,
+.div-tickets-subject-info-container,
+.div-tickets-assistant-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.div-tickets-patron-info-container p,
+.div-tickets-subject-info-container p,
+.div-tickets-assistant-info-container p {
+    font-size: 1.4rem;
+}
+
+.div-tickets-patron-info-container span,
+.div-tickets-subject-info-container span,
+.div-tickets-assistant-info-container span {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+/* TICKETS STATUS INFO CONTAINER */
+.div-tickets-status-info-container {
+    justify-self: end;
+    gap: 0.4rem;
+    width: fit-content;
+    padding: 0.6rem 0.8rem;
+    text-align: center;
+    color: var(--white);
+    background-color: var(--success);
+    border-radius: var(--border-radius-md);
+}
+
+.div-tickets-status-info-container p {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: inherit;
+}
+
+/* TICKETS CONTAINER FOOTER */
+.tickets-container-footer {
+    position: relative;
+    height: 4.8rem;
+    padding: 1.6rem;
+}
+
+.tickets-container-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--gray-tint);
+    transform: translateY(-50%);
+}
+
+.tickets-container-footer p {
+    font-size: 1.4rem;
+}
+
+.tickets-container-footer span {
+    font-weight: 500;
+    color: var(--primary);
 }

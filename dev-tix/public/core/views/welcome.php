@@ -397,7 +397,7 @@
     <footer class="page-footer">
         <div class="centered-container">
             <div class="div-footer-content-container grid-4-columns">
-                <header class="footer-content-container-header grid-span-accross-all">
+                <header class="footer-content-container-header grid-span-across-all">
                     <div class="div-logo-container">
                         <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/page-logo.svg"></ion-icon>
                         <h2>DevTix</h2>
