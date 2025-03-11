@@ -61,7 +61,7 @@ CREATE TABLE user_details (
 
 
 -- TICKET REQUESTS
-CREATE TABLE ticket_requests(
+CREATE TABLE ticket_requests (
     request_id INT NOT NULL AUTO_INCREMENT,
     patron_id INT NOT NULL,
     assistant_id INT NOT NULL,
@@ -80,3 +80,21 @@ CREATE TABLE ticket_requests(
 INSERT INTO ticket_requests (request_id, patron_id, assistant_id, type, subject, question, posted_at, status, turn_id) VALUES
 (1, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "resolved", 2),
 (2, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 2);
+
+
+
+-- NOTIFICATIONS
+CREATE TABLE notifications (
+    notification_id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    type ENUM("signup", "profile", "request", "response", "league", "leaderboard") NOT NULL,
+    title VARCHAR(50) NOT NULL,
+    message VARCHAR(100) NOT NULL,
+    is_read INT NOT NULL,
+    sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (notification_id),
+    FOREIGN KEY (user_id) REFERENCES users (user_id) 
+);
+
+INSERT INTO notifications (notification_id, user_id, type, title, message, is_read, sent_at) VALUES
+(1, 2, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW());
