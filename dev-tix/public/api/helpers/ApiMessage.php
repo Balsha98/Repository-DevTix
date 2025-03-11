@@ -40,4 +40,19 @@ class ApiMessage
             ]
         ];
     }
+
+    // ***** TICKET REQUESTS & RESPONSES ***** //
+
+    public static function ticketsFetchAttempt(array $data)
+    {
+        $isEmpty = empty($data);
+
+        return [
+            'status' => $isEmpty ? 'error' : 'success',
+            'response' => [
+                'message' => 'Data retrieval was ' . ($isEmpty ? 'unsuccessful' : 'successful') . '.',
+                'data' => $data
+            ]
+        ];
+    }
 }

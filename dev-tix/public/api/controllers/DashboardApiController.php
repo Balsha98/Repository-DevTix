@@ -6,6 +6,47 @@ class DashboardApiController extends AbsApiController
 {
     public function get()
     {
-        return ['status' => 'success', 'tickets' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]];
+        $data = $this->getAllTicketRequests();
+
+        if (empty($data)) {
+            return ApiMessage::ticketsFetchAttempt($data);
+        }
+
+        $return = [];
+        if (count($data) > 1) {
+            foreach ($data as $item) {
+                $return[] = $this->extractData($item);
+            }
+
+            return ApiMessage::ticketsFetchAttempt($return);
+        }
+
+        $return[] = $this->extractData($data);
+
+        return ApiMessage::ticketsFetchAttempt($return);
+    }
+
+    private function extractData(array $data)
+    {
+        return [
+            'ticket' => $data,
+            'patron' => $this->getUserData($data, 'patron'),
+            'assistant' => $this->getUserData($data, 'assistant')
+        ];
+    }
+
+    private function getAllTicketRequests()
+    {
+        return Session::getDbInstance()->executePreparedStatement(
+            'SELECT * FROM ticket_requests;'
+        )->getQueryResult();
+    }
+
+    private function getUserData(array $data, string $userType)
+    {
+        $query = 'SELECT * FROM users WHERE user_id = :user_id;';
+        return Session::getDbInstance()->executePreparedStatement(
+            $query, [':user_id' => $data["{$userType}_id"]]
+        )->getQueryResult();
     }
 }
