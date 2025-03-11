@@ -42,7 +42,7 @@ const controlUserSignup = function (formEvent) {
     data["username"] = $("#username").val();
     data["role"] = $("#role").val();
     data["password"] = $("#password").val();
-    data["page"] = $("#page").val();
+    data["route"] = $("#view").val();
 
     if (signupView.isInputEmpty(isInputEmpty, signupModel.getStateVal("step"))) return;
 

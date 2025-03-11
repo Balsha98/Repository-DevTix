@@ -20,7 +20,7 @@ const controlUserLogin = function (formEvent) {
     const data = {};
     data["username"] = $("#username").val();
     data["password"] = $("#password").val();
-    data["page"] = $("#page").val();
+    data["route"] = $("#view").val();
 
     if (isInputEmpty()) return;
 

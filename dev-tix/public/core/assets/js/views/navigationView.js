@@ -1,5 +1,7 @@
 class NavigationView {
     #spanWelcomeMessage = $(".span-welcome-message");
+    #spanTotalUnread = $(".span-total-unread");
+    #notificationsMenuList = $(".notifications-menu-list");
     #btnsIcon = $(".btn-nav-icon");
 
     setWelcomeMessage() {
@@ -13,9 +15,45 @@ class NavigationView {
         this.#spanWelcomeMessage.text(`Good ${timeOfDay}`);
     }
 
+    generateNotificationsList(data) {
+        const isArray = Array.isArray(data["notifications"]);
+        const notifications = isArray ? data["notifications"] : Array.from(data["notifications"]);
+
+        for (const item of notifications) {
+            this.#notificationsMenuList.append(`
+                <li class="dropdown-menu-list-item notifications-menu-list-item">
+                    <div class="div-notifications-icon-container flex-center">
+                        <ion-icon src="/core/assets/media/icons/${this.#getIconType(item["type"])}.svg"></ion-icon>
+                    </div>
+                    <div class="div-notifications-info-container">
+                        <h4>${item["title"]}</h4>
+                        <span>Time Ago</span>
+                    </div>
+                </li>    
+            `);
+        }
+
+        this.#spanTotalUnread.text(data["total_unread"]["total"]);
+    }
+
+    #getIconType(type) {
+        if (type === "signup") return "user-plus";
+        else if (type === "profile") return "user";
+        else if (type === "request") return "paperclip";
+        else if (type === "response") return "wind";
+        else if (type === "league") return "zap";
+        else if (type === "leaderboard") return "chart";
+    }
+
     addEventToggleDropdown(handlerFunction) {
         this.#btnsIcon.each((_, btn) => {
             $(btn).click(handlerFunction);
+        });
+    }
+
+    addEventViewNotificationDetails(handlerFunction) {
+        $(".notification-list-item").each((_, item) => {
+            $(item).click(handlerFunction);
         });
     }
 }

@@ -2,21 +2,25 @@ import { redirectTo } from "./../helpers/redirect.js";
 import { renderTicketPatronImage } from "./../helpers/image.js";
 import { controlHideLoader } from "./loaderController.js";
 import navigationView from "./../views/navigationView.js";
-import { controlToggleDropdown } from "./navigationController.js";
+import { controlToggleDropdown, controlGenerateNotificationsList } from "./navigationController.js";
 import sidebarView from "./../views/sidebarView.js";
 import { controlToggleSidebar, controlToggleSidebarDropdown } from "./sidebarController.js";
 import dashboardView from "./../views/dashboardView.js";
 
+const controlViewTicketDetails = function () {
+    redirectTo($(this).data("href"));
+};
+
 const controlGenerateTicketsList = function () {
-    const page = $("#page").val();
-    const url = `/api/?page=${page}`;
+    const route = $("#view").val();
+    const url = `/api/?route=${route}`;
     const method = "GET";
 
     $.ajax({
         url: url,
         method: method,
         success: function (response) {
-            console.log(response);
+            console.log("DASHBOARD", response);
 
             // Render ticket list items.
             dashboardView.generateTicketsList(response["response"]["data"], renderTicketPatronImage);
@@ -25,12 +29,8 @@ const controlGenerateTicketsList = function () {
     });
 };
 
-const controlViewTicketDetails = function () {
-    redirectTo($(this).data("href"));
-};
-
 const initController = function () {
-    controlHideLoader(0.1);
+    controlHideLoader(2);
 
     navigationView.setWelcomeMessage();
     navigationView.addEventToggleDropdown(controlToggleDropdown);
@@ -38,6 +38,7 @@ const initController = function () {
     sidebarView.addEventToggleSidebar(controlToggleSidebar);
     sidebarView.addEventToggleSidebarDropdown(controlToggleSidebarDropdown);
 
+    controlGenerateNotificationsList();
     controlGenerateTicketsList();
 };
 

@@ -89,7 +89,7 @@
 .div-overview-item-link-container a:visited {
     padding: 1.2rem 2.4rem;
     font-size: 1.2rem;
-    border-radius: var(--border-radius-none);
+    border-radius: 0;
 }
 
 .div-overview-item-link-container a:link ion-icon,

@@ -2,7 +2,7 @@ import Model from "./model.js";
 
 class AlertModel extends Model {
     _state = {
-        page: "",
+        view: "",
         isValid: false,
     };
 

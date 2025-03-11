@@ -55,7 +55,7 @@
 
     to {
         width: 12.8rem;
-        opacity: var(--opacity-none);
+        opacity: 0;
     }
 }
 
