@@ -17,11 +17,13 @@ class ApiMessage
 
     public static function authAttempt(array $data, bool $isValid, string $redirect = 'this')
     {
+        $script = explode('/', $data['route'])[1];
+
         return [
             'status' => $isValid ? 'success' : 'error',
             'response' => [
-                'heading' => ($isValid ? 'Successfull ' : 'Unsuccessful ') . ucfirst($data['page']),
-                'message' => $isValid ? "Your {$data['page']} was successful!" : 'Invalid credentials provided.'
+                'heading' => ($isValid ? 'Successful ' : 'Unsuccessful ') . ucfirst($script),
+                'message' => $isValid ? "Your {$script} was successful!" : 'Invalid credentials provided.'
             ],
             'redirect' => $redirect
         ];
@@ -29,10 +31,12 @@ class ApiMessage
 
     public static function authAccountError(array $data, string $issue)
     {
+        $script = explode('/', $data['route'])[1];
+
         return [
             'status' => 'error',
             'response' => [
-                'heading' => 'Unsuccessful ' . ucfirst($data['page']),
+                'heading' => 'Unsuccessful ' . ucfirst($script),
                 'message' => match ($issue) {
                     'register' => "You don't have a registered account.",
                     'unique' => 'The username you chose is already taken.'
@@ -41,9 +45,9 @@ class ApiMessage
         ];
     }
 
-    // ***** TICKET REQUESTS & RESPONSES ***** //
+    // ***** DATA FETCHING (REQUESTS, RESPONSES, NOTIFICATIONS) ***** //
 
-    public static function ticketsFetchAttempt(array $data)
+    public static function dataFetchAttempt(array $data)
     {
         $isEmpty = empty($data);
 
