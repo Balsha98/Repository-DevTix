@@ -31,7 +31,7 @@
                     <button class="btn btn-primary btn-login">Login</button>
                 </div>
                 <div class="div-hidden-inputs">
-                    <input id="page" type="hidden" value="<?php echo $page; ?>">
+                    <input id="view" type="hidden" name="view" value="views/login">
                 </div>
             </form>
             <div class="div-signup-container">

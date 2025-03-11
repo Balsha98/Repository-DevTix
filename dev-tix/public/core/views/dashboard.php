@@ -1,5 +1,4 @@
 <?php
-
 // Import needed models.
 // TODO: Might create custom autoloader.
 require_once __DIR__ . '/../../../source/classes/models/User.php';
@@ -37,7 +36,7 @@ require_once __DIR__ . '/partials/loader.php';
                             <div class="div-overview-item-link-container">
                                 <a class="link link-primary flex-between" href="/tickets">
                                     <span>View Details</span>
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/external-link.svg"></ion-icon>
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/plus.svg"></ion-icon>
                                 </a>
                             </div>
                         </li>
@@ -60,7 +59,7 @@ require_once __DIR__ . '/partials/loader.php';
                             <div class="div-overview-item-link-container">
                                 <a class="link link-primary flex-between" href="/tickets?status=resolved">
                                     <span>View Details</span>
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/external-link.svg"></ion-icon>
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/plus.svg"></ion-icon>
                                 </a>
                             </div>
                         </li>
@@ -83,7 +82,7 @@ require_once __DIR__ . '/partials/loader.php';
                             <div class="div-overview-item-link-container">
                                 <a class="link link-primary flex-between" href="/tickets?status=cancelled">
                                     <span>View Details</span>
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/external-link.svg"></ion-icon>
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/plus.svg"></ion-icon>
                                 </a>
                             </div>
                         </li>
@@ -106,7 +105,7 @@ require_once __DIR__ . '/partials/loader.php';
                             <div class="div-overview-item-link-container">
                                 <a class="link link-primary flex-between" href="/users">
                                     <span>View Details</span>
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/external-link.svg"></ion-icon>
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/plus.svg"></ion-icon>
                                 </a>
                             </div>
                         </li>
@@ -149,7 +148,7 @@ require_once __DIR__ . '/partials/loader.php';
                 </div>
             </div>
             <div class="div-hidden-inputs">
-                <input id="page" type="hidden" name="page" value="<?php echo $page; ?>">
+                <input id="view" type="hidden" name="view" value="views/dashboard">
             </div>
         </main>
     </div>

@@ -137,7 +137,7 @@
                     </div>
                 </div>
                 <div class="div-hidden-inputs">
-                    <input id="page" type="hidden" value="<?php echo $page; ?>">
+                    <input id="view" type="hidden" name="view" value="views/signup">
                 </div>
             </form>
             <div class="div-login-container">
