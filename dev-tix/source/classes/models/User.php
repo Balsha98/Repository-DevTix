@@ -41,6 +41,7 @@ class User
             $this->lastName = $result['last_name'];
             $this->email = $result['email'];
             $this->username = $result['username'];
+            $this->image = '';  // TODO: Check for the image.
             $this->joinedAt = $result['joined_at'];
             $this->last_active = $result['last_active'];
         }
@@ -76,6 +77,13 @@ class User
     public function getFullName()
     {
         return "{$this->firstName} {$this->lastName}";
+    }
+
+    public function getInitials()
+    {
+        return implode(array_map(function ($part) {
+            return ucfirst($part[0]);
+        }, explode(' ', $this->getFullName())));
     }
 
     public function getEmail()

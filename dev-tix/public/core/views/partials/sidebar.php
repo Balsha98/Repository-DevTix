@@ -168,9 +168,7 @@
             <footer class="sidebar-footer">
                 <div class="div-sidebar-user-content-container">
                     <div class="div-sidebar-user-info-container">
-                        <div class="div-image-container div-sidebar-user-image-container">
-                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/placeholder-user.jpg" alt="User Image">
-                        </div>
+                        <?php echo Image::renderTicketPatronImage($user); ?>
                         <div class="div-sidebar-user-description-container">
                             <p class="text-username">
                                 <?php echo $user->getFullName(); ?>
@@ -351,9 +349,7 @@
                 </ul>
             </nav>
             <footer class="sidebar-footer flex-center">
-                <div class="div-image-container div-sidebar-user-image-container">
-                    <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/placeholder-user.jpg" alt="User Image">
-                </div>
+                <?php echo Image::renderTicketPatronImage($user); ?>
             </footer>
         </div>
     </div>

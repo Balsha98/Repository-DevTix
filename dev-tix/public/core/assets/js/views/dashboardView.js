@@ -5,7 +5,7 @@ class DashboardView {
     #ticketsList = $(".tickets-list");
     #spanTotalTickets = $(".span-total-tickets");
 
-    generateTicketsList(tickets) {
+    generateTicketsList(data, renderImage) {
         const containerHeight = parseFloat(this.#dashboardTicketsContainer.css("height"));
 
         // prettier-ignore
@@ -16,34 +16,35 @@ class DashboardView {
         const elementHeightDifference = containerHeight - innerElementHeightTotal;
         this.#ticketsList.css("height", `calc(${elementHeightDifference}px - 64px)`);
 
-        for (const ticket of tickets) {
+        // Make sure data is processed as an array.
+        data = Array.isArray(data) ? data : Array.from(data);
+
+        for (const { ticket, patron, assistant } of data) {
             this.#ticketsList.append(`
-                <li class="tickets-list-item" data-href="ticket/{id}">
+                <li class="tickets-list-item" data-href="ticket/${ticket["request_id"]}">
                     <div class="div-tickets-patron-content-container">
-                        <div class="div-image-container div-tickets-patron-image-container">
-                            <img src="" alt="User Image">
-                        </div>
+                        ${renderImage(patron)}
                         <div class="div-tickets-patron-info-container">
-                            <p>Patron's Name</p>
-                            <span>Email Address</span>
+                            <p>${patron["first_name"]} ${patron["last_name"]}</p>
+                            <span>${patron["email"]}</span>
                         </div>
                     </div>
                     <div class="div-tickets-subject-info-container">
-                        <p>Ticket Title</p>
-                        <span>Ticket Type</span>
+                        <p>${ticket["subject"]}</p>
+                        <span>${ticket["type"]}</span>
                     </div>
                     <div class="div-tickets-assistant-info-container">
-                        <p>Assistant's Name</p>
-                        <span>Email Address</span>
+                        <p>${assistant["first_name"]} ${assistant["last_name"]}</p>
+                        <span>${assistant["email"]}</span>
                     </div>
-                    <div class="div-tickets-status-info-container">
-                        <p>Completed</p>
+                    <div class="div-tickets-status-info-container status-${ticket["status"]}">
+                        <p>${ticket["status"]}</p>
                     </div>
                 </li>    
             `);
         }
 
-        this.#spanTotalTickets.text(tickets.length);
+        this.#spanTotalTickets.text(data.length);
     }
 
     addEventViewTicketDetails(handlerFunction) {

@@ -1,4 +1,5 @@
 import { redirectTo } from "./../helpers/redirect.js";
+import { renderTicketPatronImage } from "./../helpers/image.js";
 import { controlHideLoader } from "./loaderController.js";
 import navigationView from "./../views/navigationView.js";
 import { controlToggleDropdown } from "./navigationController.js";
@@ -15,7 +16,10 @@ const controlGenerateTicketsList = function () {
         url: url,
         method: method,
         success: function (response) {
-            dashboardView.generateTicketsList(response["tickets"]);
+            console.log(response);
+
+            // Render ticket list items.
+            dashboardView.generateTicketsList(response["response"]["data"], renderTicketPatronImage);
             dashboardView.addEventViewTicketDetails(controlViewTicketDetails);
         },
     });
@@ -26,7 +30,7 @@ const controlViewTicketDetails = function () {
 };
 
 const initController = function () {
-    controlHideLoader(0.1);
+    controlHideLoader(2);
 
     navigationView.setWelcomeMessage();
     navigationView.addEventToggleDropdown(controlToggleDropdown);
