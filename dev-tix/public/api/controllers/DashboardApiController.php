@@ -37,7 +37,7 @@ class DashboardApiController extends AbsApiController
 
     private function getAllTicketRequests()
     {
-        return Session::getDbInstance()->executePreparedStatement(
+        return Session::getDbInstance()->executeQuery(
             'SELECT * FROM ticket_requests;'
         )->getQueryResult();
     }
@@ -45,7 +45,7 @@ class DashboardApiController extends AbsApiController
     private function getUserData(array $data, string $userType)
     {
         $query = 'SELECT * FROM users WHERE user_id = :user_id;';
-        return Session::getDbInstance()->executePreparedStatement(
+        return Session::getDbInstance()->executeQuery(
             $query, [':user_id' => $data["{$userType}_id"]]
         )->getQueryResult();
     }

@@ -35,7 +35,7 @@ class LoginApiController extends AbsApiController
             WHERE username = :username;
         ';
 
-        return Session::getDbInstance()->executePreparedStatement(
+        return Session::getDbInstance()->executeQuery(
             $query, [':username' => $data['username']]
         )->getQueryResult();
     }

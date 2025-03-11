@@ -32,7 +32,7 @@ class Request
             WHERE request_id = :request_id;
         ';
 
-        $result = $this->database->executePreparedStatement(
+        $result = $this->database->executeQuery(
             $query, [':request_id' => $this->id]
         )->getQueryResult();
 

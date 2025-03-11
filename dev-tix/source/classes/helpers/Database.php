@@ -34,12 +34,12 @@ class Database
     }
 
     /**
-     * Create a prepared statement.
-     * @param string $query - query to be prepared.
+     * Execute a query.
+     * @param string $query - query to be executed.
      * @param array $params - query parameters.
      * @return - same instance ($this).
      */
-    public function executePreparedStatement(string $query, array $params = [])
+    public function executeQuery(string $query, array $params = [])
     {
         $this->pdoStatement = empty($params) ? $this->pdo->query($query) : $this->pdo->prepare($query);
 

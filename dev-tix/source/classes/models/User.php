@@ -30,7 +30,7 @@ class User
             WHERE user_id = :user_id;
         ';
 
-        $result = $this->database->executePreparedStatement(
+        $result = $this->database->executeQuery(
             $query, [':user_id' => $this->id]
         )->getQueryResult();
 

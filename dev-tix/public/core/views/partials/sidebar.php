@@ -290,7 +290,7 @@
                                 </a>
                                 <div class="div-sidebar-link-name-container-collapse">
                                     <span class="span-sidebar-link-indicator-collapse">&nbsp;</span>
-                                    <p class="text-sidebar-link-name-collapse">Notifcations</p>
+                                    <p class="text-sidebar-link-name-collapse">Notifications</p>
                                 </div>
                             </li>
                         </ul>
