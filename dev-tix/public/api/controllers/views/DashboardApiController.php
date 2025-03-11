@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../classes/AbsApiController.php';
+require_once __DIR__ . '/../../classes/AbsApiController.php';
 
 class DashboardApiController extends AbsApiController
 {
@@ -9,7 +9,7 @@ class DashboardApiController extends AbsApiController
         $data = $this->getAllTicketRequests();
 
         if (empty($data)) {
-            return ApiMessage::ticketsFetchAttempt($data);
+            return ApiMessage::dataFetchAttempt($data);
         }
 
         $return = [];
@@ -18,12 +18,12 @@ class DashboardApiController extends AbsApiController
                 $return[] = $this->extractData($item);
             }
 
-            return ApiMessage::ticketsFetchAttempt($return);
+            return ApiMessage::dataFetchAttempt($return);
         }
 
         $return[] = $this->extractData($data);
 
-        return ApiMessage::ticketsFetchAttempt($return);
+        return ApiMessage::dataFetchAttempt($return);
     }
 
     private function extractData(array $data)

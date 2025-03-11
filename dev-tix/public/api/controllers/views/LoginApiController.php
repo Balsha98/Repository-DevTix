@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../classes/AbsApiController.php';
+require_once __DIR__ . '/../../classes/AbsApiController.php';
 
 class LoginApiController extends AbsApiController
 {

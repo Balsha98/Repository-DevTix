@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../classes/AbsApiController.php';
-require_once __DIR__ . '/data/SignupInputRules.php';
+require_once __DIR__ . '/../../classes/AbsApiController.php';
+require_once __DIR__ . '/../data/SignupInputRules.php';
 
 class SignupApiController extends AbsApiController
 {
