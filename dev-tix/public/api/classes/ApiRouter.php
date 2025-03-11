@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . '/AbsApiController.php';
 require_once __DIR__ . '/../helpers/ApiMessage.php';
 require_once __DIR__ . '/ApiRoutes.php';
@@ -18,11 +17,11 @@ class ApiRouter
      */
     public static function getResponse(string $method, array $data)
     {
-        $page = $data['page'] ?? $_GET['page'];
         $id = $data['id'] ?? 0;
+        [$directory, $script] = self::parseRoute($data);
 
         // Guard clause.
-        if (!in_array($page, ApiRoutes::ROUTES[$method])) {
+        if (!in_array($script, ApiRoutes::ROUTES[$method])) {
             return Encode::toJSON(ApiMessage::apiError('route'));
         }
 
@@ -30,8 +29,8 @@ class ApiRouter
         self::$method = $method;
 
         // Instantiate appropriate controller.
-        $className = ucfirst($page) . 'ApiController';
-        require_once __DIR__ . "/../controllers/{$className}.php";
+        $className = ucfirst($script) . 'ApiController';
+        require_once __DIR__ . "/../controllers/{$directory}/{$className}.php";
         self::$controller = new $className();
 
         // Start session.
@@ -40,6 +39,11 @@ class ApiRouter
         // Return JSON response.
         header('Content-Type: application/json');
         return Encode::toJSON(self::processRequest($id, $data));
+    }
+
+    private static function parseRoute(array $data)
+    {
+        return explode('/', $data['route'] ?? $_GET['route']);
     }
 
     /**
