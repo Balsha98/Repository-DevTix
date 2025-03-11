@@ -82,3 +82,63 @@
     width: 100%;
     background-color: var(--primary-tint);
 }
+
+/* NOTIFICATIONS MENU LIST */
+.notifications-menu-list {
+    width: 32rem;
+}
+
+/* NOTIFICATIONS MENU LIST ITEM */
+.notifications-menu-list-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    width: 100%;
+    padding: 1.2rem;
+    transition: opacity 0.3s;
+}
+
+.notifications-menu-list-item:not(:first-child)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--gray-tint);
+    transform: translateY(-50%);
+}
+
+.notifications-menu-list-item:hover {
+    opacity: var(--opacity-md);
+}
+
+/* NOTIFICATIONS ICON CONTAINER */
+.div-notifications-icon-container {
+    width: 4rem;
+    aspect-ratio: 1 / 1;
+    background-color: var(--primary);
+    box-shadow: 0 0.4rem 1.2rem var(--shadow-sm);
+    border-radius: var(--border-radius-circle);
+}
+
+.div-notifications-icon-container ion-icon {
+    font-size: 1.8rem;
+    color: var(--white);
+}
+
+/* NOTIFICATIONS INFO CONTAINER */
+.div-notifications-info-container {
+    display: inherit;
+    flex-direction: column;
+}
+
+.div-notifications-info-container h4 {
+    font-size: 1.4rem;
+}
+
+.div-notifications-info-container span {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
