@@ -27,6 +27,7 @@ CREATE TABLE users (
     email VARCHAR(50) NOT NULL,
     username VARCHAR(25) NOT NULL,
     password CHAR(64) NOT NULL,
+    image LONGBLOB NULL,
     joined_at TIMESTAMP NULL,
     last_active TIMESTAMP NULL,
     PRIMARY KEY (user_id),
@@ -56,3 +57,26 @@ CREATE TABLE user_details (
     PRIMARY KEY (details_id),
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
+
+
+
+-- TICKET REQUESTS
+CREATE TABLE ticket_requests(
+    request_id INT NOT NULL AUTO_INCREMENT,
+    patron_id INT NOT NULL,
+    assistant_id INT NOT NULL,
+    type VARCHAR(50) NOT NULL,
+    subject VARCHAR(50) NOT NULL,
+    question TEXT NOT NULL,
+    posted_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status ENUM("unassigned", "pending", "resolved", "cancelled") NOT NULL,
+    turn_id INT NOT NULL,
+    PRIMARY KEY (request_id),
+    FOREIGN KEY (patron_id) REFERENCES users (user_id),
+    FOREIGN KEY (assistant_id) REFERENCES users (user_id)
+);
+
+INSERT INTO ticket_requests (request_id, patron_id, assistant_id, type, subject, question, posted_at, status, turn_id) VALUES
+(1, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "resolved", 2),
+(2, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 2);
