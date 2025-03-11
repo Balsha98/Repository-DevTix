@@ -30,7 +30,7 @@ const controlViewTicketDetails = function () {
 };
 
 const initController = function () {
-    controlHideLoader(2);
+    controlHideLoader(0.1);
 
     navigationView.setWelcomeMessage();
     navigationView.addEventToggleDropdown(controlToggleDropdown);

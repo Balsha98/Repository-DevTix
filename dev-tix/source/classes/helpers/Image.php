@@ -7,7 +7,7 @@ class Image
         if ($user->getImage()) {
             return "
                 <div class='div-image-container div-tickets-patron-image-container'>
-                    <img src='" . $user->getImage() . "' alt='User Image'>
+                    <img src='" . self::encode($user->getImage()) . "' alt='User Image'>
                 </div>
             ";
         }
@@ -17,5 +17,10 @@ class Image
                 <span>" . $user->getInitials() . '</span>
             </div>
         ';
+    }
+
+    private static function encode(string $imageBlob)
+    {
+        return base64_encode($imageBlob);
     }
 }

@@ -18,17 +18,77 @@ require_once __DIR__ . '/partials/loader.php';
                 <div class="div-dashboard-content-container">
                     <?php if ($user->getRoleId() === 1) { ?>
                     <ul class="dashboard-overview-list grid-4-columns">
+                        <!-- TOTAL TICKETS -->
                         <li class="dashboard-overview-list-item">
-                            <!-- TOTAL TICKETS -->
+                            <header class="dashboard-overview-item-header">
+                                <div class="div-overview-item-icon-container flex-center">
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/paperclip.svg"></ion-icon>
+                                </div>
+                                <div class="div-overview-item-header-data">
+                                    <span>100</span>
+                                    <h4>Total Requests</h4>
+                                </div>
+                            </header>
+                            <div class="div-overview-item-link-container">
+                                <a class="link link-primary flex-between" href="/tickets">
+                                    <span>View Details</span>
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/plus.svg"></ion-icon>
+                                </a>
+                            </div>
                         </li>
+                        <!-- TOTAL SOLVED TICKETS -->
                         <li class="dashboard-overview-list-item">
-                            <!-- TOTAL SOLVED TICKETS -->
+                            <header class="dashboard-overview-item-header">
+                                <div class="div-overview-item-icon-container flex-center">
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/check.svg"></ion-icon>
+                                </div>
+                                <div class="div-overview-item-header-data">
+                                    <span>80</span>
+                                    <h4>Total Resolved</h4>
+                                </div>
+                            </header>
+                            <div class="div-overview-item-link-container">
+                                <a class="link link-primary flex-between" href="/tickets?status=resolved">
+                                    <span>View Details</span>
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/plus.svg"></ion-icon>
+                                </a>
+                            </div>
                         </li>
+                        <!-- TOTAL CANCELED TICKETS -->
                         <li class="dashboard-overview-list-item">
-                            <!-- TOTAL CANCELED TICKETS -->
+                            <header class="dashboard-overview-item-header">
+                                <div class="div-overview-item-icon-container flex-center">
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/x.svg"></ion-icon>
+                                </div>
+                                <div class="div-overview-item-header-data">
+                                    <span>20</span>
+                                    <h4>Total Cancelled</h4>
+                                </div>
+                            </header>
+                            <div class="div-overview-item-link-container">
+                                <a class="link link-primary flex-between" href="/tickets?status=cancelled">
+                                    <span>View Details</span>
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/plus.svg"></ion-icon>
+                                </a>
+                            </div>
                         </li>
+                        <!-- TOTAL USERS -->
                         <li class="dashboard-overview-list-item">
-                            <!-- TOTAL USERS -->
+                            <header class="dashboard-overview-item-header">
+                                <div class="div-overview-item-icon-container flex-center">
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/users.svg"></ion-icon>
+                                </div>
+                                <div class="div-overview-item-header-data">
+                                    <span>45</span>
+                                    <h4>Total Users</h4>
+                                </div>
+                            </header>
+                            <div class="div-overview-item-link-container">
+                                <a class="link link-primary flex-between" href="/users">
+                                    <span>View Details</span>
+                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/plus.svg"></ion-icon>
+                                </a>
+                            </div>
                         </li>
                     </ul>
                     <?php } ?>

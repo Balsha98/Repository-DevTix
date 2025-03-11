@@ -35,10 +35,66 @@
 
 /* DASHBOARD OVERVIEW LIST ITEM */
 .dashboard-overview-list-item {
-    padding: 1.6rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
     background-color: var(--white);
     box-shadow: 0 0.4rem 1.6rem var(--shadow-sm);
     border-radius: var(--border-radius-lg);
+    overflow: hidden;
+}
+
+/* DASHBOARD OVERVIEW ITEM HEADER */
+.dashboard-overview-item-header {
+    padding: 1.6rem 2.4rem;
+}
+
+/* DASHBOARD OVERVIEW ITEM ICON CONTAINER */
+.div-overview-item-icon-container {
+    position: absolute;
+    top: -2.4rem;
+    left: -2.4rem;
+    width: 8rem;
+    aspect-ratio: 1 / 1;
+    background-color: var(--primary);
+    border-radius: var(--border-radius-circle);
+}
+
+.div-overview-item-icon-container ion-icon {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    font-size: 2.4rem;
+    color: var(--white);
+}
+
+/* OVERVIEW ITEM HEADER DATA */
+.div-overview-item-header-data {
+    text-align: right;
+}
+
+.div-overview-item-header-data span {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.div-overview-item-header-data h4 {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+/* OVERVIEW ITEM LINK CONTAINER */
+.div-overview-item-link-container a:link,
+.div-overview-item-link-container a:visited {
+    padding: 1.2rem 2.4rem;
+    font-size: 1.2rem;
+    border-radius: var(--border-radius-none);
+}
+
+.div-overview-item-link-container a:link ion-icon,
+.div-overview-item-link-container a:visited ion-icon {
+    font-size: 1.4rem;
 }
 
 /* DASHBOARD TICKETS CONTAINER */
