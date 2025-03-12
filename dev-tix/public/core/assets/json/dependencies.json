@@ -2,30 +2,31 @@
     {
         "dashboard": {
             "css": [
-                "css/partials/page-loader",
                 "css/partials/alert",
-                "css/partials/sidebar",
+                "css/partials/data-loader",
                 "css/partials/navigation",
-                "css/partials/data-loader"
+                "css/partials/none-data",
+                "css/partials/page-loader",
+                "css/partials/sidebar"
             ],
             "js": []
         }
     },
     {
         "login": {
-            "css": ["css/partials/page-loader", "css/partials/alert"],
+            "css": ["css/partials/alert", "css/partials/page-loader"],
             "js": []
         }
     },
     {
         "signup": {
-            "css": ["css/partials/page-loader", "css/partials/alert"],
+            "css": ["css/partials/alert", "css/partials/page-loader"],
             "js": []
         }
     },
     {
         "welcome": {
-            "css": ["css/partials/page-loader", "css/partials/alert"],
+            "css": ["css/partials/alert", "css/partials/page-loader"],
             "js": []
         }
     }

@@ -21,7 +21,7 @@ require_once __DIR__ . '/partials/page-loader.php';
                         <li class="dashboard-overview-list-item">
                             <header class="dashboard-overview-item-header">
                                 <div class="div-overview-item-icon-container flex-center">
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/paperclip.svg"></ion-icon>
+                                    <ion-icon src="<?php echo ICON_PATH; ?>/paperclip.svg"></ion-icon>
                                 </div>
                                 <div class="div-overview-item-header-data">
                                     <span class="span-overview-item">&nbsp;</span>
@@ -31,7 +31,7 @@ require_once __DIR__ . '/partials/page-loader.php';
                             <div class="div-overview-item-link-container">
                                 <a class="link link-primary flex-between" href="/tickets">
                                     <span>View Details</span>
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/plus.svg"></ion-icon>
+                                    <ion-icon src="<?php echo ICON_PATH; ?>/plus.svg"></ion-icon>
                                 </a>
                             </div>
                         </li>
@@ -39,7 +39,7 @@ require_once __DIR__ . '/partials/page-loader.php';
                         <li class="dashboard-overview-list-item">
                             <header class="dashboard-overview-item-header">
                                 <div class="div-overview-item-icon-container flex-center">
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/check.svg"></ion-icon>
+                                    <ion-icon src="<?php echo ICON_PATH; ?>/check.svg"></ion-icon>
                                 </div>
                                 <div class="div-overview-item-header-data">
                                     <span class="span-overview-item">&nbsp;</span>
@@ -49,7 +49,7 @@ require_once __DIR__ . '/partials/page-loader.php';
                             <div class="div-overview-item-link-container">
                                 <a class="link link-primary flex-between" href="/tickets?status=resolved">
                                     <span>View Details</span>
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/plus.svg"></ion-icon>
+                                    <ion-icon src="<?php echo ICON_PATH; ?>/plus.svg"></ion-icon>
                                 </a>
                             </div>
                         </li>
@@ -57,7 +57,7 @@ require_once __DIR__ . '/partials/page-loader.php';
                         <li class="dashboard-overview-list-item">
                             <header class="dashboard-overview-item-header">
                                 <div class="div-overview-item-icon-container flex-center">
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/x.svg"></ion-icon>
+                                    <ion-icon src="<?php echo ICON_PATH; ?>/x.svg"></ion-icon>
                                 </div>
                                 <div class="div-overview-item-header-data">
                                     <span class="span-overview-item">&nbsp;</span>
@@ -67,7 +67,7 @@ require_once __DIR__ . '/partials/page-loader.php';
                             <div class="div-overview-item-link-container">
                                 <a class="link link-primary flex-between" href="/tickets?status=cancelled">
                                     <span>View Details</span>
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/plus.svg"></ion-icon>
+                                    <ion-icon src="<?php echo ICON_PATH; ?>/plus.svg"></ion-icon>
                                 </a>
                             </div>
                         </li>
@@ -75,7 +75,7 @@ require_once __DIR__ . '/partials/page-loader.php';
                         <li class="dashboard-overview-list-item">
                             <header class="dashboard-overview-item-header">
                                 <div class="div-overview-item-icon-container flex-center">
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/users.svg"></ion-icon>
+                                    <ion-icon src="<?php echo ICON_PATH; ?>/users.svg"></ion-icon>
                                 </div>
                                 <div class="div-overview-item-header-data">
                                     <span class="span-overview-item">&nbsp;</span>
@@ -85,7 +85,7 @@ require_once __DIR__ . '/partials/page-loader.php';
                             <div class="div-overview-item-link-container">
                                 <a class="link link-primary flex-between" href="/users">
                                     <span>View Details</span>
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/plus.svg"></ion-icon>
+                                    <ion-icon src="<?php echo ICON_PATH; ?>/plus.svg"></ion-icon>
                                 </a>
                             </div>
                         </li>
@@ -97,7 +97,7 @@ require_once __DIR__ . '/partials/page-loader.php';
                             <div class="div-tickets-actions-container">
                                 <div class="div-input-container">
                                     <label class="label-select absolute-y-center" for="filter">
-                                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
+                                        <ion-icon src="<?php echo ICON_PATH; ?>/chevron-down.svg"></ion-icon>
                                     </label>
                                     <select id="filter" class="tickets-select-filter" name="filter">
                                         <option value="all">Filter All</option>
@@ -108,7 +108,7 @@ require_once __DIR__ . '/partials/page-loader.php';
                                     </select>
                                 </div>
                                 <a class="link link-primary" href="/ticket">
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/plus.svg"></ion-icon>
+                                    <ion-icon src="<?php echo ICON_PATH; ?>/plus.svg"></ion-icon>
                                     <span>New Ticket</span>
                                 </a>
                             </div>
@@ -121,6 +121,7 @@ require_once __DIR__ . '/partials/page-loader.php';
                                 <p>Status</p>
                             </header>
                             <div class="div-tickets-list-container">
+                                <?php require_once __DIR__ . '/partials/none-data.php'; ?>
                                 <?php require_once __DIR__ . '/partials/data-loader.php'; ?>
                                 <ul class="tickets-list">
                                     <!-- DYNAMICALLY GENERATED TICKETS VIA AJAX -->

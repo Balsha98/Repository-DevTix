@@ -9,3 +9,7 @@ define('SERVER_PATH', PROTOCOL . '://' . SERVER_NAME);
 define('DB_NAME', 'dev_tix');
 define('DB_USER', 'root');
 define('DB_PASS', '');
+
+// Commonly used paths.
+define('IMAGE_PATH', SERVER_PATH . '/core/assets/media/images');
+define('ICON_PATH', SERVER_PATH . '/core/assets/media/icons');
