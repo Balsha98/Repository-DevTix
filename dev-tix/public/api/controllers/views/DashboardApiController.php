@@ -6,17 +6,14 @@ class DashboardApiController extends AbsApiController
 {
     public function get()
     {
-        $roleID = Session::get('role_id');
-        $data = $this->getAllRows('ticket_requests');
-
-        if (empty($data)) {
-            return ApiMessage::dataFetchAttempt($data);
-        }
-
         $return = [];
-        if ($roleID === 1) {  // In case an admin user is logged in.
+
+        // In case an admin user is logged in.
+        if (Session::get('role_id') === 1) {
             $return['overviews'] = $this->extractAdminOverviewData();
         }
+
+        $data = $this->getAllRows('ticket_requests');
 
         // Get all present tickets.
         if (count($data) > 1) {
@@ -27,7 +24,9 @@ class DashboardApiController extends AbsApiController
             return ApiMessage::dataFetchAttempt($return);
         }
 
-        $return['tickets'] = $this->extractTicketData($data);
+        if (!empty($data)) {
+            $return['tickets'] = $this->extractTicketData($data);
+        }
 
         return ApiMessage::dataFetchAttempt($return);
     }
