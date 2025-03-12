@@ -7,17 +7,18 @@ import * as navigationController from "./navigationController.js";
 import sidebarView from "./../views/sidebarView.js";
 import { controlToggleSidebar, controlToggleSidebarDropdown } from "./sidebarController.js";
 import dashboardView from "./../views/dashboardView.js";
+import { controlHideNoneDataContainer, controlShowNoneDataContainer } from "./noneDataController.js";
 
 const controlChangeFilter = function () {
     const filter = $(this).val();
     dashboardView.setSpanFilterName(filter);
-
     const ticketListItems = $(".tickets-list-item");
 
     // Guard clause.
     if (ticketListItems.length === 0) return;
 
-    // Show data loader.
+    // Show visuals.
+    controlHideNoneDataContainer();
     controlShowDataLoader();
 
     ticketListItems.each((_, item) => {
@@ -27,8 +28,13 @@ const controlChangeFilter = function () {
         else $(item).removeClass("hide-element");
     });
 
+    // Get difference between filtered data.
     const { length: totalHidden } = $(".tickets-list-item.hide-element");
-    setTimeout(() => dashboardView.setSpanTotalTickets(ticketListItems.length - totalHidden), 1000);
+    const totalTicketsLeft = ticketListItems.length - totalHidden;
+    setTimeout(() => dashboardView.setSpanTotalTickets(totalTicketsLeft), 1000);
+
+    // Show none data container if list is empty.
+    if (totalTicketsLeft === 0) controlShowNoneDataContainer(1);
 
     // Hide data loader.
     controlHideDataLoader(1);
@@ -53,7 +59,9 @@ const controlGenerateTicketsList = function () {
             if (overviews) dashboardView.loadAdminOverviewData(overviews);
 
             // Render ticket list items.
-            const tickets = response["response"]["data"]["tickets"];
+            const tickets = response["response"]["data"]["tickets"] ?? null;
+            if (!tickets || tickets.length === 0) controlShowNoneDataContainer(0);
+
             dashboardView.generateTicketsList(tickets, renderTicketPatronImage);
             dashboardView.addEventViewTicketDetails(controlViewTicketDetails);
         },

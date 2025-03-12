@@ -1,5 +1,5 @@
     <!-- NONE CONTAINER -->
-    <div class="div-none-data-container absolute-center">
+    <div class="div-none-data-container absolute-center hide-none-data">
         <div class="div-none-data-modal absolute-center">
             <div class="div-none-data-icon-container flex-center">
                 <ion-icon src="<?php echo ICON_PATH; ?>/info.svg"></ion-icon>
