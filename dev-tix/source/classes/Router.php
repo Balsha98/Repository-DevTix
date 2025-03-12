@@ -7,7 +7,7 @@ class Router
     /**
      * Render teh page based on the uri.
      * @param string $uri - request uri.
-     * @return - approprate view.
+     * @return - appropriate view.
      */
     public static function renderPage(string $uri)
     {
