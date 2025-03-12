@@ -129,7 +129,7 @@ require_once __DIR__ . '/partials/page-loader.php';
                         </div>
                         <footer class="tickets-container-footer flex-between">
                             <p>Applied Filter: <span class="span-applied-filter">All</span></p>
-                            <p>Viewing <span class="span-total-tickets">&nbsp;</span> total tickets.</p>
+                            <p>Viewing <span class="span-total-tickets">0</span> total tickets.</p>
                         </footer>
                     </div>
                 </div>

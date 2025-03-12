@@ -77,9 +77,9 @@ CREATE TABLE ticket_requests (
     FOREIGN KEY (assistant_id) REFERENCES users (user_id)
 );
 
-INSERT INTO ticket_requests (request_id, patron_id, assistant_id, type, subject, question, posted_at, status, turn_id) VALUES
-(1, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "resolved", 2),
-(2, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 2);
+-- INSERT INTO ticket_requests (request_id, patron_id, assistant_id, type, subject, question, posted_at, status, turn_id) VALUES
+-- (1, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "resolved", 2),
+-- (2, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 2);
 
 
 
@@ -96,7 +96,7 @@ CREATE TABLE notifications (
     FOREIGN KEY (user_id) REFERENCES users (user_id) 
 );
 
-INSERT INTO notifications (notification_id, user_id, type, title, message, is_read, sent_at) VALUES
-(1, 2, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW()),
-(2, 2, "request", "Request Successfully Posted", "You have successfully posted a request.", 1, NOW()),
-(3, 3, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW());
+-- INSERT INTO notifications (notification_id, user_id, type, title, message, is_read, sent_at) VALUES
+-- (1, 2, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW()),
+-- (2, 2, "request", "Request Successfully Posted", "You have successfully posted a request.", 1, NOW()),
+-- (3, 3, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW());

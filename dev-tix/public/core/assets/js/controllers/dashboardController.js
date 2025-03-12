@@ -10,12 +10,17 @@ import dashboardView from "./../views/dashboardView.js";
 
 const controlChangeFilter = function () {
     const filter = $(this).val();
+    dashboardView.setSpanFilterName(filter);
+
     const ticketListItems = $(".tickets-list-item");
+
+    // Guard clause.
+    if (ticketListItems.length === 0) return;
 
     // Show data loader.
     controlShowDataLoader();
 
-    $(".tickets-list-item").each((_, item) => {
+    ticketListItems.each((_, item) => {
         const ticketStatus = $(item).data("status");
         if (filter === "all") $(item).removeClass("hide-element");
         else if (ticketStatus !== filter) $(item).addClass("hide-element");
@@ -23,7 +28,7 @@ const controlChangeFilter = function () {
     });
 
     const { length: totalHidden } = $(".tickets-list-item.hide-element");
-    setTimeout(() => dashboardView.setFilterSpanIndicators(filter, ticketListItems.length - totalHidden), 1000);
+    setTimeout(() => dashboardView.setSpanTotalTickets(ticketListItems.length - totalHidden), 1000);
 
     // Hide data loader.
     controlHideDataLoader(1);
@@ -56,7 +61,7 @@ const controlGenerateTicketsList = function () {
 };
 
 const initController = function () {
-    controlHidePageLoader(2);
+    controlHidePageLoader(0.1);
 
     // Setup navigation.
     navigationView.setWelcomeMessage();

@@ -28,6 +28,9 @@ class DashboardView {
         const elementHeightDifference = containerHeight - innerElementHeightTotal;
         this.#ticketsList.css("height", `calc(${elementHeightDifference}px - 64px)`);
 
+        // Guard clause.
+        if (!tickets) return;
+
         // Make sure tickets are processed as an array.
         tickets = Array.isArray(tickets) ? tickets : [tickets];
 
@@ -60,11 +63,14 @@ class DashboardView {
             `);
         }
 
-        this.setFilterSpanIndicators(this.#ticketsSelectFilter.val(), tickets.length);
+        this.setSpanTotalTickets(tickets.length);
     }
 
-    setFilterSpanIndicators(filter, totalTickets) {
+    setSpanFilterName(filter) {
         this.#spanAppliedFilter.text(filter[0].toUpperCase() + filter.slice(1));
+    }
+
+    setSpanTotalTickets(totalTickets) {
         this.#spanTotalTickets.text(totalTickets);
     }
 
