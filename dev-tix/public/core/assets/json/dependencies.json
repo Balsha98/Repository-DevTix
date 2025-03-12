@@ -21,6 +21,7 @@
         "dashboard": {
             "css": [
                 "css/partials/page-loader",
+                "css/partials/alert",
                 "css/partials/sidebar",
                 "css/partials/navigation",
                 "css/partials/data-loader"
