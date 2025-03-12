@@ -9,6 +9,7 @@ class ApiRoutes
         ],
         'POST' => [
             'login',
+            'navigation',
             'signup',
             'welcome'
         ],

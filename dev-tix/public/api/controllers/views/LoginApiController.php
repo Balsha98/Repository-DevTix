@@ -8,9 +8,9 @@ class LoginApiController extends AbsApiController
         $data = $this->getData();
         $account = $this->getAccount($data);
 
-        // Guard caluse.
+        // Guard clause.
         if (empty($account)) {
-            return ApiMessage::authAccountError($data, 'register');
+            return ApiMessage::alertAuthAccountError($data, 'register');
         }
 
         $passwordHash = hash('sha256', $data['password']);
@@ -21,11 +21,11 @@ class LoginApiController extends AbsApiController
             Session::set('role_id', $account['role_id']);
 
             // If login was successful.
-            return ApiMessage::authAttempt($data, true, '/dashboard');
+            return ApiMessage::alertAuthAttempt($data, true, '/dashboard');
         }
 
         // Lastly, if credentials are invalid.
-        return ApiMessage::authAttempt($data, false);
+        return ApiMessage::alertAuthAttempt($data, false);
     }
 
     private function getAccount(array $data)

@@ -15,7 +15,7 @@ class ApiMessage
 
     // ***** USER AUTHENTICATION (LOGIN & SIGNUP) ***** //
 
-    public static function authAttempt(array $data, bool $isValid, string $redirect = 'this')
+    public static function alertAuthAttempt(array $data, bool $isValid, string $redirect = 'this')
     {
         $script = explode('/', $data['route'])[1];
 
@@ -29,7 +29,7 @@ class ApiMessage
         ];
     }
 
-    public static function authAccountError(array $data, string $issue)
+    public static function alertAuthAccountError(array $data, string $issue)
     {
         $script = explode('/', $data['route'])[1];
 
@@ -57,6 +57,21 @@ class ApiMessage
                 'message' => 'Data retrieval was ' . ($isEmpty ? 'unsuccessful' : 'successful') . '.',
                 'data' => $data
             ]
+        ];
+    }
+
+    public static function alertDataAlterAttempt(bool $isValid, string $redirect = 'this')
+    {
+        return [
+            'status' => $isValid ? 'success' : 'error',
+            'response' => [
+                'heading' => 'Data Updated ' . ($isValid ? 'Successfully' : 'Unsuccessfully'),
+                'message' => match ($isValid) {
+                    true => 'Your request was processed successfully.',
+                    false => 'Your request could not be processed.'
+                }
+            ],
+            'redirect' => $redirect
         ];
     }
 }
