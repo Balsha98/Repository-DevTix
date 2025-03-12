@@ -1,8 +1,10 @@
 class DashboardView {
     #dashboardTicketsContainer = $(".div-dashboard-tickets-container");
+    #ticketsSelectFilter = $(".tickets-select-filter");
     #ticketsContainerHeaders = $(".div-dashboard-tickets-container header");
     #ticketsContainerFooter = $(".div-dashboard-tickets-container footer");
     #ticketsList = $(".tickets-list");
+    #spanAppliedFilter = $(".span-applied-filter");
     #spanTotalTickets = $(".span-total-tickets");
 
     generateTicketsList(data, renderImage) {
@@ -21,7 +23,11 @@ class DashboardView {
 
         for (const { ticket, patron, assistant } of data) {
             this.#ticketsList.append(`
-                <li class="tickets-list-item" data-href="ticket/${ticket["request_id"]}">
+                <li 
+                    class="tickets-list-item" 
+                    data-href="ticket/${ticket["request_id"]}" 
+                    data-status="${ticket["status"]}"
+                >
                     <div class="div-tickets-patron-content-container">
                         ${renderImage(patron)}
                         <div class="div-tickets-patron-info-container">
@@ -44,13 +50,22 @@ class DashboardView {
             `);
         }
 
-        this.#spanTotalTickets.text(data.length);
+        this.setFilterSpanIndicators(this.#ticketsSelectFilter.val(), data.length);
     }
 
     addEventViewTicketDetails(handlerFunction) {
         $(".tickets-list-item").each((_, item) => {
             $(item).click(handlerFunction);
         });
+    }
+
+    addEventChangeFilter(handlerFunction) {
+        this.#ticketsSelectFilter.change(handlerFunction);
+    }
+
+    setFilterSpanIndicators(filter, totalTickets) {
+        this.#spanAppliedFilter.text(filter[0].toUpperCase() + filter.slice(1));
+        this.#spanTotalTickets.text(totalTickets);
     }
 }
 

@@ -119,8 +119,12 @@ require_once __DIR__ . '/partials/loader.php';
                                     <label class="label-select absolute-y-center" for="filter">
                                         <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
                                     </label>
-                                    <select id="filter" name="filter">
-                                        <option value="0">Select Filter</option>
+                                    <select id="filter" class="tickets-select-filter" name="filter">
+                                        <option value="all">Filter All</option>
+                                        <option value="unassigned">Filter Unassigned</option>
+                                        <option value="pending">Filter Pending</option>
+                                        <option value="resolved">Filter Resolved</option>
+                                        <option value="cancelled">Filter Cancelled</option>
                                     </select>
                                 </div>
                                 <a class="link link-primary" href="/ticket">
@@ -141,8 +145,8 @@ require_once __DIR__ . '/partials/loader.php';
                             </ul>
                         </div>
                         <footer class="tickets-container-footer flex-between">
+                            <p>Applied Filter: <span class="span-applied-filter">All</span></p>
                             <p>Viewing <span class="span-total-tickets">&nbsp;</span> total tickets.</p>
-                            <p>&copy; <?php echo date('Y'); ?> <span>DevTix Inc.</span></p>
                         </footer>
                     </div>
                 </div>

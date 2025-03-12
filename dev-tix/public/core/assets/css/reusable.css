@@ -380,6 +380,19 @@
     background-color: var(--primary-shade);
 }
 
+.btn-primary-tint,
+.link-primary-tint:link,
+.link-primary-tint:visited {
+    color: var(--white);
+    background-color: var(--primary-tint);
+}
+
+.btn-primary-tint:hover,
+.link-primary-tint:hover,
+.link-primary-tint:active {
+    background-color: var(--primary);
+}
+
 .btn-outline-primary,
 .link-outline-primary:link,
 .link-outline-primary:visited {

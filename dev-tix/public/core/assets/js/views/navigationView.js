@@ -22,6 +22,7 @@ class NavigationView {
         const notifications = isArray ? data["notifications"] : [data["notifications"]];
         const totalUnread = data["total_unread"]["total"];
 
+        // Remove certain visuals.
         if (totalUnread === 0) {
             this.#spanNotificationsIndicator.remove();
             this.#btnMarkAsRead.remove();
@@ -42,6 +43,9 @@ class NavigationView {
                 </li>    
             `);
         }
+
+        // Add scroll overflow to list.
+        if (notifications.length > 5) this.#notificationsMenuList.css("overflow-y", "scroll");
 
         this.#spanTotalUnread.text(totalUnread);
     }
