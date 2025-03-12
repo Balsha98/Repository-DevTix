@@ -77,9 +77,12 @@ CREATE TABLE ticket_requests (
     FOREIGN KEY (assistant_id) REFERENCES users (user_id)
 );
 
--- INSERT INTO ticket_requests (request_id, patron_id, assistant_id, type, subject, question, posted_at, status, turn_id) VALUES
--- (1, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "resolved", 2),
--- (2, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 2);
+INSERT INTO ticket_requests (request_id, patron_id, assistant_id, type, subject, question, posted_at, status, turn_id) VALUES
+(1, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "resolved", 2),
+(2, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 2),
+(3, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "cancelled", 2),
+(4, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "pending", 2),
+(5, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "pending", 2);
 
 
 
