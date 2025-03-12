@@ -1,7 +1,13 @@
 [
     {
-        "welcome": {
-            "css": ["css/partials/page-loader", "css/partials/alert"],
+        "dashboard": {
+            "css": [
+                "css/partials/page-loader",
+                "css/partials/alert",
+                "css/partials/sidebar",
+                "css/partials/navigation",
+                "css/partials/data-loader"
+            ],
             "js": []
         }
     },
@@ -18,14 +24,8 @@
         }
     },
     {
-        "dashboard": {
-            "css": [
-                "css/partials/page-loader",
-                "css/partials/alert",
-                "css/partials/sidebar",
-                "css/partials/navigation",
-                "css/partials/data-loader"
-            ],
+        "welcome": {
+            "css": ["css/partials/page-loader", "css/partials/alert"],
             "js": []
         }
     }
