@@ -9,7 +9,7 @@ class Database
     private array $params;
 
     /**
-     * Singleton contructor.
+     * Singleton constructor.
      * @param string $dbName - database name.
      * @param string $dbUser - db access username.
      * @param string $dbPass - db access password.
@@ -33,6 +33,18 @@ class Database
         return self::$instance;
     }
 
+    public function getQueryOutput()
+    {
+        $query = $this->pdoStatement->queryString;
+        foreach ($this->params as $key => $value) {
+            if (str_contains($query, $key)) {
+                $query = str_replace($key, $value, $query);
+            }
+        }
+
+        return $query;
+    }
+
     /**
      * Execute a query.
      * @param string $query - query to be executed.
@@ -47,8 +59,10 @@ class Database
             if (!empty($params)) {
                 foreach ($params as $name => $value) {
                     $dataType = is_numeric($value) ? PDO::PARAM_INT : PDO::PARAM_STR;
-                    $this->pdoStatement->bindParam($name, $value, $dataType);
+                    $this->pdoStatement->bindValue($name, $value, $dataType);
                 }
+
+                $this->params = $params;
             }
         } else {
             $this->params = $params;
@@ -97,7 +111,7 @@ class Database
     /**
      * Check type of query.
      * @param string $type - possible query type.
-     * @return bool - whether it mathes or not.
+     * @return bool - whether it matches or not.
      */
     private function isQueryOfType(string $type)
     {
