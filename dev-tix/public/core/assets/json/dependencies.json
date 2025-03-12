@@ -1,0 +1,31 @@
+[
+    {
+        "welcome": {
+            "css": ["css/partials/page-loader", "css/partials/alert"],
+            "js": []
+        }
+    },
+    {
+        "login": {
+            "css": ["css/partials/page-loader", "css/partials/alert"],
+            "js": []
+        }
+    },
+    {
+        "signup": {
+            "css": ["css/partials/page-loader", "css/partials/alert"],
+            "js": []
+        }
+    },
+    {
+        "dashboard": {
+            "css": [
+                "css/partials/page-loader",
+                "css/partials/sidebar",
+                "css/partials/navigation",
+                "css/partials/data-loader"
+            ],
+            "js": []
+        }
+    }
+]
