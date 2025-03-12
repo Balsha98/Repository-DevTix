@@ -149,18 +149,6 @@
     transition: opacity 0.3s;
 }
 
-.notifications-menu-list-item::before {
-    content: "";
-    position: absolute;
-    top: 1.2rem;
-    right: 1.2rem;
-    width: 0.8rem;
-    aspect-ratio: 1 / 1;
-    background-color: transparent;
-    border-radius: var(--border-radius-circle);
-    transition: background-color 0.3s;
-}
-
 .notifications-menu-list-item::after {
     content: "";
     position: absolute;
@@ -172,8 +160,16 @@
     transform: translateY(50%);
 }
 
-.notifications-menu-list-item:hover::before {
+.unread-notification::before {
+    content: "";
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    width: 0.8rem;
+    aspect-ratio: 1 / 1;
     background-color: var(--primary);
+    border-radius: var(--border-radius-circle);
+    transition: background-color 0.3s;
 }
 
 .notifications-menu-list-item:hover {

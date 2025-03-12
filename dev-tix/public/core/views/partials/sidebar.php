@@ -74,7 +74,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/zap.svg"
+                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/award.svg"
                                     ></ion-icon>
                                     <span class="span-sidebar-link-name">Leagues</span>
                                 </a>
@@ -251,7 +251,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/zap.svg"
+                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/award.svg"
                                     ></ion-icon>
                                 </a>
                                 <div class="div-sidebar-link-name-container-collapse">

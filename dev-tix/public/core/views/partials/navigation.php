@@ -1,3 +1,5 @@
+    <?php require_once __DIR__ . '/alert.php'; ?>
+
     <!-- NAVIGATION -->
     <div class="div-navigation-container">
         <h2 class="navigation-heading">
@@ -17,7 +19,7 @@
                             <form class="form" action="/api/" method="POST">
                                 <button class="btn btn-primary btn-mark-as-read">Mark As Read</button>
                                 <div class="div-hidden-inputs">
-                                    <input id="is_read" type="hidden" value="1">
+                                    <input id="is_read" type="hidden" name="is_read" value="1">
                                 </div>
                             </form>
                         </header>
@@ -48,6 +50,27 @@
                         </ul>
                     </div>
                 </li>
+                <?php if ($user->getRoleId() === 1) { ?>
+                <li class="dropdown-container dropdown-settings">
+                    <button class="btn btn-icon btn-nav-icon">
+                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/settings.svg"></ion-icon>
+                    </button>
+                    <div class="dropdown-menu hide-dropdown">
+                        <span class="span-dropdown-indicator">&nbsp;</span>
+                        <ul class="dropdown-menu-list">
+                            <li class="dropdown-menu-list-item">
+                                <a class="dropdown-link" href="/users">Users</a>
+                            </li>
+                            <li class="dropdown-menu-list-item">
+                                <a class="dropdown-link" href="/statistics">Statistics</a>
+                            </li>
+                            <li class="dropdown-menu-list-item">
+                                <a class="dropdown-link" href="/logs">Logs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <?php } ?>
             </ul>
         </nav>
         <div class="div-hidden-inputs">

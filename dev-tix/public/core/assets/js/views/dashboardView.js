@@ -17,7 +17,7 @@ class DashboardView {
         this.#ticketsList.css("height", `calc(${elementHeightDifference}px - 64px)`);
 
         // Make sure data is processed as an array.
-        data = Array.isArray(data) ? data : Array.from(data);
+        data = Array.isArray(data) ? data : [data];
 
         for (const { ticket, patron, assistant } of data) {
             this.#ticketsList.append(`

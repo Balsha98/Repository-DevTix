@@ -1,8 +1,10 @@
 class NavigationView {
     #spanWelcomeMessage = $(".span-welcome-message");
+    #spanNotificationsIndicator = $(".span-notifications-indicator");
     #spanTotalUnread = $(".span-total-unread");
     #notificationsMenuList = $(".notifications-menu-list");
     #btnsIcon = $(".btn-nav-icon");
+    #btnMarkAsRead = $(".btn-mark-as-read");
 
     setWelcomeMessage() {
         const hours = new Date().getHours();
@@ -17,11 +19,19 @@ class NavigationView {
 
     generateNotificationsList(data) {
         const isArray = Array.isArray(data["notifications"]);
-        const notifications = isArray ? data["notifications"] : Array.from(data["notifications"]);
+        const notifications = isArray ? data["notifications"] : [data["notifications"]];
+        const totalUnread = data["total_unread"]["total"];
+
+        if (totalUnread === 0) {
+            this.#spanNotificationsIndicator.remove();
+            this.#btnMarkAsRead.remove();
+        }
 
         for (const item of notifications) {
+            const isUnread = item["is_read"] === 0 ? "unread-notification" : "";
+
             this.#notificationsMenuList.append(`
-                <li class="dropdown-menu-list-item notifications-menu-list-item">
+                <li class="dropdown-menu-list-item notifications-menu-list-item ${isUnread}">
                     <div class="div-notifications-icon-container flex-center">
                         <ion-icon src="/core/assets/media/icons/${this.#getIconType(item["type"])}.svg"></ion-icon>
                     </div>
@@ -33,7 +43,7 @@ class NavigationView {
             `);
         }
 
-        this.#spanTotalUnread.text(data["total_unread"]["total"]);
+        this.#spanTotalUnread.text(totalUnread);
     }
 
     #getIconType(type) {
@@ -49,6 +59,10 @@ class NavigationView {
         this.#btnsIcon.each((_, btn) => {
             $(btn).click(handlerFunction);
         });
+    }
+
+    addEventMarkNotificationsAsRead(handlerFunction) {
+        this.#btnMarkAsRead.click(handlerFunction);
     }
 
     addEventViewNotificationDetails(handlerFunction) {
