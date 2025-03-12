@@ -1,16 +1,16 @@
-    <!-- LOADER -->
-    <div class="div-loader-container fixed-center">
-        <div class="div-loader-modal absolute-center">
-            <div class="div-loader-content-container">
-                <header class="loader-content-header">
+    <!-- PAGE LOADER -->
+    <div class="div-page-loader-container fixed-center">
+        <div class="div-page-loader-modal absolute-center">
+            <div class="div-page-loader-content-container">
+                <header class="page-loader-content-header">
                     <ion-icon src="<?php SERVER_PATH; ?>/core/assets/media/icons/page-logo.svg"></ion-icon>
                     <h2>Welcome To <span>DevTix</span></h2>
                 </header>
-                <div class="div-loader-visuals-container">
+                <div class="div-page-loader-visuals-container">
                     <span>Loading</span>
-                    <div class="div-loader-icon-container">
+                    <div class="div-page-loader-icon-container">
                         <ion-icon 
-                            class="loader-icon"
+                            class="page-loader-icon"
                             src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/loader.svg"
                         ></ion-icon>
                     </div>

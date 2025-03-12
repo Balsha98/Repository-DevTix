@@ -1,5 +1,5 @@
-/* LOADER CONTAINER */
-.div-loader-container {
+/* PAGE LOADER CONTAINER */
+.div-page-loader-container {
     width: 100%;
     height: 100%;
     background-color: var(--white);
@@ -7,38 +7,38 @@
     z-index: 9999;
 }
 
-/* LOADER TOGGLER */
-.hide-loader {
+/* PAGE LOADER TOGGLER */
+.hide-page-loader {
     opacity: 0;
     z-index: -1;
 }
 
-/* LOADER CONTENT CONTAINER */
-.div-loader-content-container {
+/* PAGE LOADER CONTENT CONTAINER */
+.div-page-loader-content-container {
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
 }
 
-/* LOADER CONTENT HEADER */
-.loader-content-header {
+/* PAGE LOADER CONTENT HEADER */
+.page-loader-content-header {
     display: inherit;
     flex-direction: inherit;
     align-items: center;
     gap: 0.8rem;
 }
 
-.loader-content-header ion-icon {
+.page-loader-content-header ion-icon {
     font-size: 6.4rem;
 }
 
-.loader-content-header h2 {
+.page-loader-content-header h2 {
     position: relative;
     font-size: 3.6rem;
     text-transform: uppercase;
 }
 
-.loader-content-header h2::after {
+.page-loader-content-header h2::after {
     content: "";
     position: absolute;
     bottom: -0.2rem;
@@ -50,19 +50,19 @@
     transform: translateX(-50%);
 }
 
-.loader-content-header span {
+.page-loader-content-header span {
     color: var(--primary);
 }
 
-/* LOADER VISUALS CONTAINER */
-.div-loader-visuals-container {
+/* PAGE LOADER VISUALS CONTAINER */
+.div-page-loader-visuals-container {
     display: inherit;
     flex-direction: inherit;
     align-items: center;
     gap: 0.4rem;
 }
 
-.div-loader-visuals-container span {
+.div-page-loader-visuals-container span {
     font-size: 1.6rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -82,7 +82,7 @@
     }
 }
 
-.div-loader-visuals-container ion-icon {
+.div-page-loader-visuals-container ion-icon {
     font-size: 3.6rem;
     color: var(--primary);
     animation-name: loader-icon-indicator;

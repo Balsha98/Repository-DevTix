@@ -1,6 +1,6 @@
 import { redirectTo } from "./../helpers/redirect.js";
 import { renderTicketPatronImage } from "./../helpers/image.js";
-import { controlHideLoader } from "./loaderController.js";
+import { controlHidePageLoader } from "./pageLoaderController.js";
 import navigationView from "./../views/navigationView.js";
 import * as navigationController from "./navigationController.js";
 import sidebarView from "./../views/sidebarView.js";
@@ -49,7 +49,7 @@ const controlGenerateTicketsList = function () {
 };
 
 const initController = function () {
-    controlHideLoader(0.1);
+    controlHidePageLoader(0.1);
 
     // Setup navigation.
     navigationView.setWelcomeMessage();

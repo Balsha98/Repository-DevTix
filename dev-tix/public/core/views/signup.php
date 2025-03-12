@@ -1,5 +1,5 @@
     <?php
-    require_once __DIR__ . '/partials/loader.php';
+    require_once __DIR__ . '/partials/page-loader.php';
     require_once __DIR__ . '/partials/alert.php';
     ?>
 

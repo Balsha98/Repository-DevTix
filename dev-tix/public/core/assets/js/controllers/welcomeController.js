@@ -1,6 +1,6 @@
 import { isInputEmpty } from "./../helpers/validate.js";
 import { handleRequest } from "./../helpers/request.js";
-import { controlHideLoader } from "./loaderController.js";
+import { controlHidePageLoader } from "./pageLoaderController.js";
 import welcomeModel from "./../models/welcomeModel.js";
 import welcomeView from "./../views/welcomeView.js";
 
@@ -76,8 +76,9 @@ const controlNewsletterSubmit = function (formEvent) {
 };
 
 const initController = function () {
-    controlHideLoader(2);
+    controlHidePageLoader(2);
 
+    // Setup welcome view.
     welcomeView.addEventToggleNavLinks(controlToggleNav);
     welcomeView.addEventToggleDropdown(controlToggleDropdown);
     welcomeView.addEventTurnCarouselByBtn(controlTurnCarouselByBtn);
