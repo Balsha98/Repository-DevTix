@@ -1,0 +1,34 @@
+/* DATA LOADER CONTAINER */
+.div-data-loader-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    z-index: 1;
+}
+
+/* DATA LOADER TOGGLER */
+.hide-data-loader {
+    opacity: 0;
+    z-index: -1;
+}
+
+/* DATA LOADER MODAL */
+.div-data-loader-modal ion-icon {
+    font-size: 3.6rem;
+    color: var(--primary);
+    animation-name: data-loader-icon-indicator;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+@keyframes data-loader-icon-indicator {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
