@@ -161,17 +161,18 @@
     font-size: 1.2rem;
 }
 
-/* TICKETS LIST CONTAINER */
-.div-tickets-list-container {
+/* TICKETS LIST OVERVIEW CONTAINER */
+.div-tickets-list-overview-container {
     flex-grow: 1;
+    position: relative;
     display: inherit;
     flex-direction: inherit;
     gap: 1.6rem;
     padding: 2.4rem;
 }
 
-/* TICKETS LIST HEADER */
-.tickets-list-header {
+/* TICKETS LIST OVERVIEW HEADER */
+.tickets-list-overview-header {
     display: grid;
     grid-template-columns: repeat(3, 1fr) 12rem;
     align-items: center;
@@ -180,13 +181,18 @@
     padding: 0 3.6rem 0 1.6rem;
 }
 
-.tickets-list-header p {
+.tickets-list-overview-header p {
     font-size: 1.4rem;
     text-transform: uppercase;
 }
 
-.tickets-list-header p:last-child {
+.tickets-list-overview-header p:last-child {
     text-align: right;
+}
+
+/* TICKETS LIST CONTAINER */
+.div-tickets-list-container {
+    position: relative;
 }
 
 /* TICKETS LIST */

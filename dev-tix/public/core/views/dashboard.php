@@ -113,16 +113,19 @@ require_once __DIR__ . '/partials/page-loader.php';
                                 </a>
                             </div>
                         </header>
-                        <div class="div-tickets-list-container">
-                            <header class="tickets-list-header">
+                        <div class="div-tickets-list-overview-container">
+                            <header class="tickets-list-overview-header">
                                 <p>Patron</p>
                                 <p>Subject</p>
                                 <p>Assistant</p>
                                 <p>Status</p>
                             </header>
-                            <ul class="tickets-list">
-                                <!-- DYNAMICALLY GENERATED TICKETS VIA AJAX -->
-                            </ul>
+                            <div class="div-tickets-list-container">
+                                <?php require_once __DIR__ . '/partials/data-loader.php'; ?>
+                                <ul class="tickets-list">
+                                    <!-- DYNAMICALLY GENERATED TICKETS VIA AJAX -->
+                                </ul>
+                            </div>
                         </div>
                         <footer class="tickets-container-footer flex-between">
                             <p>Applied Filter: <span class="span-applied-filter">All</span></p>

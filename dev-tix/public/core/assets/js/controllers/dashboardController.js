@@ -1,6 +1,7 @@
 import { redirectTo } from "./../helpers/redirect.js";
 import { renderTicketPatronImage } from "./../helpers/image.js";
 import { controlHidePageLoader } from "./pageLoaderController.js";
+import { controlHideDataLoader, controlShowDataLoader } from "./dataLoaderController.js";
 import navigationView from "./../views/navigationView.js";
 import * as navigationController from "./navigationController.js";
 import sidebarView from "./../views/sidebarView.js";
@@ -11,6 +12,9 @@ const controlChangeFilter = function () {
     const filter = $(this).val();
     const ticketListItems = $(".tickets-list-item");
 
+    // Show data loader.
+    controlShowDataLoader();
+
     $(".tickets-list-item").each((_, item) => {
         const ticketStatus = $(item).data("status");
         if (filter === "all") $(item).removeClass("hide-element");
@@ -19,7 +23,10 @@ const controlChangeFilter = function () {
     });
 
     const { length: totalHidden } = $(".tickets-list-item.hide-element");
-    dashboardView.setFilterSpanIndicators(filter, ticketListItems.length - totalHidden);
+    setTimeout(() => dashboardView.setFilterSpanIndicators(filter, ticketListItems.length - totalHidden), 1000);
+
+    // Hide data loader.
+    controlHideDataLoader(1);
 };
 
 const controlViewTicketDetails = function () {
