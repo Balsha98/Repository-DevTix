@@ -23,13 +23,8 @@ require_once __DIR__ . '/partials/loader.php';
                                 <div class="div-overview-item-icon-container flex-center">
                                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/paperclip.svg"></ion-icon>
                                 </div>
-                                <?php
-                                $totalTickets = Session::getDbInstance()->executeQuery(
-                                    'SELECT COUNT(request_id) as total FROM ticket_requests;'
-                                )->getQueryResult()['total'];
-                                ?>
                                 <div class="div-overview-item-header-data">
-                                    <span><?php echo $totalTickets; ?></span>
+                                    <span class="span-overview-item">&nbsp;</span>
                                     <h4>Total Requests</h4>
                                 </div>
                             </header>
@@ -46,13 +41,8 @@ require_once __DIR__ . '/partials/loader.php';
                                 <div class="div-overview-item-icon-container flex-center">
                                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/check.svg"></ion-icon>
                                 </div>
-                                <?php
-                                $totalResolved = Session::getDbInstance()->executeQuery(
-                                    'SELECT COUNT(request_id) as total FROM ticket_requests WHERE status = "resolved";'
-                                )->getQueryResult()['total'];
-                                ?>
                                 <div class="div-overview-item-header-data">
-                                    <span><?php echo $totalResolved; ?></span>
+                                    <span class="span-overview-item">&nbsp;</span>
                                     <h4>Total Resolved</h4>
                                 </div>
                             </header>
@@ -69,13 +59,8 @@ require_once __DIR__ . '/partials/loader.php';
                                 <div class="div-overview-item-icon-container flex-center">
                                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/x.svg"></ion-icon>
                                 </div>
-                                <?php
-                                $totalCancelled = Session::getDbInstance()->executeQuery(
-                                    'SELECT COUNT(request_id) as total FROM ticket_requests WHERE status = "cancelled";'
-                                )->getQueryResult()['total'];
-                                ?>
                                 <div class="div-overview-item-header-data">
-                                    <span><?php echo $totalCancelled; ?></span>
+                                    <span class="span-overview-item">&nbsp;</span>
                                     <h4>Total Cancelled</h4>
                                 </div>
                             </header>
@@ -92,13 +77,8 @@ require_once __DIR__ . '/partials/loader.php';
                                 <div class="div-overview-item-icon-container flex-center">
                                     <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/users.svg"></ion-icon>
                                 </div>
-                                <?php
-                                $totalUsers = Session::getDbInstance()->executeQuery(
-                                    'SELECT COUNT(user_id) as total FROM users;'
-                                )->getQueryResult()['total'];
-                                ?>
                                 <div class="div-overview-item-header-data">
-                                    <span><?php echo $totalUsers; ?></span>
+                                    <span class="span-overview-item">&nbsp;</span>
                                     <h4>Total Users</h4>
                                 </div>
                             </header>

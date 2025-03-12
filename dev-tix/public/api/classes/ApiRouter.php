@@ -10,7 +10,7 @@ class ApiRouter
     private static object $controller;
 
     /**
-     * Get reponse based on the request.
+     * Get response based on the request.
      * @param string $method - API request method.
      * @param array $data - input data.
      * @return string - JSON formatted response.

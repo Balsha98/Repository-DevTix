@@ -37,8 +37,12 @@ const controlGenerateTicketsList = function () {
         success: function (response) {
             console.log(route, response);
 
+            const overviews = response["response"]["data"]["overviews"] ?? null;
+            if (overviews) dashboardView.loadAdminOverviewData(overviews);
+
             // Render ticket list items.
-            dashboardView.generateTicketsList(response["response"]["data"], renderTicketPatronImage);
+            const tickets = response["response"]["data"]["tickets"];
+            dashboardView.generateTicketsList(tickets, renderTicketPatronImage);
             dashboardView.addEventViewTicketDetails(controlViewTicketDetails);
         },
     });
@@ -47,15 +51,17 @@ const controlGenerateTicketsList = function () {
 const initController = function () {
     controlHideLoader(0.1);
 
+    // Setup navigation.
     navigationView.setWelcomeMessage();
     navigationView.addEventToggleDropdown(navigationController.controlToggleDropdown);
     navigationView.addEventMarkNotificationsAsRead(navigationController.controlMarkNotificationsAsRead);
+    navigationController.controlGenerateNotificationsList();
 
+    // Setup sidebar.
     sidebarView.addEventToggleSidebar(controlToggleSidebar);
     sidebarView.addEventToggleSidebarDropdown(controlToggleSidebarDropdown);
 
-    navigationController.controlGenerateNotificationsList();
-
+    // Setup dashboard.
     dashboardView.addEventChangeFilter(controlChangeFilter);
     controlGenerateTicketsList();
 };

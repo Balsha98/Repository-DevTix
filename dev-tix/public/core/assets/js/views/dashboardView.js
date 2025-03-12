@@ -1,4 +1,5 @@
 class DashboardView {
+    #spanOverviewItems = $(".span-overview-item");
     #dashboardTicketsContainer = $(".div-dashboard-tickets-container");
     #ticketsSelectFilter = $(".tickets-select-filter");
     #ticketsContainerHeaders = $(".div-dashboard-tickets-container header");
@@ -7,7 +8,16 @@ class DashboardView {
     #spanAppliedFilter = $(".span-applied-filter");
     #spanTotalTickets = $(".span-total-tickets");
 
-    generateTicketsList(data, renderImage) {
+    loadAdminOverviewData(overviews) {
+        // Guard clause.
+        if (!this.#spanOverviewItems) return;
+
+        this.#spanOverviewItems.each((i, span) => {
+            $(span).text(Object.values(overviews)[i]);
+        });
+    }
+
+    generateTicketsList(tickets, renderImage) {
         const containerHeight = parseFloat(this.#dashboardTicketsContainer.css("height"));
 
         // prettier-ignore
@@ -18,10 +28,10 @@ class DashboardView {
         const elementHeightDifference = containerHeight - innerElementHeightTotal;
         this.#ticketsList.css("height", `calc(${elementHeightDifference}px - 64px)`);
 
-        // Make sure data is processed as an array.
-        data = Array.isArray(data) ? data : [data];
+        // Make sure tickets are processed as an array.
+        tickets = Array.isArray(tickets) ? tickets : [tickets];
 
-        for (const { ticket, patron, assistant } of data) {
+        for (const { ticket, patron, assistant } of tickets) {
             this.#ticketsList.append(`
                 <li 
                     class="tickets-list-item" 
@@ -50,7 +60,12 @@ class DashboardView {
             `);
         }
 
-        this.setFilterSpanIndicators(this.#ticketsSelectFilter.val(), data.length);
+        this.setFilterSpanIndicators(this.#ticketsSelectFilter.val(), tickets.length);
+    }
+
+    setFilterSpanIndicators(filter, totalTickets) {
+        this.#spanAppliedFilter.text(filter[0].toUpperCase() + filter.slice(1));
+        this.#spanTotalTickets.text(totalTickets);
     }
 
     addEventViewTicketDetails(handlerFunction) {
@@ -61,11 +76,6 @@ class DashboardView {
 
     addEventChangeFilter(handlerFunction) {
         this.#ticketsSelectFilter.change(handlerFunction);
-    }
-
-    setFilterSpanIndicators(filter, totalTickets) {
-        this.#spanAppliedFilter.text(filter[0].toUpperCase() + filter.slice(1));
-        this.#spanTotalTickets.text(totalTickets);
     }
 }
 

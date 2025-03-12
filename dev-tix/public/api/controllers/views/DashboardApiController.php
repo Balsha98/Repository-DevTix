@@ -6,27 +6,43 @@ class DashboardApiController extends AbsApiController
 {
     public function get()
     {
-        $data = $this->getAllTicketRequests();
+        $roleID = Session::get('role_id');
+        $data = $this->getAllRows('ticket_requests');
 
         if (empty($data)) {
             return ApiMessage::dataFetchAttempt($data);
         }
 
         $return = [];
+        if ($roleID === 1) {  // In case an admin user is logged in.
+            $return['overviews'] = $this->extractAdminOverviewData();
+        }
+
+        // Get all present tickets.
         if (count($data) > 1) {
             foreach ($data as $item) {
-                $return[] = $this->extractData($item);
+                $return['tickets'][] = $this->extractTicketData($item);
             }
 
             return ApiMessage::dataFetchAttempt($return);
         }
 
-        $return[] = $this->extractData($data);
+        $return['tickets'] = $this->extractTicketData($data);
 
         return ApiMessage::dataFetchAttempt($return);
     }
 
-    private function extractData(array $data)
+    private function extractAdminOverviewData()
+    {
+        return [
+            'tickets' => $this->getRowCount('ticket_requests', 'request_id'),
+            'resolved' => $this->getAllTicketsPerStatus('resolved'),
+            'cancelled' => $this->getAllTicketsPerStatus('cancelled'),
+            'users' => $this->getRowCount('users', 'user_id')
+        ];
+    }
+
+    private function extractTicketData(array $data)
     {
         return [
             'ticket' => $data,
@@ -35,11 +51,26 @@ class DashboardApiController extends AbsApiController
         ];
     }
 
-    private function getAllTicketRequests()
+    private function getAllRows(string $tableName)
     {
         return Session::getDbInstance()->executeQuery(
-            'SELECT * FROM ticket_requests;'
+            "SELECT * FROM {$tableName};"
         )->getQueryResult();
+    }
+
+    private function getRowCount(string $tableName, string $column)
+    {
+        return Session::getDbInstance()->executeQuery(
+            "SELECT COUNT({$column}) as total FROM {$tableName};"
+        )->getQueryResult()['total'];
+    }
+
+    private function getAllTicketsPerStatus(string $status)
+    {
+        $query = 'SELECT COUNT(request_id) as total FROM ticket_requests WHERE status = :status;';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':status' => $status]
+        )->getQueryResult()['total'];
     }
 
     private function getUserData(array $data, string $userType)
