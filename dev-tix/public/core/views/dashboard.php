@@ -24,7 +24,7 @@ require_once __DIR__ . '/partials/page-loader.php';
                                     <ion-icon src="<?php echo ICON_PATH; ?>/paperclip.svg"></ion-icon>
                                 </div>
                                 <div class="div-overview-item-header-data">
-                                    <span class="span-overview-item">&nbsp;</span>
+                                    <span class="span-overview-item">0</span>
                                     <h4>Total Requests</h4>
                                 </div>
                             </header>
@@ -42,7 +42,7 @@ require_once __DIR__ . '/partials/page-loader.php';
                                     <ion-icon src="<?php echo ICON_PATH; ?>/check.svg"></ion-icon>
                                 </div>
                                 <div class="div-overview-item-header-data">
-                                    <span class="span-overview-item">&nbsp;</span>
+                                    <span class="span-overview-item">0</span>
                                     <h4>Total Resolved</h4>
                                 </div>
                             </header>
@@ -60,7 +60,7 @@ require_once __DIR__ . '/partials/page-loader.php';
                                     <ion-icon src="<?php echo ICON_PATH; ?>/x.svg"></ion-icon>
                                 </div>
                                 <div class="div-overview-item-header-data">
-                                    <span class="span-overview-item">&nbsp;</span>
+                                    <span class="span-overview-item">0</span>
                                     <h4>Total Cancelled</h4>
                                 </div>
                             </header>
@@ -78,7 +78,7 @@ require_once __DIR__ . '/partials/page-loader.php';
                                     <ion-icon src="<?php echo ICON_PATH; ?>/users.svg"></ion-icon>
                                 </div>
                                 <div class="div-overview-item-header-data">
-                                    <span class="span-overview-item">&nbsp;</span>
+                                    <span class="span-overview-item">0</span>
                                     <h4>Total Users</h4>
                                 </div>
                             </header>

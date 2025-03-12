@@ -75,7 +75,12 @@ class DashboardView {
     }
 
     addEventViewTicketDetails(handlerFunction) {
-        $(".tickets-list-item").each((_, item) => {
+        const ticketListItems = $(".tickets-list-item");
+
+        // Guard clause.
+        if (ticketListItems.length === 0) return;
+
+        ticketListItems.each((_, item) => {
             $(item).click(handlerFunction);
         });
     }
