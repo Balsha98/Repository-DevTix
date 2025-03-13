@@ -34,6 +34,7 @@ class SignupApiController extends AbsApiController
         // Set session variable.
         Session::set('active', true);
         Session::set('user_id', $newAccount['user_id']);
+        Session::set('view_as', $newAccount['view_as']);
         Session::set('role_id', $newAccount['role_id']);
 
         // Set CSRF token.

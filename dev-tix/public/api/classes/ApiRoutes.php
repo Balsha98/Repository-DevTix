@@ -9,12 +9,12 @@ class ApiRoutes
         ],
         'POST' => [
             'login',
-            'navigation',
             'signup',
             'welcome'
         ],
-        'PUT' =>
-            '',
+        'PUT' => [
+            'navigation'
+        ],
         'DELETE' =>
             '',
     ];

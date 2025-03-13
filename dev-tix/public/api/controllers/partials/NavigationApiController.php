@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . '/../../classes/AbsApiController.php';
 
 class NavigationApiController extends AbsApiController
@@ -9,32 +8,60 @@ class NavigationApiController extends AbsApiController
         $userID = Session::get('user_id');
         $roleID = Session::get('role_id');
 
-        return ApiMessage::dataFetchAttempt([
-            'notifications' => $this->getNotifications($userID, $roleID),
-            'total_unread' => $this->getTotalUnreadNotifications($userID, $roleID)
-        ]);
+        $return = [];
+        if ($roleID === 1) {
+            $clients = $this->getClients($userID, $roleID);
+
+            $return['clients'] = [
+                'clients_list' => $clients,
+                'total_clients' => count($clients)
+            ];
+        }
+
+        $return['notifications'] = [
+            'notifications_list' => $this->getNotifications($userID, $roleID),
+            'total_unread' => $this->getTotalUnreadNotifications($userID, $roleID)['total']
+        ];
+
+        return ApiMessage::dataFetchAttempt($return);
     }
 
-    public function post()
+    public function put()
     {
         $data = $this->getData();
         $authToken = $data['csrf_token'];
 
-        // Guard clause.
+        // Guard clause: verify token.
         if ($authToken !== Session::get('csrf_token') ||
                 ((time() - Session::get('csrf_token_set_at')) / 60) > 5) {
             return ApiMessage::apiError('token');
         }
 
-        $userID = Session::get('user_id');
+        $userID = $this->getId();
+
+        // Guard clause: view as client.
+        if (isset($data['client_id'])) {
+            // TODO: Change db value.
+            Session::set('view_as', $data['client_id']);
+            return ApiMessage::alertDataAlterAttempt(true);
+        }
+
         $roleID = Session::get('role_id');
 
-        // Guard clause.
+        // Guard clause: request error.
         if (isset($this->markNotificationsAsRead($data, $userID, $roleID)['error'])) {
             return ApiMessage::alertDataAlterAttempt(false);
         }
 
         return ApiMessage::alertDataAlterAttempt(true);
+    }
+
+    private function getClients(int $userID, int $roleID)
+    {
+        $query = 'SELECT * FROM users WHERE user_id != :user_id OR role_id != :role_id;';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':user_id' => $userID, ':role_id' => $roleID]
+        )->getQueryResult();
     }
 
     private function getNotifications(int $userID, int $roleID)

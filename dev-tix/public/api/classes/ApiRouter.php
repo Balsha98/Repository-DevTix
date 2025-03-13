@@ -74,7 +74,7 @@ class ApiRouter
     private static function processPOST(array $data)
     {
         if (empty($data)) {  // Guard clause.
-            return Encode::toJSON(ApiMessage::apiError('input'));
+            return ApiMessage::apiError('input');
         }
 
         self::$controller->setData($data);
@@ -86,9 +86,9 @@ class ApiRouter
     private static function processPUT(int $id, array $data)
     {
         if ($id === 0) {  // Guard clause.
-            return Encode::toJSON(ApiMessage::apiError('id'));
+            return ApiMessage::apiError('id');
         } else if (empty($data)) {  // Guard clause.
-            return Encode::toJSON(ApiMessage::apiError('input'));
+            return ApiMessage::apiError('input');
         }
 
         self::$controller->setId($id);
@@ -101,7 +101,7 @@ class ApiRouter
     private static function processDELETE(int $id)
     {
         if ($id === 0) {  // Guard clause.
-            return Encode::toJSON(ApiMessage::apiError('id'));
+            return ApiMessage::apiError('id');
         }
 
         self::$controller->setId($id);
