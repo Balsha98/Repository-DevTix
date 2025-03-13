@@ -14,13 +14,7 @@ class Router
         Session::start();
 
         // Check CSRF token expiration.
-        if (Session::isSet('csrf_token')) {
-            if (((time() - Session::get('csrf_token_set_at')) / 60) > 5) {
-                if (Session::get('active')) {
-                    Session::setAuthToken('sha256', 'jagshemash');
-                }
-            }
-        }
+        self::refreshAuthTokenIfValid();
 
         // Parse uri.
         if ($uri === '/') {
@@ -36,8 +30,36 @@ class Router
             [0 => $page] = $uri;
         }
 
-        // Session check.
+        // Session verification.
         Session::set('last_route', "/{$page}");
+        self::confirmTraffic($page);
+
+        // Render target page.
+        return self::requireView($page);
+    }
+
+    /**
+     * Generates a new CSRF token if valid.
+     * @return void void - executes the process.
+     */
+    private static function refreshAuthTokenIfValid()
+    {
+        if (Session::isSet('csrf_token')) {
+            if (((time() - Session::get('csrf_token_set_at')) / 60) > 5) {
+                if (Session::get('active')) {
+                    Session::setAuthToken('sha256', 'jagshemash');
+                }
+            }
+        }
+    }
+
+    /**
+     * Verifies user activity and redirects traffic.
+     * @param string $page - requested page/view.
+     * @return void void - executes the process.
+     */
+    private static function confirmTraffic(string $page)
+    {
         if ($page === 'login' || $page === 'signup') {
             if (Session::isSet('active')) {
                 Redirect::toRoute('/dashboard');
@@ -48,10 +70,11 @@ class Router
             }
 
             Redirect::toRoute('/login');
+        } else if ($page !== 'welcome') {
+            if (!Session::isSet('active')) {
+                Redirect::toRoute('/login');
+            }
         }
-
-        // Render target page.
-        return self::requireView($page);
     }
 
     /**
