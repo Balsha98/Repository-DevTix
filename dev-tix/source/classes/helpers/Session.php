@@ -46,11 +46,21 @@ class Session
     /**
      * Create a new session variable.
      * @param string $key - variable key.
-     * @param mixed $value - varable value.
+     * @param mixed $value - variable value.
      */
     public static function set(string $key, mixed $value)
     {
         $_SESSION[$key] = $value;
+    }
+
+    public static function setAuthToken(string $algorithm, string $salt, bool $isUnique = true)
+    {
+        // Generate unique identifier.
+        $uniqueID = uniqid($salt, $isUnique);
+
+        // Save CSRF token data as session variables.
+        self::set('csrf_token', hash($algorithm, $uniqueID));
+        self::set('csrf_token_set_at', time());
     }
 
     /**

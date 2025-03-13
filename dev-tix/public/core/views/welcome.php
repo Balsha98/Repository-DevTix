@@ -56,7 +56,7 @@
                     </h1>
                     <p>
                         At <span>DevTix</span> our customers are our #1 priority. We want to make sure
-                        that everybody is heard, one way or the other. You've encountered some unresorvalbe
+                        that everybody is heard, one way or the other. You've encountered some unresolvable
                         issues? Open an account as of TODAY!
                     </p>
                 </header>
@@ -489,7 +489,7 @@
                             </div>
                             <button class="btn btn-primary btn-newsletter">Yes!</button>
                             <div class="div-hidden-inputs">
-                                <input id="page" type="hidden" value="<?php echo $page; ?>">
+                                <input id="page" type="hidden" name="page" value="<?php echo $page; ?>">
                             </div>
                         </form>
                     </div>
