@@ -197,8 +197,6 @@
 
 /* TICKETS LIST */
 .tickets-list {
-    display: inherit;
-    flex-direction: inherit;
     padding-right: 1.2rem;
     border-radius: var(--border-radius-lg);
     overflow-y: scroll;
@@ -226,10 +224,22 @@
     background-color: var(--gray-tint);
     border-radius: inherit;
     transition: opacity 0.3s;
+    overflow-x: hidden;
     cursor: pointer;
 }
 
-.tickets-list-item:not(:first-child)::before {
+.tickets-list-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.2rem;
+    height: 100%;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.tickets-list-item:not(:first-child)::after {
     content: "";
     position: absolute;
     top: 0;
@@ -240,8 +250,12 @@
     transform: translateY(-50%);
 }
 
+.tickets-list-item:hover::before {
+    background-color: var(--primary);
+}
+
 .tickets-list-item:hover {
-    opacity: var(--opacity-md);
+    opacity: var(--opacity-lg);
 }
 
 /* TICKETS PATRON CONTENT CONTAINER */
