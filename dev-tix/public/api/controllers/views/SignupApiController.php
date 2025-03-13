@@ -36,6 +36,9 @@ class SignupApiController extends AbsApiController
         Session::set('user_id', $newAccount['user_id']);
         Session::set('role_id', $newAccount['role_id']);
 
+        // Set CSRF token.
+        Session::setAuthToken('sha256', 'jagshemash');
+
         // If signup was successful.
         return ApiMessage::alertAuthAttempt($data, true, '/dashboard');
     }

@@ -66,7 +66,7 @@ const controlNewsletterSubmit = function (formEvent) {
 
     const data = {};
     data["email"] = $("#email").val();
-    data["page"] = $("#page").val();
+    data["route"] = $("#route").val();
 
     handleRequest(url, method, data);
 };

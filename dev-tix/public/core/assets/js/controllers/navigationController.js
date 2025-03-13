@@ -18,6 +18,7 @@ export const controlMarkNotificationsAsRead = function (formEvent) {
     const data = {};
     data["is_read"] = $("#is_read").val();
     data["route"] = $("#partial").val();
+    data["csrf_token"] = $("#csrf_token").val();
 
     handleRequest(url, method, data);
 };

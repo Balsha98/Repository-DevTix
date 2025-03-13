@@ -13,6 +13,16 @@ class Router
     {
         Session::start();
 
+        // Check CSRF token expiration.
+        if (Session::isSet('csrf_token')) {
+            if (((time() - Session::get('csrf_token_set_at')) / 60) > 5) {
+                if (Session::get('active')) {
+                    Session::setAuthToken('sha256', 'jagshemash');
+                }
+            }
+        }
+
+        // Parse uri.
         if ($uri === '/') {
             $page = 'welcome';
         } else {

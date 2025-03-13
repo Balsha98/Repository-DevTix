@@ -18,6 +18,14 @@ class NavigationApiController extends AbsApiController
     public function post()
     {
         $data = $this->getData();
+        $authToken = $data['csrf_token'];
+
+        // Guard clause.
+        if ($authToken !== Session::get('csrf_token') ||
+                ((time() - Session::get('csrf_token_set_at')) / 60) > 5) {
+            return ApiMessage::apiError('token');
+        }
+
         $userID = Session::get('user_id');
         $roleID = Session::get('role_id');
 

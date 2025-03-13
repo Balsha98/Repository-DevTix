@@ -489,7 +489,7 @@
                             </div>
                             <button class="btn btn-primary btn-newsletter">Yes!</button>
                             <div class="div-hidden-inputs">
-                                <input id="page" type="hidden" name="page" value="<?php echo $page; ?>">
+                                <input id="route" type="hidden" name="route" value="views/welcome">
                             </div>
                         </form>
                     </div>
