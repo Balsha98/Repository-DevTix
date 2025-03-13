@@ -115,6 +115,7 @@ require_once __DIR__ . '/partials/page-loader.php';
                         </header>
                         <div class="div-tickets-list-overview-container">
                             <header class="tickets-list-overview-header">
+                                <p>#ID</p>
                                 <p>Patron</p>
                                 <p>Subject</p>
                                 <p>Assistant</p>

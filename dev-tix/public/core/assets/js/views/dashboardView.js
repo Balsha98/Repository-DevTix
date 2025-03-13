@@ -41,6 +41,9 @@ class DashboardView {
                     data-href="ticket/${ticket["request_id"]}" 
                     data-status="${ticket["status"]}"
                 >
+                    <div class="div-tickets-id-content-container">
+                        <p>#${ticket["request_id"]}</p>
+                    </div>
                     <div class="div-tickets-patron-content-container">
                         ${renderImage(patron)}
                         <div class="div-tickets-patron-info-container">

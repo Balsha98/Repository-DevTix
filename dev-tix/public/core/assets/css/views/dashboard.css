@@ -174,7 +174,7 @@
 /* TICKETS LIST OVERVIEW HEADER */
 .tickets-list-overview-header {
     display: grid;
-    grid-template-columns: repeat(3, 1fr) 12rem;
+    grid-template-columns: 6.4rem repeat(3, 1fr) 12rem;
     align-items: center;
     gap: 1.6rem;
     height: 2rem;
@@ -217,7 +217,7 @@
 .tickets-list-item {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(3, 1fr) 12rem;
+    grid-template-columns: 6.4rem repeat(3, 1fr) 12rem;
     align-items: center;
     gap: 1.6rem;
     padding: 1.6rem;
@@ -256,6 +256,11 @@
 
 .tickets-list-item:hover {
     opacity: var(--opacity-lg);
+}
+
+/* TICKETS ID CONTENT CONTAINER */
+.div-tickets-id-content-container p {
+    font-size: 1.4rem;
 }
 
 /* TICKETS PATRON CONTENT CONTAINER */
