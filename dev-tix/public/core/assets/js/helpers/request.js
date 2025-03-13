@@ -9,5 +9,8 @@ export const handleRequest = function (url, method, data) {
             console.log(response);
             initController(response);
         },
+        error: function (response) {
+            console.log(response.responseText);
+        },
     });
 };
