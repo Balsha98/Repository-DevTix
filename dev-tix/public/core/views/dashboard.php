@@ -6,12 +6,14 @@ require_once __DIR__ . '/../../../source/classes/models/User.php';
 $user = new User(Session::get('user_id'), Session::getDbInstance());
 
 require_once __DIR__ . '/partials/page-loader.php';
+require_once __DIR__ . '/partials/alert.php';
 ?>
 
     <!-- MAIN CONTAINER -->
     <div class="centered-container">
         <main class="main-container">
             <?php require_once __DIR__ . '/partials/sidebar.php'; ?>
+            <!-- DASHBOARD CONTAINER -->
             <div class="div-dashboard-container">
                 <?php require_once __DIR__ . '/partials/navigation.php'; ?>
                 <div class="div-dashboard-content-container">
@@ -19,81 +21,49 @@ require_once __DIR__ . '/partials/page-loader.php';
                     <ul class="dashboard-overview-list grid-4-columns">
                         <!-- TOTAL TICKETS -->
                         <li class="dashboard-overview-list-item">
-                            <header class="dashboard-overview-item-header">
-                                <div class="div-overview-item-icon-container flex-center">
-                                    <ion-icon src="<?php echo ICON_PATH; ?>/paperclip.svg"></ion-icon>
-                                </div>
-                                <div class="div-overview-item-header-data">
-                                    <span class="span-overview-item">0</span>
-                                    <h4>Total Requests</h4>
-                                </div>
-                            </header>
-                            <div class="div-overview-item-link-container">
-                                <a class="link link-primary flex-between" href="/tickets">
-                                    <span>View Details</span>
-                                    <ion-icon src="<?php echo ICON_PATH; ?>/plus.svg"></ion-icon>
-                                </a>
+                            <div class="div-overview-item-icon-container flex-center">
+                                <ion-icon src="<?php echo ICON_PATH; ?>/paperclip.svg"></ion-icon>
+                            </div>
+                            <div class="div-overview-item-data-container">
+                                <span class="span-overview-item">0</span>
+                                <h4>Total Requests</h4>
                             </div>
                         </li>
                         <!-- TOTAL SOLVED TICKETS -->
                         <li class="dashboard-overview-list-item">
-                            <header class="dashboard-overview-item-header">
-                                <div class="div-overview-item-icon-container flex-center">
-                                    <ion-icon src="<?php echo ICON_PATH; ?>/check.svg"></ion-icon>
-                                </div>
-                                <div class="div-overview-item-header-data">
-                                    <span class="span-overview-item">0</span>
-                                    <h4>Total Resolved</h4>
-                                </div>
-                            </header>
-                            <div class="div-overview-item-link-container">
-                                <a class="link link-primary flex-between" href="/tickets?status=resolved">
-                                    <span>View Details</span>
-                                    <ion-icon src="<?php echo ICON_PATH; ?>/plus.svg"></ion-icon>
-                                </a>
+                            <div class="div-overview-item-icon-container flex-center">
+                                <ion-icon src="<?php echo ICON_PATH; ?>/check.svg"></ion-icon>
+                            </div>
+                            <div class="div-overview-item-data-container">
+                                <span class="span-overview-item">0</span>
+                                <h4>Total Resolved</h4>
                             </div>
                         </li>
                         <!-- TOTAL CANCELED TICKETS -->
                         <li class="dashboard-overview-list-item">
-                            <header class="dashboard-overview-item-header">
-                                <div class="div-overview-item-icon-container flex-center">
-                                    <ion-icon src="<?php echo ICON_PATH; ?>/x.svg"></ion-icon>
-                                </div>
-                                <div class="div-overview-item-header-data">
-                                    <span class="span-overview-item">0</span>
-                                    <h4>Total Cancelled</h4>
-                                </div>
-                            </header>
-                            <div class="div-overview-item-link-container">
-                                <a class="link link-primary flex-between" href="/tickets?status=cancelled">
-                                    <span>View Details</span>
-                                    <ion-icon src="<?php echo ICON_PATH; ?>/plus.svg"></ion-icon>
-                                </a>
+                            <div class="div-overview-item-icon-container flex-center">
+                                <ion-icon src="<?php echo ICON_PATH; ?>/x.svg"></ion-icon>
+                            </div>
+                            <div class="div-overview-item-data-container">
+                                <span class="span-overview-item">0</span>
+                                <h4>Total Cancelled</h4>
                             </div>
                         </li>
                         <!-- TOTAL USERS -->
                         <li class="dashboard-overview-list-item">
-                            <header class="dashboard-overview-item-header">
-                                <div class="div-overview-item-icon-container flex-center">
-                                    <ion-icon src="<?php echo ICON_PATH; ?>/users.svg"></ion-icon>
-                                </div>
-                                <div class="div-overview-item-header-data">
-                                    <span class="span-overview-item">0</span>
-                                    <h4>Total Users</h4>
-                                </div>
-                            </header>
-                            <div class="div-overview-item-link-container">
-                                <a class="link link-primary flex-between" href="/users">
-                                    <span>View Details</span>
-                                    <ion-icon src="<?php echo ICON_PATH; ?>/plus.svg"></ion-icon>
-                                </a>
+                            <div class="div-overview-item-icon-container flex-center">
+                                <ion-icon src="<?php echo ICON_PATH; ?>/users.svg"></ion-icon>
+                            </div>
+                            <div class="div-overview-item-data-container">
+                                <span class="span-overview-item">0</span>
+                                <h4>Total Users</h4>
                             </div>
                         </li>
                     </ul>
                     <?php } ?>
                     <div class="div-dashboard-tickets-container">
                         <header class="tickets-container-header flex-between">
-                            <h2 class="tickets-container-header-heading">Tickets Overview</h2>
+                            <h2 class="tickets-container-header-heading">Dashboard Tickets Overview</h2>
                             <div class="div-tickets-actions-container">
                                 <div class="div-input-container">
                                     <label class="label-select absolute-y-center" for="filter">
@@ -139,6 +109,7 @@ require_once __DIR__ . '/partials/page-loader.php';
             <div class="div-hidden-inputs">
                 <input id="view" type="hidden" name="view" value="views/dashboard">
                 <input id="csrf_token" type="hidden" name="csrf_token" value="<?php echo Session::get('csrf_token'); ?>">
+                <input id="user_id" type="hidden" name="user_id" value="<?php echo $user->getId(); ?>">
             </div>
         </main>
     </div>

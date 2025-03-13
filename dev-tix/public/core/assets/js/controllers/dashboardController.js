@@ -65,6 +65,9 @@ const controlGenerateTicketsList = function () {
             dashboardView.generateTicketsList(tickets, renderTicketPatronImage);
             dashboardView.addEventViewTicketDetails(controlViewTicketDetails);
         },
+        error: function (response) {
+            console.log(response.responseText);
+        },
     });
 };
 
@@ -73,9 +76,9 @@ const initController = function () {
 
     // Setup navigation.
     navigationView.setWelcomeMessage();
+    navigationController.controlGenerateNavigationLists();
     navigationView.addEventToggleDropdown(navigationController.controlToggleDropdown);
     navigationView.addEventMarkNotificationsAsRead(navigationController.controlMarkNotificationsAsRead);
-    navigationController.controlGenerateNotificationsList();
 
     // Setup sidebar.
     sidebarView.addEventToggleSidebar(controlToggleSidebar);
