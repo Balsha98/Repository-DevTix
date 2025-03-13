@@ -5,7 +5,8 @@ class ApiRoutes
     public const ROUTES = [
         'GET' => [
             'dashboard',
-            'navigation'
+            'navigation',
+            'tickets'
         ],
         'POST' => [
             'login',

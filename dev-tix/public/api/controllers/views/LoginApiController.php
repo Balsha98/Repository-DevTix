@@ -8,7 +8,7 @@ class LoginApiController extends AbsApiController
         $data = $this->getData();
         $account = $this->getAccount($data);
 
-        // Guard clause.
+        // GuaSrd clause.
         if (empty($account)) {
             return ApiMessage::alertAuthAccountError($data, 'register');
         }
@@ -18,7 +18,7 @@ class LoginApiController extends AbsApiController
             // Set session variable.
             Session::set('active', true);
             Session::set('user_id', $account['user_id']);
-            Session::set('view_as', $account['view_as']);
+            Session::set('view_as_user_id', $account['view_as_user_id']);
             Session::set('role_id', $account['role_id']);
 
             // Set CSRF token.

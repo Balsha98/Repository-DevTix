@@ -42,7 +42,7 @@ class NavigationApiController extends AbsApiController
         // Guard clause: view as client.
         if (isset($data['client_id'])) {
             // TODO: Change db value.
-            Session::set('view_as', $data['client_id']);
+            Session::set('view_as_user_id', $data['client_id']);
             return ApiMessage::alertDataAlterAttempt(true);
         }
 
