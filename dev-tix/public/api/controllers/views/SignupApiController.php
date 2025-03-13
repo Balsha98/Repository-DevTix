@@ -60,18 +60,18 @@ class SignupApiController extends AbsApiController
     {
         $query = '
             INSERT INTO users (
-                role_id, first_name, last_name, 
-                email, username, password, joined_at
+                view_as_user_id, role_id, first_name, 
+                last_name, email, username, password, joined_at
             ) VALUES (
-                :role_id, :first_name, :last_name, 
-                :email, :username, :password, :joined_at
+                :view_as_user_id, :role_id, :first_name, 
+                :last_name, :email, :username, :password, :joined_at
             );
         ';
 
         return Session::getDbInstance()->executeQuery($query, [
-            ':role_id' => (int) $data['role'], ':first_name' => $data['first_name'],
-            ':last_name' => $data['last_name'], ':email' => $data['email'], ':username' => $data['username'],
-            ':password' => hash('sha256', $data['password']), ':joined_at' => time()
+            ':view_as_user_id' => $this->getLastInsertID()['id'] + 1, ':role_id' => (int) $data['role'],
+            ':first_name' => $data['first_name'], ':last_name' => $data['last_name'], ':email' => $data['email'],
+            ':username' => $data['username'], ':password' => hash('sha256', $data['password']), ':joined_at' => time()
         ])->getQueryResult();
     }
 
