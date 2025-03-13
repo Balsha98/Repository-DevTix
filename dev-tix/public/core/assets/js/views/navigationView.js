@@ -1,9 +1,9 @@
 class NavigationView {
     #spanWelcomeMessage = $(".span-welcome-message");
+    #dropdownContainers = $(".dropdown-container");
     #spanNotificationsIndicator = $(".span-notifications-indicator");
     #spanTotalUnread = $(".span-total-unread");
     #notificationsMenuList = $(".notifications-menu-list");
-    #btnsIcon = $(".btn-nav-icon");
     #btnMarkAsRead = $(".btn-mark-as-read");
 
     setWelcomeMessage() {
@@ -60,8 +60,8 @@ class NavigationView {
     }
 
     addEventToggleDropdown(handlerFunction) {
-        this.#btnsIcon.each((_, btn) => {
-            $(btn).click(handlerFunction);
+        this.#dropdownContainers.each((_, div) => {
+            $(div).click(handlerFunction);
         });
     }
 

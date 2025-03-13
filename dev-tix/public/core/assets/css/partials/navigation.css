@@ -30,6 +30,7 @@
     font-size: 0.2rem; /* Minimize empty space. */
     background-color: var(--secondary);
     border-radius: var(--border-radius-circle);
+    cursor: pointer;
     z-index: 1;
 }
 

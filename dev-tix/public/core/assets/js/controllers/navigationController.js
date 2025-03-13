@@ -3,10 +3,8 @@ import { handleRequest } from "./../helpers/request.js";
 import navigationView from "./../views/navigationView.js";
 
 export const controlToggleDropdown = function () {
-    $(this).toggleClass("active-btn-icon");
-
-    const container = $(this.closest(".dropdown-container"));
-    const containerClass = container.attr("class").split(" ")[1];
+    const containerClass = $(this).attr("class").split(" ")[1];
+    $(`.${containerClass} .btn-nav-icon`).toggleClass("active-btn-icon");
     $(`.${containerClass} .dropdown-menu`).toggleClass("hide-dropdown");
 };
 

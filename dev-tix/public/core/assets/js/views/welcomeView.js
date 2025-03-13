@@ -3,7 +3,7 @@ class WelcomeView {
     #sectionHero = $(".section-hero");
     #heroContent = $(".div-hero-content-container");
     #navLinks = $(".nav-link");
-    #btnsDropdown = $(".btn-dropdown");
+    #dropdownContainers = $(".dropdown-container");
     #dropdownLinks = $(".dropdown-link");
     #contentSections = $(".section-content");
     #testimonialItems = $(".testimonials-list-item");
@@ -80,7 +80,7 @@ class WelcomeView {
     }
 
     #btnToggleDropdown(handlerFunction) {
-        this.#btnsDropdown.each((_, btn) => {
+        this.#dropdownContainers.each((_, btn) => {
             $(btn).click(handlerFunction);
         });
     }

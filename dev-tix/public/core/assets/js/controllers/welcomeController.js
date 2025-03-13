@@ -10,12 +10,8 @@ const controlToggleNav = function () {
 };
 
 const controlToggleDropdown = function () {
-    const container = $(this.closest(".dropdown-container"));
-    const containerClass = container.attr("class").split(" ")[1];
-
-    if ($(this).hasClass("btn")) $(this).toggleClass("active-btn-dropdown");
-    else $(`.${containerClass} .btn`).toggleClass("active-btn-dropdown");
-
+    const containerClass = $(this).attr("class").split(" ")[1];
+    $(`.${containerClass} .btn`).toggleClass("active-btn-dropdown");
     $(`.${containerClass} .dropdown-menu`).toggleClass("hide-dropdown");
 };
 
