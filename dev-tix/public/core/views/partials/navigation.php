@@ -1,5 +1,3 @@
-    <?php require_once __DIR__ . '/alert.php'; ?>
-
     <!-- NAVIGATION -->
     <div class="div-navigation-container">
         <h2 class="navigation-heading">
@@ -97,6 +95,6 @@
         </nav>
         <div class="div-hidden-inputs">
             <input id="partial" type="hidden" name="partial" value="partials/navigation">
-            <input id="view_as" type="hidden" name="view_as" value="<?php echo Session::get('view_as'); ?>">
+            <input id="view_as_user_id" type="hidden" name="view_as_user_id" value="<?php echo Session::get('view_as_user_id'); ?>">
         </div>
     </div>
