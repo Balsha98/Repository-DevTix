@@ -14,16 +14,16 @@
             <form class="form" action="/api/" method="POST">
                 <div class="div-input-container">
                     <label class="absolute-y-center" for="username">
-                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>
+                        <ion-icon src="<?php echo ICON_PATH; ?>/user.svg"></ion-icon>
                     </label>
                     <input id="username" type="text" name="username" placeholder="Username" autocomplete="on" required autofocus>
                 </div>
                 <div class="div-input-container">
                     <label class="absolute-y-center" for="password">
-                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/lock.svg"></ion-icon>
+                        <ion-icon src="<?php echo ICON_PATH; ?>/lock.svg"></ion-icon>
                     </label>
                     <input id="password" type="password" name="password" placeholder="Password" autocomplete="on" required>
-                    <a class="link-forgot-password" href="<?php SERVER_PATH; ?>/forgot-password">
+                    <a class="link-forgot-password" href="/forgot-password">
                         Forgot your password?
                     </a>
                 </div>
@@ -35,12 +35,12 @@
                 </div>
             </form>
             <div class="div-signup-container">
-                <p>Don't have an account? <a class="link-signup" href="<?php echo SERVER_PATH; ?>/signup">Sign Up!</a></p>
+                <p>Don't have an account? <a class="link-signup" href="/signup">Sign Up!</a></p>
             </div>
         </section>
         <!-- IMAGE CONTAINER -->
         <div class="div-image-container">
             <div class="overlay image-overlay">&nbsp;</div>
-            <img src="<?php echo SERVER_PATH ?>/core/assets/media/images/login-banner.jpg" alt="Image">
+            <img src="<?php echo IMAGE_PATH; ?>/login-banner.jpg" alt="Image">
         </div>
     </main>

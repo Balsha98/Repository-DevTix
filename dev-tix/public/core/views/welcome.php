@@ -8,7 +8,7 @@
         <div class="centered-container">
             <div class="flex-between">
                 <div class="div-logo-container">
-                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/page-logo.svg"></ion-icon>
+                    <ion-icon src="<?php echo ICON_PATH; ?>/page-logo.svg"></ion-icon>
                     <h2>DevTix</h2>
                 </div>
                 <nav class="header-navigation">
@@ -67,34 +67,19 @@
                 <div class="div-hero-data-container">
                     <ul class="hero-users-list">
                         <li class="hero-users-list-item">
-                            <img 
-                                src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-1.jpg" 
-                                alt="User Image"
-                            >
+                            <img src="<?php echo IMAGE_PATH; ?>/hero-user-1.jpg" alt="User Image">
                         </li>
                         <li class="hero-users-list-item">
-                            <img 
-                                src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-2.jpg" 
-                                alt="User Image"
-                            >
+                            <img src="<?php echo IMAGE_PATH; ?>/hero-user-2.jpg" alt="User Image">
                         </li>
                         <li class="hero-users-list-item">
-                            <img 
-                                src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-3.jpg" 
-                                alt="User Image"
-                            >
+                            <img src="<?php echo IMAGE_PATH; ?>/hero-user-3.jpg" alt="User Image">
                         </li>
                         <li class="hero-users-list-item">
-                            <img 
-                                src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-4.jpg" 
-                                alt="User Image"
-                            >
+                            <img src="<?php echo IMAGE_PATH; ?>/hero-user-4.jpg" alt="User Image">
                         </li>
                         <li class="hero-users-list-item">
-                            <img 
-                                src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-5.jpg" 
-                                alt="User Image"
-                            >
+                            <img src="<?php echo IMAGE_PATH; ?>/hero-user-5.jpg" alt="User Image">
                         </li>
                     </ul>
                     <p class="hero-data-description">
@@ -122,12 +107,12 @@
                             </p>
                         </div>
                         <div class="div-image-container">
-                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/login-banner.jpg" alt="About Image">
+                            <img src="<?php echo IMAGE_PATH; ?>/login-banner.jpg" alt="About Image">
                         </div>
                     </li>
                     <li class="about-list-item grid-2-columns">
                         <div class="div-image-container">
-                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/signup-banner.jpg" alt="About Image">
+                            <img src="<?php echo IMAGE_PATH; ?>/signup-banner.jpg" alt="About Image">
                         </div>
                         <div class="div-about-content-container right-about-content-container">
                             <h4 class="about-heading">Some Cool Heading</h4>
@@ -162,12 +147,12 @@
                             </p>
                         </div>
                         <div class="div-image-container">
-                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/welcome-banner.jpg" alt="How It Works Image">
+                            <img src="<?php echo IMAGE_PATH; ?>/welcome-banner.jpg" alt="How It Works Image">
                         </div>
                     </li>
                     <li class="steps-list-item grid-2-columns">
                         <div class="div-image-container">
-                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/welcome-banner.jpg" alt="How It Works">
+                            <img src="<?php echo IMAGE_PATH; ?>/welcome-banner.jpg" alt="How It Works">
                         </div>
                         <div class="div-steps-content-container">
                             <header class="steps-content-header">
@@ -190,12 +175,12 @@
                             </p>
                         </div>
                         <div class="div-image-container">
-                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/welcome-banner.jpg" alt="How It Works Image">
+                            <img src="<?php echo IMAGE_PATH; ?>/welcome-banner.jpg" alt="How It Works Image">
                         </div>
                     </li>
                     <li class="steps-list-item grid-2-columns">
                         <div class="div-image-container">
-                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/welcome-banner.jpg" alt="How It Works Image">
+                            <img src="<?php echo IMAGE_PATH; ?>/welcome-banner.jpg" alt="How It Works Image">
                         </div>
                         <div class="div-steps-content-container">
                             <header class="steps-content-header">
@@ -224,7 +209,7 @@
                 <ul class="features-list grid-4-columns">
                     <li class="features-list-item">
                         <div class="div-features-icon-container flex-center">
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/activity.svg"></ion-icon>
+                            <ion-icon src="<?php echo ICON_PATH; ?>/activity.svg"></ion-icon>
                         </div>
                         <div class="div-features-content-container">
                             <h4 class="features-heading">Some Cool Heading</h4>
@@ -235,7 +220,7 @@
                     </li>
                     <li class="features-list-item">
                         <div class="div-features-icon-container flex-center">
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/headphones.svg"></ion-icon>
+                            <ion-icon src="<?php echo ICON_PATH; ?>/headphones.svg"></ion-icon>
                         </div>
                         <div class="div-features-content-container">
                             <h4 class="features-heading">Some Cool Heading</h4>
@@ -246,7 +231,7 @@
                     </li>
                     <li class="features-list-item">
                         <div class="div-features-icon-container flex-center">
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/wind.svg"></ion-icon>
+                            <ion-icon src="<?php echo ICON_PATH; ?>/wind.svg"></ion-icon>
                         </div>
                         <div class="div-features-content-container">
                             <h4 class="features-heading">Some Cool Heading</h4>
@@ -257,7 +242,7 @@
                     </li>
                     <li class="features-list-item">
                         <div class="div-features-icon-container flex-center">
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/feather.svg"></ion-icon>
+                            <ion-icon src="<?php echo ICON_PATH; ?>/feather.svg"></ion-icon>
                         </div>
                         <div class="div-features-content-container">
                             <h4 class="features-heading">Some Cool Heading</h4>
@@ -283,7 +268,7 @@
                 <ul class="testimonials-list">
                     <li class="testimonials-list-item active-testimonial" data-testimonial-id="1">
                         <div class="div-image-container testimonials-image-container">
-                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-1.jpg" alt="User Image">
+                            <img src="<?php echo IMAGE_PATH; ?>/hero-user-1.jpg" alt="User Image">
                         </div>
                         <div class="div-testimonials-data-container">
                             <h4 class="testimonials-heading">Some Cool Heading</h4>
@@ -298,7 +283,7 @@
                     </li>
                     <li class="testimonials-list-item" data-testimonial-id="2">
                         <div class="div-image-container testimonials-image-container">
-                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-2.jpg" alt="User Image">
+                            <img src="<?php echo IMAGE_PATH; ?>/hero-user-2.jpg" alt="User Image">
                         </div>
                         <div class="div-testimonials-data-container">
                             <h4 class="testimonials-heading">Some Cool Heading</h4>
@@ -313,7 +298,7 @@
                     </li>
                     <li class="testimonials-list-item" data-testimonial-id="3">
                         <div class="div-image-container testimonials-image-container">
-                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-3.jpg" alt="User Image">
+                            <img src="<?php echo IMAGE_PATH; ?>/hero-user-3.jpg" alt="User Image">
                         </div>
                         <div class="div-testimonials-data-container">
                             <h4 class="testimonials-heading">Some Cool Heading</h4>
@@ -328,7 +313,7 @@
                     </li>
                     <li class="testimonials-list-item" data-testimonial-id="4">
                         <div class="div-image-container testimonials-image-container">
-                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-4.jpg" alt="User Image">
+                            <img src="<?php echo IMAGE_PATH; ?>/hero-user-4.jpg" alt="User Image">
                         </div>
                         <div class="div-testimonials-data-container">
                             <h4 class="testimonials-heading">Some Cool Heading</h4>
@@ -343,7 +328,7 @@
                     </li>
                     <li class="testimonials-list-item" data-testimonial-id="5">
                         <div class="div-image-container testimonials-image-container">
-                            <img src="<?php echo SERVER_PATH; ?>/core/assets/media/images/hero-user-5.jpg" alt="User Image">
+                            <img src="<?php echo IMAGE_PATH; ?>/hero-user-5.jpg" alt="User Image">
                         </div>
                         <div class="div-testimonials-data-container">
                             <h4 class="testimonials-heading">Some Cool Heading</h4>
@@ -359,7 +344,7 @@
                 </ul>
                 <div class="div-testimonials-controls-container">
                     <button class="btn btn-white flex-center btn-testimonials-step" data-direction="prev">
-                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-left.svg"></ion-icon>
+                        <ion-icon src="<?php echo ICON_PATH; ?>/chevron-left.svg"></ion-icon>
                     </button>
                     <ul class="indicators-list">
                         <li class="indicators-list-item" data-testimonial-id="1">
@@ -379,7 +364,7 @@
                         </li>
                     </ul>
                     <button class="btn btn-white flex-center btn-testimonials-step" data-direction="next">
-                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-right.svg"></ion-icon>
+                        <ion-icon src="<?php echo ICON_PATH; ?>/chevron-right.svg"></ion-icon>
                     </button>
                 </div>
             </div>
@@ -389,7 +374,7 @@
     <!-- BACK TO TOP BUTTON -->
     <div class="div-to-top-btn-container hide-to-top-btn">
         <button class="btn btn-icon btn-to-top">
-            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-up.svg"></ion-icon>
+            <ion-icon src="<?php echo ICON_PATH; ?>/chevron-up.svg"></ion-icon>
         </button>
     </div>
 
@@ -399,10 +384,10 @@
             <div class="div-footer-content-container grid-4-columns">
                 <header class="footer-content-container-header grid-span-across-all">
                     <div class="div-logo-container">
-                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/page-logo.svg"></ion-icon>
+                        <ion-icon src="<?php echo ICON_PATH; ?>/page-logo.svg"></ion-icon>
                         <h2>DevTix</h2>
                     </div>
-                    <a class="link link-primary" href="<?php echo SERVER_PATH; ?>/signup" target="_blank">
+                    <a class="link link-primary" href="/signup" target="_blank">
                         Become a Member
                     </a>
                 </header>
@@ -411,22 +396,22 @@
                     <ul class="socials-list">
                         <li class="socials-list-item flex-center">
                             <a class="socials-link flex-center" href="https://www.facebook.com/" target="_blank">
-                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/facebook.svg"></ion-icon>
+                                <ion-icon src="<?php echo ICON_PATH; ?>/facebook.svg"></ion-icon>
                             </a>
                         </li>
                         <li class="socials-list-item flex-center">
                             <a class="socials-link flex-center" href="https://www.instagram.com/" target="_blank">
-                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/instagram.svg"></ion-icon>
+                                <ion-icon src="<?php echo ICON_PATH; ?>/instagram.svg"></ion-icon>
                             </a>
                         </li>
                         <li class="socials-list-item flex-center">
                             <a class="socials-link flex-center" href="https://x.com/" target="_blank">
-                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/twitter.svg"></ion-icon>
+                                <ion-icon src="<?php echo ICON_PATH; ?>/twitter.svg"></ion-icon>
                             </a>
                         </li>
                         <li class="socials-list-item flex-center">
                             <a class="socials-link flex-center" href="https://www.linkedin.com/" target="_blank">
-                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/linkedin.svg"></ion-icon>
+                                <ion-icon src="<?php echo ICON_PATH; ?>/linkedin.svg"></ion-icon>
                             </a>
                         </li>
                     </ul>
@@ -435,19 +420,19 @@
                     <h2 class="footer-content-heading">Company Notice</h2>
                     <ul class="footer-links-list">
                         <li class="footer-links-list-item">
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/external-link.svg"></ion-icon>
+                            <ion-icon src="<?php echo ICON_PATH; ?>/external-link.svg"></ion-icon>
                             <p class="footer-content-description">Privacy Policy</p>
                         </li>
                         <li class="footer-links-list-item">
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/external-link.svg"></ion-icon>
+                            <ion-icon src="<?php echo ICON_PATH; ?>/external-link.svg"></ion-icon>
                             <p class="footer-content-description">Terms & Conditions</p>
                         </li>
                         <li class="footer-links-list-item">
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/external-link.svg"></ion-icon>
+                            <ion-icon src="<?php echo ICON_PATH; ?>/external-link.svg"></ion-icon>
                             <p class="footer-content-description">User Agreement</p>
                         </li>
                         <li class="footer-links-list-item">
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/external-link.svg"></ion-icon>
+                            <ion-icon src="<?php echo ICON_PATH; ?>/external-link.svg"></ion-icon>
                             <p class="footer-content-description">Services</p>
                         </li>
                     </ul>
@@ -456,19 +441,19 @@
                     <h2 class="footer-content-heading">Contact Us</h2>
                     <ul class="footer-links-list">
                         <li class="footer-links-list-item">
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/map-pin.svg"></ion-icon>
+                            <ion-icon src="<?php echo ICON_PATH; ?>/map-pin.svg"></ion-icon>
                             <p class="footer-content-description">Dubrovnik, Croatia</p>
                         </li>
                         <li class="footer-links-list-item">
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/mail.svg"></ion-icon>
+                            <ion-icon src="<?php echo ICON_PATH; ?>/mail.svg"></ion-icon>
                             <p class="footer-content-description">support@devtix.hr</p>
                         </li>
                         <li class="footer-links-list-item">
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/phone.svg"></ion-icon>
+                            <ion-icon src="<?php echo ICON_PATH; ?>/phone.svg"></ion-icon>
                             <p class="footer-content-description">+385 99 123 4567</p>
                         </li>
                         <li class="footer-links-list-item">
-                            <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/home.svg"></ion-icon>
+                            <ion-icon src="<?php echo ICON_PATH; ?>/home.svg"></ion-icon>
                             <p class="footer-content-description">+385 20 433 000</p>
                         </li>
                     </ul>
@@ -480,7 +465,7 @@
                         <form class="form newsletter-form" action="/api/" method="POST">
                             <div class="div-input-container">
                                 <label class="absolute-y-center" for="email">
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/mail.svg"></ion-icon>
+                                    <ion-icon src="<?php echo ICON_PATH; ?>/mail.svg"></ion-icon>
                                 </label>
                                 <input 
                                     id="email" type="email" name="email" 

@@ -4,11 +4,11 @@
         <div class="sidebar-container-expand collapse-sidebar">
             <header class="sidebar-header">
                 <div class="div-logo-container dashboard-logo-container">
-                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/page-logo.svg"></ion-icon>
+                    <ion-icon src="<?php echo ICON_PATH; ?>/page-logo.svg"></ion-icon>
                     <h2>DevTix</h2>
                 </div>
                 <button class="btn btn-icon btn-sidebar-menu btn-sidebar-menu-close">
-                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/bar-chart.svg"></ion-icon>
+                    <ion-icon src="<?php echo ICON_PATH; ?>/bar-chart.svg"></ion-icon>
                 </button>
             </header>
             <nav class="sidebar-navigation">
@@ -17,7 +17,7 @@
                         <header class="sidebar-nav-list-item-header">
                             <h4 class="sidebar-nav-heading">General</h4>
                             <button class="btn btn-icon btn-sidebar-dropdown">
-                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
+                                <ion-icon src="<?php echo ICON_PATH; ?>/chevron-down.svg"></ion-icon>
                             </button>
                         </header>
                         <ul class="sidebar-links-list">
@@ -28,7 +28,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/grid.svg"
+                                        src="<?php echo ICON_PATH; ?>/grid.svg"
                                     ></ion-icon>
                                     <span class="span-sidebar-link-name">Dashboard</span>
                                 </a>
@@ -40,7 +40,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/paperclip.svg"
+                                        src="<?php echo ICON_PATH; ?>/paperclip.svg"
                                     ></ion-icon>
                                     <span class="span-sidebar-link-name">Ticket Requests</span>
                                 </a>
@@ -52,7 +52,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"
+                                        src="<?php echo ICON_PATH; ?>/user.svg"
                                     ></ion-icon>
                                     <span class="span-sidebar-link-name">Profile</span>
                                 </a>
@@ -63,7 +63,7 @@
                         <header class="sidebar-nav-list-item-header">
                             <h4 class="sidebar-nav-heading">Interactive</h4>
                             <button class="btn btn-icon btn-sidebar-dropdown">
-                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
+                                <ion-icon src="<?php echo ICON_PATH; ?>/chevron-down.svg"></ion-icon>
                             </button>
                         </header>
                         <ul class="sidebar-links-list">
@@ -74,7 +74,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/award.svg"
+                                        src="<?php echo ICON_PATH; ?>/award.svg"
                                     ></ion-icon>
                                     <span class="span-sidebar-link-name">Leagues</span>
                                 </a>
@@ -86,7 +86,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/bar-chart-2.svg"
+                                        src="<?php echo ICON_PATH; ?>/bar-chart-2.svg"
                                     ></ion-icon>
                                     <span class="span-sidebar-link-name">Leaderboard</span>
                                 </a>
@@ -97,7 +97,7 @@
                         <header class="sidebar-nav-list-item-header">
                             <h4 class="sidebar-nav-heading">Accessories</h4>
                             <button class="btn btn-icon btn-sidebar-dropdown">
-                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
+                                <ion-icon src="<?php echo ICON_PATH; ?>/chevron-down.svg"></ion-icon>
                             </button>
                         </header>
                         <ul class="sidebar-links-list">
@@ -108,7 +108,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/bell.svg"
+                                        src="<?php echo ICON_PATH; ?>/bell.svg"
                                     ></ion-icon>
                                     <span class="span-sidebar-link-name">Notifications</span>
                                 </a>
@@ -120,7 +120,7 @@
                         <header class="sidebar-nav-list-item-header">
                             <h4 class="sidebar-nav-heading">Administrator</h4>
                             <button class="btn btn-icon btn-sidebar-dropdown">
-                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
+                                <ion-icon src="<?php echo ICON_PATH; ?>/chevron-down.svg"></ion-icon>
                             </button>
                         </header>
                         <ul class="sidebar-links-list">
@@ -131,7 +131,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/users.svg"
+                                        src="<?php echo ICON_PATH; ?>/users.svg"
                                     ></ion-icon>
                                     <span class="span-sidebar-link-name">Users</span>
                                 </a>
@@ -143,7 +143,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/pie-chart.svg"
+                                        src="<?php echo ICON_PATH; ?>/pie-chart.svg"
                                     ></ion-icon>
                                     <span class="span-sidebar-link-name">Statistics</span>
                                 </a>
@@ -155,7 +155,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/list.svg"
+                                        src="<?php echo ICON_PATH; ?>/list.svg"
                                     ></ion-icon>
                                     <span class="span-sidebar-link-name">Logs</span>
                                 </a>
@@ -179,7 +179,7 @@
                         </div>
                     </div>
                     <a class="link link-icon link-sidebar-logout flex-center" href="/logout">
-                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/log-out.svg"></ion-icon>
+                        <ion-icon src="<?php echo ICON_PATH; ?>/log-out.svg"></ion-icon>
                     </a>
                 </div>
             </footer>
@@ -188,7 +188,7 @@
         <div class="sidebar-container-collapse">
             <header class="sidebar-header flex-center">
                 <button class="btn btn-icon btn-sidebar-menu btn-sidebar-menu-open">
-                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/menu.svg"></ion-icon>
+                    <ion-icon src="<?php echo ICON_PATH; ?>/menu.svg"></ion-icon>
                 </button>
             </header>
             <nav class="sidebar-navigation">
@@ -202,7 +202,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/grid.svg"
+                                        src="<?php echo ICON_PATH; ?>/grid.svg"
                                     ></ion-icon>
                                 </a>
                                 <div class="div-sidebar-link-name-container-collapse">
@@ -217,7 +217,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/paperclip.svg"
+                                        src="<?php echo ICON_PATH; ?>/paperclip.svg"
                                     ></ion-icon>
                                 </a>
                                 <div class="div-sidebar-link-name-container-collapse">
@@ -232,7 +232,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"
+                                        src="<?php echo ICON_PATH; ?>/user.svg"
                                     ></ion-icon>
                                 </a>
                                 <div class="div-sidebar-link-name-container-collapse">
@@ -251,7 +251,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/award.svg"
+                                        src="<?php echo ICON_PATH; ?>/award.svg"
                                     ></ion-icon>
                                 </a>
                                 <div class="div-sidebar-link-name-container-collapse">
@@ -266,7 +266,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/bar-chart-2.svg"
+                                        src="<?php echo ICON_PATH; ?>/bar-chart-2.svg"
                                     ></ion-icon>
                                 </a>
                                 <div class="div-sidebar-link-name-container-collapse">
@@ -285,7 +285,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/bell.svg"
+                                        src="<?php echo ICON_PATH; ?>/bell.svg"
                                     ></ion-icon>
                                 </a>
                                 <div class="div-sidebar-link-name-container-collapse">
@@ -305,7 +305,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/users.svg"
+                                        src="<?php echo ICON_PATH; ?>/users.svg"
                                     ></ion-icon>
                                 </a>
                                 <div class="div-sidebar-link-name-container-collapse">
@@ -320,7 +320,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/pie-chart.svg"
+                                        src="<?php echo ICON_PATH; ?>/pie-chart.svg"
                                     ></ion-icon>
                                 </a>
                                 <div class="div-sidebar-link-name-container-collapse">
@@ -335,7 +335,7 @@
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
-                                        src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/list.svg"
+                                        src="<?php echo ICON_PATH; ?>/list.svg"
                                     ></ion-icon>
                                 </a>
                                 <div class="div-sidebar-link-name-container-collapse">

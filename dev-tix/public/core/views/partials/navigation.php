@@ -10,7 +10,7 @@
                 <li class="dropdown-container dropdown-notifications">
                     <span class="span-notifications-indicator">&nbsp;</span>
                     <button class="btn btn-icon btn-nav-icon">
-                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/bell.svg"></ion-icon>
+                        <ion-icon src="<?php echo ICON_PATH; ?>/bell.svg"></ion-icon>
                     </button>
                     <div class="dropdown-menu hide-dropdown">
                         <span class="span-dropdown-indicator">&nbsp;</span>
@@ -29,14 +29,14 @@
                         <footer class="notifications-menu-footer">
                             <a class="link link-primary flex-between" href="/notifications">
                                 <span>View Notifications</span>
-                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/external-link.svg"></ion-icon>
+                                <ion-icon src="<?php echo ICON_PATH; ?>/external-link.svg"></ion-icon>
                             </a>
                         </footer>
                     </div>
                 </li>
                 <li class="dropdown-container dropdown-user">
                     <button class="btn btn-icon btn-nav-icon">
-                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>
+                        <ion-icon src="<?php echo ICON_PATH; ?>/user.svg"></ion-icon>
                     </button>
                     <div class="dropdown-menu hide-dropdown">
                         <span class="span-dropdown-indicator">&nbsp;</span>
@@ -53,7 +53,7 @@
                 <?php if ($user->getRoleId() === 1) { ?>
                 <li class="dropdown-container dropdown-settings">
                     <button class="btn btn-icon btn-nav-icon">
-                        <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/settings.svg"></ion-icon>
+                        <ion-icon src="<?php echo ICON_PATH; ?>/settings.svg"></ion-icon>
                     </button>
                     <div class="dropdown-menu hide-dropdown">
                         <span class="span-dropdown-indicator">&nbsp;</span>

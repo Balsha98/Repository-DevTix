@@ -33,7 +33,7 @@
         <!-- IMAGE CONTAINER -->
         <div class="div-image-container">
             <div class="overlay image-overlay">&nbsp;</div>
-            <img src="<?php echo SERVER_PATH ?>/core/assets/media/images/signup-banner.jpg" alt="Image">
+            <img src="<?php echo IMAGE_PATH; ?>/signup-banner.jpg" alt="Image">
         </div>
         <!-- FORM SECTION -->
         <section class="section-form">
@@ -47,7 +47,7 @@
                         <div class="div-multiple-inputs-grid grid-2-columns">
                             <div class="div-input-container required-container">
                                 <label class="absolute-y-center" for="first_name">
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>
+                                    <ion-icon src="<?php echo ICON_PATH; ?>/user.svg"></ion-icon>
                                 </label>
                                 <input 
                                     id="first_name" class="step-validate-1" type="text" 
@@ -56,7 +56,7 @@
                             </div>
                             <div class="div-input-container required-container">
                                 <label class="absolute-y-center" for="last_name">
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>
+                                    <ion-icon src="<?php echo ICON_PATH; ?>/user.svg"></ion-icon>
                                 </label>
                                 <input 
                                     id="last_name" class="step-validate-1" type="text" 
@@ -66,7 +66,7 @@
                         </div>
                         <div class="div-input-container required-container">
                             <label class="absolute-y-center" for="email">
-                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/mail.svg"></ion-icon>
+                                <ion-icon src="<?php echo ICON_PATH; ?>/mail.svg"></ion-icon>
                             </label>
                             <input 
                                 id="email" class="step-validate-1" type="email" 
@@ -76,13 +76,13 @@
                         <div class="div-multiple-inputs-grid grid-2-columns">
                             <div class="div-input-container">
                                 <label class="absolute-y-center" for="age">
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/bar-chart-2.svg"></ion-icon>
+                                    <ion-icon src="<?php echo ICON_PATH; ?>/bar-chart-2.svg"></ion-icon>
                                 </label>
                                 <input id="age" type="number" name="age" min="0" placeholder="Age">
                             </div>
                             <div class="div-input-container">
                                 <label class="label-select absolute-y-center" for="gender">
-                                    <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
+                                    <ion-icon src="<?php echo ICON_PATH; ?>/chevron-down.svg"></ion-icon>
                                 </label>
                                 <select id="gender" name="gender">
                                     <option value="">Select Gender</option>
@@ -100,7 +100,7 @@
                     <div class="div-form-step-container">
                         <div class="div-input-container required-container">
                             <label class="absolute-y-center" for="username">
-                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/user.svg"></ion-icon>
+                                <ion-icon src="<?php echo ICON_PATH; ?>/user.svg"></ion-icon>
                             </label>
                             <input 
                                 id="username" class="step-validate-2" type="text" 
@@ -109,7 +109,7 @@
                         </div>
                         <div class="div-input-container required-container">
                             <label class="label-select absolute-y-center" for="role">
-                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/chevron-down.svg"></ion-icon>
+                                <ion-icon src="<?php echo ICON_PATH; ?>/chevron-down.svg"></ion-icon>
                             </label>
                             <select id="role" class="step-validate-2" name="role" required>
                                 <option value="">Select Role</option>
@@ -119,7 +119,7 @@
                         </div>
                         <div class="div-input-container required-container">
                             <label class="absolute-y-center" for="password">
-                                <ion-icon src="<?php echo SERVER_PATH; ?>/core/assets/media/icons/mail.svg"></ion-icon>
+                                <ion-icon src="<?php echo ICON_PATH; ?>/mail.svg"></ion-icon>
                             </label>
                             <input 
                                 id="password" class="step-validate-2" type="password" 
@@ -141,7 +141,7 @@
                 </div>
             </form>
             <div class="div-login-container">
-                <p>Already have an account? <a class="link-login" href="<?php echo SERVER_PATH; ?>/login">Log In!</a></p>
+                <p>Already have an account? <a class="link-login" href="/login">Log In!</a></p>
             </div>
         </section>
     </main>
