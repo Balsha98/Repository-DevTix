@@ -25,6 +25,19 @@
         }
     },
     {
+        "tickets": {
+            "css": [
+                "css/partials/alert",
+                "css/partials/data-loader",
+                "css/partials/navigation",
+                "css/partials/none-data",
+                "css/partials/page-loader",
+                "css/partials/sidebar"
+            ],
+            "js": []
+        }
+    },
+    {
         "welcome": {
             "css": ["css/partials/alert", "css/partials/page-loader"],
             "js": []
