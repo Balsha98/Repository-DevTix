@@ -7,6 +7,28 @@
         </h2>
         <nav class="dashboard-navigation">
             <ul class="dashboard-nav-list">
+                <?php if ($user->getRoleId() === 1) { ?>
+                <li class="dropdown-container dropdown-clients">
+                    <button class="btn btn-icon btn-nav-icon">
+                        <ion-icon src="<?php echo ICON_PATH; ?>/users.svg"></ion-icon>
+                    </button>
+                    <div class="dropdown-menu hide-dropdown">
+                        <span class="span-dropdown-indicator">&nbsp;</span>
+                        <header class="clients-menu-header flex-between">
+                            <h4><span class="span-total-clients">&nbsp;</span> total clients.</h4>
+                        </header>
+                        <ul class="dropdown-menu-list clients-menu-list">
+                            <!-- DYNAMICALLY GENERATED VIA AJAX -->
+                        </ul>
+                        <footer class="clients-menu-footer">
+                            <a class="link link-primary flex-between" href="/users">
+                                <span>View Clients</span>
+                                <ion-icon src="<?php echo ICON_PATH; ?>/external-link.svg"></ion-icon>
+                            </a>
+                        </footer>
+                    </div>
+                </li>
+                <?php } ?>
                 <li class="dropdown-container dropdown-notifications">
                     <span class="span-notifications-indicator">&nbsp;</span>
                     <button class="btn btn-icon btn-nav-icon">
@@ -16,7 +38,7 @@
                         <span class="span-dropdown-indicator">&nbsp;</span>
                         <header class="notifications-menu-header flex-between">
                             <h4><span class="span-total-unread">&nbsp;</span> unread notifications.</h4>
-                            <form class="form" action="/api/" method="POST">
+                            <form class="form" action="/api/" method="PUT">
                                 <button class="btn btn-primary btn-mark-as-read">Mark As Read</button>
                                 <div class="div-hidden-inputs">
                                     <input id="is_read" type="hidden" name="is_read" value="1">
@@ -75,5 +97,6 @@
         </nav>
         <div class="div-hidden-inputs">
             <input id="partial" type="hidden" name="partial" value="partials/navigation">
+            <input id="view_as" type="hidden" name="view_as" value="<?php echo Session::get('view_as'); ?>">
         </div>
     </div>

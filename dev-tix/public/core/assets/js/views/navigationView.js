@@ -1,10 +1,12 @@
 class NavigationView {
     #spanWelcomeMessage = $(".span-welcome-message");
     #dropdownContainers = $(".dropdown-container");
+    #spanTotalClients = $(".span-total-clients");
+    #clientsMenuList = $(".clients-menu-list");
     #spanNotificationsIndicator = $(".span-notifications-indicator");
     #spanTotalUnread = $(".span-total-unread");
-    #notificationsMenuList = $(".notifications-menu-list");
     #btnMarkAsRead = $(".btn-mark-as-read");
+    #notificationsMenuList = $(".notifications-menu-list");
 
     setWelcomeMessage() {
         const hours = new Date().getHours();
@@ -17,10 +19,50 @@ class NavigationView {
         this.#spanWelcomeMessage.text(`Good ${timeOfDay}`);
     }
 
+    generateClientsList(data) {
+        const isArray = Array.isArray(data["clients_list"]);
+        const clientsList = isArray ? data["clients_list"] : [data["clients_list"]];
+        const totalClients = data["total_clients"];
+
+        // Remove certain visuals.
+        if (totalClients === 0) {
+            this.#spanNotificationsIndicator.remove();
+            this.#btnMarkAsRead.remove();
+        }
+
+        const viewAsID = +$("#view_as").val();
+
+        for (const item of clientsList) {
+            const viewingAsClient = viewAsID ? (viewAsID === item["user_id"] ? "viewing-as-client" : "") : "";
+
+            this.#clientsMenuList.append(`
+                <li class="dropdown-menu-list-item clients-menu-list-item ${viewingAsClient}" data-client-id="${item["user_id"]}">
+                    <form class="form client-form-${item["user_id"]}" action="/api/" method="PUT">
+                        <div class="div-notifications-icon-container flex-center">
+                            <ion-icon src="/core/assets/media/icons/user.svg"></ion-icon>
+                        </div>
+                        <div class="div-notifications-info-container">
+                            <h4>${item["first_name"]} ${item["last_name"]}</h4>
+                            <span>${item["email"]}</span>
+                        </div>
+                        <div class="div-hidden-inputs">
+                            <input id="client_id_${item["user_id"]}" type="hidden" name="client_id" value="${item["user_id"]}">
+                        </div>
+                    </form>
+                </li>
+            `);
+        }
+
+        // Add scroll overflow to list.
+        if (totalClients > 5) this.#clientsMenuList.css("overflow-y", "scroll");
+
+        this.#spanTotalClients.text(totalClients);
+    }
+
     generateNotificationsList(data) {
-        const isArray = Array.isArray(data["notifications"]);
-        const notifications = isArray ? data["notifications"] : [data["notifications"]];
-        const totalUnread = data["total_unread"]["total"];
+        const isArray = Array.isArray(data["notifications_list"]);
+        const notificationsList = isArray ? data["notifications_list"] : [data["notifications_list"]];
+        const totalUnread = data["total_unread"];
 
         // Remove certain visuals.
         if (totalUnread === 0) {
@@ -28,7 +70,7 @@ class NavigationView {
             this.#btnMarkAsRead.remove();
         }
 
-        for (const item of notifications) {
+        for (const item of notificationsList) {
             const isUnread = item["is_read"] === 0 ? "unread-notification" : "";
 
             this.#notificationsMenuList.append(`
@@ -45,7 +87,7 @@ class NavigationView {
         }
 
         // Add scroll overflow to list.
-        if (notifications.length > 5) this.#notificationsMenuList.css("overflow-y", "scroll");
+        if (notificationsList.length > 5) this.#notificationsMenuList.css("overflow-y", "scroll");
 
         this.#spanTotalUnread.text(totalUnread);
     }
@@ -62,6 +104,12 @@ class NavigationView {
     addEventToggleDropdown(handlerFunction) {
         this.#dropdownContainers.each((_, div) => {
             $(div).click(handlerFunction);
+        });
+    }
+
+    addEventSetViewAsClient(handlerFunction) {
+        $(".clients-menu-list-item").each((_, item) => {
+            $(item).click(handlerFunction);
         });
     }
 
