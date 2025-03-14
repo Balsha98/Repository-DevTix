@@ -12,6 +12,7 @@ class User
     private string $image;
     private string $joinedAt;
     private string $lastActive;
+    private array $requestIDs;
     private Database $database;
 
     public function __construct(int $id, Database $database)
@@ -24,11 +25,7 @@ class User
 
     private function getUserData()
     {
-        $query = '
-            SELECT * FROM users JOIN roles 
-            ON users.role_id = roles.role_id 
-            WHERE user_id = :user_id;
-        ';
+        $query = 'SELECT * FROM users JOIN roles ON users.role_id = roles.role_id WHERE user_id = :user_id;';
 
         $result = $this->database->executeQuery(
             $query, [':user_id' => $this->id]
@@ -110,5 +107,18 @@ class User
     public function getLastActive()
     {
         return $this->lastActive;
+    }
+
+    public function getRequestIds()
+    {
+        if (empty($this->requestIDs)) {
+            $query = 'SELECT request_id FROM ticket_requests WHERE patron_id = :patron_id OR assistant_id = :assistant_id;';
+
+            $this->requestIDs = $this->database->executeQuery(
+                $query, [':patron_id' => $this->id, ':assistant_id' => $this->id]
+            )->getQueryResult();
+        }
+
+        return $this->requestIDs;
     }
 }
