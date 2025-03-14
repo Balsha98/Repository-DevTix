@@ -1,6 +1,6 @@
 import { isInputEmpty } from "./../helpers/validate.js";
 import { handleRequest } from "./../helpers/request.js";
-import { controlHidePageLoader } from "./pageLoaderController.js";
+import * as pageLoaderController from "./pageLoaderController.js";
 import signupModel from "./../models/signupModel.js";
 import signupView from "./../views/signupView.js";
 
@@ -64,8 +64,9 @@ const controlUserSignup = function (formEvent) {
 };
 
 const initController = function () {
-    controlHidePageLoader(1);
+    pageLoaderController.controlHidePageLoader(1);
 
+    // Setup signup view.
     signupView.addEventResetInput(controlResetInputs);
     signupView.addEvenSwitchStepContainer(controlSwitchStepContainer);
     signupView.addEventUserSignup(controlUserSignup);
