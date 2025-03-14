@@ -7,16 +7,16 @@ class SignupInputRules
             'type' => 'str',
             'pattern' => 'only_letters',
             'length' => [
-                'min' => 8,
-                'max' => 50
+                'min' => 3,
+                'max' => 30
             ],
         ],
         'last_name' => [
             'type' => 'str',
             'pattern' => 'only_letters',
             'length' => [
-                'min' => 8,
-                'max' => 50
+                'min' => 3,
+                'max' => 30
             ],
         ],
         'email' => [
