@@ -3,7 +3,7 @@
     width: 100%;
     height: 100%;
     background-color: var(--white);
-    z-index: 1;
+    z-index: 3;
 }
 
 .hide-none-data {
@@ -17,6 +17,7 @@
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;
+    width: 100%;
 }
 
 /* NONE DATA ICON CONTAINER */
