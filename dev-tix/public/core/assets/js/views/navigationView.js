@@ -3,6 +3,7 @@ class NavigationView {
     #dropdownContainers = $(".dropdown-container");
     #spanTotalClients = $(".span-total-clients");
     #clientsMenuList = $(".clients-menu-list");
+    #noneNotificationsData = $(".div-none-notifications-container");
     #spanNotificationsIndicator = $(".span-notifications-indicator");
     #spanTotalUnread = $(".span-total-unread");
     #btnMarkAsRead = $(".btn-mark-as-read");
@@ -73,6 +74,8 @@ class NavigationView {
             this.#spanNotificationsIndicator.remove();
             this.#btnMarkAsRead.remove();
         }
+
+        if (notificationsList.length === 0) return this.#noneNotificationsData.removeClass("hide-none-notifications");
 
         for (const item of notificationsList) {
             const isUnread = item["is_read"] === 0 ? "unread-notification" : "";

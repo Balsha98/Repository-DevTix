@@ -13,7 +13,7 @@
                     <div class="dropdown-menu hide-dropdown">
                         <span class="span-dropdown-indicator">&nbsp;</span>
                         <header class="clients-menu-header flex-between">
-                            <h4><span class="span-total-clients">&nbsp;</span> total clients.</h4>
+                            <h4><span class="span-total-clients">0</span> total clients.</h4>
                         </header>
                         <ul class="dropdown-menu-list clients-menu-list">
                             <!-- DYNAMICALLY GENERATED VIA AJAX -->
@@ -35,7 +35,7 @@
                     <div class="dropdown-menu hide-dropdown">
                         <span class="span-dropdown-indicator">&nbsp;</span>
                         <header class="notifications-menu-header flex-between">
-                            <h4><span class="span-total-unread">&nbsp;</span> unread notifications.</h4>
+                            <h4><span class="span-total-unread">0</span> unread notifications.</h4>
                             <form class="form" action="/api/" method="PUT">
                                 <button class="btn btn-primary btn-mark-as-read">Mark As Read</button>
                                 <div class="div-hidden-inputs">
@@ -43,9 +43,12 @@
                                 </div>
                             </form>
                         </header>
-                        <ul class="dropdown-menu-list notifications-menu-list">
-                            <!-- DYNAMICALLY GENERATED VIA AJAX -->
-                        </ul>
+                        <div class="div-notifications-menu-list-container">
+                            <?php require_once __DIR__ . '/none-notifications.php'; ?>
+                            <ul class="dropdown-menu-list notifications-menu-list">
+                                <!-- DYNAMICALLY GENERATED VIA AJAX -->
+                            </ul>
+                        </div>
                         <footer class="notifications-menu-footer">
                             <a class="link link-primary flex-between" href="/notifications">
                                 <span>View Notifications</span>

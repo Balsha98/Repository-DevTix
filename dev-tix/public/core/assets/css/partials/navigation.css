@@ -84,6 +84,11 @@
     background-color: var(--primary-tint);
 }
 
+/* NOTIFICATIONS MENU LIST CONTAINER */
+.div-notifications-menu-list-container {
+    position: relative;
+}
+
 /* CLIENTS & NOTIFICATIONS MENU HEADER */
 .clients-menu-header,
 .notifications-menu-header {
