@@ -1,6 +1,6 @@
 import { isInputEmpty } from "./../helpers/validate.js";
 import { handleRequest } from "./../helpers/request.js";
-import { controlHidePageLoader } from "./pageLoaderController.js";
+import * as pageLoaderController from "./pageLoaderController.js";
 import welcomeModel from "./../models/welcomeModel.js";
 import welcomeView from "./../views/welcomeView.js";
 
@@ -72,7 +72,7 @@ const controlNewsletterSubmit = function (formEvent) {
 };
 
 const initController = function () {
-    controlHidePageLoader(2);
+    pageLoaderController.controlHidePageLoader(2);
 
     // Setup welcome view.
     welcomeView.addEventToggleNavLinks(controlToggleNav);

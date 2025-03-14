@@ -8,7 +8,7 @@
     transition: width 0.5s;
     /* Hide overflow on one side (left). */
     clip-path: inset(-100% -100% -100% 0);
-    z-index: 1;
+    z-index: 4;
 }
 
 /* SIDEBAR CONTAINER TYPES */
@@ -285,7 +285,7 @@
     background-color: var(--primary);
     box-shadow: 0 0.4rem 1.6rem var(--shadow-sm);
     border-radius: var(--border-radius-md);
-    z-index: 2;
+    z-index: 1;
 }
 
 .sidebar-link-collapse:hover + .div-sidebar-link-name-container-collapse,
