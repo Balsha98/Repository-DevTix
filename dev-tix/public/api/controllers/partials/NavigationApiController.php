@@ -10,17 +10,19 @@ class NavigationApiController extends AbsApiController
 
         $return = [];
         if ($roleID === 1) {
-            $clients = $this->getClients($userID, $roleID);
+            $allClients = $this->getAllClients($userID, $roleID);
 
             $return['clients'] = [
-                'clients_list' => $clients,
-                'total_clients' => count($clients)
+                'clients_list' => $allClients,
+                'total_clients' => count($allClients)
             ];
         }
 
+        $unreadNotifications = $this->getUnreadNotifications($userID, $roleID);
+
         $return['notifications'] = [
-            'notifications_list' => $this->getNotifications($userID, $roleID),
-            'total_unread' => $this->getTotalUnreadNotifications($userID, $roleID)['total']
+            'notifications_list' => $unreadNotifications,
+            'total_unread' => count($unreadNotifications)
         ];
 
         return ApiMessage::dataFetchAttempt($return);
@@ -43,7 +45,7 @@ class NavigationApiController extends AbsApiController
         if (isset($data['client_id'])) {
             // TODO: Change db value.
             Session::set('view_as_user_id', $data['client_id']);
-            return ApiMessage::alertDataAlterAttempt(true);
+            return ApiMessage::alertDataAlterAttempt(true, '/dashboard');
         }
 
         $roleID = Session::get('role_id');
@@ -56,7 +58,7 @@ class NavigationApiController extends AbsApiController
         return ApiMessage::alertDataAlterAttempt(true);
     }
 
-    private function getClients(int $userID, int $roleID)
+    private function getAllClients(int $userID, int $roleID)
     {
         $query = 'SELECT * FROM users WHERE user_id != :user_id OR role_id != :role_id;';
         return Session::getDbInstance()->executeQuery(
@@ -64,30 +66,16 @@ class NavigationApiController extends AbsApiController
         )->getQueryResult();
     }
 
-    private function getNotifications(int $userID, int $roleID)
+    private function getUnreadNotifications(int $userID, int $roleID)
     {
         if ($roleID === 1) {
-            return Session::getDbInstance()->executeQuery(
-                'SELECT * FROM notifications;'
-            )->getQueryResult();
-        }
-
-        $query = 'SELECT * FROM notifications WHERE user_id = :user_id;';
-        return Session::getDbInstance()->executeQuery(
-            $query, [':user_id' => $userID]
-        )->getQueryResult();
-    }
-
-    private function getTotalUnreadNotifications(int $userID, int $roleID)
-    {
-        if ($roleID === 1) {
-            $query = 'SELECT COUNT(notification_id) as total FROM notifications WHERE is_read = :is_read;';
+            $query = 'SELECT * FROM notifications WHERE is_read = :is_read;';
             return Session::getDbInstance()->executeQuery(
                 $query, [':is_read' => 0]
             )->getQueryResult();
         }
 
-        $query = 'SELECT COUNT(notification_id) as total FROM notifications WHERE user_id = :user_id AND is_read = :is_read;';
+        $query = 'SELECT * FROM notifications WHERE user_id = :user_id AND is_read = :is_read;';
         return Session::getDbInstance()->executeQuery(
             $query, [':user_id' => $userID, ':is_read' => 0]
         )->getQueryResult();

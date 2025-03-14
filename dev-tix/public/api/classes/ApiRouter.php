@@ -18,9 +18,13 @@ class ApiRouter
     public static function getResponse(string $method, array $data)
     {
         $id = $data['id'] ?? 0;
+        if ($method === 'GET' && isset($_GET['id'])) {
+            $id = (int) $_GET['id'];
+        }
+
         [$directory, $script] = self::parseRoute($data);
 
-        // Guard clause.
+        // Guard clause: check if route is valid.
         if (!in_array($script, ApiRoutes::ROUTES[$method])) {
             return Encode::toJSON(ApiMessage::apiError('route'));
         }
@@ -61,6 +65,10 @@ class ApiRouter
         };
     }
 
+    /**
+     * Process GET requests.
+     * @param int $id - record id.
+     */
     private static function processGET(int $id)
     {
         if ($id !== 0) {
@@ -71,6 +79,10 @@ class ApiRouter
         return self::$controller->get();
     }
 
+    /**
+     * Process POST request.
+     * @param array $data - input data.
+     */
     private static function processPOST(array $data)
     {
         if (empty($data)) {  // Guard clause.
@@ -83,6 +95,11 @@ class ApiRouter
         return self::$controller->post();
     }
 
+    /**
+     * Process PUT requests.
+     * @param int $id - record id.
+     * @param array $data - input data.
+     */
     private static function processPUT(int $id, array $data)
     {
         if ($id === 0) {  // Guard clause.
@@ -98,6 +115,10 @@ class ApiRouter
         return self::$controller->put();
     }
 
+    /**
+     * Process DELETE requests.
+     * @param int $id - record id.
+     */
     private static function processDELETE(int $id)
     {
         if ($id === 0) {  // Guard clause.

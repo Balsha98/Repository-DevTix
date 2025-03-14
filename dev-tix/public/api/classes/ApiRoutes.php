@@ -6,6 +6,7 @@ class ApiRoutes
         'GET' => [
             'dashboard',
             'navigation',
+            'ticket',
             'tickets'
         ],
         'POST' => [

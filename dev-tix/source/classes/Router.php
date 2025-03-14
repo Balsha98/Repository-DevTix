@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . '/Routes.php';
 
 class Router
@@ -20,14 +19,15 @@ class Router
         if ($uri === '/') {
             $page = 'welcome';
         } else {
+            Session::set('record_id', 0);
             $uri = explode('/', $uri);
             if (!in_array($uri[0], Routes::ROUTES)) {
                 return self::requireView('invalid-route');
             } else if (count($uri) === 2) {
-                [1 => $id] = $uri;
+                Session::set('record_id', $uri[1]);
             }
 
-            [0 => $page] = $uri;
+            $page = $uri[0];
         }
 
         // Session verification.
