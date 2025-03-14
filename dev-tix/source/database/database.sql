@@ -64,7 +64,7 @@ CREATE TABLE user_details (
 CREATE TABLE ticket_requests (
     request_id INT NOT NULL AUTO_INCREMENT,
     patron_id INT NOT NULL,
-    assistant_id INT NOT NULL,
+    assistant_id INT NULL,
     type VARCHAR(50) NOT NULL,
     subject VARCHAR(50) NOT NULL,
     question TEXT NOT NULL,
@@ -77,13 +77,25 @@ CREATE TABLE ticket_requests (
     FOREIGN KEY (assistant_id) REFERENCES users (user_id)
 );
 
-INSERT INTO ticket_requests (request_id, patron_id, assistant_id, type, subject, question, posted_at, status, turn_id) VALUES
-(1, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "resolved", 2),
-(2, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 2),
-(3, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "cancelled", 2),
-(4, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "pending", 2),
-(5, 3, 2, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "pending", 2);
+-- INSERT INTO ticket_requests (request_id, patron_id, type, subject, question, posted_at, status, turn_id) VALUES
+-- (1, 3, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0),
+-- (2, 3, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0),
+-- (3, 3, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0),
+-- (4, 3, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0),
+-- (5, 3, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0);
 
+
+-- TICKET RESPONSES
+CREATE TABLE ticket_responses (
+    response_id INT NOT NULL AUTO_INCREMENT,
+    request_id INT NOT NULL,
+    user_id INT NOT NULL,
+    response TEXT NOT NULL,
+    posted_at TIMESTAMP NOT NULL,
+    PRIMARY KEY (response_id),
+    FOREIGN KEY (request_id) REFERENCES ticket_requests (request_id),
+    FOREIGN KEY (user_id) REFERENCES users (user_id)
+);
 
 
 -- NOTIFICATIONS
@@ -99,7 +111,7 @@ CREATE TABLE notifications (
     FOREIGN KEY (user_id) REFERENCES users (user_id) 
 );
 
-INSERT INTO notifications (notification_id, user_id, type, title, message, is_read, sent_at) VALUES
-(1, 2, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW()),
-(2, 2, "request", "Request Successfully Posted", "You have successfully posted a request.", 1, NOW()),
-(3, 3, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW());
+-- INSERT INTO notifications (notification_id, user_id, type, title, message, is_read, sent_at) VALUES
+-- (1, 2, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW()),
+-- (2, 2, "request", "Request Successfully Posted", "You have successfully posted a request.", 0, NOW()),
+-- (3, 3, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW());
