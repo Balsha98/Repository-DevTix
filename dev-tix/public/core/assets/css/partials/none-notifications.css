@@ -1,0 +1,54 @@
+/* NONE NOTIFICATIONS CONTAINER */
+.div-none-notifications-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    z-index: 3;
+}
+
+.hide-none-notifications {
+    opacity: 0;
+    z-index: -1;
+}
+
+/* NONE NOTIFICATIONS MODAL */
+.div-none-notifications-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    width: 100%;
+}
+
+/* NONE NOTIFICATIONS ICON CONTAINER */
+.div-none-notifications-icon-container ion-icon {
+    font-size: 3.2rem;
+    color: var(--primary);
+}
+
+/* NONE NOTIFICATIONS INFO CONTAINER */
+.div-none-notifications-info-container {
+    position: relative;
+    text-align: center;
+}
+
+.div-none-notifications-info-container::after {
+    content: "";
+    position: absolute;
+    bottom: -0.8rem;
+    left: 50%;
+    width: 50%;
+    height: 0.2rem;
+    /* background-image: var(--gradient-theme); */
+    background-color: var(--primary);
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    transform: translateX(-50%);
+}
+
+.div-none-notifications-info-container h4 {
+    font-size: 1.6rem;
+}
+
+.div-none-notifications-info-container p {
+    font-size: 1.4rem;
+}
