@@ -6,6 +6,7 @@
                 "css/partials/data-loader",
                 "css/partials/navigation",
                 "css/partials/none-data",
+                "css/partials/none-notifications",
                 "css/partials/page-loader",
                 "css/partials/sidebar"
             ],
@@ -25,12 +26,25 @@
         }
     },
     {
+        "ticket": {
+            "css": [
+                "css/partials/alert",
+                "css/partials/navigation",
+                "css/partials/none-notifications",
+                "css/partials/page-loader",
+                "css/partials/sidebar"
+            ],
+            "js": []
+        }
+    },
+    {
         "tickets": {
             "css": [
                 "css/partials/alert",
                 "css/partials/data-loader",
                 "css/partials/navigation",
                 "css/partials/none-data",
+                "css/partials/none-notifications",
                 "css/partials/page-loader",
                 "css/partials/sidebar"
             ],
