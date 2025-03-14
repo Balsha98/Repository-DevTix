@@ -36,7 +36,7 @@ a:active {
     text-decoration: none;
 }
 
-/* INPUTS */
+/* INPUT */
 input {
     all: unset;
 }
@@ -47,8 +47,13 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
     box-shadow: inset 0 0 0 0.2rem var(--primary-tint) !important;
+}
+
+input[readonly]:focus {
+    box-shadow: none !important;
 }
 
 input::placeholder {
@@ -60,4 +65,17 @@ input::placeholder {
 select {
     all: unset;
     cursor: pointer;
+}
+
+/* TEXT AREA */
+textarea {
+    all: unset;
+}
+
+textarea::placeholder {
+    position: absolute;
+    top: 1.6rem;
+    left: 1.2rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
 }

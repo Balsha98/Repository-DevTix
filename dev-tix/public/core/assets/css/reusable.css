@@ -251,38 +251,6 @@
     border-radius: var(--border-radius-md);
 }
 
-.div-input-container label {
-    left: 1.2rem;
-    display: flex;
-    cursor: pointer;
-}
-
-.div-input-container .label-select {
-    left: unset;
-    right: 1.2rem;
-}
-
-.div-input-container ion-icon {
-    font-size: 2.4rem;
-    color: var(--primary-tint);
-}
-
-.div-input-container input,
-.div-input-container select {
-    display: inline-block;
-    width: 100%;
-    padding: 1.2rem;
-    font-size: 1.6rem;
-    background-color: var(--gray-tint);
-    border-radius: var(--border-radius-md);
-    transition: all 0.3s;
-    caret-color: var(--gray-shade);
-}
-
-.div-input-container input {
-    padding: 1.2rem 1.2rem 1.2rem 4.8rem;
-}
-
 .required-container::before {
     content: "";
     position: absolute;
@@ -303,6 +271,47 @@
     height: 0.2rem;
     background-color: var(--error);
     border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+}
+
+.div-input-container label {
+    left: 1.6rem;
+    display: flex;
+    cursor: pointer;
+}
+
+.div-input-container .label-select {
+    left: unset;
+    right: 1.6rem;
+}
+
+.div-input-container .label-textarea {
+    top: unset;
+    bottom: 1.6rem;
+    left: unset;
+    right: 1.6rem;
+    transform: unset;
+}
+
+.div-input-container ion-icon {
+    font-size: 2rem;
+    color: var(--primary-tint);
+}
+
+.div-input-container input,
+.div-input-container select,
+.div-input-container textarea {
+    display: inline-block;
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.6rem;
+    background-color: var(--gray-tint);
+    border-radius: var(--border-radius-md);
+    transition: all 0.3s;
+    caret-color: var(--gray-shade);
+}
+
+.div-input-container input {
+    padding: 1.2rem 1.2rem 1.2rem 4.8rem;
 }
 
 /* INPUT GROUP CONTAINERS */
@@ -420,6 +429,34 @@
 .link-white:hover,
 .link-white:active {
     background-color: var(--gray-tint);
+}
+
+/* SUCCESS BUTTON/LINK TYPES */
+.btn-success,
+.link-success:link,
+.link-success:visited {
+    color: var(--white);
+    background-color: var(--success);
+}
+
+.btn-success:hover,
+.link-success:hover,
+.link-success:active {
+    background-color: var(--success-shade);
+}
+
+/* ERROR BUTTON/LINK TYPES */
+.btn-error,
+.link-error:link,
+.link-error:visited {
+    color: var(--white);
+    background-color: var(--error);
+}
+
+.btn-error:hover,
+.link-error:hover,
+.link-error:active {
+    background-color: var(--error-shade);
 }
 
 /* DROPDOWN BUTTON */
