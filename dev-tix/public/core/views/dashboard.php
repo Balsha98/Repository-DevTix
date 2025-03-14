@@ -77,10 +77,12 @@ require_once __DIR__ . '/partials/alert.php';
                                         <option value="cancelled">Filter Cancelled</option>
                                     </select>
                                 </div>
+                                <?php if ($user->getRoleId() !== 2) { ?>
                                 <a class="link link-primary" href="/ticket">
                                     <ion-icon src="<?php echo ICON_PATH; ?>/plus.svg"></ion-icon>
                                     <span>New Ticket</span>
                                 </a>
+                                <?php } ?>
                             </div>
                         </header>
                         <div class="div-tickets-list-overview-container">

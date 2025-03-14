@@ -35,6 +35,10 @@ class DashboardView {
         tickets = Array.isArray(tickets) ? tickets : [tickets];
 
         for (const { ticket, patron, assistant } of tickets) {
+            const isEmpty = assistant.length === 0;
+            const assistantName = isEmpty ? "Not Yet Assigned" : `${assistant["first_name"]} ${assistant["last_name"]}`;
+            const assistantEmail = isEmpty ? "To Be Assigned" : assistant["email"];
+
             this.#ticketsList.append(`
                 <li 
                     class="tickets-list-item" 
@@ -56,8 +60,8 @@ class DashboardView {
                         <span>${ticket["type"]}</span>
                     </div>
                     <div class="div-tickets-assistant-info-container">
-                        <p>${assistant["first_name"]} ${assistant["last_name"]}</p>
-                        <span>${assistant["email"]}</span>
+                        <p>${assistantName}</p>
+                        <span>${assistantEmail}</span>
                     </div>
                     <div class="div-tickets-status-info-container status-${ticket["status"]}">
                         <p>${ticket["status"]}</p>

@@ -1,26 +1,26 @@
 import { redirectTo } from "./../helpers/redirect.js";
 import { renderTicketPatronImage } from "./../helpers/image.js";
-import { controlHidePageLoader } from "./pageLoaderController.js";
-import { controlHideDataLoader, controlShowDataLoader } from "./dataLoaderController.js";
+import * as pageLoaderController from "./pageLoaderController.js";
+import * as dataLoaderController from "./dataLoaderController.js";
 import navigationView from "./../views/navigationView.js";
 import * as navigationController from "./navigationController.js";
 import sidebarView from "./../views/sidebarView.js";
-import { controlToggleSidebar, controlToggleSidebarDropdown } from "./sidebarController.js";
+import * as sidebarController from "./sidebarController.js";
 import dashboardView from "./../views/dashboardView.js";
-import { controlHideNoneDataContainer, controlShowNoneDataContainer } from "./noneDataController.js";
+import * as noneDataController from "./noneDataController.js";
 
 const controlChangeFilter = function () {
-    const filter = $(this).val();
-    dashboardView.setSpanFilterName(filter);
     const ticketListItems = $(".tickets-list-item");
 
     // Guard clause.
     if (ticketListItems.length === 0) return;
 
     // Show visuals.
-    controlHideNoneDataContainer();
-    controlShowDataLoader();
+    noneDataController.controlHideNoneDataContainer();
+    dataLoaderController.controlShowDataLoader();
 
+    // Verify filter.
+    const filter = $(this).val();
     ticketListItems.each((_, item) => {
         const ticketStatus = $(item).data("status");
         if (filter === "all") $(item).removeClass("hide-element");
@@ -28,16 +28,18 @@ const controlChangeFilter = function () {
         else $(item).removeClass("hide-element");
     });
 
+    dashboardView.setSpanFilterName(filter);
+
     // Get difference between filtered data.
     const { length: totalHidden } = $(".tickets-list-item.hide-element");
     const totalTicketsLeft = ticketListItems.length - totalHidden;
     setTimeout(() => dashboardView.setSpanTotalTickets(totalTicketsLeft), 1000);
 
     // Show none data container if list is empty.
-    if (totalTicketsLeft === 0) controlShowNoneDataContainer(1);
+    if (totalTicketsLeft === 0) noneDataController.controlShowNoneDataContainer(1);
 
     // Hide data loader.
-    controlHideDataLoader(1);
+    dataLoaderController.controlHideDataLoader(1);
 };
 
 const controlViewTicketDetails = function () {
@@ -60,7 +62,7 @@ const controlGenerateTicketsList = function () {
 
             // Render ticket list items.
             const tickets = response["response"]["data"]["tickets"] ?? null;
-            if (!tickets || tickets.length === 0) controlShowNoneDataContainer(0);
+            if (!tickets || tickets.length === 0) noneDataController.controlShowNoneDataContainer(0);
 
             dashboardView.generateTicketsList(tickets, renderTicketPatronImage);
             dashboardView.addEventViewTicketDetails(controlViewTicketDetails);
@@ -72,7 +74,7 @@ const controlGenerateTicketsList = function () {
 };
 
 const initController = function () {
-    controlHidePageLoader(2);
+    pageLoaderController.controlHidePageLoader(0.1);
 
     // Setup navigation.
     navigationView.setWelcomeMessage();
@@ -81,8 +83,8 @@ const initController = function () {
     navigationView.addEventMarkNotificationsAsRead(navigationController.controlMarkNotificationsAsRead);
 
     // Setup sidebar.
-    sidebarView.addEventToggleSidebar(controlToggleSidebar);
-    sidebarView.addEventToggleSidebarDropdown(controlToggleSidebarDropdown);
+    sidebarView.addEventToggleSidebar(sidebarController.controlToggleSidebar);
+    sidebarView.addEventToggleSidebarDropdown(sidebarController.controlToggleSidebarDropdown);
 
     // Setup dashboard.
     dashboardView.addEventChangeFilter(controlChangeFilter);
