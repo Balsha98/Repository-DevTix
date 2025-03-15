@@ -1,10 +1,5 @@
 <?php
 
-// REMINDER: Objects of this class will be able to pull
-// every response that is related to them.
-// REMINDER: Request data will probably be loaded in advance
-// similarly to EZ lazy_load() functionality.
-
 class Request
 {
     private int $id;
@@ -17,6 +12,7 @@ class Request
     private string $updatedAt;
     private string $status;
     private int $turnID;
+    private array $responseIDs;
     private Database $database;
 
     public function __construct(int $id, Database $database)
@@ -101,5 +97,18 @@ class Request
     public function getTurnId()
     {
         return $this->turnID;
+    }
+
+    public function getResponseIDs()
+    {
+        if (empty($this->responseIDs)) {
+            $query = 'SELECT response_id FROM ticket_responses WHERE request_id = :request_id;';
+
+            $this->responseIDs = $this->database->executeQuery(
+                $query, [':request_id' => $this->id]
+            )->getQueryResult();
+        }
+
+        return $this->responseIDs;
     }
 }

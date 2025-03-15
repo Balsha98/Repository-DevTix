@@ -109,7 +109,7 @@ class User
         return $this->lastActive;
     }
 
-    public function getRequestIds()
+    public function getRequestIDs()
     {
         if (empty($this->requestIDs)) {
             $query = 'SELECT request_id FROM ticket_requests WHERE patron_id = :patron_id OR assistant_id = :assistant_id;';

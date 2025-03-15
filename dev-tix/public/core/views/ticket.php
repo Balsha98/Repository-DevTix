@@ -61,14 +61,14 @@ require_once __DIR__ . '/partials/alert.php';
                                 }
                             } else if ($user->getRoleId() === 2) {
                                 if ($isRecordIdSet && $recordID !== 0) {
-                                    if (in_array($recordID, $user->getRequestIds())) {
+                                    if (in_array($recordID, $user->getRequestIDs())) {
                                         echo '
                                             <button class="btn btn-success btn-resolve" data-method="PUT">
                                                 <ion-icon src="' . ICON_PATH . '/check.svg"></ion-icon>
                                                 <span>Resolve Request</span>
                                             </button>
                                         ';
-                                    } else if (!in_array($recordID, $user->getRequestIds())) {
+                                    } else if (!in_array($recordID, $user->getRequestIDs())) {
                                         $request = new Request($recordID, Session::getDbInstance());
 
                                         if ($request->getStatus() === 'unassigned') {
