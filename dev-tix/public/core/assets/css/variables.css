@@ -11,7 +11,9 @@
     --secondary-shade: #38d9a9;
     --gradient-theme: linear-gradient(to right top, var(--primary-tint), var(--secondary-tint));
     --pending: #339af0;
+    --pending-shade: #228be6;
     --warning: #fcc419;
+    --warning-shade: #fab005;
     --success: #51cf66;
     --success-shade: #40c057;
     --error: #ff6b6b;

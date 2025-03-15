@@ -2,6 +2,7 @@
 // Import needed models.
 // TODO: Might create custom autoloader.
 require_once __DIR__ . '/../../../source/classes/models/User.php';
+require_once __DIR__ . '/../../../source/classes/models/Request.php';
 
 $user = new User(Session::get('user_id'), Session::getDbInstance());
 
@@ -23,44 +24,70 @@ require_once __DIR__ . '/partials/alert.php';
                         </h2>
                         <div class="div-ticket-actions-container">
                             <?php
+                            $isRecordIdSet = Session::isSet('record_id');
+                            $recordID = $isRecordIdSet ? (int) Session::get('record_id') : 0;
+
                             if ($user->getRoleId() !== 2) {
-                                if (Session::isSet('record_id') && Session::get('record_id') === 0) {
+                                if ($isRecordIdSet && $recordID === 0) {
                                     echo '
-                                        <button class="btn btn-primary btn-save" data-method="POST">
+                                        <button class="btn btn-success btn-post" data-method="POST">
                                             <ion-icon src="' . ICON_PATH . '/paperclip.svg"></ion-icon>
                                             <span>Post Request</span>
                                         </button>
                                     ';
-                                } else if (Session::isSet('record_id') && Session::get('record_id') !== 0) {
-                                    // TODO: Check if ticket was responded to:
-                                    // if it was, create some text that shows who the
-                                    // assistant is, instead of the buttons.
-                                    echo '
-                                        <button class="btn btn-error btn-delete" data-method="DELETE">
-                                            <ion-icon src="' . ICON_PATH . '/x.svg"></ion-icon>
-                                            <span>Cancel</span>
-                                        </button>
-                                        <button class="btn btn-primary btn-save" data-method="POST/PUT">
-                                            <ion-icon src="' . ICON_PATH . '/save.svg"></ion-icon>
-                                            <span>Save Changes</span>
-                                        </button>
-                                    ';
+                                } else if ($isRecordIdSet && $recordID !== 0) {
+                                    $request = new Request($recordID, Session::getDbInstance());
+
+                                    if ($request->getStatus() !== 'unassigned') {
+                                        $assistant = new User($request->getAssistantId(), Session::getDbInstance());
+
+                                        echo '
+                                            <p class="text-assigned-to-assistant">
+                                                Assigned To: <span>' . $assistant->getUsername() . '</span>
+                                            </p>
+                                        ';
+                                    } else {
+                                        echo '
+                                            <button class="btn btn-error btn-delete" data-method="DELETE">
+                                                <ion-icon src="' . ICON_PATH . '/x.svg"></ion-icon>
+                                                <span>Cancel Request</span>
+                                            </button>
+                                            <button class="btn btn-primary btn-update" data-method="PUT">
+                                                <ion-icon src="' . ICON_PATH . '/save.svg"></ion-icon>
+                                                <span>Update Request</span>
+                                            </button>
+                                        ';
+                                    }
                                 }
                             } else if ($user->getRoleId() === 2) {
-                                if (Session::isSet('record_id') && Session::get('record_id') !== 0) {
-                                    // TODO: Check whether this assistant user has this
-                                    // record_id (request_id) inside the database: if this
-                                    // is true, create a resolve (success) button.
+                                if ($isRecordIdSet && $recordID !== 0) {
+                                    if (in_array($recordID, $user->getRequestIds())) {
+                                        echo '
+                                            <button class="btn btn-success btn-resolve" data-method="PUT">
+                                                <ion-icon src="' . ICON_PATH . '/check.svg"></ion-icon>
+                                                <span>Resolve Request</span>
+                                            </button>
+                                        ';
+                                    } else if (!in_array($recordID, $user->getRequestIds())) {
+                                        $request = new Request($recordID, Session::getDbInstance());
 
-                                    // TODO: Check whether this assistant user has this
-                                    // record_id (request_id) inside the database: if this
-                                    // is NOT true, create a button to assign the request
-                                    // to himself/herself.
+                                        if ($request->getStatus() === 'unassigned') {
+                                            echo '
+                                                <button class="btn btn-pending btn-assign" data-method="PUT">
+                                                    <ion-icon src="' . ICON_PATH . '/plus.svg"></ion-icon>
+                                                    <span>Assign To Yourself</span>
+                                                </button>
+                                            ';
+                                        } else {
+                                            $assistant = new User($request->getAssistantId(), Session::getDbInstance());
 
-                                    // TODO: When an assistant is viewing a ticket that was not
-                                    // assigned to him/her, but the ticket was assigned to somebody else,
-                                    // then the assistant can only view this interaction:
-                                    // he/she cannot participate in the conversation.
+                                            echo '
+                                                <p class="text-assigned-to-assistant">
+                                                    Assigned To: <span>' . $assistant->getUsername() . '</span>
+                                                </p>
+                                            ';
+                                        }
+                                    }
                                 }
                             }
 
@@ -135,7 +162,6 @@ require_once __DIR__ . '/partials/alert.php';
             <div class="div-hidden-inputs">
                 <input id="view" type="hidden" name="view" value="views/ticket">
                 <input id="csrf_token" type="hidden" name="csrf_token" value="<?php echo Session::get('csrf_token'); ?>">
-                <?php $recordID = Session::isSet('record_id') ? Session::get('record_id') : 0; ?>
                 <input id="record_id" type="hidden" name="record_id" value="<?php echo $recordID; ?>">
                 <input id="user_id" type="hidden" name="user_id" value="<?php echo $user->getId(); ?>">
             </div>

@@ -445,6 +445,20 @@
     background-color: var(--success-shade);
 }
 
+/* PENDING BUTTON/LINK TYPES */
+.btn-pending,
+.link-pending:link,
+.link-pending:visited {
+    color: var(--white);
+    background-color: var(--pending);
+}
+
+.btn-pending:hover,
+.link-pending:hover,
+.link-pending:active {
+    background-color: var(--pending-shade);
+}
+
 /* ERROR BUTTON/LINK TYPES */
 .btn-error,
 .link-error:link,
