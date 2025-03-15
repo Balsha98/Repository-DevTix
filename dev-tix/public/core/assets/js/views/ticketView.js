@@ -8,7 +8,7 @@ class DashboardView {
     #ticketForms = $(".form");
     #ticketSelectType = $(".ticket-select-type");
     #btnsUpload = $(".btn-upload");
-    #btnsRemove = $(".btn-remove");
+    #spanImagesLeft = $(".span-images-left");
     #spanRequestAction = $(".span-request-action");
 
     addEventPostRequest(handlerFunction) {
@@ -76,6 +76,10 @@ class DashboardView {
                 </div>
             </li>
         `;
+    }
+
+    setSpanImagesLeft(imagesLeft) {
+        this.#spanImagesLeft.text(imagesLeft);
     }
 
     setSpanRequestAction(action) {
