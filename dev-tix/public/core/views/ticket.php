@@ -90,12 +90,11 @@ require_once __DIR__ . '/partials/alert.php';
                                     }
                                 }
                             }
-
                             ?>
                         </div>
                     </header>
                     <div class="div-ticket-overview-container">
-                        <form class="form form-create-ticket" action="/api/" data-form-type="create">
+                        <form class="form form-create-ticket" action="/api/" enctype="multipart/form-data" data-form-type="create">
                             <div class="div-form-create-ticket-inputs-container">
                                 <div class="div-input-container required-container">
                                     <label class="absolute-y-center label-select" for="type">
