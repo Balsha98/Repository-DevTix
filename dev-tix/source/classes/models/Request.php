@@ -23,6 +23,8 @@ class Request
     {
         $this->id = $id;
         $this->database = $database;
+
+        $this->getRequestData();
     }
 
     private function getRequestData()
@@ -37,15 +39,15 @@ class Request
         )->getQueryResult();
 
         if (!empty($result)) {
-            $this->patronID = $result['patron_id'];
-            $this->assistantID = $result['assistant_id'];
+            $this->patronID = (int) $result['patron_id'];
+            $this->assistantID = (int) $result['assistant_id'];
             $this->type = $result['type'];
             $this->subject = $result['subject'];
             $this->question = $result['question'];
             $this->postedAt = $result['posted_at'];
             $this->updatedAt = $result['updated_at'];
             $this->status = $result['status'];
-            $this->turnID = $result['turn_id'];
+            $this->turnID = (int) $result['turn_id'];
         }
 
         return $result;
