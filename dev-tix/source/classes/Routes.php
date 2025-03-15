@@ -14,6 +14,7 @@ class Routes
         'leagues',
         'login',
         'logout',
+        'notifications',
         'profile',
         'signup',
         'statistics',

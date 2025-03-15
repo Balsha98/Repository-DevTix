@@ -20,18 +20,18 @@ class Router
             $page = 'welcome';
         } else {
             Session::set('record_id', 0);
-            $uri = explode('/', $uri);
-            if (!in_array($uri[0], Routes::ROUTES)) {
+            $uriParts = explode('/', $uri);
+            if (!in_array($uriParts[0], Routes::ROUTES)) {
                 return self::requireView('invalid-route');
-            } else if (count($uri) === 2) {
-                Session::set('record_id', $uri[1]);
+            } else if (count($uriParts) === 2) {
+                Session::set('record_id', $uriParts[1]);
             }
 
-            $page = $uri[0];
+            $page = $uriParts[0];
         }
 
-        // Session verification.
-        Session::set('last_route', "/{$page}");
+        // User activity verification.
+        Session::set('last_route', "/{$uri}");
         self::confirmTraffic($page);
 
         // Render target page.
