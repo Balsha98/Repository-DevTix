@@ -48,7 +48,7 @@ require_once __DIR__ . '/partials/alert.php';
                                         ';
                                     } else {
                                         echo '
-                                            <button class="btn btn-error btn-delete" data-method="DELETE">
+                                            <button class="btn btn-error btn-cancel" data-method="DELETE">
                                                 <ion-icon src="' . ICON_PATH . '/x.svg"></ion-icon>
                                                 <span>Cancel Request</span>
                                             </button>
@@ -101,16 +101,16 @@ require_once __DIR__ . '/partials/alert.php';
                                     <label class="absolute-y-center label-select" for="type">
                                         <ion-icon src="<?php echo ICON_PATH; ?>/chevron-down.svg"></ion-icon>
                                     </label>
-                                    <select id="type" name="type" required>
-                                        <option value="0">Select Ticket Issue Type</option>
-                                        <option value="Web Development">Web Development Issue</option>
-                                        <option value="Frontend">Frontend Issue</option>
-                                        <option value="Backend">Backend Issue</option>
-                                        <option value="Full-Stack">Full-Stack Issue</option>
-                                        <option value="Programming">Programming Issue</option>
-                                        <option value="Artificial Intelligence">Artificial Intelligence Issue</option>
-                                        <option value="Database">Database Issue</option>
-                                        <option value="Other">Other</option>
+                                    <select id="type" class="ticket-select-type" name="type" required>
+                                        <option value="0">Select Ticket Type</option>
+                                        <option value="web development">Web Development</option>
+                                        <option value="frontend">Frontend</option>
+                                        <option value="backend">Backend</option>
+                                        <option value="full-stack">Full-Stack</option>
+                                        <option value="programming">Programming</option>
+                                        <option value="artificial intelligence">Artificial Intelligence</option>
+                                        <option value="database">Database</option>
+                                        <option value="other">Other</option>
                                     </select>
                                 </div>
                                 <div class="div-input-container required-container">
@@ -132,19 +132,19 @@ require_once __DIR__ . '/partials/alert.php';
                                     <p>Post screenshots of your code.</p>
                                 </header>
                                 <ul class="form-create-image-inputs-list">
-                                    <li class="form-create-image-inputs-list-item">
-                                        <label class="absolute-y-center input-image-label flex-center" for="image_1">
+                                    <li class="form-create-image-inputs-list-item" data-image-id="1">
+                                        <label class="absolute-y-center input-image-label flex-center" for="image_name_1">
                                             <ion-icon src="<?php echo ICON_PATH; ?>/image.svg"></ion-icon>
                                         </label>
                                         <div class="div-input-image-container">
                                             <input id="image_name_1" class="input-image-name" type="text" name="image_name" value="Image Name" readonly>
-                                            <label class="btn btn-primary" for="image_1" role="button">Upload</label>
+                                            <label class="btn btn-primary btn-upload" for="image_1" role="button">Upload</label>
                                             <input id="image_1" class="input-image" type="file" name="image">
                                         </div>
                                     </li>
                                     <li class="form-create-image-inputs-list-item flex-center">
                                         <ion-icon src="<?php echo ICON_PATH; ?>/info.svg"></ion-icon>
-                                        <p>You have <span class="span-total-images">5</span> images remaining.</p>
+                                        <p>You have <span class="span-images-left">5</span> images remaining.</p>
                                     </li>
                                 </ul>
                             </div>

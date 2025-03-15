@@ -1,28 +1,85 @@
 class DashboardView {
-    #btnDelete = $(".btn-delete");
-    #btnSave = $(".btn-save");
+    #btnPost = $(".btn-post");
+    #btnAssign = $(".btn-assign");
+    #btnUpdate = $(".btn-update");
+    #btnResolve = $(".btn-resolve");
+    #btnCancel = $(".btn-cancel");
     #spanTicketID = $(".span-ticket-id");
     #ticketForms = $(".form");
+    #ticketSelectType = $(".ticket-select-type");
+    #btnsUpload = $(".btn-upload");
+    #btnsRemove = $(".btn-remove");
     #spanRequestAction = $(".span-request-action");
+
+    addEventPostRequest(handlerFunction) {
+        this.#btnPost?.click(handlerFunction);
+    }
+
+    addEventAssignRequest(handlerFunction) {
+        this.#btnAssign?.click(handlerFunction);
+    }
+
+    addEventUpdateRequest(handlerFunction) {
+        this.#btnUpdate?.click(handlerFunction);
+    }
+
+    addEventResolveRequest(handlerFunction) {
+        this.#btnResolve?.click(handlerFunction);
+    }
+
+    addEventCancelRequest(handlerFunction) {
+        this.#btnCancel?.click(handlerFunction);
+    }
+
+    addEventSelectTicketType(handlerFunction) {
+        this.#ticketSelectType?.change(handlerFunction);
+    }
+
+    addEventGenerateImageInput(handlerFunction) {
+        this.#btnsUpload?.click(handlerFunction);
+    }
 
     toggleTicketForms(recordID) {
         const formType = recordID ? "alter" : "create";
         this.#ticketForms.each((_, form) => {
-            if ($(form).data("form-type") === formType) $(form).removeClass("hide-element");
+            const currFormType = $(form).data("form-type");
+            if (currFormType === formType) $(form).removeClass("hide-element");
             else $(form).remove();
         });
     }
 
-    setBtnSaveRequestMethod(recordID) {
-        this.#btnSave.data("method", recordID ? "PUT" : "POST");
+    setSpanTicketId(ticketID) {
+        this.#spanTicketID.text(`#${ticketID}`);
+    }
+
+    generateCustomTicketTypeField() {
+        return `
+            <div class="div-input-container div-custom-ticket-type-container required-container">
+                <label class="absolute-y-center" for="subject">
+                    <ion-icon src="/core/assets/media/icons/filter.svg"></ion-icon>
+                </label>
+                <input id="subject" type="text" name="subject" placeholder="Custom Ticket Type" required>
+            </div>
+        `;
+    }
+
+    generateImageInput(imageID) {
+        return `
+            <li class="form-create-image-inputs-list-item" data-image-id="${imageID}">
+                <label class="absolute-y-center input-image-label flex-center" for="image_name_${imageID}">
+                    <ion-icon src="/core/assets/media/icons/image.svg"></ion-icon>
+                </label>
+                <div class="div-input-image-container">
+                    <input id="image_name_${imageID}" class="input-image-name" type="text" name="image_name" value="Image Name" readonly>
+                    <label class="btn btn-primary btn-upload" for="image_${imageID}" role="button">Upload</label>
+                    <input id="image_${imageID}" class="input-image" type="file" name="image">
+                </div>
+            </li>
+        `;
     }
 
     setSpanRequestAction(action) {
         this.#spanRequestAction.text(action[0].toUpperCase() + action.slice(1));
-    }
-
-    setSpanTicketId(ticketID) {
-        this.#spanTicketID.text(`#${ticketID}`);
     }
 }
 
