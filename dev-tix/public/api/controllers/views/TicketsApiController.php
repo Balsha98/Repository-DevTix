@@ -9,6 +9,7 @@ class TicketsApiController extends AbsApiController
         $viewAsUserID = Session::get('view_as_user_id');
         $viewAsRoleID = $this->getViewAsRoleId($viewAsUserID);
 
+        // Guard clause: admin user have no tickets.
         if ($viewAsRoleID === 1) {
             return ApiMessage::dataFetchAttempt($return);
         }
@@ -16,13 +17,15 @@ class TicketsApiController extends AbsApiController
         $data = $this->getAllTicketsPerUser($viewAsUserID, $viewAsRoleID);
         $return['overviews'] = $this->extractTicketsOverviewData($viewAsUserID, $viewAsRoleID);
 
-        // Get all present tickets.
-        if (count($data) > 1) {
-            foreach ($data as $item) {
-                $return['tickets'][] = $this->extractTicketData($item);
-            }
+        // Get all related tickets, if more than 1.
+        if (!isset($data['request_id'])) {
+            if (count($data) > 1) {
+                foreach ($data as $item) {
+                    $return['tickets'][] = $this->extractTicketData($item);
+                }
 
-            return ApiMessage::dataFetchAttempt($return);
+                return ApiMessage::dataFetchAttempt($return);
+            }
         }
 
         if (!empty($data)) {
@@ -35,10 +38,10 @@ class TicketsApiController extends AbsApiController
     private function extractTicketsOverviewData(int $userID, int $roleID)
     {
         return [
-            'tickets' => count($this->getAllTicketsPerUser($userID, $roleID)),
-            'resolved' => $this->getAllTicketsForUserPerStatus($userID, $roleID, 'resolved'),
-            'pending' => $this->getAllTicketsForUserPerStatus($userID, $roleID, 'pending'),
-            'cancelled' => $this->getAllTicketsForUserPerStatus($userID, $roleID, 'cancelled'),
+            'tickets' => $this->getAllTicketsCountForUser($userID, $roleID),
+            'resolved' => $this->getAllTicketsCountForUserPerStatus($userID, $roleID, 'resolved'),
+            'pending' => $this->getAllTicketsCountForUserPerStatus($userID, $roleID, 'pending'),
+            'cancelled' => $this->getAllTicketsCountForUserPerStatus($userID, $roleID, 'cancelled'),
         ];
     }
 
@@ -51,6 +54,14 @@ class TicketsApiController extends AbsApiController
         ];
     }
 
+    private function getViewAsRoleId(int $userID)
+    {
+        $query = 'SELECT role_id FROM users WHERE user_id = :user_id;';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':user_id' => $userID]
+        )->getQueryResult()['role_id'];
+    }
+
     private function getAllTicketsPerUser(int $userID, int $roleID)
     {
         $roleType = $roleID === 2 ? 'assistant' : 'patron';
@@ -60,15 +71,16 @@ class TicketsApiController extends AbsApiController
         )->getQueryResult();
     }
 
-    private function getViewAsRoleId(int $userID)
+    private function getAllTicketsCountForUser(int $userID, int $roleID)
     {
-        $query = 'SELECT role_id FROM users WHERE user_id = :user_id;';
+        $roleType = $roleID === 2 ? 'assistant' : 'patron';
+        $query = "SELECT COUNT(request_id) as total FROM ticket_requests WHERE {$roleType}_id = :user_id;";
         return Session::getDbInstance()->executeQuery(
             $query, [':user_id' => $userID]
-        )->getQueryResult()['role_id'];
+        )->getQueryResult()['total'];
     }
 
-    private function getAllTicketsForUserPerStatus(int $userID, int $roleID, string $status)
+    private function getAllTicketsCountForUserPerStatus(int $userID, int $roleID, string $status)
     {
         $roleType = $roleID === 2 ? 'assistant' : 'patron';
         $query = "SELECT COUNT(request_id) as total FROM ticket_requests WHERE {$roleType}_id = :user_id AND status = :status;";
