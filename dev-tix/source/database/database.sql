@@ -36,8 +36,9 @@ CREATE TABLE users (
 
 INSERT INTO users (user_id, view_as_user_id, role_id, first_name, last_name, email, username, password, joined_at) VALUES
 (1, 1, 1, "Admin", "User", "admin@devtix.com", "Admin", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", NOW()),
-(2, 2, 2, "Assistant", "User", "assistant@devtix.com", "Assistant", "a39a7ffad4a3013f29da97b84f264337f234c1cf9b3c40c7c30c677a8a18609a", NOW()),
-(3, 3, 3, "Patron", "User", "patron@devtix.com", "Patron", "6e753a6b0a37cd1032c991ba167cee596db9adca33162ea9e48a0ba86c4daed3", NOW());
+(2, 2, 2, "Assistant1", "User", "assistant1@devtix.com", "Assistant1", "a39a7ffad4a3013f29da97b84f264337f234c1cf9b3c40c7c30c677a8a18609a", NOW()),
+(3, 3, 2, "Assistant2", "User", "assistant2@devtix.com", "Assistant2", "a39a7ffad4a3013f29da97b84f264337f234c1cf9b3c40c7c30c677a8a18609a", NOW()),
+(4, 4, 3, "Patron", "User", "patron@devtix.com", "Patron", "6e753a6b0a37cd1032c991ba167cee596db9adca33162ea9e48a0ba86c4daed3", NOW());
 
 -- SELECT * FROM users;
 
@@ -77,12 +78,13 @@ CREATE TABLE ticket_requests (
     FOREIGN KEY (assistant_id) REFERENCES users (user_id)
 );
 
--- INSERT INTO ticket_requests (request_id, patron_id, type, subject, question, posted_at, status, turn_id) VALUES
--- (1, 3, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0),
--- (2, 3, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0),
--- (3, 3, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0),
--- (4, 3, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0),
--- (5, 3, "Front End", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0);
+INSERT INTO ticket_requests (request_id, patron_id, assistant_id, type, subject, question, posted_at, status, turn_id) VALUES
+(1, 4, 2, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "pending", 0),
+(2, 4, 3, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "pending", 0),
+(3, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0),
+(4, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0),
+(5, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0),
+(6, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0);
 
 
 -- TICKET RESPONSES
