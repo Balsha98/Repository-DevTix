@@ -72,7 +72,7 @@ CREATE TABLE ticket_requests (
     posted_at TIMESTAMP NOT NULL,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     status ENUM("unassigned", "pending", "resolved", "cancelled") NOT NULL,
-    turn_id INT NOT NULL,
+    turn_id INT NULL DEFAULT 0,
     PRIMARY KEY (request_id),
     FOREIGN KEY (patron_id) REFERENCES users (user_id),
     FOREIGN KEY (assistant_id) REFERENCES users (user_id)
@@ -85,6 +85,16 @@ INSERT INTO ticket_requests (request_id, patron_id, assistant_id, type, subject,
 (4, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0),
 (5, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0),
 (6, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0);
+
+
+-- TICKET IMAGES
+CREATE TABLE request_images (
+    request_image_id INT NOT NULL AUTO_INCREMENT,
+    request_id INT NOT NULL,
+    request_image LONGBLOB NOT NULL,
+    PRIMARY KEY (request_image_id),
+    FOREIGN KEY (request_id) REFERENCES ticket_requests (request_id)
+);
 
 
 -- TICKET RESPONSES
