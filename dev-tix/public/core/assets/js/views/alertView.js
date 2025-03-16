@@ -35,7 +35,7 @@ class AlertView {
         this.#alertHeading.text(response["response"]["heading"]);
         this.#alertMessage.text(response["response"]["message"]);
 
-        // Mark a field as invalid if validation is failed.
+        // Mark a field as invalid if validation failed.
         if (response["input_id"]) this.#markInputInvalid(response["input_id"]);
 
         // Set alert button.

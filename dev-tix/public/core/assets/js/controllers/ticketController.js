@@ -27,18 +27,18 @@ const controlPostRequest = function (formEvent) {
     handleRequest(url, method, data);
 
     // Process image submission.
-    const imageApiUrl = "/api/media/";
-    const imageUploads = $(".input-image");
+    const imageInputs = $(".input-image");
     const imageData = new FormData();
+    imageData.append("route", $("#view").val());
 
     // Guard clause.
-    if (imageUploads.length === 1) return;
+    if (imageInputs.length === 1 && !imageInputs.val()) return;
 
-    imageUploads.each((i, upload) => {
+    imageInputs.each((i, upload) => {
         imageData.append(`image_${i + 1}`, upload.files[0]);
     });
 
-    setTimeout(() => handleRequest(imageApiUrl, method, imageData, "form"), 1000);
+    handleRequest(url, method, imageData, "form");
 };
 
 const controlSelectTicketType = function () {
@@ -86,6 +86,7 @@ const controlGenerateImageInput = function () {
             const imagesLeft = ticketModel.getStateVal("maxNumImages") - totalListItems;
             ticketView.setSpanImagesLeft(imagesLeft);
 
+            // Clear interval.
             return clearInterval(inputInterval);
         }
 
@@ -101,8 +102,7 @@ const controlGenerateImageInput = function () {
         const imagesLeft = ticketModel.getStateVal("maxNumImages") - totalListItems;
         ticketView.setSpanImagesLeft(imagesLeft);
 
-        // Reset values.
-        $(`#image_${imageID}`).val("");
+        // Clear interval.
         clearInterval(inputInterval);
     }, 200);
 };

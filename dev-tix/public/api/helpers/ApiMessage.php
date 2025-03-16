@@ -8,6 +8,7 @@ class ApiMessage
     {
         return ['error' => match ($type) {
             'route' => 'Invalid API route.',
+            'method' => 'Invalid request method.',
             'token' => 'Invalid authorization token.',
             'input' => "Input data can't be empty.",
             'id' => 'Record ID not specified.'

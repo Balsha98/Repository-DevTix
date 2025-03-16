@@ -27,7 +27,7 @@ class TicketApiController extends AbsApiController
 
     public function post()
     {
-        return ['success' => 'YES'];
+        print_r($_FILES);
     }
 
     private function getRequestData(int $ticketID)

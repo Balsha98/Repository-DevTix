@@ -47,7 +47,17 @@ class ApiRouter
 
     private static function parseRoute(array $data)
     {
-        return explode('/', $data['route'] ?? $_GET['route']);
+        $route = '';
+        if (isset($data['route'])) {  // Regular POST, PUT, DELETE requests.
+            $route = $data['route'];
+        } else if (isset($_GET['route'])) {  // GET request via url.
+            $route = $_GET['route'];
+        } else if (isset($_POST['route'])) {  // Image upload requests.
+            $route = $_POST['route'];
+        }
+
+        // Separate the url resources.
+        return explode('/', $route);
     }
 
     /**
@@ -85,11 +95,13 @@ class ApiRouter
      */
     private static function processPOST(array $data)
     {
-        if (empty($data)) {  // Guard clause.
+        // Guard clause: empty input data.
+        if (empty($data) && empty($_POST)) {
             return ApiMessage::apiError('input');
         }
 
-        self::$controller->setData($data);
+        // Regular POST request or POST for image uploads.
+        self::$controller->setData($data ?? $_POST);
 
         // Return API response.
         return self::$controller->post();
