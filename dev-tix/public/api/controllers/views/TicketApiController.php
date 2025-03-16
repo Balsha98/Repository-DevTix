@@ -25,7 +25,10 @@ class TicketApiController extends AbsApiController
         return ApiMessage::dataFetchAttempt($return);
     }
 
-    public function post() {}
+    public function post()
+    {
+        return ['success' => 'YES'];
+    }
 
     private function getRequestData(int $ticketID)
     {

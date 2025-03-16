@@ -1,3 +1,5 @@
+import { handleRequest } from "./../helpers/request.js";
+import { isInputEmpty } from "./../helpers/validate.js";
 import { controlHidePageLoader } from "./pageLoaderController.js";
 import navigationView from "./../views/navigationView.js";
 import * as navigationController from "./navigationController.js";
@@ -5,6 +7,39 @@ import sidebarView from "./../views/sidebarView.js";
 import * as sidebarController from "./sidebarController.js";
 import ticketModel from "./../models/ticketModel.js";
 import ticketView from "./../views/ticketView.js";
+
+const controlPostRequest = function (formEvent) {
+    formEvent.preventDefault();
+
+    if (isInputEmpty()) return;
+
+    const form = $(this.closest(".form"));
+    const url = form.attr("action");
+    const method = $(this).data("method");
+
+    const data = {};
+    const predefinedType = $("#type").val();
+    data["type"] = predefinedType ? predefinedType : $("#custom-type").val();
+    data["subject"] = $("#subject").val();
+    data["question"] = $("#question").val();
+    data["route"] = $("#view").val();
+
+    handleRequest(url, method, data);
+
+    // Process image submission.
+    const imageApiUrl = "/api/media/";
+    const imageUploads = $(".input-image");
+    const imageData = new FormData();
+
+    // Guard clause.
+    if (imageUploads.length === 1) return;
+
+    imageUploads.each((i, upload) => {
+        imageData.append(`image_${i + 1}`, upload.files[0]);
+    });
+
+    setTimeout(() => handleRequest(imageApiUrl, method, imageData, "form"), 1000);
+};
 
 const controlSelectTicketType = function () {
     const value = $(this).val();
@@ -133,6 +168,7 @@ const initController = function () {
     sidebarView.addEventToggleSidebarDropdown(sidebarController.controlToggleSidebarDropdown);
 
     // Setup ticket view.
+    ticketView.addEventPostRequest(controlPostRequest);
     ticketView.addEventSelectTicketType(controlSelectTicketType);
     ticketView.addEventGenerateImageInput(controlGenerateImageInput);
 

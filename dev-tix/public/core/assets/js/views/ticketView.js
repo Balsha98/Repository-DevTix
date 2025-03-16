@@ -55,10 +55,10 @@ class DashboardView {
     generateCustomTicketTypeField() {
         return `
             <div class="div-input-container div-custom-ticket-type-container required-container">
-                <label class="absolute-y-center" for="subject">
+                <label class="absolute-y-center" for="custom-type">
                     <ion-icon src="/core/assets/media/icons/filter.svg"></ion-icon>
                 </label>
-                <input id="subject" type="text" name="subject" placeholder="Custom Ticket Type" required>
+                <input id="custom-type" type="text" name="custom-type" placeholder="Custom Ticket Type" required>
             </div>
         `;
     }
