@@ -6,6 +6,11 @@ require_once __DIR__ . '/../../../source/classes/models/Request.php';
 
 $user = new User(Session::get('user_id'), Session::getDbInstance());
 
+// Check if we're viewing an existing request.
+// and set the other data appropriately.
+$isRecordIdSet = Session::isSet('record_id');
+$recordID = $isRecordIdSet ? (int) Session::get('record_id') : 0;
+
 require_once __DIR__ . '/partials/page-loader.php';
 require_once __DIR__ . '/partials/alert.php';
 ?>
@@ -79,9 +84,6 @@ require_once __DIR__ . '/partials/alert.php';
                             </div>
                             <div class="div-ticket-actions-container">
                                 <?php
-                                $isRecordIdSet = Session::isSet('record_id');
-                                $recordID = $isRecordIdSet ? (int) Session::get('record_id') : 0;
-
                                 if ($user->getRoleId() !== 2) {
                                     if ($isRecordIdSet && $recordID === 0) {
                                         echo '
@@ -90,7 +92,17 @@ require_once __DIR__ . '/partials/alert.php';
                                                 <span>Post Request</span>
                                             </button>
                                         ';
-                                    } else if ($isRecordIdSet && $recordID !== 0) {
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </form>
+                        <form class="form form-alter-ticket hide-element" action="/api/" data-form-type="alter">
+                            <!-- TODO: CREATE NEW TYPE OF VIEW -->
+                            <div class="div-ticket-actions-container">
+                                <?php
+                                if ($user->getRoleId() !== 2) {
+                                    if ($isRecordIdSet && $recordID !== 0) {
                                         $request = new Request($recordID, Session::getDbInstance());
 
                                         if ($request->getStatus() !== 'unassigned') {
@@ -147,9 +159,6 @@ require_once __DIR__ . '/partials/alert.php';
                                 }
                                 ?>
                             </div>
-                        </form>
-                        <form class="form form-alter-ticket hide-element" action="/api/" data-form-type="alter">
-                            <!-- TODO: CREATE NEW TYPE OF VIEW -->
                         </form>
                     </div>
                     <footer class="ticket-container-footer flex-between">

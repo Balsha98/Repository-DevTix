@@ -101,7 +101,7 @@ class ApiRouter
         }
 
         // Regular POST request or POST for image uploads.
-        self::$controller->setData($data ?? $_POST);
+        self::$controller->setData(!empty($data) ? $data : $_POST);
 
         // Return API response.
         return self::$controller->post();

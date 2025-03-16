@@ -18,8 +18,10 @@ const controlPostRequest = function (formEvent) {
     const method = $(this).data("method");
 
     const data = {};
+    data["action"] = "post/request";
+    data["patron_id"] = $("#user_id").val();
     const predefinedType = $("#type").val();
-    data["type"] = predefinedType ? predefinedType : $("#custom-type").val();
+    data["type"] = predefinedType ? predefinedType : $("#custom_type").val();
     data["subject"] = $("#subject").val();
     data["question"] = $("#question").val();
     data["route"] = $("#view").val();
@@ -29,6 +31,7 @@ const controlPostRequest = function (formEvent) {
     // Process image submission.
     const imageInputs = $(".input-image");
     const imageData = new FormData();
+    imageData.append("action", "post/images");
     imageData.append("route", $("#view").val());
 
     // Guard clause.

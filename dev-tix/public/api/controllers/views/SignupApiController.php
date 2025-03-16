@@ -46,11 +46,7 @@ class SignupApiController extends AbsApiController
 
     private function getAccount($data)
     {
-        $query = '
-            SELECT * FROM users 
-            WHERE username = :username;      
-        ';
-
+        $query = 'SELECT * FROM users WHERE username = :username;';
         return Session::getDbInstance()->executeQuery(
             $query, [':username' => $data['username']]
         )->getQueryResult();
@@ -69,17 +65,16 @@ class SignupApiController extends AbsApiController
         ';
 
         return Session::getDbInstance()->executeQuery($query, [
-            ':view_as_user_id' => $this->getLastInsertID()['id'] + 1, ':role_id' => (int) $data['role'],
+            ':view_as_user_id' => $this->getLastInsertID() + 1, ':role_id' => (int) $data['role'],
             ':first_name' => $data['first_name'], ':last_name' => $data['last_name'], ':email' => $data['email'],
             ':username' => $data['username'], ':password' => hash('sha256', $data['password']), ':joined_at' => time()
-        ])->getQueryResult();
+        ])->getQueryResult()['id'];
     }
 
     private function getLastInsertID()
     {
-        $query = 'SELECT MAX(user_id) as id FROM users;';
         return Session::getDbInstance()->executeQuery(
-            $query, []
+            'SELECT MAX(user_id) as id FROM users;',
         )->getQueryResult();
     }
 
@@ -94,7 +89,7 @@ class SignupApiController extends AbsApiController
         ';
 
         return Session::getDbInstance()->executeQuery($query, [
-            ':user_id' => $this->getLastInsertID()['id'], ':age' => $data['age'], ':gender' => $data['gender']
+            ':user_id' => $this->getLastInsertID(), ':age' => $data['age'], ':gender' => $data['gender']
         ])->getQueryResult();
     }
 }
