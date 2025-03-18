@@ -21,10 +21,18 @@ class TicketInputRules
         ],
         'question' => [
             'type' => 'str',
-            'pattern' => 'no_symbols',
+            'pattern' => 'special_cases',
             'length' => [
                 'min' => 25,
                 'max' => 250
+            ]
+        ],
+        'response' => [
+            'type' => 'str',
+            'pattern' => 'special_cases',
+            'length' => [
+                'min' => 20,
+                'max' => 200
             ]
         ],
     ];

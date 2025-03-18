@@ -10,6 +10,7 @@ class Validate
     // Constants.
     private const PATTERNS = [
         'only_letters' => '#[^a-zA-Z]#',
+        'special_cases' => '#[^a-zA-Z0-9.,?! ]#',
         'no_symbols' => '#[^a-zA-Z0-9 ]#',
     ];
 
@@ -103,6 +104,7 @@ class Validate
                 'message' => match ($key) {
                     'pattern' => match ($rules[$key]) {
                         'only_letters' => "{$capitalized} can contain only letters.",
+                        'special_cases' => "{$capitalized} can contain some special characters (.,?!).",
                         'no_symbols' => "{$capitalized} cannot contain special characters."
                     },
                     'length' => "{$capitalized} must be between {$rules[$key]['min']} & {$rules[$key]['max']} {$lengthCase}.",

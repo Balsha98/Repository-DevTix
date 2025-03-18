@@ -54,6 +54,27 @@ class TicketApiController extends AbsApiController
 
         // Responses posted by either user.
         if ($action === 'post/response') {
+            if (isset($this->insertNewResponse($data)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
+
+            $ticketID = $data['request_id'];
+            $ticketData = $this->getRequestData($ticketID);
+
+            $turnID = $data['user_id'];
+            if ((int) $data['user_id'] === (int) $ticketData['turn_id']) {
+                if ((int) $data['user_id'] === (int) $ticketData['patron_id']) {
+                    $turnID = $ticketData['assistant_id'];
+                } else {
+                    $turnID = $ticketData['patron_id'];
+                }
+            }
+
+            if (isset($this->updateResponseTurnId($turnID, $ticketID)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
+
+            return ApiMessage::alertDataAlterAttempt(true);
         }
     }
 
@@ -94,6 +115,29 @@ class TicketApiController extends AbsApiController
         $query = 'INSERT INTO request_images (request_id, request_image) VALUES (:request_id, :request_image);';
         return Session::getDbInstance()->executeQuery(
             $query, [':request_id' => $ticketID, ':request_image' => $image]
+        )->getQueryResult();
+    }
+
+    private function insertNewResponse(array $data)
+    {
+        $query = '
+            INSERT INTO ticket_responses (
+                request_id, user_id, response
+            ) VALUES (
+                :request_id, :user_id, :response 
+            );
+        ';
+
+        return Session::getDbInstance()->executeQuery($query, [
+            ':request_id' => $data['request_id'], ':user_id' => $data['user_id'], 'response' => $data['response']
+        ])->getQueryResult();
+    }
+
+    private function updateResponseTurnId(int $turnID, int $requestID)
+    {
+        $query = 'UPDATE ticket_requests SET turn_id = :turn_id WHERE request_id = :request_id;';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':turn_id' => $turnID, ':request_id' => $requestID]
         )->getQueryResult();
     }
 
