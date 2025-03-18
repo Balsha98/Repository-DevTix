@@ -69,8 +69,7 @@ CREATE TABLE ticket_requests (
     type VARCHAR(50) NOT NULL,
     subject VARCHAR(50) NOT NULL,
     question TEXT NOT NULL,
-    posted_at TIMESTAMP NOT NULL,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    posted_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
     status ENUM("unassigned", "pending", "resolved", "cancelled") NOT NULL,
     turn_id INT NULL DEFAULT 0,
     PRIMARY KEY (request_id),
@@ -78,13 +77,13 @@ CREATE TABLE ticket_requests (
     FOREIGN KEY (assistant_id) REFERENCES users (user_id)
 );
 
-INSERT INTO ticket_requests (request_id, patron_id, assistant_id, type, subject, question, posted_at, status, turn_id) VALUES
-(1, 4, 2, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "pending", 0),
-(2, 4, 3, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "pending", 0),
-(3, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0),
-(4, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0),
-(5, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0),
-(6, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", NOW(), "unassigned", 0);
+INSERT INTO ticket_requests (request_id, patron_id, assistant_id, type, subject, question, status, turn_id) VALUES
+(1, 4, 2, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "pending", 0),
+(2, 4, 3, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "pending", 0),
+(3, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
+(4, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
+(5, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
+(6, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0);
 
 
 -- TICKET IMAGES
@@ -95,6 +94,8 @@ CREATE TABLE request_images (
     PRIMARY KEY (request_image_id),
     FOREIGN KEY (request_id) REFERENCES ticket_requests (request_id)
 );
+
+-- SELECT * FROM request_images;
 
 
 -- TICKET RESPONSES

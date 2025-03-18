@@ -9,7 +9,6 @@ class Request
     private string $subject;
     private string $question;
     private string $postedAt;
-    private string $updatedAt;
     private string $status;
     private int $turnID;
     private array $responseIDs;
@@ -41,7 +40,6 @@ class Request
             $this->subject = $result['subject'];
             $this->question = $result['question'];
             $this->postedAt = $result['posted_at'];
-            $this->updatedAt = $result['updated_at'];
             $this->status = $result['status'];
             $this->turnID = (int) $result['turn_id'];
         }
@@ -82,11 +80,6 @@ class Request
     public function getPostedAt()
     {
         return $this->postedAt;
-    }
-
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
     }
 
     public function getStatus()
