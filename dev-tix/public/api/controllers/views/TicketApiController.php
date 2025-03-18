@@ -6,9 +6,7 @@ class TicketApiController extends AbsApiController
 {
     public function get()
     {
-        $return = [];
         $ticketID = $this->getId();
-
         $ticketData = $this->getRequestData($ticketID);
 
         if (empty($ticketData)) {
@@ -16,12 +14,8 @@ class TicketApiController extends AbsApiController
         }
 
         $return['request'] = $ticketData;
-        $responses = $this->getResponsesData($ticketID);
-        if (!empty($responses)) {
-            foreach ($responses as $response) {
-                $return['responses'][] = $response;
-            }
-        }
+        $return['responses'] = ['total_responses' => $this->getRowCount('response_id', 'ticket_responses', $ticketID)];
+        $return['images'] = ['total_images' => $this->getRowCount('request_image_id', 'request_images', $ticketID)];
 
         return ApiMessage::dataFetchAttempt($return);
     }
@@ -71,12 +65,12 @@ class TicketApiController extends AbsApiController
         )->getQueryResult();
     }
 
-    private function getResponsesData(int $ticketID)
+    private function getRowCount(string $column, string $table, int $ticketID)
     {
-        $query = 'SELECT * FROM ticket_responses WHERE request_id = :request_id;';
+        $query = "SELECT COUNT({$column}) as total FROM {$table} WHERE request_id = :request_id;";
         return Session::getDbInstance()->executeQuery(
             $query, [':request_id' => $ticketID]
-        )->getQueryResult();
+        )->getQueryResult()['total'];
     }
 
     private function insertNewRequest(array $data)
