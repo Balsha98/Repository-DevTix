@@ -45,6 +45,27 @@ const controlPostRequest = function (formEvent) {
     handleRequest(url, method, imageData, "form");
 };
 
+const controlPostResponse = function (formEvent) {
+    formEvent.preventDefault();
+
+    if (isInputEmpty()) return;
+
+    const form = $(this.closest(".form"));
+    const url = form.attr("action");
+    const method = form.attr("method");
+
+    const data = {};
+    data["action"] = "post/response";
+    data["route"] = $("#view").val();
+    data["request_id"] = $("#record_id").val();
+    data["user_id"] = $("#user_id").val();
+    data["response"] = $("#response").val();
+
+    handleRequest(url, method, data);
+
+    ticketView.toggleResponseModal();
+};
+
 const controlSelectTicketType = function () {
     const value = $(this).val();
 
@@ -189,6 +210,7 @@ const initController = function () {
 
     // Setup ticket view.
     ticketView.addEventPostRequest(controlPostRequest);
+    ticketView.addEventPostResponse(controlPostResponse);
     ticketView.addEventSelectTicketType(controlSelectTicketType);
     ticketView.addEventGenerateImageInput(controlGenerateImageInput);
     ticketView.addEventToggleResponseModal(controlToggleResponseModal);

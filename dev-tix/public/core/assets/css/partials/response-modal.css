@@ -4,7 +4,7 @@
     height: 100%;
     background-color: var(--transparent-black-md);
     transition: all 0.5s;
-    z-index: 9998;
+    z-index: 9999;
 }
 
 .hide-response-modal {

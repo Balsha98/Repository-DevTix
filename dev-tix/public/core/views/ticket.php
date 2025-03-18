@@ -70,21 +70,35 @@ require_once __DIR__ . '/partials/alert.php';
                                 }
                             } else if ($user->getRoleId() === 2) {
                                 if ($isRecordIdSet && $recordID !== 0) {
-                                    if (in_array($recordID, $user->getRequestIDs())) {
-                                        echo '
-                                            <button class="btn btn-success btn-resolve-request" data-method="PUT">
-                                                <ion-icon src="' . ICON_PATH . '/check.svg"></ion-icon>
-                                                <span>Resolve Request</span>
-                                            </button>
-                                        ';
-                                    } else if (!in_array($recordID, $user->getRequestIDs())) {
-                                        $request = new Request($recordID, Session::getDbInstance());
+                                    $request = new Request($recordID, Session::getDbInstance());
 
+                                    if (in_array($recordID, $user->getRequestIDs())) {
+                                        if ($request->getTurnId() !== $user->getId()) {
+                                            $turnUser = new User($request->getTurnId(), Session::getDbInstance());
+
+                                            echo '
+                                                <p class="text-ticket-assignment">
+                                                    Next Turn: <span>' . $turnUser->getUsername() . '</span>
+                                                </p>
+                                            ';
+                                        } else {
+                                            echo '
+                                                <button class="btn btn-success btn-resolve-request" data-method="PUT">
+                                                    <ion-icon src="' . ICON_PATH . '/check.svg"></ion-icon>
+                                                    <span>Resolve Request</span>
+                                                </button>
+                                                <button class="btn btn-primary btn-toggle-response-modal">
+                                                    <ion-icon src="' . ICON_PATH . '/wind.svg"></ion-icon>
+                                                    <span>Post Response</span>
+                                                </button>
+                                            ';
+                                        }
+                                    } else if (!in_array($recordID, $user->getRequestIDs())) {
                                         if ($request->getStatus() === 'unassigned') {
                                             echo '
                                                 <button class="btn btn-pending btn-assign-request" data-method="PUT">
                                                     <ion-icon src="' . ICON_PATH . '/plus.svg"></ion-icon>
-                                                    <span>Assign To Yourself</span>
+                                                    <span>Claim Assignment</span>
                                                 </button>
                                             ';
                                         } else {
@@ -246,9 +260,9 @@ require_once __DIR__ . '/partials/alert.php';
             </div>
             <div class="div-hidden-inputs">
                 <input id="view" type="hidden" name="view" value="views/ticket">
+                <input id="user_id" type="hidden" name="user_id" value="<?php echo Session::get('view_as_user_id'); ?>">
                 <input id="csrf_token" type="hidden" name="csrf_token" value="<?php echo Session::get('csrf_token'); ?>">
                 <input id="record_id" type="hidden" name="record_id" value="<?php echo $recordID; ?>">
-                <input id="user_id" type="hidden" name="user_id" value="<?php echo $user->getId(); ?>">
             </div>
         </main>
     </div>

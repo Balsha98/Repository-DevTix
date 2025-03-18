@@ -10,10 +10,10 @@
             </header>
             <form class="form form-post-response" action="/api/" method="POST">
                 <div class="div-input-container div-textarea-container required-container">
-                    <label class="absolute-y-center label-textarea" for="question">
+                    <label class="absolute-y-center label-textarea" for="response">
                         <ion-icon src="<?php echo ICON_PATH; ?>/help-circle.svg"></ion-icon>
                     </label>
-                    <textarea id="question" name="question" placeholder="Write Your Question Here" required></textarea>
+                    <textarea id="response" name="response" placeholder="Write Your Question Here" required></textarea>
                 </div>
                 <div class="div-grid-btn-container grid-2-columns">
                     <button class="btn btn-error flex-center btn-toggle-response-modal" type="button">

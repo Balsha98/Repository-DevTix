@@ -2,6 +2,7 @@ class DashboardView {
     #ticketContentContainer = $(".div-ticket-content-container");
     #ticketContentContainerHeader = $(".ticket-container-header");
     #btnPostRequest = $(".btn-post-request");
+    #btnPostResponse = $(".btn-post-response");
     #btnAssignRequest = $(".btn-assign-request");
     #btnResolveRequest = $(".btn-resolve-request");
     #btnCancelRequest = $(".btn-cancel-request");
@@ -23,6 +24,10 @@ class DashboardView {
 
     addEventPostRequest(handlerFunction) {
         this.#btnPostRequest?.click(handlerFunction);
+    }
+
+    addEventPostResponse(handlerFunction) {
+        this.#btnPostResponse?.click(handlerFunction);
     }
 
     addEventAssignRequest(handlerFunction) {
