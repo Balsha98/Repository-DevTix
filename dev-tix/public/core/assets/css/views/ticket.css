@@ -75,12 +75,12 @@
     font-size: 1.2rem;
 }
 
-/* TICKET ACTIONS ASSIGNED TO TEXT */
-.text-assigned-to-assistant {
+/* TICKET ACTIONS ASSIGNMENT TEXT */
+.text-ticket-assignment {
     font-size: 1.4rem;
 }
 
-.text-assigned-to-assistant span {
+.text-ticket-assignment span {
     font-weight: 500;
     color: var(--primary);
 }

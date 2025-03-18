@@ -43,14 +43,22 @@ require_once __DIR__ . '/partials/alert.php';
                                     $request = new Request($recordID, Session::getDbInstance());
 
                                     if ($request->getStatus() !== 'unassigned') {
-                                        $disabled = $user->getId() !== $request->getTurnId() ? 'disabled' : '';
+                                        if ($user->getId() !== $request->getTurnId()) {
+                                            $turnUser = new User($request->getTurnId(), Session::getDbInstance());
 
-                                        echo '
-                                            <button class="btn btn-success btn-toggle-response-modal" ' . $disabled . '>
-                                                <ion-icon src="' . ICON_PATH . '/wind.svg"></ion-icon>
-                                                <span>Post Response</span>
-                                            </button>
-                                        ';
+                                            echo '
+                                                <p class="text-ticket-assignment">
+                                                    Next Turn: <span>' . $turnUser->getUsername() . '</span>
+                                                </p>
+                                            ';
+                                        } else {
+                                            echo '
+                                                <button class="btn btn-success btn-toggle-response-modal">
+                                                    <ion-icon src="' . ICON_PATH . '/wind.svg"></ion-icon>
+                                                    <span>Post Response</span>
+                                                </button>
+                                            ';
+                                        }
                                     } else {
                                         echo '
                                             <button class="btn btn-error btn-cancel" data-method="DELETE">
@@ -83,7 +91,7 @@ require_once __DIR__ . '/partials/alert.php';
                                             $assistant = new User($request->getAssistantId(), Session::getDbInstance());
 
                                             echo '
-                                                <p class="text-assigned-to-assistant">
+                                                <p class="text-ticket-assignment">
                                                     Assigned To: <span>' . $assistant->getUsername() . '</span>
                                                 </p>
                                             ';
