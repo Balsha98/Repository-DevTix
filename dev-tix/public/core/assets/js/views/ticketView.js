@@ -1,14 +1,15 @@
 class DashboardView {
     #ticketContentContainer = $(".div-ticket-content-container");
     #ticketContentContainerHeader = $(".ticket-container-header");
-    #ticketContentContainerFooter = $(".ticket-container-footer");
-    #scrollableResponsesContainer = $(".div-scrollable-responses-container");
     #btnPost = $(".btn-post");
     #btnAssign = $(".btn-assign");
     #btnResolve = $(".btn-resolve");
     #btnCancel = $(".btn-cancel");
     #spanTicketID = $(".span-ticket-id");
     #ticketDataContainers = $(".div-ticket-data-container");
+    #scrollableResponsesContainer = $(".div-scrollable-responses-container");
+    #ticketImagesContainerHeader = $(".ticket-images-container-header");
+    #ticketImagesList = $(".ticket-images-list");
     #ticketSelectType = $(".ticket-select-type");
     #btnUpload = $(".btn-upload");
     #spanImagesLeft = $(".span-images-left");
@@ -16,6 +17,7 @@ class DashboardView {
     #noneImagesData = $(".div-none-images-container");
     #ticketImages = $(".ticket-image");
     #spanRequestAction = $(".span-request-action");
+    #ticketContentContainerFooter = $(".ticket-container-footer");
 
     addEventPostRequest(handlerFunction) {
         this.#btnPost?.click(handlerFunction);
@@ -57,7 +59,26 @@ class DashboardView {
     }
 
     setResponseContainerHeight(recordID) {
-        // Guard clause: invalid id.
+        // Guard clause: is is 0.
+        if (!recordID) return;
+
+        const containerHeight = parseFloat(this.#ticketContentContainer.css("height"));
+
+        const innerElementsHeightTotal = [
+            this.#ticketContentContainerHeader,
+            this.#ticketImagesContainerHeader,
+            this.#ticketContentContainerFooter,
+        ].reduce((total, element) => {
+            return total + parseFloat($(element).css("height"));
+        }, 0);
+
+        const elementHeightDifference = containerHeight - innerElementsHeightTotal;
+
+        this.#ticketImagesList.css("height", `calc(${elementHeightDifference}px - 48px - 16px)`);
+    }
+
+    setImageContainerHeight(recordID) {
+        // Guard clause: is is 0.
         if (!recordID) return;
 
         const containerHeight = parseFloat(this.#ticketContentContainer.css("height"));

@@ -10,7 +10,7 @@ class Validate
     // Constants.
     private const PATTERNS = [
         'only_letters' => '#[^a-zA-Z]#',
-        'no_symbols' => '#[^a-zA-Z0-9]#'
+        'no_symbols' => '#[^a-zA-Z0-9 ]#',
     ];
 
     /**

@@ -243,6 +243,7 @@
     padding: 1.2rem;
     /* Height will be calculated dynamically. */
     height: 0;
+    border-radius: var(--border-radius-lg);
     overflow-y: scroll;
 }
 
@@ -332,7 +333,14 @@
     position: relative;
     display: grid;
     gap: 1.6rem;
-    height: inherit;
+    /* Height will be calculated dynamically. */
+    height: 0;
+    border-radius: var(--border-radius-md);
+    overflow-y: scroll;
+}
+
+.ticket-images-list::-webkit-scrollbar {
+    display: none;
 }
 
 /* IMAGE CONTAINER (OVERRIDE) */

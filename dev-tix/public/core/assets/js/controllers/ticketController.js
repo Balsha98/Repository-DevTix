@@ -135,6 +135,7 @@ const controlGetTicketData = function () {
     const recordID = +$("#record_id").val();
     ticketView.toggleTicketDataContainers(recordID);
     ticketView.setResponseContainerHeight(recordID);
+    ticketView.setImageContainerHeight(recordID);
 
     // Guard clause: id is 0.
     if (!recordID) return;
