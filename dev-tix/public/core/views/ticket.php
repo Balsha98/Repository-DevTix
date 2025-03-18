@@ -34,7 +34,7 @@ require_once __DIR__ . '/partials/alert.php';
                             if ($user->getRoleId() !== 2) {
                                 if ($isRecordIdSet && $recordID === 0) {
                                     echo '
-                                        <button class="btn btn-success btn-post" data-method="POST">
+                                        <button class="btn btn-success btn-post-request" data-method="POST">
                                             <ion-icon src="' . ICON_PATH . '/paperclip.svg"></ion-icon>
                                             <span>Post Request</span>
                                         </button>
@@ -61,7 +61,7 @@ require_once __DIR__ . '/partials/alert.php';
                                         }
                                     } else {
                                         echo '
-                                            <button class="btn btn-error btn-cancel" data-method="DELETE">
+                                            <button class="btn btn-error btn-cancel-request" data-method="DELETE">
                                                 <ion-icon src="' . ICON_PATH . '/x.svg"></ion-icon>
                                                 <span>Cancel Request</span>
                                             </button>
@@ -72,7 +72,7 @@ require_once __DIR__ . '/partials/alert.php';
                                 if ($isRecordIdSet && $recordID !== 0) {
                                     if (in_array($recordID, $user->getRequestIDs())) {
                                         echo '
-                                            <button class="btn btn-success btn-resolve" data-method="PUT">
+                                            <button class="btn btn-success btn-resolve-request" data-method="PUT">
                                                 <ion-icon src="' . ICON_PATH . '/check.svg"></ion-icon>
                                                 <span>Resolve Request</span>
                                             </button>
@@ -82,7 +82,7 @@ require_once __DIR__ . '/partials/alert.php';
 
                                         if ($request->getStatus() === 'unassigned') {
                                             echo '
-                                                <button class="btn btn-pending btn-assign" data-method="PUT">
+                                                <button class="btn btn-pending btn-assign-request" data-method="PUT">
                                                     <ion-icon src="' . ICON_PATH . '/plus.svg"></ion-icon>
                                                     <span>Assign To Yourself</span>
                                                 </button>
@@ -149,13 +149,13 @@ require_once __DIR__ . '/partials/alert.php';
                                                 id="image_name_1" class="input-image-name" type="text" 
                                                 name="image_name" value="Image Name" readonly
                                             >
-                                            <label class="btn btn-primary btn-upload" for="image_1" role="button">Upload</label>
+                                            <label class="btn btn-primary btn-upload-image" for="image_1" role="button">Upload</label>
                                             <input id="image_1" class="input-image" type="file" name="image">
                                         </div>
                                     </li>
                                     <li class="form-upload-image-inputs-list-item flex-center">
                                         <ion-icon src="<?php echo ICON_PATH; ?>/info.svg"></ion-icon>
-                                        <p>You have <span class="span-images-left">4</span> images remaining.</p>
+                                        <p>You have <span class="span-images-left">5</span> images remaining.</p>
                                     </li>
                                 </ul>
                             </form>

@@ -20,7 +20,7 @@
                         <ion-icon src="<?php echo ICON_PATH; ?>/x.svg"></ion-icon>
                         <span>Cancel Response</span>
                     </button>
-                    <button class="btn btn-success flex-center" type="submit">
+                    <button class="btn btn-success btn-post-response flex-center" type="submit">
                         <ion-icon src="<?php echo ICON_PATH; ?>/wind.svg"></ion-icon>
                         <span>Post Response</span>
                     </button>

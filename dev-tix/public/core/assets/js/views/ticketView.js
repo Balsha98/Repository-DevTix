@@ -1,10 +1,10 @@
 class DashboardView {
     #ticketContentContainer = $(".div-ticket-content-container");
     #ticketContentContainerHeader = $(".ticket-container-header");
-    #btnPost = $(".btn-post");
-    #btnAssign = $(".btn-assign");
-    #btnResolve = $(".btn-resolve");
-    #btnCancel = $(".btn-cancel");
+    #btnPostRequest = $(".btn-post-request");
+    #btnAssignRequest = $(".btn-assign-request");
+    #btnResolveRequest = $(".btn-resolve-request");
+    #btnCancelRequest = $(".btn-cancel-request");
     #spanTicketID = $(".span-ticket-id");
     #ticketDataContainers = $(".div-ticket-data-container");
     #responseModalContainer = $(".div-response-modal-container");
@@ -12,7 +12,7 @@ class DashboardView {
     #ticketImagesContainerHeader = $(".ticket-images-container-header");
     #ticketImagesList = $(".ticket-images-list");
     #ticketSelectType = $(".ticket-select-type");
-    #btnUpload = $(".btn-upload");
+    #btnUploadImage = $(".btn-upload-image");
     #spanImagesLeft = $(".span-images-left");
     #btnsToggleResponseModal = $(".btn-toggle-response-modal");
     #noneResponsesData = $(".div-none-responses-container");
@@ -22,19 +22,19 @@ class DashboardView {
     #ticketContentContainerFooter = $(".ticket-container-footer");
 
     addEventPostRequest(handlerFunction) {
-        this.#btnPost?.click(handlerFunction);
+        this.#btnPostRequest?.click(handlerFunction);
     }
 
     addEventAssignRequest(handlerFunction) {
-        this.#btnAssign?.click(handlerFunction);
+        this.#btnAssignRequest?.click(handlerFunction);
     }
 
     addEventResolveRequest(handlerFunction) {
-        this.#btnResolve?.click(handlerFunction);
+        this.#btnResolveRequest?.click(handlerFunction);
     }
 
     addEventCancelRequest(handlerFunction) {
-        this.#btnCancel?.click(handlerFunction);
+        this.#btnCancelRequest?.click(handlerFunction);
     }
 
     addEventSelectTicketType(handlerFunction) {
@@ -42,7 +42,7 @@ class DashboardView {
     }
 
     addEventGenerateImageInput(handlerFunction) {
-        this.#btnUpload?.click(handlerFunction);
+        this.#btnUploadImage?.click(handlerFunction);
     }
 
     addEventToggleResponseModal(handlerFunction) {
@@ -138,7 +138,7 @@ class DashboardView {
                 </label>
                 <div class="div-input-image-container">
                     <input id="image_name_${imageID}" class="input-image-name" type="text" name="image_name" value="Image Name" readonly>
-                    <label class="btn btn-primary btn-upload" for="image_${imageID}" role="button">Upload</label>
+                    <label class="btn btn-primary btn-upload-image" for="image_${imageID}" role="button">Upload</label>
                     <input id="image_${imageID}" class="input-image" type="file" name="image">
                 </div>
             </li>
