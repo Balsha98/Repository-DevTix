@@ -235,9 +235,24 @@
     transform: translateX(50%);
 }
 
+/* SCROLLABLE RESPONSES CONTAINER */
+.div-scrollable-responses-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    padding: 1.2rem;
+    /* Height will be calculated dynamically. */
+    height: 0;
+    overflow-y: scroll;
+}
+
+.div-scrollable-responses-container::-webkit-scrollbar {
+    display: none;
+}
+
 /* TICKET TOPIC CONTAINER */
 .div-ticket-topic-container {
-    display: flex;
+    display: inherit;
     align-items: flex-start;
     gap: 1.6rem;
     padding: 1.6rem 2.4rem;
@@ -256,7 +271,8 @@
     position: relative;
     display: inherit;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1.2rem;
+    width: 100%;
 }
 
 /* TICKET TOPIC DATA CONTAINER HEADER */
@@ -279,7 +295,7 @@
     display: inherit;
     align-items: center;
     justify-content: space-between;
-    margin-top: 0.8rem;
+    margin-top: 0.4rem;
 }
 
 .ticket-topic-data-container-footer p {
@@ -313,18 +329,69 @@
 
 /* TICKET IMAGES LIST */
 .ticket-images-list {
+    position: relative;
     display: grid;
     gap: 1.6rem;
+    height: inherit;
 }
 
-/* IMAGE CONTAINER */
-.div-image-container {
+/* IMAGE CONTAINER (OVERRIDE) */
+.ticket-images-list-item .div-image-container {
     border-radius: var(--border-radius-md);
 }
 
-.div-image-container img:hover {
+.ticket-images-list-item .div-image-container img:hover {
     transform: scale(1.1);
     cursor: pointer;
+}
+
+/* TICKET RESPONSES LIST */
+.ticket-responses-list {
+    position: relative;
+    display: inherit;
+    flex-direction: inherit;
+    gap: 1.6rem;
+    height: inherit;
+}
+
+/* TICKET RESPONSES LIST ITEM */
+.ticket-responses-list-item {
+    display: inherit;
+    align-items: flex-start;
+    gap: 1.6rem;
+    width: 100%;
+    padding: 1.6rem 2.4rem;
+    box-shadow: 0 0.4rem 1.2rem var(--shadow-sm);
+    border-radius: var(--border-radius-lg);
+}
+
+/* INITIALS CONTAINER (OVERRIDE) */
+.ticket-responses-list-item .div-initials-container {
+    flex-shrink: 0;
+    box-shadow: 0 0.4rem 0.8rem var(--shadow-sm);
+}
+
+/* TICKET RESPONSE DATA CONTAINER */
+.div-ticket-response-data-container {
+    display: inherit;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: inherit;
+}
+
+.div-ticket-response-data-container p {
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+/* TICKET RESPONSE DATA CONTAINER FOOTER */
+.ticket-response-data-container-footer {
+    margin-top: 0.4rem;
+}
+
+.ticket-response-data-container-footer span {
+    font-weight: 500;
+    color: var(--primary);
 }
 
 /* TICKET CONTAINER FOOTER */

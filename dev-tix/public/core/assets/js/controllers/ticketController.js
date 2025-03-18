@@ -1,6 +1,7 @@
 import { handleRequest } from "./../helpers/request.js";
 import { isInputEmpty } from "./../helpers/validate.js";
 import * as pageLoaderController from "./pageLoaderController.js";
+import * as imageModalController from "./imageModalController.js";
 import navigationView from "./../views/navigationView.js";
 import * as navigationController from "./navigationController.js";
 import sidebarView from "./../views/sidebarView.js";
@@ -132,11 +133,8 @@ const controlRemoveImageInput = function () {
 
 const controlGetTicketData = function () {
     const recordID = +$("#record_id").val();
-    ticketView.toggleTicketForms(recordID);
-
-    const route = $("#view").val();
-    const url = `/api/?route=${route}&id=${recordID}`;
-    const method = "GET";
+    ticketView.toggleTicketDataContainers(recordID);
+    ticketView.setResponseContainerHeight(recordID);
 
     // Guard clause: id is 0.
     if (!recordID) return;
@@ -144,17 +142,31 @@ const controlGetTicketData = function () {
     ticketView.setSpanRequestAction("response");
     ticketView.setSpanTicketId(recordID);
 
+    const route = $("#view").val();
+    const url = `/api/?route=${route}&id=${recordID}`;
+    const method = "GET";
+
     $.ajax({
         url: url,
         method: method,
         success: function (response) {
-            console.log(response);
-            // TODO: Load ticket data.
+            console.log(route, response);
+
+            const totalResponses = response["response"]["data"]["responses"]["total_responses"];
+            if (!totalResponses) ticketView.toggleNoneResponsesContainer();
+
+            const totalImages = response["response"]["data"]["images"]["total_images"];
+            if (!totalImages) ticketView.toggleNoneImagesContainer();
         },
         error: function (response) {
             console.log(response.responseText);
         },
     });
+};
+
+const controlToggleImageModal = function () {
+    const imageSrc = $(this).attr("src");
+    imageModalController.controlToggleImageModal(imageSrc);
 };
 
 const initController = function () {
@@ -174,9 +186,8 @@ const initController = function () {
     ticketView.addEventPostRequest(controlPostRequest);
     ticketView.addEventSelectTicketType(controlSelectTicketType);
     ticketView.addEventGenerateImageInput(controlGenerateImageInput);
+    ticketView.addEventToggleImageModal(controlToggleImageModal);
 
-    // Setup ticket view.
-    controlSelectTicketType();
     controlGetTicketData();
 };
 

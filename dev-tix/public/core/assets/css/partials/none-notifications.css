@@ -39,7 +39,6 @@
     left: 50%;
     width: 50%;
     height: 0.2rem;
-    /* background-image: var(--gradient-theme); */
     background-color: var(--primary);
     border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
     transform: translateX(-50%);

@@ -31,7 +31,9 @@
                 "css/partials/alert",
                 "css/partials/image-modal",
                 "css/partials/navigation",
+                "css/partials/none-images",
                 "css/partials/none-notifications",
+                "css/partials/none-responses",
                 "css/partials/page-loader",
                 "css/partials/response-modal",
                 "css/partials/sidebar"

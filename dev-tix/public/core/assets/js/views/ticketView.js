@@ -1,4 +1,8 @@
 class DashboardView {
+    #ticketContentContainer = $(".div-ticket-content-container");
+    #ticketContentContainerHeader = $(".ticket-container-header");
+    #ticketContentContainerFooter = $(".ticket-container-footer");
+    #scrollableResponsesContainer = $(".div-scrollable-responses-container");
     #btnPost = $(".btn-post");
     #btnAssign = $(".btn-assign");
     #btnResolve = $(".btn-resolve");
@@ -6,8 +10,11 @@ class DashboardView {
     #spanTicketID = $(".span-ticket-id");
     #ticketDataContainers = $(".div-ticket-data-container");
     #ticketSelectType = $(".ticket-select-type");
-    #btnsUpload = $(".btn-upload");
+    #btnUpload = $(".btn-upload");
     #spanImagesLeft = $(".span-images-left");
+    #noneResponsesData = $(".div-none-responses-container");
+    #noneImagesData = $(".div-none-images-container");
+    #ticketImages = $(".ticket-image");
     #spanRequestAction = $(".span-request-action");
 
     addEventPostRequest(handlerFunction) {
@@ -31,16 +38,48 @@ class DashboardView {
     }
 
     addEventGenerateImageInput(handlerFunction) {
-        this.#btnsUpload?.click(handlerFunction);
+        this.#btnUpload?.click(handlerFunction);
     }
 
-    toggleTicketForms(recordID) {
+    addEventToggleImageModal(handlerFunction) {
+        this.#ticketImages.each((_, image) => {
+            $(image)?.click(handlerFunction);
+        });
+    }
+
+    toggleTicketDataContainers(recordID) {
         const containerType = recordID ? "response" : "request";
         this.#ticketDataContainers.each((_, container) => {
             const currContainerType = $(container).data("container-type");
             if (currContainerType === containerType) $(container).removeClass("hide-element");
             else $(container).remove();
         });
+    }
+
+    setResponseContainerHeight(recordID) {
+        // Guard clause: invalid id.
+        if (!recordID) return;
+
+        const containerHeight = parseFloat(this.#ticketContentContainer.css("height"));
+
+        const innerElementsHeightTotal = [
+            this.#ticketContentContainerHeader,
+            this.#ticketContentContainerFooter,
+        ].reduce((total, element) => {
+            return total + parseFloat($(element).css("height"));
+        }, 0);
+
+        const elementHeightDifference = containerHeight - innerElementsHeightTotal;
+
+        this.#scrollableResponsesContainer.css("height", `calc(${elementHeightDifference}px - 48px)`);
+    }
+
+    toggleNoneResponsesContainer() {
+        this.#noneResponsesData.toggleClass("hide-none-responses");
+    }
+
+    toggleNoneImagesContainer() {
+        this.#noneImagesData.toggleClass("hide-none-images");
     }
 
     setSpanTicketId(ticketID) {

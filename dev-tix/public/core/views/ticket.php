@@ -3,6 +3,7 @@
 // TODO: Might create custom autoloader.
 require_once __DIR__ . '/../../../source/classes/models/User.php';
 require_once __DIR__ . '/../../../source/classes/models/Request.php';
+require_once __DIR__ . '/../../../source/classes/models/Response.php';
 
 $user = new User(Session::get('user_id'), Session::getDbInstance());
 
@@ -42,10 +43,10 @@ require_once __DIR__ . '/partials/alert.php';
                                     $request = new Request($recordID, Session::getDbInstance());
 
                                     if ($request->getStatus() !== 'unassigned') {
-                                        $assistant = new User($request->getAssistantId(), Session::getDbInstance());
+                                        $disabled = $user->getId() !== $request->getTurnId() ? 'disabled' : '';
 
                                         echo '
-                                            <button class="btn btn-success btn-show-modal">
+                                            <button class="btn btn-success btn-show-response-modal" ' . $disabled . '>
                                                 <ion-icon src="' . ICON_PATH . '/wind.svg"></ion-icon>
                                                 <span>Post Response</span>
                                             </button>
@@ -153,29 +154,53 @@ require_once __DIR__ . '/partials/alert.php';
                         </div>
                         <?php if ($isRecordIdSet && $recordID !== 0) { ?>
                         <div class="div-ticket-data-container" data-container-type="response">
-                            <?php $request = new Request($recordID, Session::getDbInstance()); ?>
+                            <?php
+                            $request = new Request($recordID, Session::getDbInstance());
+                            $requestUser = new User($request->getPatronId(), Session::getDbInstance());
+                            ?>
                             <div class="div-ticket-responses-container">
-                                <div class="div-ticket-topic-container">
-                                    <?php echo Image::renderTicketPatronImage($user); ?>
-                                    <div class="div-ticket-topic-data-container">
-                                        <header class="ticket-topic-data-container-header">
-                                            <h4><?php echo $request->getSubject(); ?></h4>
-                                        </header>
-                                        <p><?php echo $request->getQuestion(); ?></p>
-                                        <footer class="ticket-topic-data-container-footer">
-                                            <p>Type: <span><?php echo $request->getType(); ?></span></p>
-                                            <p>Posted: <span><?php echo $request->getPostedAt(); ?></span></p>
-                                        </footer>
+                                <div class="div-scrollable-responses-container">
+                                    <div class="div-ticket-topic-container">
+                                        <?php echo Image::renderTicketPatronImage($requestUser); ?>
+                                        <div class="div-ticket-topic-data-container">
+                                            <header class="ticket-topic-data-container-header">
+                                                <h4><?php echo $request->getSubject(); ?></h4>
+                                                <span><?php echo $request->getType(); ?></span>
+                                            </header>
+                                            <p><?php echo $request->getQuestion(); ?></p>
+                                            <footer class="ticket-topic-data-container-footer">
+                                                <p>User: <span><?php echo $requestUser->getUsername(); ?></span></p>
+                                                <p>Posted: <span><?php echo $request->getPostedAt(); ?></span></p>
+                                            </footer>
+                                        </div>
                                     </div>
+                                    <ul class="ticket-responses-list">
+                                        <?php
+                                        $responseIDs = $request->getResponseIDs();
+                                        if (!empty($responseIDs)) {
+                                            foreach ($responseIDs as $responseID) {
+                                                $response = new Response($responseID, Session::getDbInstance());
+                                                $responseUser = new User($response->getUserId(), Session::getDbInstance());
+
+                                                echo '
+                                                    <li class="ticket-responses-list-item">
+                                                        ' . Image::renderTicketPatronImage($responseUser) . '
+                                                        <div class="div-ticket-response-data-container">
+                                                            <p>' . $response->getResponse() . '</p>
+                                                            <footer class="ticket-response-data-container-footer flex-between">
+                                                                <p>User: <span>' . $responseUser->getUsername() . '</span></p>
+                                                                <p>Posted: <span>' . $response->getPostedAt() . '</span></p>
+                                                            </footer>
+                                                        </div>
+                                                    </li>
+                                                ';
+                                            }
+                                        } else {
+                                            require_once __DIR__ . '/partials/none-responses.php';
+                                        }
+                                        ?>
+                                    </ul>
                                 </div>
-                                <ul class="ticket-responses-list">
-                                    <li class="ticket-responses-list-item">
-
-                                    </li>
-                                </ul>
-                                <form class="form" action="/api/" method="POST">
-
-                                </form>
                             </div>
                             <div class="div-ticket-images-container">
                                 <header class="ticket-images-container-header">
@@ -183,26 +208,22 @@ require_once __DIR__ . '/partials/alert.php';
                                     <p>Posted screenshots of the code.</p>
                                 </header>
                                 <ul class="ticket-images-list grid-2-columns">
-                                    <li class="ticket-images-list-item">
-                                        <div class="div-image-container">
-                                            <img src="<?php echo IMAGE_PATH; ?>/login-banner.jpg" alt="Request Image">
-                                        </div>
-                                    </li>
-                                    <li class="ticket-images-list-item">
-                                        <div class="div-image-container">
-                                            <img src="<?php echo IMAGE_PATH; ?>/login-banner.jpg" alt="Request Image">
-                                        </div>
-                                    </li>
-                                    <li class="ticket-images-list-item">
-                                        <div class="div-image-container">
-                                            <img src="<?php echo IMAGE_PATH; ?>/login-banner.jpg" alt="Request Image">
-                                        </div>
-                                    </li>
-                                    <li class="ticket-images-list-item">
-                                        <div class="div-image-container">
-                                            <img src="<?php echo IMAGE_PATH; ?>/login-banner.jpg" alt="Request Image">
-                                        </div>
-                                    </li>
+                                    <?php
+                                    $images = $request->getImages();
+                                    if (!empty($images)) {
+                                        foreach ($images as $image) {
+                                            echo "
+                                                <li class='ticket-images-list-item'>
+                                                    <div class='div-image-container'>
+                                                        <img class='ticket-image' src='data:image/jpg;base64,{$image}' alt='Request Image'>
+                                                    </div>
+                                                </li>
+                                            ";
+                                        }
+                                    } else {
+                                        require_once __DIR__ . '/partials/none-images.php';
+                                    }
+                                    ?>
                                 </ul>
                             </div>
                         </div>
@@ -210,7 +231,7 @@ require_once __DIR__ . '/partials/alert.php';
                     </div>
                     <footer class="ticket-container-footer flex-between">
                         <p>Request Action: <span class="span-request-action">Request</span></p>
-                        <p>Viewing Since: <span><?php echo date('H:i:s') ?></span></p>
+                        <p>Viewing Since: <span><?php echo date('H:i:s'); ?></span></p>
                     </footer>
                 </div>
             </div>
