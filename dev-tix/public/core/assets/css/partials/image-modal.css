@@ -14,21 +14,33 @@
 
 /* IMAGE MODAL */
 .div-image-modal {
-    width: auto;
+    display: flex;
+    width: 100%;
+    max-width: 96rem;
+    height: 80%;
 }
 
 /* BUTTON ICON (OVERRIDE) */
-.btn-close-modal {
+.btn-close-image-modal {
     position: absolute;
     top: 2.4rem;
     right: 2.4rem;
     width: 3.6rem;
     aspect-ratio: 1 / 1;
     background-color: var(--white);
+    box-shadow: 0 0.4rem 0.8rem var(--shadow-sm);
     border-radius: var(--border-radius-circle);
     transition: all 0.3s;
+    z-index: 2;
 }
 
-.btn-close-modal:hover {
+.btn-close-image-modal:hover {
     background-color: var(--gray-tint);
+}
+
+/* IMAGE CONTAINER (OVERRIDE) */
+.div-image-modal .div-image-container {
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    z-index: 1;
 }
