@@ -1,0 +1,34 @@
+/* IMAGE MODAL CONTAINER */
+.div-image-modal-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--transparent-black-md);
+    transition: all 0.5s;
+    z-index: 9999;
+}
+
+.hide-modal {
+    opacity: 0;
+    z-index: -1;
+}
+
+/* IMAGE MODAL */
+.div-image-modal {
+    width: auto;
+}
+
+/* BUTTON ICON (OVERRIDE) */
+.btn-close-modal {
+    position: absolute;
+    top: 2.4rem;
+    right: 2.4rem;
+    width: 3.6rem;
+    aspect-ratio: 1 / 1;
+    background-color: var(--white);
+    border-radius: var(--border-radius-circle);
+    transition: all 0.3s;
+}
+
+.btn-close-modal:hover {
+    background-color: var(--gray-tint);
+}
