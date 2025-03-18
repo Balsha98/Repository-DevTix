@@ -12,7 +12,7 @@ class User
     private string $image;
     private string $joinedAt;
     private string $lastActive;
-    private array $requestIDs;
+    private array $requestIDs = [];
     private Database $database;
 
     public function __construct(int $id, Database $database)

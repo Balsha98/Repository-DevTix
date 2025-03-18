@@ -11,7 +11,8 @@ class Request
     private string $postedAt;
     private string $status;
     private int $turnID;
-    private array $responseIDs;
+    private array $images = [];
+    private array $responseIDs = [];
     private Database $database;
 
     public function __construct(int $id, Database $database)
@@ -97,11 +98,44 @@ class Request
         if (empty($this->responseIDs)) {
             $query = 'SELECT response_id FROM ticket_responses WHERE request_id = :request_id;';
 
-            $this->responseIDs = $this->database->executeQuery(
+            $result = $this->database->executeQuery(
                 $query, [':request_id' => $this->id]
             )->getQueryResult();
+
+            if (!empty($result)) {
+                if (count($result) > 1) {
+                    foreach ($result as $item) {
+                        $this->responseIDs[] = $item['response_id'];
+                    }
+                } else {
+                    $this->responseIDs[] = $result['response_id'];
+                }
+            }
         }
 
         return $this->responseIDs;
+    }
+
+    public function getImages(): array
+    {
+        if (empty($this->images)) {
+            $query = 'SELECT request_image FROM request_images WHERE request_id = :request_id;';
+
+            $result = $this->database->executeQuery(
+                $query, [':request_id' => $this->id]
+            )->getQueryResult();
+
+            if (!empty($result)) {
+                if (count($result) > 1) {
+                    foreach ($result as $item) {
+                        $this->images[] = base64_encode($item['request_image']);
+                    }
+                } else {
+                    $this->images[] = base64_encode($result['request_image']);
+                }
+            }
+        }
+
+        return $this->images;
     }
 }
