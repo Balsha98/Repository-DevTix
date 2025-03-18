@@ -165,6 +165,10 @@ const controlGetTicketData = function () {
     });
 };
 
+const controlToggleResponseModal = function () {
+    ticketView.toggleResponseModal();
+};
+
 const controlToggleImageModal = function () {
     const imageSrc = $(this).attr("src");
     imageModalController.controlToggleImageModal(imageSrc);
@@ -187,6 +191,7 @@ const initController = function () {
     ticketView.addEventPostRequest(controlPostRequest);
     ticketView.addEventSelectTicketType(controlSelectTicketType);
     ticketView.addEventGenerateImageInput(controlGenerateImageInput);
+    ticketView.addEventToggleResponseModal(controlToggleResponseModal);
     ticketView.addEventToggleImageModal(controlToggleImageModal);
 
     controlGetTicketData();

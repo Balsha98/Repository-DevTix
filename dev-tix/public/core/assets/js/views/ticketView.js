@@ -7,12 +7,14 @@ class DashboardView {
     #btnCancel = $(".btn-cancel");
     #spanTicketID = $(".span-ticket-id");
     #ticketDataContainers = $(".div-ticket-data-container");
+    #responseModalContainer = $(".div-response-modal-container");
     #scrollableResponsesContainer = $(".div-scrollable-responses-container");
     #ticketImagesContainerHeader = $(".ticket-images-container-header");
     #ticketImagesList = $(".ticket-images-list");
     #ticketSelectType = $(".ticket-select-type");
     #btnUpload = $(".btn-upload");
     #spanImagesLeft = $(".span-images-left");
+    #btnsToggleResponseModal = $(".btn-toggle-response-modal");
     #noneResponsesData = $(".div-none-responses-container");
     #noneImagesData = $(".div-none-images-container");
     #ticketImages = $(".ticket-image");
@@ -43,6 +45,12 @@ class DashboardView {
         this.#btnUpload?.click(handlerFunction);
     }
 
+    addEventToggleResponseModal(handlerFunction) {
+        this.#btnsToggleResponseModal.each((_, btn) => {
+            $(btn)?.click(handlerFunction);
+        });
+    }
+
     addEventToggleImageModal(handlerFunction) {
         this.#ticketImages.each((_, image) => {
             $(image)?.click(handlerFunction);
@@ -66,6 +74,24 @@ class DashboardView {
 
         const innerElementsHeightTotal = [
             this.#ticketContentContainerHeader,
+            this.#ticketContentContainerFooter,
+        ].reduce((total, element) => {
+            return total + parseFloat($(element).css("height"));
+        }, 0);
+
+        const elementHeightDifference = containerHeight - innerElementsHeightTotal;
+
+        this.#scrollableResponsesContainer.css("height", `calc(${elementHeightDifference}px - 48px)`);
+    }
+
+    setImageContainerHeight(recordID) {
+        // Guard clause: is is 0.
+        if (!recordID) return;
+
+        const containerHeight = parseFloat(this.#ticketContentContainer.css("height"));
+
+        const innerElementsHeightTotal = [
+            this.#ticketContentContainerHeader,
             this.#ticketImagesContainerHeader,
             this.#ticketContentContainerFooter,
         ].reduce((total, element) => {
@@ -77,22 +103,8 @@ class DashboardView {
         this.#ticketImagesList.css("height", `calc(${elementHeightDifference}px - 48px - 16px)`);
     }
 
-    setImageContainerHeight(recordID) {
-        // Guard clause: is is 0.
-        if (!recordID) return;
-
-        const containerHeight = parseFloat(this.#ticketContentContainer.css("height"));
-
-        const innerElementsHeightTotal = [
-            this.#ticketContentContainerHeader,
-            this.#ticketContentContainerFooter,
-        ].reduce((total, element) => {
-            return total + parseFloat($(element).css("height"));
-        }, 0);
-
-        const elementHeightDifference = containerHeight - innerElementsHeightTotal;
-
-        this.#scrollableResponsesContainer.css("height", `calc(${elementHeightDifference}px - 48px)`);
+    toggleResponseModal() {
+        this.#responseModalContainer.toggleClass("hide-response-modal");
     }
 
     toggleNoneResponsesContainer() {

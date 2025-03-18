@@ -1,0 +1,87 @@
+/* RESPONSE MODAL CONTAINER */
+.div-response-modal-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--transparent-black-md);
+    transition: all 0.5s;
+    z-index: 9998;
+}
+
+.hide-response-modal {
+    opacity: 0;
+    z-index: -1;
+}
+
+/* RESPONSE MODAL */
+.div-response-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    width: 100%;
+    max-width: 80rem;
+    height: 60%;
+    padding: 2.4rem;
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+}
+
+/* BUTTON ICON (OVERRIDE) */
+.btn-icon.btn-toggle-response-modal {
+    position: absolute;
+    top: 2.4rem;
+    right: 2.4rem;
+    width: 3.6rem;
+    aspect-ratio: 1 / 1;
+    color: var(--primary-tint);
+    background-color: var(--gray-tint);
+    box-shadow: 0 0.4rem 0.8rem var(--shadow-sm);
+    border-radius: var(--border-radius-circle);
+    transition: all 0.3s;
+    z-index: 1;
+}
+
+.btn-icon.btn-toggle-response-modal:hover ion-icon {
+    color: var(--white);
+}
+
+.btn-icon.btn-toggle-response-modal:hover {
+    background-color: var(--primary);
+}
+
+/* RESPONSE MODAL HEADER */
+.response-modal-header {
+    text-align: center;
+}
+
+.response-modal-header h2 {
+    font-size: 2rem;
+}
+
+.response-modal-header p {
+    font-size: 1.6rem;
+}
+
+.response-modal-header span {
+    font-weight: 500;
+    color: var(--primary);
+}
+
+/* FORM POST RESPONSE */
+.form-post-response {
+    display: inherit;
+    flex-direction: inherit;
+    gap: 2.4rem;
+    width: inherit;
+    height: 100%;
+}
+
+/* GRID BUTTON CONTAINER (OVERRIDE) */
+.div-grid-btn-container {
+    column-gap: 2.4rem;
+}
+
+/* BUTTON (OVERRIDE) */
+.div-grid-btn-container button {
+    gap: 0.4rem;
+}

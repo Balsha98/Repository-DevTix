@@ -46,7 +46,7 @@ require_once __DIR__ . '/partials/alert.php';
                                         $disabled = $user->getId() !== $request->getTurnId() ? 'disabled' : '';
 
                                         echo '
-                                            <button class="btn btn-success btn-show-response-modal" ' . $disabled . '>
+                                            <button class="btn btn-success btn-toggle-response-modal" ' . $disabled . '>
                                                 <ion-icon src="' . ICON_PATH . '/wind.svg"></ion-icon>
                                                 <span>Post Response</span>
                                             </button>
@@ -155,6 +155,7 @@ require_once __DIR__ . '/partials/alert.php';
                         <?php if ($isRecordIdSet && $recordID !== 0) { ?>
                         <div class="div-ticket-data-container" data-container-type="response">
                             <?php
+                            require_once __DIR__ . '/partials/response-modal.php';
                             $request = new Request($recordID, Session::getDbInstance());
                             $requestUser = new User($request->getPatronId(), Session::getDbInstance());
                             ?>
