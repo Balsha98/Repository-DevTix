@@ -1,11 +1,10 @@
 class DashboardView {
     #btnPost = $(".btn-post");
     #btnAssign = $(".btn-assign");
-    #btnUpdate = $(".btn-update");
     #btnResolve = $(".btn-resolve");
     #btnCancel = $(".btn-cancel");
     #spanTicketID = $(".span-ticket-id");
-    #ticketForms = $(".form");
+    #ticketDataContainers = $(".div-ticket-data-container");
     #ticketSelectType = $(".ticket-select-type");
     #btnsUpload = $(".btn-upload");
     #spanImagesLeft = $(".span-images-left");
@@ -17,10 +16,6 @@ class DashboardView {
 
     addEventAssignRequest(handlerFunction) {
         this.#btnAssign?.click(handlerFunction);
-    }
-
-    addEventUpdateRequest(handlerFunction) {
-        this.#btnUpdate?.click(handlerFunction);
     }
 
     addEventResolveRequest(handlerFunction) {
@@ -40,11 +35,11 @@ class DashboardView {
     }
 
     toggleTicketForms(recordID) {
-        const formType = recordID ? "alter" : "create";
-        this.#ticketForms.each((_, form) => {
-            const currFormType = $(form).data("form-type");
-            if (currFormType === formType) $(form).removeClass("hide-element");
-            else $(form).remove();
+        const containerType = recordID ? "response" : "request";
+        this.#ticketDataContainers.each((_, container) => {
+            const currContainerType = $(container).data("container-type");
+            if (currContainerType === containerType) $(container).removeClass("hide-element");
+            else $(container).remove();
         });
     }
 
@@ -65,7 +60,7 @@ class DashboardView {
 
     generateImageInput(imageID) {
         return `
-            <li class="form-create-image-inputs-list-item" data-image-id="${imageID}">
+            <li class="form-upload-image-inputs-list-item" data-image-id="${imageID}">
                 <label class="absolute-y-center input-image-label flex-center" for="image_name_${imageID}">
                     <ion-icon src="/core/assets/media/icons/image.svg"></ion-icon>
                 </label>

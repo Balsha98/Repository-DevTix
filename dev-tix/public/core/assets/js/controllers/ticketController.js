@@ -1,6 +1,6 @@
 import { handleRequest } from "./../helpers/request.js";
 import { isInputEmpty } from "./../helpers/validate.js";
-import { controlHidePageLoader } from "./pageLoaderController.js";
+import * as pageLoaderController from "./pageLoaderController.js";
 import navigationView from "./../views/navigationView.js";
 import * as navigationController from "./navigationController.js";
 import sidebarView from "./../views/sidebarView.js";
@@ -13,7 +13,7 @@ const controlPostRequest = function (formEvent) {
 
     if (isInputEmpty()) return;
 
-    const form = $(this.closest(".form"));
+    const form = $(".form-post-ticket");
     const url = form.attr("action");
     const method = $(this).data("method");
 
@@ -141,7 +141,7 @@ const controlGetTicketData = function () {
     // Guard clause: id is 0.
     if (!recordID) return;
 
-    ticketView.setSpanRequestAction("alter");
+    ticketView.setSpanRequestAction("response");
     ticketView.setSpanTicketId(recordID);
 
     $.ajax({
@@ -158,7 +158,7 @@ const controlGetTicketData = function () {
 };
 
 const initController = function () {
-    controlHidePageLoader(0.1);
+    pageLoaderController.controlHidePageLoader(0.1);
 
     // Setup navigation.
     navigationView.setWelcomeMessage();

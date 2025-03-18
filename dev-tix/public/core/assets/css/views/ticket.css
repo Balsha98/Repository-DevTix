@@ -11,18 +11,19 @@
 
 /* TICKET CONTAINER */
 .div-ticket-container {
-    flex-grow: 1;
     display: inherit;
     flex-direction: column;
     gap: 2.4rem;
+    width: 100%;
+    max-width: calc(100% - 9.6rem);
     height: inherit;
     padding: 2.4rem;
+    transition: max-width 0.5s;
 }
 
 /* TICKET CONTENT CONTAINER */
 .div-ticket-content-container {
-    flex-grow: inherit;
-    position: relative;
+    flex-grow: 1;
     display: inherit;
     flex-direction: inherit;
     gap: 2.4rem;
@@ -59,9 +60,6 @@
 
 /* TICKET ACTIONS CONTAINER */
 .div-ticket-actions-container {
-    position: absolute;
-    top: 1.6rem;
-    right: 2.4rem;
     display: flex;
     align-items: center;
     gap: 0.8rem;
@@ -93,21 +91,16 @@
     padding: 0 2.4rem;
 }
 
-/* FORM CREATE TICKET */
-.form-create-ticket {
+/* TICKET DATA CONTAINER */
+.div-ticket-data-container {
     display: grid;
     grid-template-columns: 60fr 40fr;
     column-gap: 4.8rem;
     height: 100%;
 }
 
-.form-alter-ticket {
-    height: 100%;
-}
-
-/* FORM CREATE TICKET INPUTS CONTAINER */
-.div-form-create-ticket-inputs-container,
-.div-form-alter-ticket-inputs-container {
+/* FORM POST TICKET */
+.form-post-ticket {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -115,7 +108,7 @@
     height: inherit;
 }
 
-.div-form-create-ticket-inputs-container::after {
+.form-post-ticket::after {
     content: "";
     position: absolute;
     top: 0;
@@ -135,63 +128,64 @@
     flex-grow: 1;
 }
 
-/* CREATE TICKET IMAGES CONTAINER */
-.div-form-create-ticket-images-container {
+/* FORM UPLOAD TICKET IMAGES */
+.form-upload-image {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+    height: inherit;
 }
 
-/* CREATE TICKET IMAGES CONTAINER HEADER */
-.form-create-ticket-images-container-header {
+/* UPLOAD TICKET IMAGES  HEADER */
+.form-upload-image-header {
     text-align: right;
 }
 
-.form-create-ticket-images-container-header h4 {
+.form-upload-image-header h4 {
     font-size: 1.6rem;
 }
 
-.form-create-ticket-images-container-header p {
+.form-upload-image-header p {
     font-size: 1.4rem;
 }
 
-/* CREATE TICKET IMAGES INPUTS LIST */
-.form-create-image-inputs-list {
+/* FORM UPLOAD TICKET IMAGES INPUTS LIST */
+.form-upload-image-inputs-list {
     display: inherit;
     flex-direction: inherit;
     gap: inherit;
 }
 
-/* CREATE TICKET IMAGES INPUTS LIST ITEM */
-.form-create-image-inputs-list-item {
+/* FORM UPLOAD TICKET IMAGES INPUTS LIST ITEM */
+.form-upload-image-inputs-list-item {
     position: relative;
 }
 
-.form-create-image-inputs-list-item .input-image-label {
+.form-upload-image-inputs-list-item .input-image-label {
     left: 1.6rem;
     font-size: 2rem;
     cursor: pointer;
 }
 
-.form-create-image-inputs-list-item .input-image-label ion-icon {
+.form-upload-image-inputs-list-item .input-image-label ion-icon {
     color: var(--primary);
 }
 
-/* CREATE TICKET IMAGES INPUTS LIST ITEM REMINDER */
-.form-create-image-inputs-list-item.flex-center {
+/* FORM UPLOAD TICKET IMAGES INPUTS LIST ITEM REMINDER */
+.form-upload-image-inputs-list-item.flex-center {
     gap: 0.4rem;
 }
 
-.form-create-image-inputs-list-item.flex-center ion-icon {
+.form-upload-image-inputs-list-item.flex-center ion-icon {
     font-size: 1.8rem;
     color: var(--primary);
 }
 
-.form-create-image-inputs-list-item.flex-center p {
+.form-upload-image-inputs-list-item.flex-center p {
     font-size: 1.4rem;
 }
 
-.form-create-image-inputs-list-item.flex-center span {
+.form-upload-image-inputs-list-item.flex-center span {
     color: var(--primary);
 }
 
@@ -222,6 +216,115 @@
 
 .div-input-image-container .input-image {
     display: none;
+}
+
+/* TICKET RESPONSES CONTAINER */
+.div-ticket-responses-container {
+    position: relative;
+    height: inherit;
+}
+
+.div-ticket-responses-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -2.4rem;
+    width: 0.2rem;
+    height: inherit;
+    background-color: var(--gray-tint);
+    transform: translateX(50%);
+}
+
+/* TICKET TOPIC CONTAINER */
+.div-ticket-topic-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.6rem;
+    padding: 1.6rem 2.4rem;
+    box-shadow: 0 0.4rem 1.2rem var(--shadow-sm);
+    border-radius: var(--border-radius-lg);
+}
+
+/* INITIALS CONTAINER (OVERRIDE) */
+.div-ticket-topic-container .div-initials-container {
+    flex-shrink: 0;
+    box-shadow: 0 0.4rem 0.8rem var(--shadow-sm);
+}
+
+/* TICKET TOPIC DATA CONTAINER */
+.div-ticket-topic-data-container {
+    position: relative;
+    display: inherit;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+/* TICKET TOPIC DATA CONTAINER HEADER */
+.ticket-topic-data-container-header h4 {
+    font-size: 1.8rem;
+}
+
+.ticket-topic-data-container-header span {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.div-ticket-topic-data-container p {
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+/* TICKET TOPIC DATA CONTAINER FOOTER */
+.ticket-topic-data-container-footer {
+    display: inherit;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.8rem;
+}
+
+.ticket-topic-data-container-footer p {
+    font-size: 1.6rem;
+}
+
+.ticket-topic-data-container-footer span {
+    font-weight: 500;
+    color: var(--primary);
+}
+
+/* TICKET IMAGES CONTAINER */
+.div-ticket-images-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    height: inherit;
+}
+
+/* TICKET IMAGES CONTAINER HEADER */
+.ticket-images-container-header {
+    text-align: right;
+}
+.ticket-images-container-header h4 {
+    font-size: 1.6rem;
+}
+
+.ticket-images-container-header p {
+    font-size: 1.4rem;
+}
+
+/* TICKET IMAGES LIST */
+.ticket-images-list {
+    display: grid;
+    gap: 1.6rem;
+}
+
+/* IMAGE CONTAINER */
+.div-image-container {
+    border-radius: var(--border-radius-md);
+}
+
+.div-image-container img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 /* TICKET CONTAINER FOOTER */

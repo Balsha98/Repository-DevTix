@@ -535,6 +535,7 @@
     width: inherit;
     object-position: center;
     object-fit: cover;
+    transition: transform 0.3s;
 }
 
 /* INITIALS CONTAINER */

@@ -29,9 +29,11 @@
         "ticket": {
             "css": [
                 "css/partials/alert",
+                "css/partials/image-modal",
                 "css/partials/navigation",
                 "css/partials/none-notifications",
                 "css/partials/page-loader",
+                "css/partials/response-modal",
                 "css/partials/sidebar"
             ],
             "js": []
