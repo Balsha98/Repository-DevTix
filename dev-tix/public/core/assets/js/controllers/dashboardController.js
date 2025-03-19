@@ -74,7 +74,7 @@ const controlGenerateTicketsList = function () {
 };
 
 const initController = function () {
-    pageLoaderController.controlHidePageLoader(0.1);
+    pageLoaderController.controlHidePageLoader(2);
 
     // Setup navigation.
     navigationView.setWelcomeMessage();

@@ -43,7 +43,10 @@ const controlChangeFilter = function () {
 };
 
 const controlViewTicketDetails = function () {
-    redirectTo($(this).data("href"));
+    const status = $(this).data("status");
+    const href = $(this).data("href");
+
+    if (status !== "cancelled") redirectTo(href);
 };
 
 const controlGenerateTicketsList = function () {
@@ -74,7 +77,7 @@ const controlGenerateTicketsList = function () {
 };
 
 const initController = function () {
-    pageLoaderController.controlHidePageLoader(0.1);
+    pageLoaderController.controlHidePageLoader(2);
 
     // Setup navigation.
     navigationView.setWelcomeMessage();

@@ -9,9 +9,7 @@ import * as sidebarController from "./sidebarController.js";
 import ticketModel from "./../models/ticketModel.js";
 import ticketView from "./../views/ticketView.js";
 
-const controlPostRequest = function (formEvent) {
-    formEvent.preventDefault();
-
+const controlPostRequest = function () {
     if (isInputEmpty()) return;
 
     const form = $(".form-post-ticket");
@@ -20,7 +18,7 @@ const controlPostRequest = function (formEvent) {
 
     const data = {};
     data["action"] = "post/request";
-    data["patron_id"] = $("#user_id").val();
+    data["user_id"] = $("#user_id").val();
     const predefinedType = $("#type").val();
     data["type"] = predefinedType ? predefinedType : $("#custom_type").val();
     data["subject"] = $("#subject").val();
@@ -45,6 +43,21 @@ const controlPostRequest = function (formEvent) {
     handleRequest(url, method, imageData, "form");
 };
 
+const controlAlterRequest = function () {
+    const url = $(this.closest("div")).data("url");
+    const method = $(this).data("method");
+    const status = $(this).data("status");
+
+    const data = {};
+    data["id"] = $("#record_id").val();
+    data["action"] = `${status}/request`;
+    data["route"] = $("#view").val();
+    data["user_id"] = $("#user_id").val();
+    data["status"] = status;
+
+    handleRequest(url, method, data);
+};
+
 const controlPostResponse = function (formEvent) {
     formEvent.preventDefault();
 
@@ -63,7 +76,7 @@ const controlPostResponse = function (formEvent) {
 
     handleRequest(url, method, data);
 
-    ticketView.toggleResponseModal();
+    controlToggleResponseModal();
 };
 
 const controlSelectTicketType = function () {
@@ -196,7 +209,7 @@ const controlToggleImageModal = function () {
 };
 
 const initController = function () {
-    pageLoaderController.controlHidePageLoader(0.1);
+    pageLoaderController.controlHidePageLoader(2);
 
     // Setup navigation.
     navigationView.setWelcomeMessage();
@@ -210,6 +223,7 @@ const initController = function () {
 
     // Setup ticket view.
     ticketView.addEventPostRequest(controlPostRequest);
+    ticketView.addEventAlterRequest(controlAlterRequest);
     ticketView.addEventPostResponse(controlPostResponse);
     ticketView.addEventSelectTicketType(controlSelectTicketType);
     ticketView.addEventGenerateImageInput(controlGenerateImageInput);

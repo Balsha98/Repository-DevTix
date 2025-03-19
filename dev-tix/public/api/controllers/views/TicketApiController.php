@@ -70,12 +70,39 @@ class TicketApiController extends AbsApiController
                 }
             }
 
-            if (isset($this->updateResponseTurnId($turnID, $ticketID)['error'])) {
+            if (isset($this->updateRequestColumn('turn_id', $turnID, $ticketID)['error'])) {
                 return ApiMessage::alertDataAlterAttempt(false);
             }
 
             return ApiMessage::alertDataAlterAttempt(true);
         }
+    }
+
+    public function put()
+    {
+        $data = $this->getData();
+        $action = $data['action'];
+        $tickedID = $this->getId();
+        $userID = $data['user_id'];
+        $status = $data['status'];
+
+        $columns = [
+            'cancelled/request' => ['status' => $status],
+            'pending/request' => ['assistant_id' => $userID, 'turn_id' => $userID, 'status' => $status],
+            'resolved/request' => ['status' => $status]
+        ];
+
+        foreach ($columns[$action] as $column => $value) {
+            if (isset($this->updateRequestColumn($column, $value, $tickedID)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
+        }
+
+        if ($action === 'cancelled/request') {
+            return ApiMessage::alertDataAlterAttempt(true, '/tickets');
+        }
+
+        return ApiMessage::alertDataAlterAttempt(true);
     }
 
     private function getRequestData(int $ticketID)
@@ -105,7 +132,7 @@ class TicketApiController extends AbsApiController
         ';
 
         return Session::getDbInstance()->executeQuery($query, [
-            ':patron_id' => $data['patron_id'], ':type' => $data['type'] ?? $data['custom_type'],
+            ':patron_id' => $data['user_id'], ':type' => $data['type'] ?? $data['custom_type'],
             ':subject' => $data['subject'], ':question' => $data['question']
         ])->getQueryResult();
     }
@@ -133,11 +160,11 @@ class TicketApiController extends AbsApiController
         ])->getQueryResult();
     }
 
-    private function updateResponseTurnId(int $turnID, int $requestID)
+    private function updateRequestColumn(string $column, mixed $value, int $requestID)
     {
-        $query = 'UPDATE ticket_requests SET turn_id = :turn_id WHERE request_id = :request_id;';
+        $query = "UPDATE ticket_requests SET {$column} = :{$column} WHERE request_id = :request_id;";
         return Session::getDbInstance()->executeQuery(
-            $query, [':turn_id' => $turnID, ':request_id' => $requestID]
+            $query, [":{$column}" => $value, ':request_id' => $requestID]
         )->getQueryResult();
     }
 

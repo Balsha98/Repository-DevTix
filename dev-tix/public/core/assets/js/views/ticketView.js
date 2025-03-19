@@ -2,10 +2,8 @@ class DashboardView {
     #ticketContentContainer = $(".div-ticket-content-container");
     #ticketContentContainerHeader = $(".ticket-container-header");
     #btnPostRequest = $(".btn-post-request");
+    #btnsAlterRequest = $(".btn-alter-request");
     #btnPostResponse = $(".btn-post-response");
-    #btnAssignRequest = $(".btn-assign-request");
-    #btnResolveRequest = $(".btn-resolve-request");
-    #btnCancelRequest = $(".btn-cancel-request");
     #spanTicketID = $(".span-ticket-id");
     #ticketDataContainers = $(".div-ticket-data-container");
     #responseModalContainer = $(".div-response-modal-container");
@@ -30,16 +28,10 @@ class DashboardView {
         this.#btnPostResponse?.click(handlerFunction);
     }
 
-    addEventAssignRequest(handlerFunction) {
-        this.#btnAssignRequest?.click(handlerFunction);
-    }
-
-    addEventResolveRequest(handlerFunction) {
-        this.#btnResolveRequest?.click(handlerFunction);
-    }
-
-    addEventCancelRequest(handlerFunction) {
-        this.#btnCancelRequest?.click(handlerFunction);
+    addEventAlterRequest(handlerFunction) {
+        this.#btnsAlterRequest.each((_, btn) => {
+            $(btn)?.click(handlerFunction);
+        });
     }
 
     addEventSelectTicketType(handlerFunction) {

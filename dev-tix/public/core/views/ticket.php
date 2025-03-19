@@ -29,7 +29,7 @@ require_once __DIR__ . '/partials/alert.php';
                         <h2 class="ticket-container-header-heading">
                             Ticket <span class="span-ticket-id">New</span> Overview
                         </h2>
-                        <div class="div-ticket-actions-container">
+                        <div class="div-ticket-actions-container" data-url="/api/">
                             <?php
                             if ($user->getRoleId() !== 2) {
                                 if ($isRecordIdSet && $recordID === 0) {
@@ -43,7 +43,15 @@ require_once __DIR__ . '/partials/alert.php';
                                     $request = new Request($recordID, Session::getDbInstance());
 
                                     if ($request->getStatus() !== 'unassigned') {
-                                        if ($user->getId() !== $request->getTurnId()) {
+                                        if ($request->getStatus() === 'resolved') {
+                                            $assistant = new User($request->getAssistantId(), Session::getDbInstance());
+
+                                            echo '
+                                                <p class="text-ticket-assignment">
+                                                    Resolved By: <span>' . $assistant->getUsername() . '</span>
+                                                </p>
+                                            ';
+                                        } else if ($user->getId() !== $request->getTurnId()) {
                                             $turnUser = new User($request->getTurnId(), Session::getDbInstance());
 
                                             echo '
@@ -61,7 +69,7 @@ require_once __DIR__ . '/partials/alert.php';
                                         }
                                     } else {
                                         echo '
-                                            <button class="btn btn-error btn-cancel-request" data-method="DELETE">
+                                            <button class="btn btn-error btn-alter-request" data-method="PUT" data-status="cancelled">
                                                 <ion-icon src="' . ICON_PATH . '/x.svg"></ion-icon>
                                                 <span>Cancel Request</span>
                                             </button>
@@ -81,9 +89,17 @@ require_once __DIR__ . '/partials/alert.php';
                                                     Next Turn: <span>' . $turnUser->getUsername() . '</span>
                                                 </p>
                                             ';
+                                        } else if ($request->getStatus() === 'resolved') {
+                                            $assistant = new User($request->getAssistantId(), Session::getDbInstance());
+
+                                            echo '
+                                                <p class="text-ticket-assignment">
+                                                    Resolved By: <span>' . $assistant->getUsername() . '</span>
+                                                </p>
+                                            ';
                                         } else {
                                             echo '
-                                                <button class="btn btn-success btn-resolve-request" data-method="PUT">
+                                                <button class="btn btn-success btn-alter-request" data-method="PUT" data-status="resolved">
                                                     <ion-icon src="' . ICON_PATH . '/check.svg"></ion-icon>
                                                     <span>Resolve Request</span>
                                                 </button>
@@ -96,7 +112,7 @@ require_once __DIR__ . '/partials/alert.php';
                                     } else if (!in_array($recordID, $user->getRequestIDs())) {
                                         if ($request->getStatus() === 'unassigned') {
                                             echo '
-                                                <button class="btn btn-pending btn-assign-request" data-method="PUT">
+                                                <button class="btn btn-pending btn-alter-request" data-method="PUT" data-status="pending">
                                                     <ion-icon src="' . ICON_PATH . '/plus.svg"></ion-icon>
                                                     <span>Claim Assignment</span>
                                                 </button>
