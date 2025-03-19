@@ -16,7 +16,8 @@ class ApiRoutes
             'welcome'
         ],
         'PUT' => [
-            'navigation'
+            'navigation',
+            'ticket'
         ],
         'DELETE' =>
             '',
