@@ -51,6 +51,14 @@ require_once __DIR__ . '/partials/alert.php';
                                                     Resolved By: <span>' . $assistant->getUsername() . '</span>
                                                 </p>
                                             ';
+                                        } else if ($request->getStatus() === 'cancelled') {
+                                            $patron = new User($request->getPatronId(), Session::getDbInstance());
+
+                                            echo '
+                                                <p class="text-ticket-assignment">
+                                                    Cancelled By: <span>' . $patron->getUsername() . '</span>
+                                                </p>
+                                            ';
                                         } else if ($user->getId() !== $request->getTurnId()) {
                                             $turnUser = new User($request->getTurnId(), Session::getDbInstance());
 
@@ -61,7 +69,7 @@ require_once __DIR__ . '/partials/alert.php';
                                             ';
                                         } else {
                                             echo '
-                                                <button class="btn btn-success btn-toggle-response-modal">
+                                                <button class="btn btn-primary btn-toggle-response-modal">
                                                     <ion-icon src="' . ICON_PATH . '/wind.svg"></ion-icon>
                                                     <span>Post Response</span>
                                                 </button>
@@ -81,20 +89,26 @@ require_once __DIR__ . '/partials/alert.php';
                                     $request = new Request($recordID, Session::getDbInstance());
 
                                     if (in_array($recordID, $user->getRequestIDs())) {
-                                        if ($request->getTurnId() !== $user->getId()) {
+                                        if ($request->getStatus() === 'resolved') {
+                                            echo '
+                                                <p class="text-ticket-assignment">
+                                                    Resolved By: <span>' . $user->getUsername() . '</span>
+                                                </p>
+                                            ';
+                                        } else if ($request->getStatus() === 'cancelled') {
+                                            $patron = new User($request->getPatronId(), Session::getDbInstance());
+
+                                            echo '
+                                                <p class="text-ticket-assignment">
+                                                    Cancelled By: <span>' . $patron->getUsername() . '</span>
+                                                </p>
+                                            ';
+                                        } else if ($request->getTurnId() !== $user->getId()) {
                                             $turnUser = new User($request->getTurnId(), Session::getDbInstance());
 
                                             echo '
                                                 <p class="text-ticket-assignment">
                                                     Next Turn: <span>' . $turnUser->getUsername() . '</span>
-                                                </p>
-                                            ';
-                                        } else if ($request->getStatus() === 'resolved') {
-                                            $assistant = new User($request->getAssistantId(), Session::getDbInstance());
-
-                                            echo '
-                                                <p class="text-ticket-assignment">
-                                                    Resolved By: <span>' . $assistant->getUsername() . '</span>
                                                 </p>
                                             ';
                                         } else {
@@ -116,6 +130,22 @@ require_once __DIR__ . '/partials/alert.php';
                                                     <ion-icon src="' . ICON_PATH . '/plus.svg"></ion-icon>
                                                     <span>Claim Assignment</span>
                                                 </button>
+                                            ';
+                                        } else if ($request->getStatus() === 'resolved') {
+                                            $assistant = new User($request->getAssistantId(), Session::getDbInstance());
+
+                                            echo '
+                                                <p class="text-ticket-assignment">
+                                                    Resolved By: <span>' . $assistant->getUsername() . '</span>
+                                                </p>
+                                            ';
+                                        } else if ($request->getStatus() === 'cancelled') {
+                                            $patron = new User($request->getPatronId(), Session::getDbInstance());
+
+                                            echo '
+                                                <p class="text-ticket-assignment">
+                                                    Cancelled By: <span>' . $patron->getUsername() . '</span>
+                                                </p>
                                             ';
                                         } else {
                                             $assistant = new User($request->getAssistantId(), Session::getDbInstance());

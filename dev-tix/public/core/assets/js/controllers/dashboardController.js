@@ -43,7 +43,10 @@ const controlChangeFilter = function () {
 };
 
 const controlViewTicketDetails = function () {
-    redirectTo($(this).data("href"));
+    const status = $(this).data("status");
+    const href = $(this).data("href");
+
+    if (status !== "cancelled") redirectTo($(this).data("href"));
 };
 
 const controlGenerateTicketsList = function () {
