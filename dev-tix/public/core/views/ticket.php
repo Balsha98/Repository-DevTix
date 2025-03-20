@@ -309,7 +309,7 @@ require_once __DIR__ . '/partials/alert.php';
                         <?php } ?>
                     </div>
                     <footer class="ticket-container-footer flex-between">
-                        <p>Request Action: <span class="span-request-action">Request</span></p>
+                        <p>Ticket View: <span class="span-ticket-view">New</span></p>
                         <p>Viewing Since: <span><?php echo date('H:i:s'); ?></span></p>
                     </footer>
                 </div>

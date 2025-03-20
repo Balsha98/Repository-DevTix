@@ -174,7 +174,7 @@ const controlGetTicketData = function () {
     // Guard clause: id is 0.
     if (!recordID) return;
 
-    ticketView.setSpanRequestAction("response");
+    ticketView.setSpanTicketView("existing");
     ticketView.setSpanTicketId(recordID);
 
     const route = $("#view").val();

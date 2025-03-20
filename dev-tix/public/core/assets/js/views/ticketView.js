@@ -17,7 +17,7 @@ class DashboardView {
     #noneResponsesData = $(".div-none-responses-container");
     #noneImagesData = $(".div-none-images-container");
     #ticketImages = $(".ticket-image");
-    #spanRequestAction = $(".span-request-action");
+    #spanTicketView = $(".span-ticket-view");
     #ticketContentContainerFooter = $(".ticket-container-footer");
 
     addEventPostRequest(handlerFunction) {
@@ -146,8 +146,8 @@ class DashboardView {
         this.#spanImagesLeft.text(imagesLeft);
     }
 
-    setSpanRequestAction(action) {
-        this.#spanRequestAction.text(action[0].toUpperCase() + action.slice(1));
+    setSpanTicketView(viewType) {
+        this.#spanTicketView.text(viewType[0].toUpperCase() + viewType.slice(1));
     }
 }
 
