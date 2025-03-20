@@ -290,14 +290,24 @@ require_once __DIR__ . '/partials/alert.php';
                                     <?php
                                     $images = $request->getImages();
                                     if (!empty($images)) {
-                                        foreach ($images as $image) {
-                                            echo "
-                                                <li class='ticket-images-list-item'>
-                                                    <div class='div-image-container'>
-                                                        <img class='ticket-image' src='data:image/jpg;base64,{$image}' alt='Request Image'>
+                                        foreach ($images as $i => $image) {
+                                            $imagePath = __DIR__ . '/../assets/media/images/requests/request-'
+                                                . $recordID . '-snippet-' . $i + 1 . '.jpg';
+
+                                            if (!file_exists($imagePath)) {
+                                                file_put_contents($imagePath, base64_decode($image));
+                                            }
+
+                                            echo '
+                                                <li class="ticket-images-list-item">
+                                                    <div class="div-image-container">
+                                                        <img 
+                                                            class="ticket-image" 
+                                                            src="' . IMAGE_PATH . '/requests/request-' . $recordID . '-snippet-' . $i + 1 . '.jpg" alt="Request Image"
+                                                        >
                                                     </div>
                                                 </li>
-                                            ";
+                                            ';
                                         }
                                     } else {
                                         require_once __DIR__ . '/partials/none-images.php';

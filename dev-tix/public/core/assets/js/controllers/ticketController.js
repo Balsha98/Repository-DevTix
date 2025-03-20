@@ -20,7 +20,7 @@ const controlPostRequest = function () {
     data["action"] = "post/request";
     data["user_id"] = $("#user_id").val();
     const predefinedType = $("#type").val();
-    data["type"] = predefinedType ? predefinedType : $("#custom_type").val();
+    data["type"] = predefinedType !== "other" ? predefinedType : $("#custom_type").val();
     data["subject"] = $("#subject").val();
     data["question"] = $("#question").val();
     data["route"] = $("#view").val();
