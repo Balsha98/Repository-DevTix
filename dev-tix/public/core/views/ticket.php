@@ -12,9 +12,9 @@ $user = new User(Session::get('user_id'), Session::getDbInstance());
 $isRecordIdSet = Session::isSet('record_id');
 $recordID = $isRecordIdSet ? (int) Session::get('record_id') : 0;
 
-require_once __DIR__ . '/partials/page-loader.php';
-require_once __DIR__ . '/partials/image-modal.php';
-require_once __DIR__ . '/partials/alert.php';
+require_once __DIR__ . '/partials/loaders/page-loader.php';
+require_once __DIR__ . '/partials/modals/alert-modal.php';
+require_once __DIR__ . '/partials/modals/image-modal.php';
 ?>
 
     <!-- MAIN CONTAINER -->
@@ -233,7 +233,7 @@ require_once __DIR__ . '/partials/alert.php';
                         <?php if ($isRecordIdSet && $recordID !== 0) { ?>
                         <div class="div-ticket-data-container" data-container-type="response">
                             <?php
-                            require_once __DIR__ . '/partials/response-modal.php';
+                            require_once __DIR__ . '/partials/modals/response-modal.php';
                             $request = new Request($recordID, Session::getDbInstance());
                             $requestUser = new User($request->getPatronId(), Session::getDbInstance());
                             ?>
@@ -275,7 +275,7 @@ require_once __DIR__ . '/partials/alert.php';
                                                 ';
                                             }
                                         } else {
-                                            require_once __DIR__ . '/partials/none-responses.php';
+                                            require_once __DIR__ . '/partials/signs/none-responses.php';
                                         }
                                         ?>
                                     </ul>
@@ -291,26 +291,23 @@ require_once __DIR__ . '/partials/alert.php';
                                     $images = $request->getImages();
                                     if (!empty($images)) {
                                         foreach ($images as $i => $image) {
-                                            $imagePath = __DIR__ . '/../assets/media/images/requests/request-'
-                                                . $recordID . '-snippet-' . $i + 1 . '.jpg';
-
-                                            if (!file_exists($imagePath)) {
-                                                file_put_contents($imagePath, base64_decode($image));
-                                            }
+                                            $imageName = 'request-' . $recordID . '-snippet-' . $i + 1 . '.jpg';
+                                            Image::saveTicketSnippetImage($recordID, $imageName, $image);
 
                                             echo '
                                                 <li class="ticket-images-list-item">
                                                     <div class="div-image-container">
                                                         <img 
                                                             class="ticket-image" 
-                                                            src="' . IMAGE_PATH . '/requests/request-' . $recordID . '-snippet-' . $i + 1 . '.jpg" alt="Request Image"
+                                                            src="' . IMAGE_PATH . '/requests/' . $recordID . '/' . $imageName . '" 
+                                                            alt="Request Image"
                                                         >
                                                     </div>
                                                 </li>
                                             ';
                                         }
                                     } else {
-                                        require_once __DIR__ . '/partials/none-images.php';
+                                        require_once __DIR__ . '/partials/signs/none-images.php';
                                     }
                                     ?>
                                 </ul>

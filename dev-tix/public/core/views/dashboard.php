@@ -5,8 +5,8 @@ require_once __DIR__ . '/../../../source/classes/models/User.php';
 
 $user = new User(Session::get('user_id'), Session::getDbInstance());
 
-require_once __DIR__ . '/partials/page-loader.php';
-require_once __DIR__ . '/partials/alert.php';
+require_once __DIR__ . '/partials/loaders/page-loader.php';
+require_once __DIR__ . '/partials/modals/alert-modal.php';
 ?>
 
     <!-- MAIN CONTAINER -->
@@ -94,8 +94,8 @@ require_once __DIR__ . '/partials/alert.php';
                                 <p>Status</p>
                             </header>
                             <div class="div-tickets-list-container">
-                                <?php require_once __DIR__ . '/partials/none-data.php'; ?>
-                                <?php require_once __DIR__ . '/partials/data-loader.php'; ?>
+                                <?php require_once __DIR__ . '/partials/signs/none-data.php'; ?>
+                                <?php require_once __DIR__ . '/partials/loaders/data-loader.php'; ?>
                                 <ul class="tickets-list">
                                     <!-- DYNAMICALLY GENERATED TICKETS VIA AJAX -->
                                 </ul>

@@ -44,7 +44,7 @@
                             </form>
                         </header>
                         <div class="div-notifications-menu-list-container">
-                            <?php require_once __DIR__ . '/none-notifications.php'; ?>
+                            <?php require_once __DIR__ . '/signs/none-notifications.php'; ?>
                             <ul class="dropdown-menu-list notifications-menu-list">
                                 <!-- DYNAMICALLY GENERATED VIA AJAX -->
                             </ul>

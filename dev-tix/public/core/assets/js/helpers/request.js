@@ -1,4 +1,4 @@
-import * as alertController from "./../controllers/alertController.js";
+import * as alertModalController from "./../controllers/alertModalController.js";
 
 export const handleRequest = function (url, method, data, type = "json") {
     const isJSON = type === "json";
@@ -17,7 +17,7 @@ export const handleRequest = function (url, method, data, type = "json") {
             // will occur simultaneously with regular
             // request submissions; image uploads
             // will therefore require FormData().
-            if (isJSON) alertController.initController(response);
+            if (isJSON) alertModalController.initController(response);
         },
         error: function (response) {
             console.log(response.responseText);

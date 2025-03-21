@@ -9,7 +9,6 @@ class User
     private string $lastName;
     private string $email;
     private string $username;
-    private string $image;
     private string $joinedAt;
     private string $lastActive;
     private array $requestIDs = [];
@@ -38,7 +37,6 @@ class User
             $this->lastName = $result['last_name'];
             $this->email = $result['email'];
             $this->username = $result['username'];
-            $this->image = '';  // TODO: Check for the image.
             $this->joinedAt = $result['joined_at'];
             $this->last_active = $result['last_active'];
         }
@@ -91,12 +89,6 @@ class User
     public function getUsername()
     {
         return $this->username;
-    }
-
-    public function getImage()
-    {
-        // TODO: Check image!
-        return $this->image;
     }
 
     public function getJoinedAt()

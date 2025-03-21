@@ -1,5 +1,5 @@
-/* ALERT CONTAINER */
-.div-alert-container {
+/* ALERT MODAL CONTAINER */
+.div-alert-modal-container {
     width: 100%;
     height: 100%;
     background-color: var(--transparent-black-md);
@@ -7,7 +7,7 @@
     z-index: 9999;
 }
 
-/* ALERT TOGGLER */
+/* ALERT MODAL TOGGLER */
 .hide-alert {
     opacity: 0;
     z-index: -1;
@@ -22,7 +22,7 @@
 }
 
 /* ICON CONTAINER */
-.div-alert-icon-container {
+.div-alert-modal-icon-container {
     position: relative;
     width: 9.6rem;
     aspect-ratio: 1 / 1;
@@ -31,7 +31,7 @@
     border-radius: var(--border-radius-circle);
 }
 
-.div-alert-icon-container::before {
+.div-alert-modal-icon-container::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -59,7 +59,7 @@
     }
 }
 
-.div-alert-icon-container ion-icon {
+.div-alert-modal-icon-container ion-icon {
     font-size: 5.6rem;
     color: var(--white);
 }
@@ -82,8 +82,8 @@
     }
 }
 
-/* ALERT CONTENT */
-.alert-content-header {
+/* ALERT MODAL CONTENT */
+.alert-modal-content-header {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
@@ -91,23 +91,23 @@
     text-align: center;
 }
 
-.alert-content-header h2 {
+.alert-modal-heading {
     font-size: 2.4rem;
 }
 
-.alert-content-header p {
+.alert-modal-message {
     font-size: 1.8rem;
 }
 
-/* ALERT BUTTON CONTAINER */
-.div-alert-btn-container {
+/* ALERT MODAL BUTTON CONTAINER */
+.div-alert-modal-btn-container {
     position: relative;
     display: flex;
     justify-content: center;
     padding-top: 2rem;
 }
 
-.div-alert-btn-container::before {
+.div-alert-modal-btn-container::before {
     content: "";
     position: absolute;
     top: 0;
@@ -118,6 +118,7 @@
     transform: translateX(-50%);
 }
 
-.btn-alert-close {
+/* BUTTON (OVERRIDE) */
+.btn-alert-modal-close {
     width: 19.6rem;
 }

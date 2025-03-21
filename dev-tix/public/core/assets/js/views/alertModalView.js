@@ -1,22 +1,22 @@
-class AlertView {
-    #alertContainer = $(".div-alert-container");
-    #iconContainer = $(".div-alert-icon-container");
-    #alertIcon = $(".alert-icon");
-    #alertHeading = $(".alert-heading");
-    #alertMessage = $(".alert-message");
-    #btnClose = $(".btn-alert-close");
+class AlertModalView {
+    #alertContainer = $(".div-alert-modal-container");
+    #iconContainer = $(".div-alert-modal-icon-container");
+    #alertIcon = $(".alert-modal-icon");
+    #alertHeading = $(".alert-modal-heading");
+    #alertMessage = $(".alert-modal-message");
+    #btnClose = $(".btn-alert-modal-close");
     #alertType;
     #redirect;
 
     constructor() {
-        this.#btnClose.click(this.toggleAlert.bind(this, true));
+        this.#btnClose.click(this.toggleAlertModal.bind(this, true));
     }
 
-    addEventToggleAlert(handlerFunction, response) {
+    addEventToggleAlertModal(handlerFunction, response) {
         handlerFunction(response);
     }
 
-    displayVisuals(response) {
+    displayModalVisuals(response) {
         this.#alertType = response["status"];
         this.#redirect = response["redirect"];
 
@@ -47,7 +47,7 @@ class AlertView {
         parent.addClass("invalid-input-container");
     }
 
-    toggleAlert(clicked = false) {
+    toggleAlertModal(clicked = false) {
         this.#alertContainer.toggleClass("hide-alert");
         this.#alertIcon.removeClass("alert-icon-animation");
 
@@ -60,4 +60,4 @@ class AlertView {
     }
 }
 
-export default new AlertView();
+export default new AlertModalView();

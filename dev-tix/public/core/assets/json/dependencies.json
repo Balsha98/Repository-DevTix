@@ -2,12 +2,12 @@
     {
         "dashboard": {
             "css": [
-                "css/partials/alert",
-                "css/partials/data-loader",
+                "css/partials/modals/alert-modal",
+                "css/partials/loaders/data-loader",
                 "css/partials/navigation",
-                "css/partials/none-data",
-                "css/partials/none-notifications",
-                "css/partials/page-loader",
+                "css/partials/signs/none-data",
+                "css/partials/signs/none-notifications",
+                "css/partials/loaders/page-loader",
                 "css/partials/sidebar"
             ],
             "js": []
@@ -15,27 +15,27 @@
     },
     {
         "login": {
-            "css": ["css/partials/alert", "css/partials/page-loader"],
+            "css": ["css/partials/modals/alert-modal", "css/partials/loaders/page-loader"],
             "js": []
         }
     },
     {
         "signup": {
-            "css": ["css/partials/alert", "css/partials/page-loader"],
+            "css": ["css/partials/modals/alert-modal", "css/partials/loaders/page-loader"],
             "js": []
         }
     },
     {
         "ticket": {
             "css": [
-                "css/partials/alert",
-                "css/partials/image-modal",
+                "css/partials/modals/alert-modal",
+                "css/partials/modals/image-modal",
                 "css/partials/navigation",
-                "css/partials/none-images",
-                "css/partials/none-notifications",
-                "css/partials/none-responses",
-                "css/partials/page-loader",
-                "css/partials/response-modal",
+                "css/partials/signs/none-images",
+                "css/partials/signs/none-notifications",
+                "css/partials/signs/none-responses",
+                "css/partials/loaders/page-loader",
+                "css/partials/modals/response-modal",
                 "css/partials/sidebar"
             ],
             "js": []
@@ -44,12 +44,12 @@
     {
         "tickets": {
             "css": [
-                "css/partials/alert",
-                "css/partials/data-loader",
+                "css/partials/modals/alert-modal",
+                "css/partials/loaders/data-loader",
                 "css/partials/navigation",
-                "css/partials/none-data",
-                "css/partials/none-notifications",
-                "css/partials/page-loader",
+                "css/partials/signs/none-data",
+                "css/partials/signs/none-notifications",
+                "css/partials/loaders/page-loader",
                 "css/partials/sidebar"
             ],
             "js": []
@@ -57,7 +57,7 @@
     },
     {
         "welcome": {
-            "css": ["css/partials/alert", "css/partials/page-loader"],
+            "css": ["css/partials/modals/alert-modal", "css/partials/loaders/page-loader"],
             "js": []
         }
     }

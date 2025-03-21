@@ -1,6 +1,6 @@
     <?php
-    require_once __DIR__ . '/partials/page-loader.php';
-    require_once __DIR__ . '/partials/alert.php';
+    require_once __DIR__ . '/partials/loaders/page-loader.php';
+    require_once __DIR__ . '/partials/modals/alert-modal.php';
     ?>
 
     <!-- MAIN CONTAINER -->
