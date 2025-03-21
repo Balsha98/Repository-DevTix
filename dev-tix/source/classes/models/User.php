@@ -3,7 +3,8 @@
 class User
 {
     private int $id;
-    private int $roleId;
+    private int $viewAsUserID;
+    private int $roleID;
     private string $roleName;
     private string $firstName;
     private string $lastName;
@@ -31,7 +32,8 @@ class User
         )->getQueryResult();
 
         if (!empty($result)) {
-            $this->roleId = (int) $result['role_id'];
+            $this->viewAsUserID = (int) $result['view_as_user_id'];
+            $this->roleID = (int) $result['role_id'];
             $this->roleName = $result['role_name'];
             $this->firstName = $result['first_name'];
             $this->lastName = $result['last_name'];
@@ -49,9 +51,14 @@ class User
         return $this->id;
     }
 
+    public function getViewAsUserId()
+    {
+        return $this->viewAsUserID;
+    }
+
     public function getRoleId()
     {
-        return $this->roleId;
+        return $this->roleID;
     }
 
     public function getRoleName()
