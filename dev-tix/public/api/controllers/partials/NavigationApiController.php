@@ -5,24 +5,23 @@ class NavigationApiController extends AbsApiController
 {
     public function get()
     {
-        $userID = Session::get('user_id');
+        $return = [];
         $roleID = Session::get('role_id');
 
-        $return = [];
         if ($roleID === 1) {
-            $allClients = $this->getAllClients($userID, $roleID);
+            $allClients = $this->getAllClients(Session::get('user_id'), $roleID);
 
             $return['clients'] = [
                 'clients_list' => $allClients,
-                'total_clients' => count($allClients)
+                'total_clients' => isset($allClients['user_id']) ? 1 : count($allClients)
             ];
         }
 
-        $unreadNotifications = $this->getUnreadNotifications($userID, $roleID);
+        $unreadNotifications = $this->getUnreadNotifications($this->getId(), $roleID);
 
         $return['notifications'] = [
             'notifications_list' => $unreadNotifications,
-            'total_unread' => count($unreadNotifications)
+            'total_unread' => isset($unreadNotifications['notification_id']) ? 1 : count($unreadNotifications)
         ];
 
         return ApiMessage::dataFetchAttempt($return);
@@ -39,23 +38,30 @@ class NavigationApiController extends AbsApiController
             return ApiMessage::apiError('token');
         }
 
+        $action = $data['action'];
         $userID = $this->getId();
 
-        // Guard clause: view as client.
-        if (isset($data['client_id'])) {
-            // TODO: Change db value.
-            Session::set('view_as_user_id', $data['client_id']);
+        // Updating view_as_user_id column.
+        if ($action === 'update/client') {
+            // Guard clause: request error.
+            if (isset($this->updateViewAsUserId($userID, $data['client_id'])['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
+
             return ApiMessage::alertDataAlterAttempt(true, '/dashboard');
         }
 
-        $roleID = Session::get('role_id');
+        // Marking notifications as read.
+        if ($action === 'mark/notification') {
+            $roleID = Session::get('role_id');
 
-        // Guard clause: request error.
-        if (isset($this->markNotificationsAsRead($data, $userID, $roleID)['error'])) {
-            return ApiMessage::alertDataAlterAttempt(false);
+            // Guard clause: request error.
+            if (isset($this->markNotificationsAsRead($data, $userID, $roleID)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
+
+            return ApiMessage::alertDataAlterAttempt(true);
         }
-
-        return ApiMessage::alertDataAlterAttempt(true);
     }
 
     private function getAllClients(int $userID, int $roleID)
@@ -66,9 +72,17 @@ class NavigationApiController extends AbsApiController
         )->getQueryResult();
     }
 
+    private function updateViewAsUserId(int $userID, int $viewAsUserID)
+    {
+        $query = 'UPDATE users SET view_as_user_id = :view_as_user_id WHERE user_id = :user_id;';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':view_as_user_id' => $viewAsUserID, ':user_id' => $userID]
+        )->getQueryResult();
+    }
+
     private function getUnreadNotifications(int $userID, int $roleID)
     {
-        if ($roleID === 1) {
+        if (Session::get('user_id') === $userID && $roleID === 1) {
             $query = 'SELECT * FROM notifications WHERE is_read = :is_read;';
             return Session::getDbInstance()->executeQuery(
                 $query, [':is_read' => 0]
@@ -83,7 +97,7 @@ class NavigationApiController extends AbsApiController
 
     private function markNotificationsAsRead(array $data, int $userID, int $roleID)
     {
-        if ($roleID === 1) {
+        if (Session::get('user_id') === $userID && $roleID === 1) {
             $query = 'UPDATE notifications SET is_read = :is_read;';
             return Session::getDbInstance()->executeQuery(
                 $query, [':is_read' => $data['is_read']]

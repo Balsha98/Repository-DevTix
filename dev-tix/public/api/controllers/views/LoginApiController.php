@@ -18,7 +18,6 @@ class LoginApiController extends AbsApiController
             // Set session variable.
             Session::set('active', true);
             Session::set('user_id', $account['user_id']);
-            Session::set('view_as_user_id', $account['view_as_user_id']);
             Session::set('role_id', $account['role_id']);
 
             // Set CSRF token.

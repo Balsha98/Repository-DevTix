@@ -6,7 +6,7 @@ class TicketsApiController extends AbsApiController
     public function get()
     {
         $return = [];
-        $viewAsUserID = Session::get('view_as_user_id');
+        $viewAsUserID = $this->getId();
         $viewAsRoleID = $this->getViewAsRoleId($viewAsUserID);
 
         // Guard clause: admin user have no tickets.
