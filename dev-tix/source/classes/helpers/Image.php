@@ -2,11 +2,11 @@
 
 class Image
 {
-    public static function renderTicketPatronImage(User $user)
+    public static function renderTicketUserImage(User $user)
     {
         if ($user->getImage()) {
             return "
-                <div class='div-image-container div-tickets-patron-image-container'>
+                <div class='div-image-container div-tickets-user-image-container'>
                     <img src='" . self::encode($user->getImage()) . "' alt='User Image'>
                 </div>
             ";

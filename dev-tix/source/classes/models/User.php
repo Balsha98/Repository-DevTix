@@ -114,9 +114,19 @@ class User
         if (empty($this->requestIDs)) {
             $query = 'SELECT request_id FROM ticket_requests WHERE patron_id = :patron_id OR assistant_id = :assistant_id;';
 
-            $this->requestIDs = $this->database->executeQuery(
+            $result = $this->database->executeQuery(
                 $query, [':patron_id' => $this->id, ':assistant_id' => $this->id]
             )->getQueryResult();
+
+            if (!empty($result)) {
+                if (count($result) > 1) {
+                    foreach ($result as $request) {
+                        $this->requestIDs[] = $request['request_id'];
+                    }
+                } else {
+                    $this->requestIDs[] = $result['request_id'];
+                }
+            }
         }
 
         return $this->requestIDs;

@@ -1,7 +1,7 @@
-export const renderTicketPatronImage = function (user) {
+export const renderTicketUserImage = function (user) {
     if (user["image"]) {
         return `
-            <div class="div-image-container div-tickets-patron-image-container">
+            <div class="div-image-container div-tickets-user-image-container">
                 <img src="${user["image"]}" alt="User Image">
             </div>
         `;

@@ -240,7 +240,7 @@ require_once __DIR__ . '/partials/alert.php';
                             <div class="div-ticket-responses-container">
                                 <div class="div-scrollable-responses-container">
                                     <div class="div-ticket-topic-container">
-                                        <?php echo Image::renderTicketPatronImage($requestUser); ?>
+                                        <?php echo Image::renderTicketUserImage($requestUser); ?>
                                         <div class="div-ticket-topic-data-container">
                                             <header class="ticket-topic-data-container-header">
                                                 <h4><?php echo $request->getSubject(); ?></h4>
@@ -263,7 +263,7 @@ require_once __DIR__ . '/partials/alert.php';
 
                                                 echo '
                                                     <li class="ticket-responses-list-item">
-                                                        ' . Image::renderTicketPatronImage($responseUser) . '
+                                                        ' . Image::renderTicketUserImage($responseUser) . '
                                                         <div class="div-ticket-response-data-container">
                                                             <p>' . $response->getResponse() . '</p>
                                                             <footer class="ticket-response-data-container-footer flex-between">
