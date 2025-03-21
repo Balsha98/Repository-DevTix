@@ -11,5 +11,6 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 
 // Commonly used paths.
+define('ROOT_PATH', __DIR__ . '/../public');
 define('IMAGE_PATH', SERVER_PATH . '/core/assets/media/images');
 define('ICON_PATH', SERVER_PATH . '/core/assets/media/icons');
