@@ -20,40 +20,6 @@ class DashboardView {
     #spanTicketView = $(".span-ticket-view");
     #ticketContentContainerFooter = $(".ticket-container-footer");
 
-    addEventPostRequest(handlerFunction) {
-        this.#btnPostRequest?.click(handlerFunction);
-    }
-
-    addEventPostResponse(handlerFunction) {
-        this.#btnPostResponse?.click(handlerFunction);
-    }
-
-    addEventAlterRequest(handlerFunction) {
-        this.#btnsAlterRequest.each((_, btn) => {
-            $(btn)?.click(handlerFunction);
-        });
-    }
-
-    addEventSelectTicketType(handlerFunction) {
-        this.#ticketSelectType?.change(handlerFunction);
-    }
-
-    addEventGenerateImageInput(handlerFunction) {
-        this.#btnUploadImage?.click(handlerFunction);
-    }
-
-    addEventToggleResponseModal(handlerFunction) {
-        this.#btnsToggleResponseModal.each((_, btn) => {
-            $(btn)?.click(handlerFunction);
-        });
-    }
-
-    addEventToggleImageModal(handlerFunction) {
-        this.#ticketImages.each((_, image) => {
-            $(image)?.click(handlerFunction);
-        });
-    }
-
     toggleTicketDataContainers(recordID) {
         const containerType = recordID ? "response" : "request";
         this.#ticketDataContainers.each((_, container) => {
@@ -148,6 +114,40 @@ class DashboardView {
 
     setSpanTicketView(viewType) {
         this.#spanTicketView.text(viewType[0].toUpperCase() + viewType.slice(1));
+    }
+
+    addEventPostRequest(handlerFunction) {
+        this.#btnPostRequest?.click(handlerFunction);
+    }
+
+    addEventPostResponse(handlerFunction) {
+        this.#btnPostResponse?.click(handlerFunction);
+    }
+
+    addEventAlterRequest(handlerFunction) {
+        this.#btnsAlterRequest.each((_, btn) => {
+            $(btn)?.click(handlerFunction);
+        });
+    }
+
+    addEventSelectTicketType(handlerFunction) {
+        this.#ticketSelectType?.change(handlerFunction);
+    }
+
+    addEventGenerateImageInput(handlerFunction) {
+        this.#btnUploadImage?.click(handlerFunction);
+    }
+
+    addEventToggleResponseModal(handlerFunction) {
+        this.#btnsToggleResponseModal.each((_, btn) => {
+            $(btn)?.click(handlerFunction);
+        });
+    }
+
+    addEventToggleImageModal(handlerFunction) {
+        this.#ticketImages.each((_, image) => {
+            $(image)?.click(handlerFunction);
+        });
     }
 }
 

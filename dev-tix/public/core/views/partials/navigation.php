@@ -98,6 +98,6 @@
         </nav>
         <div class="div-hidden-inputs">
             <input id="partial" type="hidden" name="partial" value="partials/navigation">
-            <input id="view_as_user_id" type="hidden" name="view_as_user_id" value="<?php echo Session::get('view_as_user_id'); ?>">
+            <input id="view_as_user_id" type="hidden" name="view_as_user_id" value="<?php echo $user->getViewAsUserId(); ?>">
         </div>
     </div>

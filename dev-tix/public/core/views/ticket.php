@@ -323,7 +323,7 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
             </div>
             <div class="div-hidden-inputs">
                 <input id="view" type="hidden" name="view" value="views/ticket">
-                <input id="user_id" type="hidden" name="user_id" value="<?php echo Session::get('view_as_user_id'); ?>">
+                <input id="user_id" type="hidden" name="user_id" value="<?php echo $user->getId(); ?>">
                 <input id="csrf_token" type="hidden" name="csrf_token" value="<?php echo Session::get('csrf_token'); ?>">
                 <input id="record_id" type="hidden" name="record_id" value="<?php echo $recordID; ?>">
             </div>

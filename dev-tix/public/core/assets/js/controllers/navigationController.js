@@ -15,6 +15,7 @@ const controlSetViewAsClient = function () {
     const method = form.attr("method");
 
     const data = {};
+    data["action"] = "update/client";
     data["id"] = $("#user_id").val();
     data["client_id"] = $(`#client_id_${clientID}`).val();
     data["route"] = $("#partial").val();
@@ -31,7 +32,8 @@ export const controlMarkNotificationsAsRead = function (formEvent) {
     const method = form.attr("method");
 
     const data = {};
-    data["id"] = $("#user_id").val();
+    data["action"] = "mark/notification";
+    data["id"] = $("#view_as_user_id").val();
     data["is_read"] = $("#is_read").val();
     data["route"] = $("#partial").val();
     data["csrf_token"] = $("#csrf_token").val();
@@ -41,7 +43,8 @@ export const controlMarkNotificationsAsRead = function (formEvent) {
 
 export const controlGenerateNavigationLists = function () {
     const route = $("#partial").val();
-    const url = `/api/?route=${route}`;
+    const userID = $("#view_as_user_id").val();
+    const url = `/api/?route=${route}&id=${userID}`;
     const method = "GET";
 
     $.ajax({

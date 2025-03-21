@@ -51,7 +51,8 @@ const controlViewTicketDetails = function () {
 
 const controlGenerateTicketsList = function () {
     const route = $("#view").val();
-    const url = `/api/?route=${route}`;
+    const userID = $("#view_as_user_id").val();
+    const url = `/api/?route=${route}&id=${userID}`;
     const method = "GET";
 
     $.ajax({
@@ -77,7 +78,7 @@ const controlGenerateTicketsList = function () {
 };
 
 const initController = function () {
-    pageLoaderController.controlHidePageLoader(0.1);
+    pageLoaderController.controlHidePageLoader(2);
 
     // Setup navigation.
     navigationView.setWelcomeMessage();
