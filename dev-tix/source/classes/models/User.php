@@ -116,7 +116,7 @@ class User
             $query = 'SELECT request_id FROM ticket_requests WHERE patron_id = :patron_id OR assistant_id = :assistant_id;';
 
             $result = $this->database->executeQuery(
-                $query, [':patron_id' => $this->id, ':assistant_id' => $this->id]
+                $query, [':patron_id' => $this->viewAsUserID, ':assistant_id' => $this->viewAsUserID]
             )->getQueryResult();
 
             if (!empty($result)) {
