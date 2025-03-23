@@ -65,7 +65,7 @@
                         <span class="span-dropdown-indicator">&nbsp;</span>
                         <ul class="dropdown-menu-list">
                             <li class="dropdown-menu-list-item">
-                                <a class="dropdown-link" href="/profile">Profile</a>
+                                <a class="dropdown-link" href="/profile/<?php echo $user->getId(); ?>">Profile</a>
                             </li>
                             <li class="dropdown-menu-list-item">
                                 <a class="dropdown-link" href="/logout">Logout</a>
