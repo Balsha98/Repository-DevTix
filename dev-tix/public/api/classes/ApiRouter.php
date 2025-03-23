@@ -19,7 +19,7 @@ class ApiRouter
     {
         $id = $data['id'] ?? 0;
         if ($method === 'GET' && isset($_GET['id'])) {
-            $id = (int) $_GET['id'];
+            $id = $_GET['id'];
         }
 
         [$directory, $script] = self::parseRoute($data);
@@ -29,6 +29,19 @@ class ApiRouter
             return Encode::toJSON(ApiMessage::apiError('route'));
         }
 
+        // Start session.
+        Session::start();
+
+        // Guard clause: check CSRF token.
+        if ($script !== 'login' && $script !== 'signup') {
+            $authToken = $_GET['csrf_token'] ?? $data['csrf_token'];
+
+            if ($authToken !== Session::get('csrf_token') ||
+                    ((time() - Session::get('csrf_token_set_at')) / 60) > 5) {
+                return Encode::toJSON(ApiMessage::apiError('token'));
+            }
+        }
+
         // Set request method.
         self::$method = $method;
 
@@ -36,9 +49,6 @@ class ApiRouter
         $className = ucfirst($script) . 'ApiController';
         require_once __DIR__ . "/../controllers/{$directory}/{$className}.php";
         self::$controller = new $className();
-
-        // Start session.
-        Session::start();
 
         // Return JSON response.
         header('Content-Type: application/json');
