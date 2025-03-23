@@ -5,14 +5,9 @@ class TicketsApiController extends AbsApiController
 {
     public function get()
     {
-        $return = [];
         $viewAsUserID = $this->getId();
         $viewAsRoleID = $this->getViewAsRoleId($viewAsUserID);
-
-        // Guard clause: admin user have no tickets.
-        if ($viewAsRoleID === 1) {
-            return ApiMessage::dataFetchAttempt($return);
-        }
+        $return = [];
 
         $data = $this->getAllTicketsPerUser($viewAsUserID, $viewAsRoleID);
         $return['overviews'] = $this->extractTicketsOverviewData($viewAsUserID, $viewAsRoleID);
