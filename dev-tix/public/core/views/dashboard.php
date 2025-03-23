@@ -77,7 +77,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                                         <option value="cancelled">Filter Cancelled</option>
                                     </select>
                                 </div>
-                                <?php if ($user->getRoleId() !== 2) { ?>
+                                <?php if ($user->getViewAsRoleId() === 3) { ?>
                                 <a class="link link-primary" href="/ticket">
                                     <ion-icon src="<?php echo ICON_PATH; ?>/plus.svg"></ion-icon>
                                     <span>New Ticket</span>

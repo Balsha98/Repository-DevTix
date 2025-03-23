@@ -60,6 +60,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                             <h2 class="tickets-container-header-heading">
                                 <span class="span-client-name"><?php echo $user->getFirstName(); ?></span>'s Tickets Overview
                             </h2>
+                            <?php if ($user->getViewAsRoleId() !== 1) { ?>
                             <div class="div-tickets-actions-container">
                                 <div class="div-input-container">
                                     <label class="label-select absolute-y-center" for="filter">
@@ -73,13 +74,14 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                                         <option value="cancelled">Filter Cancelled</option>
                                     </select>
                                 </div>
-                                <?php if ($user->getRoleId() !== 2) { ?>
+                                <?php if ($user->getViewAsRoleId() === 3) { ?>
                                 <a class="link link-primary" href="/ticket">
                                     <ion-icon src="<?php echo ICON_PATH; ?>/plus.svg"></ion-icon>
                                     <span>New Ticket</span>
                                 </a>
                                 <?php } ?>
                             </div>
+                            <?php } ?>
                         </header>
                         <div class="div-tickets-list-overview-container">
                             <header class="tickets-list-overview-header">
