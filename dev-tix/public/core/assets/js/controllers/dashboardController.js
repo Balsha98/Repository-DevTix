@@ -46,12 +46,13 @@ const controlViewTicketDetails = function () {
     const status = $(this).data("status");
     const href = $(this).data("href");
 
-    if (status !== "cancelled") redirectTo($(this).data("href"));
+    if (status !== "cancelled") redirectTo(href);
 };
 
 const controlGenerateTicketsList = function () {
     const route = $("#view").val();
-    const url = `/api/?route=${route}`;
+    const authToken = $("#csrf_token").val();
+    const url = `/api/?route=${route}&csrf_token=${authToken}`;
     const method = "GET";
 
     $.ajax({

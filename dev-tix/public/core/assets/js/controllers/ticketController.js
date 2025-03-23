@@ -18,12 +18,13 @@ const controlPostRequest = function () {
 
     const data = {};
     data["action"] = "post/request";
+    data["route"] = $("#view").val();
+    data["csrf_token"] = $("#csrf_token").val();
     data["user_id"] = $("#user_id").val();
     const predefinedType = $("#type").val();
     data["type"] = predefinedType !== "other" ? predefinedType : $("#custom_type").val();
     data["subject"] = $("#subject").val();
     data["question"] = $("#question").val();
-    data["route"] = $("#view").val();
 
     handleRequest(url, method, data);
 
@@ -52,6 +53,7 @@ const controlAlterRequest = function () {
     data["id"] = $("#record_id").val();
     data["action"] = `${status}/request`;
     data["route"] = $("#view").val();
+    data["csrf_token"] = $("#csrf_token").val();
     data["user_id"] = $("#user_id").val();
     data["status"] = status;
 
@@ -70,6 +72,7 @@ const controlPostResponse = function (formEvent) {
     const data = {};
     data["action"] = "post/response";
     data["route"] = $("#view").val();
+    data["csrf_token"] = $("#csrf_token").val();
     data["request_id"] = $("#record_id").val();
     data["user_id"] = $("#user_id").val();
     data["response"] = $("#response").val();
@@ -178,7 +181,8 @@ const controlGetTicketData = function () {
     ticketView.setSpanTicketId(recordID);
 
     const route = $("#view").val();
-    const url = `/api/?route=${route}&id=${recordID}`;
+    const authToken = $("#csrf_token").val();
+    const url = `/api/?route=${route}&id=${recordID}&csrf_token=${authToken}`;
     const method = "GET";
 
     $.ajax({

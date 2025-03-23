@@ -45,7 +45,8 @@ export const controlMarkNotificationsAsRead = function (formEvent) {
 export const controlGenerateNavigationLists = function () {
     const route = $("#partial").val();
     const userID = $("#view_as_user_id").val();
-    const url = `/api/?route=${route}&id=${userID}`;
+    const authToken = $("#csrf_token").val();
+    const url = `/api/?route=${route}&id=${userID}&csrf_token=${authToken}`;
     const method = "GET";
 
     $.ajax({
