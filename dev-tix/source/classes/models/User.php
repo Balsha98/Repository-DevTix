@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/UserDetails.php';
 
 class User
 {
@@ -13,6 +14,7 @@ class User
     private string $joinedAt;
     private string $lastActive;
     private array $requestIDs = [];
+    private UserDetails $details;
     private Database $database;
 
     public function __construct(int $id, Database $database)
@@ -130,4 +132,27 @@ class User
 
         return $this->requestIDs;
     }
+
+    // public function getNotificationIDs()
+    // {
+    //     if (empty($this->allNotificationIDs)) {
+    //         $isAdmin = $this->id === $this->viewAsUserID && $this->roleID === 1;
+    //         $query = 'SELECT notification_id FROM notifications' . ($isAdmin ? ';' : ' WHERE user_id = :user_id;');
+    //         $params = $isAdmin ? [] : [':user_id' => $this->viewAsUserID];
+
+    //         $result = $this->database->executeQuery($query, $params)->getQueryResult();
+
+    //         if (!empty($result)) {
+    //             if (count($result) > 1) {
+    //                 foreach ($result as $request) {
+    //                     $this->allNotificationIDs[] = $request['notification_id'];
+    //                 }
+    //             } else {
+    //                 $this->allNotificationIDs[] = $result['notification_id'];
+    //             }
+    //         }
+    //     }
+
+    //     return $this->allNotificationIDs;
+    // }
 }
