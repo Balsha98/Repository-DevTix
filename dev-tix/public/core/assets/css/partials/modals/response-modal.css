@@ -35,7 +35,6 @@
     aspect-ratio: 1 / 1;
     color: var(--primary-tint);
     background-color: var(--gray-tint);
-    box-shadow: 0 0.4rem 0.8rem var(--shadow-sm);
     border-radius: var(--border-radius-circle);
     transition: all 0.3s;
     z-index: 1;
