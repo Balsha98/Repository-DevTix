@@ -16,11 +16,14 @@ const controlPostRequest = function () {
     const url = form.attr("action");
     const method = $(this).data("method");
 
+    const route = $("#view").val();
+    const authToken = $("#csrf_token").val();
+
     const data = {};
     data["action"] = "post/request";
-    data["route"] = $("#view").val();
-    data["csrf_token"] = $("#csrf_token").val();
-    data["user_id"] = $("#user_id").val();
+    data["route"] = route;
+    data["csrf_token"] = authToken;
+    data["user_id"] = $("#view_as_user_id").val();
     const predefinedType = $("#type").val();
     data["type"] = predefinedType !== "other" ? predefinedType : $("#custom_type").val();
     data["subject"] = $("#subject").val();
@@ -32,7 +35,8 @@ const controlPostRequest = function () {
     const imageInputs = $(".input-image");
     const imageData = new FormData();
     imageData.append("action", "post/images");
-    imageData.append("route", $("#view").val());
+    imageData.append("route", route);
+    imageData.append("csrf_token", authToken);
 
     // Guard clause.
     if (imageInputs.length === 1 && !imageInputs.val()) return;
@@ -54,7 +58,7 @@ const controlAlterRequest = function () {
     data["action"] = `${status}/request`;
     data["route"] = $("#view").val();
     data["csrf_token"] = $("#csrf_token").val();
-    data["user_id"] = $("#user_id").val();
+    data["user_id"] = $("#view_as_user_id").val();
     data["status"] = status;
 
     handleRequest(url, method, data);
@@ -74,7 +78,7 @@ const controlPostResponse = function (formEvent) {
     data["route"] = $("#view").val();
     data["csrf_token"] = $("#csrf_token").val();
     data["request_id"] = $("#record_id").val();
-    data["user_id"] = $("#user_id").val();
+    data["user_id"] = $("#view_as_user_id").val();
     data["response"] = $("#response").val();
 
     handleRequest(url, method, data);

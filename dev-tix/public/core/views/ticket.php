@@ -31,7 +31,7 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                         </h2>
                         <div class="div-ticket-actions-container" data-url="/api/">
                             <?php
-                            if ($user->getRoleId() !== 2) {
+                            if ($user->getViewAsRoleId() !== 2) {
                                 if ($isRecordIdSet && $recordID === 0) {
                                     echo '
                                         <button class="btn btn-success btn-post-request" data-method="POST">
@@ -60,7 +60,7 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                                                         Cancelled By: <span>' . $patron->getUsername() . '</span>
                                                     </p>
                                                 ';
-                                            } else if ($user->getId() !== $request->getTurnId()) {
+                                            } else if ($request->getTurnId() !== $user->getViewAsUserId()) {
                                                 $turnUser = new User($request->getTurnId(), Session::getDbInstance());
 
                                                 echo '
@@ -94,7 +94,7 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                                         ';
                                     }
                                 }
-                            } else if ($user->getRoleId() === 2) {
+                            } else if ($user->getViewAsRoleId() === 2) {
                                 if ($isRecordIdSet && $recordID !== 0) {
                                     $request = new Request($recordID, Session::getDbInstance());
 
@@ -113,7 +113,7 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                                                     Cancelled By: <span>' . $patron->getUsername() . '</span>
                                                 </p>
                                             ';
-                                        } else if ($request->getTurnId() !== $user->getId()) {
+                                        } else if ($request->getTurnId() !== $user->getViewAsUserId()) {
                                             $turnUser = new User($request->getTurnId(), Session::getDbInstance());
 
                                             echo '
