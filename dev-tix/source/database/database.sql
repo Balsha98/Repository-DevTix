@@ -23,6 +23,7 @@ CREATE TABLE users (
     user_id INT NOT NULL AUTO_INCREMENT,
     view_as_user_id INT NOT NULL,
     role_id INT NOT NULL,
+    view_as_role_id INT NOT NULL,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
@@ -34,12 +35,12 @@ CREATE TABLE users (
     FOREIGN KEY (role_id) REFERENCES roles (role_id)
 );
 
-INSERT INTO users (user_id, view_as_user_id, role_id, first_name, last_name, email, username, password, joined_at) VALUES
-(1, 1, 1, "Admin", "User", "admin@devtix.com", "Admin", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", NOW()),
-(2, 2, 2, "Assistant1", "User", "assistant1@devtix.com", "Assistant1", "a39a7ffad4a3013f29da97b84f264337f234c1cf9b3c40c7c30c677a8a18609a", NOW()),
-(3, 3, 2, "Assistant2", "User", "assistant2@devtix.com", "Assistant2", "a39a7ffad4a3013f29da97b84f264337f234c1cf9b3c40c7c30c677a8a18609a", NOW()),
-(4, 4, 3, "Patron1", "User", "patron1@devtix.com", "Patron1", "6e753a6b0a37cd1032c991ba167cee596db9adca33162ea9e48a0ba86c4daed3", NOW()),
-(5, 5, 3, "Patron2", "User", "patron2@devtix.com", "Patron2", "6e753a6b0a37cd1032c991ba167cee596db9adca33162ea9e48a0ba86c4daed3", NOW());
+INSERT INTO users (user_id, view_as_user_id, role_id, view_as_role_id, first_name, last_name, email, username, password, joined_at) VALUES
+(1, 1, 1, 1, "Admin", "User", "admin@devtix.com", "Admin", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", NOW()),
+(2, 2, 2, 2, "Assistant1", "User", "assistant1@devtix.com", "Assistant1", "a39a7ffad4a3013f29da97b84f264337f234c1cf9b3c40c7c30c677a8a18609a", NOW()),
+(3, 3, 2, 2, "Assistant2", "User", "assistant2@devtix.com", "Assistant2", "a39a7ffad4a3013f29da97b84f264337f234c1cf9b3c40c7c30c677a8a18609a", NOW()),
+(4, 4, 3, 3, "Patron1", "User", "patron1@devtix.com", "Patron1", "6e753a6b0a37cd1032c991ba167cee596db9adca33162ea9e48a0ba86c4daed3", NOW()),
+(5, 5, 3, 3, "Patron2", "User", "patron2@devtix.com", "Patron2", "6e753a6b0a37cd1032c991ba167cee596db9adca33162ea9e48a0ba86c4daed3", NOW());
 
 -- SELECT * FROM users;
 
