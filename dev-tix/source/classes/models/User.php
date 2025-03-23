@@ -6,6 +6,7 @@ class User
     private int $id;
     private int $viewAsUserID;
     private int $roleID;
+    private int $viewAsRoleID;
     private string $roleName;
     private string $firstName;
     private string $lastName;
@@ -36,6 +37,7 @@ class User
         if (!empty($result)) {
             $this->viewAsUserID = (int) $result['view_as_user_id'];
             $this->roleID = (int) $result['role_id'];
+            $this->viewAsRoleID = (int) $result['view_as_role_id'];
             $this->roleName = $result['role_name'];
             $this->firstName = $result['first_name'];
             $this->lastName = $result['last_name'];
@@ -61,6 +63,11 @@ class User
     public function getRoleId()
     {
         return $this->roleID;
+    }
+
+    public function getViewAsRoleId()
+    {
+        return $this->viewAsRoleID;
     }
 
     public function getRoleName()
