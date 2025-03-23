@@ -249,7 +249,7 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                                             <p><?php echo $request->getQuestion(); ?></p>
                                             <footer class="ticket-topic-data-container-footer">
                                                 <p>User: <span><?php echo $requestUser->getUsername(); ?></span></p>
-                                                <p>Posted: <span><?php echo $request->getPostedAt(); ?></span></p>
+                                                <p>Posted: <span><?php echo Date::getTimeAgo($request->getPostedAt()); ?></span></p>
                                             </footer>
                                         </div>
                                     </div>
@@ -268,7 +268,7 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                                                             <p>' . $response->getResponse() . '</p>
                                                             <footer class="ticket-response-data-container-footer flex-between">
                                                                 <p>User: <span>' . $responseUser->getUsername() . '</span></p>
-                                                                <p>Posted: <span>' . $response->getPostedAt() . '</span></p>
+                                                                <p>Posted: <span>' . Date::getTimeAgo($response->getPostedAt()) . '</span></p>
                                                             </footer>
                                                         </div>
                                                     </li>

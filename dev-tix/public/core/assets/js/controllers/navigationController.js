@@ -1,5 +1,6 @@
 import { redirectTo } from "./../helpers/redirect.js";
 import { handleRequest } from "./../helpers/request.js";
+import { getTimeAgo } from "./../helpers/date.js";
 import navigationView from "./../views/navigationView.js";
 
 export const controlToggleDropdown = function () {
@@ -60,7 +61,7 @@ export const controlGenerateNavigationLists = function () {
             }
 
             // Render notification list items.
-            navigationView.generateNotificationsList(response["response"]["data"]["notifications"]);
+            navigationView.generateNotificationsList(response["response"]["data"]["notifications"], getTimeAgo);
             navigationView.addEventViewNotificationDetails(controlViewNotificationDetails);
         },
         error: function (response) {

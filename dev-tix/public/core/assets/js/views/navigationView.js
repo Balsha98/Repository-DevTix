@@ -64,7 +64,7 @@ class NavigationView {
         this.#spanTotalClients.text(totalClients);
     }
 
-    generateNotificationsList(data) {
+    generateNotificationsList(data, getTimeAgo) {
         const isArray = Array.isArray(data["notifications_list"]);
         const notificationsList = isArray ? data["notifications_list"] : [data["notifications_list"]];
         const totalUnread = data["total_unread"];
@@ -87,9 +87,9 @@ class NavigationView {
                     </div>
                     <div class="div-notifications-info-container">
                         <h4>${item["title"]}</h4>
-                        <span>Time Ago</span>
+                        <span>${getTimeAgo(item["sent_at"])}</span>
                     </div>
-                </li>    
+                </li>
             `);
         }
 

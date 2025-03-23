@@ -5,9 +5,9 @@ class NavigationApiController extends AbsApiController
 {
     public function get()
     {
-        $return = [];
         $roleID = Session::get('role_id');
 
+        $return = [];
         if ($roleID === 1) {
             $allClients = $this->getAllClients(Session::get('user_id'), $roleID);
 
