@@ -39,7 +39,10 @@ class TicketApiController extends AbsApiController
             $ticketID = $this->getLastInsertId();
 
             return ApiMessage::alertDataAlterAttempt(true, "/ticket/{$ticketID}");
-        } else if ($action === 'post/images') {
+        }
+
+        // Request images posted by patron.
+        if ($action === 'post/images') {
             if (!empty($_FILES)) {
                 $ticketID = $this->getLastInsertId();
 

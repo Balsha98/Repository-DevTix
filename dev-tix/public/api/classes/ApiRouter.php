@@ -34,7 +34,7 @@ class ApiRouter
 
         // Guard clause: check CSRF token.
         if ($script !== 'login' && $script !== 'signup') {
-            $authToken = $_GET['csrf_token'] ?? $data['csrf_token'];
+            $authToken = self::extractToken($data);
 
             if ($authToken !== Session::get('csrf_token') ||
                     ((time() - Session::get('csrf_token_set_at')) / 60) > 5) {
@@ -68,6 +68,21 @@ class ApiRouter
 
         // Separate the url resources.
         return explode('/', $route);
+    }
+
+    private static function extractToken(array $data)
+    {
+        $token = '';
+        if (isset($data['csrf_token'])) {
+            $token = $data['csrf_token'];
+        } else if (isset($_GET['csrf_token'])) {
+            $token = $_GET['csrf_token'];
+        } else if (isset($_POST['csrf_token'])) {
+            $token = $_POST['csrf_token'];
+        }
+
+        // Get token.
+        return $token;
     }
 
     /**

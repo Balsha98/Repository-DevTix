@@ -35,8 +35,11 @@ class NavigationApiController extends AbsApiController
 
         // Updating view_as_user_id column.
         if ($action === 'update/client') {
+            $clientID = $data['client_id'];
+            $clientRoleID = $this->getClientRoleID($clientID);
+
             // Guard clause: request error.
-            if (isset($this->updateViewAsUserId($userID, $data['client_id'])['error'])) {
+            if (isset($this->updateViewAsUserData($userID, $clientID, $clientRoleID)['error'])) {
                 return ApiMessage::alertDataAlterAttempt(false);
             }
 
@@ -64,12 +67,26 @@ class NavigationApiController extends AbsApiController
         )->getQueryResult();
     }
 
-    private function updateViewAsUserId(int $userID, int $viewAsUserID)
+    private function getClientRoleID(int $clientID)
     {
-        $query = 'UPDATE users SET view_as_user_id = :view_as_user_id WHERE user_id = :user_id;';
+        $query = 'SELECT role_id FROM users WHERE user_id = :user_id';
         return Session::getDbInstance()->executeQuery(
-            $query, [':view_as_user_id' => $viewAsUserID, ':user_id' => $userID]
-        )->getQueryResult();
+            $query, [':user_id' => $clientID]
+        )->getQueryResult()['role_id'];
+    }
+
+    private function updateViewAsUserData(int $userID, int $viewAsUserID, int $viewAsRoleID)
+    {
+        $query = '
+            UPDATE users SET 
+            view_as_user_id = :view_as_user_id, 
+            view_as_role_id = :view_as_role_id 
+            WHERE user_id = :user_id;
+        ';
+
+        return Session::getDbInstance()->executeQuery($query, [
+            ':view_as_user_id' => $viewAsUserID, ':view_as_role_id' => $viewAsRoleID, ':user_id' => $userID
+        ])->getQueryResult();
     }
 
     private function getUnreadNotifications(int $userID, int $roleID)
