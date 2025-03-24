@@ -33,6 +33,18 @@ class NavigationApiController extends AbsApiController
         $action = $data['action'];
         $userID = $this->getId();
 
+        // Reverting view_as_user_id.
+        if ($action === 'revert/client') {
+            $roleID = Session::get('role_id');
+
+            // Guard clause: request error.
+            if (isset($this->updateViewAsUserData($userID, $userID, $roleID)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
+
+            return ApiMessage::alertDataAlterAttempt(true, '/dashboard');
+        }
+
         // Updating view_as_user_id column.
         if ($action === 'update/client') {
             $clientID = $data['client_id'];
