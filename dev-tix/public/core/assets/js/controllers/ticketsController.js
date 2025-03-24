@@ -84,6 +84,7 @@ const initController = function () {
     // Setup navigation.
     navigationView.setWelcomeMessage();
     navigationView.addEventToggleDropdown(navigationController.controlToggleDropdown);
+    navigationView.addEventRevertClientData(navigationController.controlRevertClientData);
     navigationView.addEventMarkNotificationsAsRead(navigationController.controlMarkNotificationsAsRead);
     navigationController.controlGenerateNavigationLists();
 

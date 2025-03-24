@@ -14,6 +14,9 @@
                         <span class="span-dropdown-indicator">&nbsp;</span>
                         <header class="clients-menu-header flex-between">
                             <h4><span class="span-total-clients">0</span> total clients.</h4>
+                            <form class="form" action="/api/" method="PUT">
+                                <button class="btn btn-primary btn-revert">Revert</button>
+                            </form>
                         </header>
                         <ul class="dropdown-menu-list clients-menu-list">
                             <!-- DYNAMICALLY GENERATED VIA AJAX -->
