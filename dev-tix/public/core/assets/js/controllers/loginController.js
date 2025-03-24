@@ -13,6 +13,8 @@ const controlResetInputs = function () {
 const controlUserLogin = function (formEvent) {
     formEvent.preventDefault();
 
+    if (isInputEmpty()) return;
+
     const form = $(this.closest(".form"));
     const url = form.attr("action");
     const method = form.attr("method");
@@ -21,8 +23,6 @@ const controlUserLogin = function (formEvent) {
     data["username"] = $("#username").val();
     data["password"] = $("#password").val();
     data["route"] = $("#view").val();
-
-    if (isInputEmpty()) return;
 
     handleRequest(url, method, data);
 };
