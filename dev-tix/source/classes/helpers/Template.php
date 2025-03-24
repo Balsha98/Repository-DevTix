@@ -9,7 +9,7 @@ class Template
      */
     public static function buildTitle(string $page)
     {
-        if (str_contains($page, '-')) {
+        if (preg_match('#[-]#', $page)) {
             $page = array_map(function ($part) {
                 if ($part !== 'admin') {
                     return ucfirst($part);
