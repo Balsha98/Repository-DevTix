@@ -22,7 +22,7 @@ class ApiRouter
             $id = $_GET['id'];
         }
 
-        [$directory, $script] = self::parseRoute($data);
+        [$directory, $script] = self::extractValue('route', $data);
 
         // Guard clause: check if route is valid.
         if (!in_array($script, ApiRoutes::ROUTES[$method])) {
@@ -34,7 +34,7 @@ class ApiRouter
 
         // Guard clause: check CSRF token.
         if ($script !== 'login' && $script !== 'signup') {
-            $authToken = self::extractToken($data);
+            $authToken = self::extractValue('csrf_token', $data);
 
             if ($authToken !== Session::get('csrf_token') ||
                     ((time() - Session::get('csrf_token_set_at')) / 60) > 5) {
@@ -55,34 +55,24 @@ class ApiRouter
         return Encode::toJSON(self::processRequest($id, $data));
     }
 
-    private static function parseRoute(array $data)
+    private static function extractValue(string $key, array $data)
     {
-        $route = '';
-        if (isset($data['route'])) {  // Regular POST, PUT, DELETE requests.
-            $route = $data['route'];
-        } else if (isset($_GET['route'])) {  // GET request via url.
-            $route = $_GET['route'];
-        } else if (isset($_POST['route'])) {  // Image upload requests.
-            $route = $_POST['route'];
+        $return = '';
+        if (isset($data[$key])) {  // Regular POST, PUT, DELETE requests.
+            $return = $data[$key];
+        } else if (isset($_GET[$key])) {  // GET request via url.
+            $return = $_GET[$key];
+        } else if (isset($_POST[$key])) {  // Image upload requests.
+            $return = $_POST[$key];
         }
 
-        // Separate the url resources.
-        return explode('/', $route);
-    }
-
-    private static function extractToken(array $data)
-    {
-        $token = '';
-        if (isset($data['csrf_token'])) {
-            $token = $data['csrf_token'];
-        } else if (isset($_GET['csrf_token'])) {
-            $token = $_GET['csrf_token'];
-        } else if (isset($_POST['csrf_token'])) {
-            $token = $_POST['csrf_token'];
+        // Get route.
+        if (preg_match('#[/]#', $return)) {
+            return explode('/', $return);
         }
 
         // Get token.
-        return $token;
+        return $return;
     }
 
     /**
