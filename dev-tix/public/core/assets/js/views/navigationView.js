@@ -2,6 +2,7 @@ class NavigationView {
     #spanWelcomeMessage = $(".span-welcome-message");
     #dropdownContainers = $(".dropdown-container");
     #spanTotalClients = $(".span-total-clients");
+    #btnRevert = $(".btn-revert");
     #clientsMenuList = $(".clients-menu-list");
     #noneNotificationsData = $(".div-none-notifications-container");
     #spanNotificationsIndicator = $(".span-notifications-indicator");
@@ -26,13 +27,14 @@ class NavigationView {
         const clientsList = isArray ? data["clients_list"] : [data["clients_list"]];
         const totalClients = data["total_clients"];
 
-        // Remove certain visuals.
-        if (totalClients === 0) {
-            this.#spanNotificationsIndicator.remove();
-            this.#btnMarkAsRead.remove();
-        }
-
+        const userID = +$("#user_id").val();
         const viewAsUserID = +$("#view_as_user_id").val();
+
+        // Remove client visuals.
+        if (userID === viewAsUserID) {
+            const [element] = this.#btnRevert;
+            $(element.closest(".form")).remove();
+        }
 
         for (const item of clientsList) {
             const viewingAsClient = viewAsUserID ? (viewAsUserID === item["user_id"] ? "viewing-as-client" : "") : "";
@@ -72,7 +74,10 @@ class NavigationView {
         // Remove certain visuals.
         if (totalUnread === 0) {
             this.#spanNotificationsIndicator.remove();
-            this.#btnMarkAsRead.remove();
+
+            // Remove notification form.
+            const [element] = this.#btnMarkAsRead;
+            $(element.closest(".form")).remove();
         }
 
         if (notificationsList.length === 0) return this.#noneNotificationsData.removeClass("hide-none-notifications");
@@ -118,6 +123,10 @@ class NavigationView {
         $(".clients-menu-list-item").each((_, item) => {
             $(item).click(handlerFunction);
         });
+    }
+
+    addEventRevertClientData(handlerFunction) {
+        this.#btnRevert.click(handlerFunction);
     }
 
     addEventMarkNotificationsAsRead(handlerFunction) {

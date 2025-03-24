@@ -25,6 +25,22 @@ const controlSetViewAsClient = function () {
     handleRequest(url, method, data);
 };
 
+export const controlRevertClientData = function (formEvent) {
+    formEvent.preventDefault();
+
+    const form = $(this.closest(".form"));
+    const url = form.attr("action");
+    const method = form.attr("method");
+
+    const data = {};
+    data["action"] = "revert/client";
+    data["id"] = $("#user_id").val();
+    data["route"] = $("#partial").val();
+    data["csrf_token"] = $("#csrf_token").val();
+
+    handleRequest(url, method, data);
+};
+
 export const controlMarkNotificationsAsRead = function (formEvent) {
     formEvent.preventDefault();
 
