@@ -203,6 +203,9 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                                     </label>
                                     <textarea id="question" name="question" placeholder="Write Your Question Here" required></textarea>
                                 </div>
+                                <div class="div-hidden-inputs">
+                                    <input type="hidden" name="csrf_token" value="<?php echo Session::get('csrf_token'); ?>">
+                                </div>
                             </form>
                             <form class="form form-upload-image" action="/api/" enctype="multipart/form-data">
                                 <header class="form-upload-image-header">
@@ -228,6 +231,9 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                                         <p>You have <span class="span-images-left">5</span> images remaining.</p>
                                     </li>
                                 </ul>
+                                <div class="div-hidden-inputs">
+                                    <input type="hidden" name="csrf_token" value="<?php echo Session::get('csrf_token'); ?>">
+                                </div>
                             </form>
                         </div>
                         <?php if ($isRecordIdSet && $recordID !== 0) { ?>

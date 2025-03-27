@@ -16,6 +16,9 @@
                             <h4><span class="span-total-clients">0</span> total clients.</h4>
                             <form class="form" action="/api/" method="PUT">
                                 <button class="btn btn-primary btn-revert">Revert</button>
+                                <div class="div-hidden-inputs">
+                                    <input type="hidden" name="csrf_token" value="<?php echo Session::get('csrf_token'); ?>">
+                                </div>
                             </form>
                         </header>
                         <ul class="dropdown-menu-list clients-menu-list">
@@ -43,6 +46,7 @@
                                 <button class="btn btn-primary btn-mark-as-read">Mark As Read</button>
                                 <div class="div-hidden-inputs">
                                     <input id="is_read" type="hidden" name="is_read" value="1">
+                                    <input type="hidden" name="csrf_token" value="<?php echo Session::get('csrf_token'); ?>">
                                 </div>
                             </form>
                         </header>
