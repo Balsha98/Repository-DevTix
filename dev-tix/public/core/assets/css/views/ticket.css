@@ -168,7 +168,7 @@
 }
 
 .form-upload-image-inputs-list-item .input-image-label ion-icon {
-    color: var(--primary);
+    color: var(--primary-tint);
 }
 
 /* FORM UPLOAD TICKET IMAGES INPUTS LIST ITEM REMINDER */

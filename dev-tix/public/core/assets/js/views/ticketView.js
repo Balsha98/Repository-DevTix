@@ -1,4 +1,4 @@
-class DashboardView {
+class TicketView {
     #ticketContentContainer = $(".div-ticket-content-container");
     #ticketContentContainerHeader = $(".ticket-container-header");
     #btnPostRequest = $(".btn-post-request");
@@ -100,7 +100,7 @@ class DashboardView {
                     <ion-icon src="/core/assets/media/icons/image.svg"></ion-icon>
                 </label>
                 <div class="div-input-image-container">
-                    <input id="image_name_${imageID}" class="input-image-name" type="text" name="image_name" value="Image Name" readonly>
+                    <input id="image_name_${imageID}" class="input-image-name" type="text" name="image_name" placeholder="Image Name" readonly>
                     <label class="btn btn-primary btn-upload-image" for="image_${imageID}" role="button">Upload</label>
                     <input id="image_${imageID}" class="input-image" type="file" name="image">
                 </div>
@@ -151,4 +151,4 @@ class DashboardView {
     }
 }
 
-export default new DashboardView();
+export default new TicketView();

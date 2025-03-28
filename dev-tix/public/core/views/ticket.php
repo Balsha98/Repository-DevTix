@@ -220,7 +220,7 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                                         <div class="div-input-image-container">
                                             <input 
                                                 id="image_name_1" class="input-image-name" type="text" 
-                                                name="image_name" value="Image Name" readonly
+                                                name="image_name" placeholder="Image Name" readonly
                                             >
                                             <label class="btn btn-primary btn-upload-image" for="image_1" role="button">Upload</label>
                                             <input id="image_1" class="input-image" type="file" name="image" accept=".png, .jpg, .jpeg">
