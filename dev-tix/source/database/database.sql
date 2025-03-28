@@ -49,8 +49,8 @@ INSERT INTO users (user_id, view_as_user_id, role_id, view_as_role_id, first_nam
 CREATE TABLE user_details (
     details_id INT NOT NULL AUTO_INCREMENT,
     user_id INT NOT NULL,
-    age INT NOT NULL,
     bio TEXT NOT NULL,
+    age INT NOT NULL,
     gender ENUM("male", "female") NULL,
     profession VARCHAR(50) NULL,
     image LONGBLOB NULL,
