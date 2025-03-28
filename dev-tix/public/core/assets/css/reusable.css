@@ -346,7 +346,8 @@
 }
 
 /* BUTTON CONTAINER */
-.div-grid-btn-container {
+.div-grid-btn-container,
+.div-grid-link-container {
     display: grid;
 }
 
@@ -532,7 +533,7 @@
 }
 
 .div-image-container img {
-    width: inherit;
+    width: 100%;
     object-position: center;
     object-fit: cover;
     transition: transform 0.3s;

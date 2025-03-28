@@ -119,7 +119,7 @@
                         </div>
                         <div class="div-input-container required-container">
                             <label class="absolute-y-center" for="password">
-                                <ion-icon src="<?php echo ICON_PATH; ?>/mail.svg"></ion-icon>
+                                <ion-icon src="<?php echo ICON_PATH; ?>/lock.svg"></ion-icon>
                             </label>
                             <input 
                                 id="password" class="step-validate-2" type="password" 
