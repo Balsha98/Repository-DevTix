@@ -223,7 +223,7 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                                                 name="image_name" value="Image Name" readonly
                                             >
                                             <label class="btn btn-primary btn-upload-image" for="image_1" role="button">Upload</label>
-                                            <input id="image_1" class="input-image" type="file" name="image">
+                                            <input id="image_1" class="input-image" type="file" name="image" accept=".png, .jpg, .jpeg">
                                         </div>
                                     </li>
                                     <li class="form-upload-image-inputs-list-item flex-center">
@@ -297,8 +297,8 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                                     $images = $request->getImages();
                                     if (!empty($images)) {
                                         foreach ($images as $i => $image) {
-                                            $imageName = 'request-' . $recordID . '-snippet-' . $i + 1 . '.jpg';
-                                            Image::saveTicketSnippetImage($recordID, $imageName, $image);
+                                            $imageName = "request-{$recordID}-snippet-" . $i + 1 . ".{$image['request_image_type']}";
+                                            Image::saveTicketSnippetImage($recordID, $imageName, $image['request_image']);
 
                                             echo '
                                                 <li class="ticket-images-list-item">

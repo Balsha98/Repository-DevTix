@@ -15,9 +15,8 @@
 /* IMAGE MODAL */
 .div-image-modal {
     display: flex;
-    width: auto;
-    max-width: 96rem;
-    height: 80%;
+    justify-content: center;
+    width: 96rem;
 }
 
 /* BUTTON ICON (OVERRIDE) */

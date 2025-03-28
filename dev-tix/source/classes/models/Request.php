@@ -119,19 +119,25 @@ class Request
     public function getImages(): array
     {
         if (empty($this->images)) {
-            $query = 'SELECT request_image FROM request_images WHERE request_id = :request_id;';
+            $query = 'SELECT request_image, request_image_type FROM request_images WHERE request_id = :request_id;';
 
             $result = $this->database->executeQuery(
                 $query, [':request_id' => $this->id]
             )->getQueryResult();
 
             if (!empty($result)) {
-                if (count($result) > 1) {
+                if (!isset($result['request_image'])) {
                     foreach ($result as $item) {
-                        $this->images[] = base64_encode($item['request_image']);
+                        $this->images[] = [
+                            'request_image' => base64_encode($item['request_image']),
+                            'request_image_type' => $item['request_image_type'],
+                        ];
                     }
                 } else {
-                    $this->images[] = base64_encode($result['request_image']);
+                    $this->images[] = [
+                        'request_image' => base64_encode($result['request_image']),
+                        'request_image_type' => $result['request_image_type'],
+                    ];;
                 }
             }
         }

@@ -47,7 +47,11 @@ class TicketApiController extends AbsApiController
                 $ticketID = $this->getLastInsertId();
 
                 foreach ($_FILES as $image) {
-                    $imageData = file_get_contents($image['tmp_name']);
+                    $imageData = [
+                        'image' => file_get_contents($image['tmp_name']),
+                        'type' => explode('/', $image['type'])[1]
+                    ];
+
                     $this->uploadRequestImage($ticketID, $imageData);
                 }
 
@@ -140,12 +144,19 @@ class TicketApiController extends AbsApiController
         ])->getQueryResult();
     }
 
-    private function uploadRequestImage(int $ticketID, string $image)
+    private function uploadRequestImage(int $ticketID, array $imageData)
     {
-        $query = 'INSERT INTO request_images (request_id, request_image) VALUES (:request_id, :request_image);';
-        return Session::getDbInstance()->executeQuery(
-            $query, [':request_id' => $ticketID, ':request_image' => $image]
-        )->getQueryResult();
+        $query = '
+            INSERT INTO request_images (
+                request_id, request_image, request_image_type
+            ) VALUES (
+                :request_id, :request_image, :request_image_type
+            );
+        ';
+
+        return Session::getDbInstance()->executeQuery($query, [
+            ':request_id' => $ticketID, ':request_image' => $imageData['image'], ':request_image_type' => $imageData['type']
+        ])->getQueryResult();
     }
 
     private function insertNewResponse(array $data)
