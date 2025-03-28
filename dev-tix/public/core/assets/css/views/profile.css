@@ -1,0 +1,208 @@
+/* CENTERED CONTAINER (OVERRIDE) */
+.centered-container {
+    height: inherit;
+}
+
+/* MAIN CONTAINER */
+.main-container {
+    display: flex;
+    height: inherit;
+}
+
+/* PROFILE CONTAINER */
+.div-profile-container {
+    display: inherit;
+    flex-direction: column;
+    gap: 2.4rem;
+    width: 100%;
+    max-width: calc(100% - 9.6rem);
+    height: inherit;
+    padding: 2.4rem;
+    transition: max-width 0.5s;
+}
+
+/* PROFILE CONTENT CONTAINER */
+.div-profile-content-container {
+    flex-grow: 1;
+    display: inherit;
+    flex-direction: inherit;
+    gap: 2.4rem;
+    background-color: var(--white);
+    box-shadow: 0 0.4rem 1.6rem var(--shadow-sm);
+    border-radius: var(--border-radius-lg);
+}
+
+/* PROFILE CONTAINER HEADER */
+.profile-container-header {
+    position: relative;
+    height: 6.4rem;
+    padding: 0 2.4rem;
+}
+
+.profile-container-header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--gray-tint);
+    transform: translateY(50%);
+}
+
+.profile-container-header-heading {
+    font-size: 1.6rem;
+}
+
+.span-profile-user {
+    color: var(--primary);
+}
+
+/* PROFILE ACTIONS CONTAINER */
+.div-profile-actions-container {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* BUTTON (OVERRIDE) */
+.div-profile-actions-container button,
+.div-profile-actions-container button {
+    display: inherit;
+    align-items: inherit;
+    gap: 0.4rem;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.2rem;
+}
+
+/* PROFILE OVERVIEW CONTAINER */
+.div-profile-overview-container {
+    flex-grow: inherit;
+    padding: 0 2.4rem;
+}
+
+/* PROFILE FORM */
+.form-profile {
+    display: grid;
+    grid-template-columns: 30fr 70fr;
+    column-gap: 4.8rem;
+    height: 100%;
+}
+
+/* USER DETAILS CONTAINER */
+.div-user-details-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    width: 100%;
+    height: 100%;
+}
+
+.div-user-details-container:first-child::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -2.4rem;
+    width: 0.2rem;
+    height: 100%;
+    background-color: var(--gray-tint);
+    transform: translateX(50%);
+}
+
+/* MULTIPLE INPUTS GRID (OVERRIDE) */
+.div-multiple-inputs-grid {
+    gap: inherit;
+}
+
+/* IMAGE CONTAINER (OVERRIDE) */
+.div-profile-image-container {
+    width: 60%;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    box-shadow: 0 0 1.2rem var(--shadow-sm);
+    border-radius: var(--border-radius-circle);
+}
+
+/* INPUT IMAGE OUTER CONTAINER */
+.div-input-image-outer-container {
+    position: relative;
+}
+
+.div-input-image-outer-container .input-image-label {
+    left: 1.6rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.div-input-image-outer-container .input-image-label ion-icon {
+    color: var(--primary-tint);
+}
+
+/* INPUT IMAGE INNER CONTAINER */
+.div-input-image-inner-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.div-input-image-inner-container .input-image-name {
+    flex-grow: 1;
+    display: inline-block;
+    padding: 1.2rem 1.2rem 1.2rem 4.8rem;
+    font-size: inherit;
+    text-transform: uppercase;
+    background-color: var(--gray-tint);
+    border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+    transition: all 0.3s;
+}
+
+.div-input-image-inner-container label {
+    padding: 1.2rem;
+    font-size: inherit;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+}
+
+.div-input-image-inner-container .input-image {
+    display: none;
+}
+
+/* LINK (OVERRIDE) */
+.link-forgot-password:link,
+.link-forgot-password:visited {
+    padding: 0.8rem 1.2rem;
+    font-size: 1.2rem;
+}
+
+/* TEXTAREA CONTAINER */
+.div-textarea-container {
+    flex-grow: 1;
+}
+
+/* PROFILE CONTAINER FOOTER */
+.profile-container-footer {
+    position: relative;
+    height: 4.8rem;
+    padding: 0 2.4rem;
+}
+
+.profile-container-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--gray-tint);
+    transform: translateY(-50%);
+}
+
+.profile-container-footer p {
+    font-size: 1.4rem;
+}
+
+.profile-container-footer span {
+    font-weight: 500;
+    color: var(--primary);
+}

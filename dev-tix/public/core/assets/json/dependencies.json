@@ -20,6 +20,17 @@
         }
     },
     {
+        "profile": {
+            "css": [
+                "css/partials/modals/alert-modal",
+                "css/partials/navigation",
+                "css/partials/loaders/page-loader",
+                "css/partials/sidebar"
+            ],
+            "js": []
+        }
+    },
+    {
         "signup": {
             "css": ["css/partials/modals/alert-modal", "css/partials/loaders/page-loader"],
             "js": []
