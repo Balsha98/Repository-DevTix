@@ -93,6 +93,7 @@ CREATE TABLE request_images (
     request_image_id INT NOT NULL AUTO_INCREMENT,
     request_id INT NOT NULL,
     request_image LONGBLOB NOT NULL,
+    request_image_type VARCHAR(10),
     PRIMARY KEY (request_image_id),
     FOREIGN KEY (request_id) REFERENCES ticket_requests (request_id)
 );
