@@ -31,27 +31,27 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                             if ($isRecordIdSet && $recordID === 0) {
                                 if ($user->getRoleId() === 1) {
                                     echo '
-                                        <button class="btn btn-success btn-create-user" data-method="POST">
+                                        <button class="btn btn-success btn-create-profile" data-method="POST">
                                             <ion-icon src="' . ICON_PATH . '/user.svg"></ion-icon>
-                                            <span>Create User</span>
+                                            <span>Create Profile</span>
                                         </button>
                                     ';
                                 }
                             } else if ($isRecordIdSet && $recordID !== 0) {
                                 if ($user->getId() !== $recordID && $user->getViewAsRoleId() === 1) {
                                     echo '
-                                        <button class="btn btn-error btn-delete-user" data-method="DELETE">
+                                        <button class="btn btn-error btn-delete-profile" data-method="DELETE">
                                             <ion-icon src="' . ICON_PATH . '/x.svg"></ion-icon>
-                                            <span>Delete User</span>
+                                            <span>Delete Profile</span>
                                         </button>
                                     ';
                                 }
 
                                 if ($user->getViewAsUserId() === $recordID || $user->getViewAsRoleId() === 1) {
                                     echo '
-                                        <button class="btn btn-primary btn-create-user" data-method="PUT">
+                                        <button class="btn btn-primary btn-update-profile" data-method="PUT">
                                             <ion-icon src="' . ICON_PATH . '/user.svg"></ion-icon>
-                                            <span>Update User</span>
+                                            <span>Update Profile</span>
                                         </button>
                                     ';
                                 }
