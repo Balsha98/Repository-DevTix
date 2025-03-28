@@ -86,9 +86,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                                 </div>
                                 <?php if ($user->getViewAsUserId() === $recordID) { ?>
                                 <div class="div-grid-link-container">
-                                    <a class="link link-primary link-forgot-password" href="/forgot-password">
-                                        Forgot Password?
-                                    </a>
+                                    <a class="link link-primary link-forgot-password" href="/forgot-password">Forgot Password?</a>
                                 </div>
                                 <?php } ?>
                             </div>
