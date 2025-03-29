@@ -168,7 +168,7 @@
             <footer class="sidebar-footer">
                 <div class="div-sidebar-user-content-container">
                     <div class="div-sidebar-user-info-container">
-                        <?php echo Image::renderTicketUserImage($user); ?>
+                        <?php echo Image::renderTicketUserImage($user, 'sidebar'); ?>
                         <div class="div-sidebar-user-description-container">
                             <p class="text-username">
                                 <?php echo $user->getFullName(); ?>
@@ -349,7 +349,7 @@
                 </ul>
             </nav>
             <footer class="sidebar-footer flex-center">
-                <?php echo Image::renderTicketUserImage($user); ?>
+                <?php echo Image::renderTicketUserImage($user, 'sidebar'); ?>
             </footer>
         </div>
     </div>
