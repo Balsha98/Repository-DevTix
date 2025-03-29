@@ -246,7 +246,7 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                             <div class="div-ticket-responses-container">
                                 <div class="div-scrollable-responses-container">
                                     <div class="div-ticket-topic-container">
-                                        <?php echo Image::renderTicketUserImage($requestUser); ?>
+                                        <?php echo Image::renderTicketUserImage($requestUser, 'tickets'); ?>
                                         <div class="div-ticket-topic-data-container">
                                             <header class="ticket-topic-data-container-header">
                                                 <h4><?php echo $request->getSubject(); ?></h4>
@@ -269,7 +269,7 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
 
                                                 echo '
                                                     <li class="ticket-responses-list-item">
-                                                        ' . Image::renderTicketUserImage($responseUser) . '
+                                                        ' . Image::renderTicketUserImage($responseUser, 'tickets') . '
                                                         <div class="div-ticket-response-data-container">
                                                             <p>' . $response->getResponse() . '</p>
                                                             <footer class="ticket-response-data-container-footer flex-between">
