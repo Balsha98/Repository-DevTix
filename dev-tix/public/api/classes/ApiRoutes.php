@@ -13,14 +13,16 @@ class ApiRoutes
         'POST' => [
             'login',
             'signup',
+            'profile',
             'ticket',
             'welcome'
         ],
         'PUT' => [
             'navigation',
+            'profile',
             'ticket'
         ],
         'DELETE' =>
-            '',
+            'profile',
     ];
 }
