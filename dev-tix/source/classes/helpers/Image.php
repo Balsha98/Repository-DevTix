@@ -2,7 +2,7 @@
 
 class Image
 {
-    public static function renderTicketUserImage(User $user)
+    public static function renderTicketUserImage(User $user, string $type)
     {
         $userDetails = $user->getDetails();
 
@@ -10,8 +10,8 @@ class Image
             $imageType = $userDetails->getImageType();
 
             return "
-                <div class='div-image-container div-tickets-user-image-container'>
-                    <img src='" . IMAGE_PATH . "'/users/user-{$user->getId()}.{$imageType}' alt='User Image'>
+                <div class='div-image-container div-{$type}-user-image-container'>
+                    <img src='" . IMAGE_PATH . "/users/user-{$user->getId()}.{$imageType}' alt='User Image'>
                 </div>
             ";
         }
@@ -23,15 +23,15 @@ class Image
         ";
     }
 
-    public static function renderUserProfileImagePath(User $user)
+    public static function saveUserProfileImage(string $imageName, string $image)
     {
-        $userDetails = $user->getDetails();
+        // Set image file related data.
+        $imageFullPath = ROOT_PATH . '/core/assets/media/images/' . $imageName;
 
-        if ($userDetails->getImage()) {
-            return "/users/user-{$user->getId()}.{$userDetails->getImageType()}";
+        // Check folder structure.
+        if (!file_exists($imageFullPath)) {
+            file_put_contents($imageFullPath, base64_decode($image));
         }
-
-        return '/placeholder-user.jpg';
     }
 
     public static function saveTicketSnippetImage(int $requestID, string $imageName, string $image)
