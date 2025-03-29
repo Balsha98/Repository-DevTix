@@ -65,13 +65,20 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                                 <div class="div-image-container div-profile-image-container">
                                     <?php
                                     if ($isRecordIdSet && $recordID === 0) {
-                                        $imagePath = '/placeholder-user.jpg';
+                                        $imageName = '/placeholder-user.jpg';
                                     } else if ($isRecordIdSet && $recordID !== 0) {
                                         $profileUser = new User($recordID, Session::getDbInstance());
-                                        $imagePath = Image::renderUserProfileImagePath($profileUser);
+                                        $profileDetails = $profileUser->getDetails();
+
+                                        if ($profileDetails->getImage()) {
+                                            $imageName = "/users/user-{$profileUser->getId()}.{$profileDetails->getImageType()}";
+                                            Image::saveUserProfileImage($imageName, $profileDetails->getImage());
+                                        } else {
+                                            $imageName = '/placeholder-user.jpg';
+                                        }
                                     }
                                     ?>
-                                    <img src="<?php echo IMAGE_PATH . $imagePath; ?>" alt="Profile Image">
+                                    <img src="<?php echo IMAGE_PATH . $imageName; ?>" alt="Profile Image">
                                 </div>
                                 <?php if ($user->getViewAsUserId() === $recordID || $user->getViewAsRoleId() === 1) { ?>
                                 <div class="div-input-image-outer-container">
@@ -88,11 +95,11 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                                     </div>
                                 </div>
                                 <?php } ?>
-                                <div class="div-input-container">
+                                <div class="div-input-container required-container">
                                     <label class="absolute-y-center" for="username">
                                         <ion-icon src="<?php echo ICON_PATH; ?>/user.svg"></ion-icon>
                                     </label>
-                                    <input id="username" class="table-users-input" type="text" name="username" placeholder="Username">
+                                    <input id="username" class="profile-input" type="text" name="username" placeholder="Username" required>
                                 </div>
                                 <?php if ($user->getViewAsUserId() === $recordID) { ?>
                                 <div class="div-grid-link-container">
@@ -102,31 +109,34 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                             </div>
                             <div class="div-user-details-container">
                                 <div class="div-multiple-inputs-grid grid-2-columns">
-                                    <div class="div-input-container">
+                                    <div class="div-input-container required-container">
                                         <label class="absolute-y-center" for="first_name">
                                             <ion-icon src="<?php echo ICON_PATH; ?>/user.svg"></ion-icon>
                                         </label>
-                                        <input id="first_name" class="table-users-input" type="text" name="first_name" placeholder="First Name">
+                                        <input id="first_name" class="profile-input" type="text" name="first_name" placeholder="First Name" required>
                                     </div>
-                                    <div class="div-input-container">
+                                    <div class="div-input-container required-container">
                                         <label class="absolute-y-center" for="last_name">
                                             <ion-icon src="<?php echo ICON_PATH; ?>/user.svg"></ion-icon>
                                         </label>
-                                        <input id="last_name" class="table-users-input" type="text" name="last_name" placeholder="Last Name">
+                                        <input id="last_name" class="profile-input" type="text" name="last_name" placeholder="Last Name" required>
                                     </div>
                                 </div>
                                 <div class="div-multiple-inputs-grid grid-2-columns">
-                                    <div class="div-input-container">
+                                    <div class="div-input-container required-container">
                                         <label class="absolute-y-center" for="email">
                                             <ion-icon src="<?php echo ICON_PATH; ?>/mail.svg"></ion-icon>
                                         </label>
-                                        <input id="email" class="table-users-input" type="email" name="email" placeholder="Email Address">
+                                        <input id="email" class="profile-input" type="email" name="email" placeholder="Email Address" required>
                                     </div>
-                                    <div class="div-input-container">
+                                    <div class="div-input-container required-container">
                                         <label class="label-select absolute-y-center" for="role_id">
                                             <ion-icon src="<?php echo ICON_PATH; ?>/chevron-down.svg"></ion-icon>
                                         </label>
-                                        <select id="role_id" name="role_id" <?php echo $isRecordIdSet && $recordID !== 0 ? 'disabled' : '' ?>>
+                                        <select 
+                                            id="role_id" class="profile-input" name="role_id" 
+                                            <?php echo $isRecordIdSet && $recordID !== 0 ? 'disabled' : '' ?> required
+                                        >
                                             <option value="">Select Role</option>
                                             <option value="1">Administrator</option>
                                             <option value="2">Assistant</option>
@@ -138,20 +148,20 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                                     <label class="absolute-y-center label-textarea" for="bio">
                                         <ion-icon src="<?php echo ICON_PATH; ?>/feather.svg"></ion-icon>
                                     </label>
-                                    <textarea id="bio" class="table-user_details-input" name="bio" placeholder="Write Your Bio Here"></textarea>
+                                    <textarea id="bio" class="profile-input" name="bio" placeholder="Write Your Bio Here"></textarea>
                                 </div>
                                 <div class="div-multiple-inputs-grid grid-2-columns">
                                     <div class="div-input-container">
                                         <label class="absolute-y-center" for="age">
                                             <ion-icon src="<?php echo ICON_PATH; ?>/bar-chart-2.svg"></ion-icon>
                                         </label>
-                                        <input id="age" class="table-user_details-input" type="number" name="age" min="0" placeholder="Age">
+                                        <input id="age" class="profile-input" type="number" name="age" min="0" placeholder="Age">
                                     </div>
                                     <div class="div-input-container">
                                         <label class="label-select absolute-y-center" for="gender">
                                             <ion-icon src="<?php echo ICON_PATH; ?>/chevron-down.svg"></ion-icon>
                                         </label>
-                                        <select id="gender" class="table-user_details-input" name="gender">
+                                        <select id="gender" class="profile-input" name="gender">
                                             <option value="">Select Gender</option>
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>
@@ -163,13 +173,13 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                                         <label class="absolute-y-center" for="profession">
                                             <ion-icon src="<?php echo ICON_PATH; ?>/activity.svg"></ion-icon>
                                         </label>
-                                        <input id="profession" class="table-user_details-input" type="text" name="profession" placeholder="Profession">
+                                        <input id="profession" class="profile-input" type="text" name="profession" placeholder="Profession">
                                     </div>
                                     <div class="div-input-container">
                                         <label class="absolute-y-center" for="country">
                                             <ion-icon src="<?php echo ICON_PATH; ?>/map.svg"></ion-icon>
                                         </label>
-                                        <input id="country" class="table-user_details-input" type="text" name="country" placeholder="Country">
+                                        <input id="country" class="profile-input" type="text" name="country" placeholder="Country">
                                     </div>
                                 </div>
                                 <div class="div-multiple-inputs-grid grid-2-columns">
@@ -177,13 +187,13 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                                         <label class="absolute-y-center" for="city">
                                             <ion-icon src="<?php echo ICON_PATH; ?>/map-pin.svg"></ion-icon>
                                         </label>
-                                        <input id="city" class="table-user_details-input" type="text" name="city" placeholder="City">
+                                        <input id="city" class="profile-input" type="text" name="city" placeholder="City">
                                     </div>
                                     <div class="div-input-container">
                                         <label class="absolute-y-center" for="zip">
                                             <ion-icon src="<?php echo ICON_PATH; ?>/target.svg"></ion-icon>
                                         </label>
-                                        <input id="zip" class="table-user_details-input" type="number" name="zip" min="0" placeholder="Zip Code">
+                                        <input id="zip" class="profile-input" type="number" name="zip" min="0" placeholder="Zip Code">
                                     </div>
                                 </div>
                             </div>

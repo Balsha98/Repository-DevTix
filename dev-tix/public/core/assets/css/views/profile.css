@@ -120,7 +120,7 @@
     width: 60%;
     aspect-ratio: 1 / 1;
     margin: 0 auto;
-    box-shadow: 0 0 1.2rem var(--shadow-sm);
+    box-shadow: 0 0.4rem 1.2rem var(--shadow-sm);
     border-radius: var(--border-radius-circle);
 }
 
@@ -166,6 +166,11 @@
 
 .div-input-image-inner-container .input-image {
     display: none;
+}
+
+/* INPUT CONTAINER (OVERRIDE) */
+.div-input-container {
+    overflow: hidden;
 }
 
 /* LINK (OVERRIDE) */
