@@ -12,10 +12,7 @@ class ProfileView {
         this.setProfileUser(data["username"]);
 
         for (const [key, value] of Object.entries(data)) {
-            // Guard clause: value is null.
-            if (!value) continue;
-
-            $(`#${key}`).val(value);
+            if (value) $(`#${key}`).val(value);
         }
     }
 
