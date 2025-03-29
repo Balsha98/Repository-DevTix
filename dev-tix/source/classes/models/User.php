@@ -23,6 +23,8 @@ class User
         $this->id = $id;
         $this->database = $database;
 
+        $this->details = new UserDetails($id, $database);
+
         $this->getUserData();
     }
 
@@ -138,6 +140,11 @@ class User
         }
 
         return $this->requestIDs;
+    }
+
+    public function getDetails()
+    {
+        return $this->details;
     }
 
     // public function getNotificationIDs()
