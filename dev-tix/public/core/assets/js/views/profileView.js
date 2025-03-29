@@ -1,10 +1,22 @@
 class ProfileView {
     #spanProfileUser = $(".span-profile-user");
+    #btnUpdateProfile = $(".btn-update-profile");
     #btnUploadImage = $(".btn-upload-image");
     #spanProfileView = $(".span-profile-view");
 
     setProfileUser(username) {
-        this.#spanProfileUser.text(`#${username}`);
+        this.#spanProfileUser.text(`${username}'s`);
+    }
+
+    populateUserInputs(data) {
+        this.setProfileUser(data["username"]);
+
+        for (const [key, value] of Object.entries(data)) {
+            // Guard clause: value is null.
+            if (!value) continue;
+
+            $(`#${key}`).val(value);
+        }
     }
 
     generateImageInput() {
@@ -25,8 +37,12 @@ class ProfileView {
         `;
     }
 
-    setSpanTicketView(viewType) {
+    setSpanProfileView(viewType) {
         this.#spanProfileView.text(viewType[0].toUpperCase() + viewType.slice(1));
+    }
+
+    addEventUpdateProfile(handlerFunction) {
+        this.#btnUpdateProfile?.click(handlerFunction);
     }
 
     addEventToggleInputImage(handlerFunction) {

@@ -67,6 +67,10 @@ select {
     cursor: pointer;
 }
 
+select[disabled] {
+    cursor: initial;
+}
+
 /* TEXT AREA */
 textarea {
     all: unset;
