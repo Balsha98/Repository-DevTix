@@ -49,17 +49,25 @@ INSERT INTO users (user_id, view_as_user_id, role_id, view_as_role_id, first_nam
 CREATE TABLE user_details (
     details_id INT NOT NULL AUTO_INCREMENT,
     user_id INT NOT NULL,
-    bio TEXT NOT NULL,
-    age INT NOT NULL,
+    bio TEXT NULL,
+    age INT NULL,
     gender ENUM("male", "female") NULL,
     profession VARCHAR(50) NULL,
-    image LONGBLOB NULL,
+    user_image LONGBLOB NULL,
+    user_image_type VARCHAR(10) NULL,
     country VARCHAR(50) NULL,
     city VARCHAR(50) NULL,
     zip INT NULL,
     PRIMARY KEY (details_id),
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
+
+INSERT INTO user_details (details_id, user_id, age, gender) VALUES 
+(1, 1, NULL, NULL),
+(2, 2, NULL, NULL),
+(3, 3, NULL, NULL),
+(4, 4, NULL, NULL),
+(5, 5, NULL, NULL);
 
 
 
