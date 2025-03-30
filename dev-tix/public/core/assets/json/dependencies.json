@@ -67,6 +67,20 @@
         }
     },
     {
+        "users": {
+            "css": [
+                "css/partials/modals/alert-modal",
+                "css/partials/loaders/data-loader",
+                "css/partials/navigation",
+                "css/partials/signs/none-data",
+                "css/partials/signs/none-notifications",
+                "css/partials/loaders/page-loader",
+                "css/partials/sidebar"
+            ],
+            "js": []
+        }
+    },
+    {
         "welcome": {
             "css": ["css/partials/modals/alert-modal", "css/partials/loaders/page-loader"],
             "js": []
