@@ -30,6 +30,7 @@ class NavigationView {
         else if (timeOfDay === "evening") icon = "moon";
 
         this.#iconWelcome.attr("src", `/core/assets/media/icons/${icon}.svg`);
+        this.#iconWelcome.addClass(`icon-${timeOfDay}`);
     }
 
     generateClientsList(data) {

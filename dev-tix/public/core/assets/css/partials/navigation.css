@@ -18,7 +18,15 @@
 
 .icon-welcome {
     font-size: 1.8rem;
-    color: var(--warning-shade);
+}
+
+.icon-morning,
+.icon-afternoon {
+    color: var(--day);
+}
+
+.icon-evening {
+    color: var(--night);
 }
 
 .navigation-heading {
