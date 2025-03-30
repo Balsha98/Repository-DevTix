@@ -19,12 +19,12 @@ class SignupApiController extends AbsApiController
         }
 
         // Any issues inserting the user.
-        if (isset($this->insertUser($data)['error'])) {
+        if (isset($this->insertNewUser($data)['error'])) {
             return ApiMessage::alertAuthAttempt($data, false);
         }
 
         // Any issues inserting the user details.
-        if (isset($this->insertUserDetails($data)['error'])) {
+        if (isset($this->insertNewUserDetails($data)['error'])) {
             return ApiMessage::alertAuthAttempt($data, false);
         }
 
@@ -51,20 +51,20 @@ class SignupApiController extends AbsApiController
         )->getQueryResult();
     }
 
-    private function insertUser($data)
+    private function insertNewUser($data)
     {
         $query = '
             INSERT INTO users (
-                view_as_user_id, role_id, first_name, 
+                view_as_user_id, role_id, view_as_role_id, first_name, 
                 last_name, email, username, password, joined_at
             ) VALUES (
-                :view_as_user_id, :role_id, :first_name, 
+                :view_as_user_id, :role_id, :view_as_role_id, :first_name, 
                 :last_name, :email, :username, :password, :joined_at
             );
         ';
 
         return Session::getDbInstance()->executeQuery($query, [
-            ':view_as_user_id' => $this->getLastInsertID() + 1, ':role_id' => (int) $data['role'],
+            ':view_as_user_id' => $this->getLastInsertID() + 1, ':role_id' => $data['role'], ':view_as_role_id' => $data['role'],
             ':first_name' => $data['first_name'], ':last_name' => $data['last_name'], ':email' => $data['email'],
             ':username' => $data['username'], ':password' => hash('sha256', $data['password']), ':joined_at' => time()
         ])->getQueryResult()['id'];
@@ -77,16 +77,9 @@ class SignupApiController extends AbsApiController
         )->getQueryResult();
     }
 
-    private function insertUserDetails($data)
+    private function insertNewUserDetails($data)
     {
-        $query = '
-            INSERT INTO user_details (
-                user_id, age, gender
-            ) VALUES (
-                :user_id, :age, :gender
-            );
-        ';
-
+        $query = 'INSERT INTO user_details (user_id, age, gender) VALUES (:user_id, :age, :gender);';
         return Session::getDbInstance()->executeQuery($query, [
             ':user_id' => $this->getLastInsertID(), ':age' => $data['age'], ':gender' => $data['gender']
         ])->getQueryResult();
