@@ -86,7 +86,7 @@ class TicketsApiController extends AbsApiController
 
     private function getUserData(array $data, string $userType)
     {
-        $query = 'SELECT * FROM users WHERE user_id = :user_id;';
+        $query = 'SELECT * FROM users JOIN user_details ON users.user_id = user_details.user_id WHERE users.user_id = :user_id;';
         return Session::getDbInstance()->executeQuery(
             $query, [':user_id' => $data["{$userType}_id"]]
         )->getQueryResult();
