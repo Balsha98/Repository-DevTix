@@ -22,6 +22,27 @@ class ProfileApiController extends AbsApiController
         $data = $this->getData();
         $action = $data['action'];
 
+        // Guard clause: validate inputs.
+        if (!empty(Validate::validateInputs($data, ProfileInputRules::RULES))) {
+            return Validate::getValidationResult();
+        }
+
+        if ($action === 'create/user') {
+            // Guard clause: invalid user insert.
+            if (isset($this->insertNewUserData($data)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
+
+            // Guard clause: invalid user insert.
+            if (isset($this->insertNewUserDetailsData($data)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
+
+            $userID = $this->getLastInsertId();
+
+            return ApiMessage::alertDataAlterAttempt(true, "/profile/{$userID}");
+        }
+
         // Upload/Update profile image.
         if (preg_match('#image#', $action)) {
             if (isset($_FILES['image'])) {
@@ -47,9 +68,19 @@ class ProfileApiController extends AbsApiController
         $data = $this->getData();
 
         // Guard clause: validate inputs.
-        // if (!empty(Validate::validateInputs($data, ProfileInputRules::RULES))) {
-        //     return Validate::getValidationResult();
-        // }
+        if (!empty(Validate::validateInputs($data, ProfileInputRules::RULES))) {
+            return Validate::getValidationResult();
+        }
+
+        // Guard clause: invalid user update.
+        if (isset($this->updateUserData($userID, $data)['error'])) {
+            return ApiMessage::alertDataAlterAttempt(false);
+        }
+
+        // Guard clause: invalid user details update.
+        if (isset($this->updateUserDetailsData($userID, $data)['error'])) {
+            return ApiMessage::alertDataAlterAttempt(false);
+        }
 
         return ApiMessage::alertDataAlterAttempt(true);
     }
@@ -71,9 +102,81 @@ class ProfileApiController extends AbsApiController
         )->getQueryResult();
     }
 
-    private function updateUserData(array $data) {}
+    private function insertNewUserData(array $data)
+    {
+        $query = '
+            INSERT INTO users (
+                view_as_user_id, role_id, view_as_role_id, first_name, 
+                last_name, email, username, password, joined_at
+            ) VALUES (
+                :view_as_user_id, :role_id, :view_as_role_id, :first_name, 
+                :last_name, :email, :username, :password, :joined_at
+            );
+        ';
 
-    private function updateUserDetailsData(array $data) {}
+        return Session::getDbInstance()->executeQuery($query, [
+            ':view_as_user_id' => $this->getLastInsertId() + 1, ':role_id' => $data['role_id'], ':view_as_role_id' => $data['role_id'],
+            ':first_name' => $data['first_name'], ':last_name' => $data['last_name'], ':email' => $data['email'],
+            ':username' => $data['username'], ':password' => hash('sha256', $data['password']), ':joined_at' => time()
+        ])->getQueryResult();
+    }
+
+    private function updateUserData(int $userID, array $data)
+    {
+        $query = '
+            UPDATE users SET 
+                first_name = :first_name, last_name = :last_name, email = :email, 
+                username = :username' . (isset($data['password']) ? ', password = :password' : '') . '
+            WHERE user_id = :user_id;
+        ';
+
+        $params = [];
+        $paramNames = ['first_name', 'last_name', 'email', 'username', 'password', 'user_id'];
+        foreach ($paramNames as $paramName) {
+            if (isset($data[$paramName])) {
+                $params[":{$paramName}"] = $data[$paramName];
+            } else if ($paramName === 'user_id') {
+                $params[":{$paramName}"] = $userID;
+            }
+        }
+
+        return Session::getDbInstance()->executeQuery(
+            $query, $params
+        )->getQueryResult();
+    }
+
+    private function insertNewUserDetailsData(array $data)
+    {
+        $query = '
+            INSERT INTO user_details (
+                user_id, bio, age, gender, 
+                profession, country, city, zip
+            ) VALUES (
+                :user_id, :bio, :age, :gender, 
+                :profession, :country, :city, :zip
+            );
+        ';
+
+        return Session::getDbInstance()->executeQuery($query, [
+            ':user_id' => $this->getLastInsertId(), ':bio' => $data['bio'], ':age' => $data['age'], ':gender' => $data['gender'],
+            ':profession' => $data['profession'], ':country' => $data['country'], ':city' => $data['city'], ':zip' => $data['zip']
+        ])->getQueryResult();
+    }
+
+    private function updateUserDetailsData(int $userID, array $data)
+    {
+        $query = '
+            UPDATE user_details SET 
+                bio = :bio, age = :age, gender = :gender, profession = :profession, 
+                country = :country, city = :city, zip = :zip 
+            WHERE user_id = :user_id;
+        ';
+
+        return Session::getDbInstance()->executeQuery($query, [
+            ':bio' => $data['bio'], ':age' => $data['age'], ':gender' => $data['gender'], ':profession' => $data['profession'],
+            ':country' => $data['country'], ':city' => $data['city'], ':zip' => $data['zip'], ':user_id' => $userID
+        ])->getQueryResult();
+    }
 
     private function uploadProfileImage(bool $isUpload, int $userID, array $imageData)
     {
