@@ -65,20 +65,22 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                                 <div class="div-image-container div-profile-image-container">
                                     <?php
                                     if ($isRecordIdSet && $recordID === 0) {
-                                        $imageName = '/placeholder-user.jpg';
+                                        $imagePath = IMAGE_PATH . '/placeholder-user.jpg';
                                     } else if ($isRecordIdSet && $recordID !== 0) {
                                         $profileUser = new User($recordID, Session::getDbInstance());
                                         $profileDetails = $profileUser->getDetails();
+                                        $image = $profileDetails->getImage();
 
-                                        if ($profileDetails->getImage()) {
-                                            $imageName = "/users/user-{$profileUser->getId()}.{$profileDetails->getImageType()}";
-                                            Image::saveUserProfileImage($imageName, $profileDetails->getImage());
+                                        if ($image) {
+                                            $imageName = "user-{$recordID}.{$profileDetails->getImageType()}";
+                                            Image::saveUserProfileImage($recordID, $imageName, $image);
+                                            $imagePath = IMAGE_PATH . "/users/{$recordID}/" . $imageName;
                                         } else {
-                                            $imageName = '/placeholder-user.jpg';
+                                            $imagePath = IMAGE_PATH . '/placeholder-user.jpg';
                                         }
                                     }
                                     ?>
-                                    <img src="<?php echo IMAGE_PATH . $imageName; ?>" alt="Profile Image">
+                                    <img src="<?php echo $imagePath; ?>" alt="Profile Image">
                                 </div>
                                 <?php if ($user->getViewAsUserId() === $recordID || $user->getViewAsRoleId() === 1) { ?>
                                 <div class="div-input-image-outer-container">

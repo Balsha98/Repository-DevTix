@@ -54,10 +54,6 @@
     font-size: 1.6rem;
 }
 
-.span-profile-user {
-    color: var(--primary);
-}
-
 /* PROFILE ACTIONS CONTAINER */
 .div-profile-actions-container {
     display: flex;
