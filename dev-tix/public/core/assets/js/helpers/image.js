@@ -1,4 +1,4 @@
-export const renderTicketUserImage = function (user) {
+export const renderListItemUserImage = function (user) {
     if (user["user_image"]) {
         const userID = user["user_id"];
         const imageType = user["user_image_type"];
