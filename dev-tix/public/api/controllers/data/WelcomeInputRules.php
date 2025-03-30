@@ -4,7 +4,8 @@ class WelcomeInputRules
 {
     public const RULES = [
         'email' => [
-            'type' => 'email'
+            'type' => 'email',
+            'required' => true
         ],
     ];
 }

@@ -5,6 +5,7 @@ class SignupInputRules
     public const RULES = [
         'first_name' => [
             'type' => 'str',
+            'required' => true,
             'pattern' => 'only_letters',
             'length' => [
                 'min' => 3,
@@ -13,6 +14,7 @@ class SignupInputRules
         ],
         'last_name' => [
             'type' => 'str',
+            'required' => true,
             'pattern' => 'only_letters',
             'length' => [
                 'min' => 3,
@@ -20,10 +22,12 @@ class SignupInputRules
             ],
         ],
         'email' => [
-            'type' => 'email'
+            'type' => 'email',
+            'required' => true,
         ],
         'age' => [
             'type' => 'int',
+            'required' => false,
             'length' => [
                 'min' => 1,
                 'max' => 100
@@ -31,6 +35,7 @@ class SignupInputRules
         ],
         'username' => [
             'type' => 'str',
+            'required' => true,
             'pattern' => 'no_symbols',
             'length' => [
                 'min' => 8,
@@ -39,6 +44,7 @@ class SignupInputRules
         ],
         'password' => [
             'type' => 'str',
+            'required' => true,
             'pattern' => 'no_symbols',
             'length' => [
                 'min' => 8,
