@@ -29,6 +29,9 @@ const controlSwitchStepContainer = function () {
 const controlUserSignup = function (formEvent) {
     formEvent.preventDefault();
 
+    // Guard clause: empty inputs.
+    if (signupView.isInputEmpty(isInputEmpty, signupModel.getStateVal("step"))) return;
+
     const form = $(this.closest(".form"));
     const url = form.attr("action");
     const method = form.attr("method");
@@ -43,8 +46,6 @@ const controlUserSignup = function (formEvent) {
     data["role"] = $("#role").val();
     data["password"] = $("#password").val();
     data["route"] = $("#view").val();
-
-    if (signupView.isInputEmpty(isInputEmpty, signupModel.getStateVal("step"))) return;
 
     handleRequest(url, method, data);
 
