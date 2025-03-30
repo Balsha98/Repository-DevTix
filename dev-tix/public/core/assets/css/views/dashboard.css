@@ -283,7 +283,6 @@
 /* TICKETS STATUS INFO CONTAINER */
 .div-tickets-status-info-container {
     justify-self: end;
-    gap: 0.4rem;
     width: fit-content;
     padding: 0.6rem 0.8rem;
     text-align: center;
