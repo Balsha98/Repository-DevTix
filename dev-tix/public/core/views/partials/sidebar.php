@@ -48,7 +48,7 @@
                             <li class="sidebar-links-list-item">
                                 <a 
                                     class="sidebar-link sidebar-link-expand <?php echo $page === 'profile' ? 'active-sidebar-link' : ''; ?>" 
-                                    href="/profile"
+                                    href="/profile/<?php echo $user->getViewAsUserId(); ?>"
                                 >
                                     <ion-icon 
                                         class="sidebar-link-icon" 
