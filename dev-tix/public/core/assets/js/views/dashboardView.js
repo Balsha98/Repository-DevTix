@@ -64,7 +64,7 @@ class DashboardView {
                         <span>${assistantEmail}</span>
                     </div>
                     <div class="div-tickets-status-info-container status-${ticket["status"]}">
-                        <p>${ticket["status"]}</p>
+                        <p>${ticket["status"][0].toUpperCase() + ticket["status"].slice(1)}</p>
                     </div>
                 </li>    
             `);
