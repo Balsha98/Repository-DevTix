@@ -9,6 +9,18 @@
     border-radius: var(--border-radius-lg);
 }
 
+/* NAVIGATION HEADER */
+.navigation-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.icon-welcome {
+    font-size: 1.8rem;
+    color: var(--warning-shade);
+}
+
 .navigation-heading {
     font-size: 1.6rem;
 }

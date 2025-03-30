@@ -1,8 +1,11 @@
     <!-- NAVIGATION -->
     <div class="div-navigation-container">
-        <h2 class="navigation-heading">
-            <span class="span-welcome-message">&nbsp;</span>, <?php echo $user->getFirstName(); ?>!
-        </h2>
+        <header class="navigation-header">
+            <ion-icon class="icon-welcome" src="<?php echo ICON_PATH; ?>/sun.svg"></ion-icon>
+            <h2 class="navigation-heading">
+                <span class="span-welcome-message">&nbsp;</span>, <?php echo $user->getFirstName(); ?>!
+            </h2>
+        </header>
         <nav class="dashboard-navigation">
             <ul class="dashboard-nav-list">
                 <?php if ($user->getRoleId() === 1) { ?>
