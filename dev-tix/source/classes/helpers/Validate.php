@@ -34,6 +34,12 @@ class Validate
         foreach ($data as $id => $value) {
             if (isset($rules[$id])) {
                 $keyRules = $rules[$id];
+
+                // If input is empty and not required.
+                if (empty($value) && !$keyRules['required']) {
+                    continue;
+                }
+
                 $sanitizedValue = Sanitize::sanitizeString($value);
 
                 // Validate emails.
