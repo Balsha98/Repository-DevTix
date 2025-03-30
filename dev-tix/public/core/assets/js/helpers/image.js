@@ -1,8 +1,11 @@
 export const renderTicketUserImage = function (user) {
-    if (user["image"]) {
+    if (user["user_image"]) {
+        const userID = user["user_id"];
+        const imageType = user["user_image_type"];
+
         return `
             <div class="div-image-container div-tickets-user-image-container">
-                <img src="${user["image"]}" alt="User Image">
+                <img src="/core/assets/media/images/users/${userID}/user-${userID}.${imageType}" alt="User Image">
             </div>
         `;
     }

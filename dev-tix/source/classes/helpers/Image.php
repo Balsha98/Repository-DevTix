@@ -8,10 +8,11 @@ class Image
 
         if ($userDetails->getImage()) {
             $imageType = $userDetails->getImageType();
+            $userID = $user->getId();
 
             return "
                 <div class='div-image-container div-{$type}-user-image-container'>
-                    <img src='" . IMAGE_PATH . "/users/user-{$user->getId()}.{$imageType}' alt='User Image'>
+                    <img src='" . IMAGE_PATH . "/users/{$userID}/user-{$userID}.{$imageType}' alt='User Image'>
                 </div>
             ";
         }
@@ -23,15 +24,19 @@ class Image
         ";
     }
 
-    public static function saveUserProfileImage(string $imageName, string $image)
+    public static function saveUserProfileImage(int $userID, string $imageName, string $image)
     {
         // Set image file related data.
-        $imageFullPath = ROOT_PATH . '/core/assets/media/images/' . $imageName;
+        $imageRoot = ROOT_PATH . '/core/assets/media/images/users/' . $userID;
+        $imageFullPath = $imageRoot . '/' . $imageName;
 
-        // Check folder structure.
-        if (!file_exists($imageFullPath)) {
-            file_put_contents($imageFullPath, base64_decode($image));
+        // Check if folder exists: create once.
+        if (!file_exists($imageRoot)) {
+            mkdir($imageRoot);
         }
+
+        // Rewrite image each time: it might change.
+        file_put_contents($imageFullPath, base64_decode($image));
     }
 
     public static function saveTicketSnippetImage(int $requestID, string $imageName, string $image)
