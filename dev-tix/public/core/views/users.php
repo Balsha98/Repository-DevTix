@@ -34,7 +34,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                                 </div>
                                 <a class="link link-primary" href="/profile">
                                     <ion-icon src="<?php echo ICON_PATH; ?>/plus.svg"></ion-icon>
-                                    <span>Add User</span>
+                                    <span>New User</span>
                                 </a>
                             </div>
                         </header>
