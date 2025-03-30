@@ -24,13 +24,13 @@ class ProfileApiController extends AbsApiController
 
         // Upload/Update profile image.
         if (preg_match('#image#', $action)) {
-            if (!empty($_FILES)) {
+            if (isset($_FILES['image'])) {
                 $isUpload = preg_match('#upload#', $action);
                 $userID = $isUpload ? $this->getLastInsertId() : Session::get('record_id');
                 $file = $_FILES['image'];
 
                 $imageData = [
-                    'image' => file_get_contents($file['tmp_name']),
+                    'image' => base64_encode(file_get_contents($file['tmp_name'])),
                     'type' => explode('/', $file['type'])[1]
                 ];
 
@@ -47,9 +47,9 @@ class ProfileApiController extends AbsApiController
         $data = $this->getData();
 
         // Guard clause: validate inputs.
-        if (!empty(Validate::validateInputs($data, ProfileInputRules::RULES))) {
-            return Validate::getValidationResult();
-        }
+        // if (!empty(Validate::validateInputs($data, ProfileInputRules::RULES))) {
+        //     return Validate::getValidationResult();
+        // }
 
         return ApiMessage::alertDataAlterAttempt(true);
     }
@@ -80,13 +80,13 @@ class ProfileApiController extends AbsApiController
         if ($isUpload) {
             $query = 'INSERT INTO user_details (user_id, user_image, user_image_type) VALUES (:user_id, :user_image, :user_image_type);';
             return Session::getDbInstance()->executeQuery($query, [
-                'user_id' => $userID, ':user_image' => $imageData['image'], ':user_image_type' => $imageData['type']
+                ':user_id' => $userID, ':user_image' => $imageData['image'], ':user_image_type' => $imageData['type']
             ])->getQueryResult();
         }
 
         $query = 'UPDATE user_details SET user_image = :user_image, user_image_type = :user_image_type WHERE user_id = :user_id;';
         return Session::getDbInstance()->executeQuery($query, [
-            ':user_image' => $imageData['image'], ':user_image_type' => $imageData['type'], 'user_id' => $userID
+            ':user_image' => $imageData['image'], ':user_image_type' => $imageData['type'], ':user_id' => $userID
         ])->getQueryResult();
     }
 
