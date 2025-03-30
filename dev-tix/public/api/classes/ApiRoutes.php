@@ -8,7 +8,8 @@ class ApiRoutes
             'navigation',
             'profile',
             'ticket',
-            'tickets'
+            'tickets',
+            'users'
         ],
         'POST' => [
             'login',
