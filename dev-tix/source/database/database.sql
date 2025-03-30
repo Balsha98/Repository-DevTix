@@ -69,8 +69,7 @@ INSERT INTO user_details (details_id, user_id, age, gender) VALUES
 (4, 4, NULL, NULL),
 (5, 5, NULL, NULL);
 
-SELECT * FROM user_details;
-
+-- SELECT * FROM user_details;
 
 
 -- TICKET REQUESTS
