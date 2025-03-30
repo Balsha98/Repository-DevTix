@@ -29,7 +29,7 @@ CREATE TABLE users (
     email VARCHAR(50) NOT NULL,
     username VARCHAR(25) NOT NULL,
     password CHAR(64) NOT NULL,
-    joined_at TIMESTAMP NULL,
+    joined_at TIMESTAMP NOT NULL,
     last_active TIMESTAMP NULL,
     PRIMARY KEY (user_id),
     FOREIGN KEY (role_id) REFERENCES roles (role_id)
