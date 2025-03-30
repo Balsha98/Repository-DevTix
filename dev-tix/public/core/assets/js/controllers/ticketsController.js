@@ -1,5 +1,5 @@
 import { redirectTo } from "./../helpers/redirect.js";
-import { renderTicketUserImage } from "./../helpers/image.js";
+import { renderListItemUserImage } from "./../helpers/image.js";
 import * as pageLoaderController from "./pageLoaderController.js";
 import * as dataLoaderController from "./dataLoaderController.js";
 import navigationView from "./../views/navigationView.js";
@@ -69,7 +69,7 @@ const controlGenerateTicketsList = function () {
             const tickets = response["response"]["data"]["tickets"] ?? null;
             if (!tickets || tickets.length === 0) noneDataController.controlShowNoneDataContainer(0);
 
-            ticketsView.generateTicketsList(tickets, renderTicketUserImage);
+            ticketsView.generateTicketsList(tickets, renderListItemUserImage);
             ticketsView.addEventViewTicketDetails(controlViewTicketDetails);
         },
         error: function (response) {
