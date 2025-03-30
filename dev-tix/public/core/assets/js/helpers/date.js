@@ -22,8 +22,8 @@ const setTimeAgo = function (difference) {
     let timeAgo;
     for (const [key, { value, name }] of Object.entries(periods)) {
         if (key === "hours" && value >= 24) {
-            daysAgo = Math.floor(value / 24);
-            timeAgo = `${daysAgo} ${name}${daysAgo === 1 ? "" : "s"}`;
+            const daysAgo = Math.floor(value / 24);
+            timeAgo = `${daysAgo} Day${daysAgo === 1 ? "" : "s"}`;
         } else if (value !== 0) timeAgo = `${value} ${name}${value === 1 ? "" : "s"}`;
 
         // Guard clause: end loop.
