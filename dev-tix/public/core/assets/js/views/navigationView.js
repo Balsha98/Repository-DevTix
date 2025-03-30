@@ -1,4 +1,5 @@
 class NavigationView {
+    #iconWelcome = $(".icon-welcome");
     #spanWelcomeMessage = $(".span-welcome-message");
     #dropdownContainers = $(".dropdown-container");
     #spanTotalClients = $(".span-total-clients");
@@ -20,6 +21,15 @@ class NavigationView {
         else timeOfDay = "evening";
 
         this.#spanWelcomeMessage.text(`Good ${timeOfDay}`);
+        this.#setWelcomeIcon(timeOfDay);
+    }
+
+    #setWelcomeIcon(timeOfDay) {
+        let icon;
+        if (timeOfDay === "morning" || timeOfDay === "afternoon") icon = "sun";
+        else if (timeOfDay === "evening") icon = "moon";
+
+        this.#iconWelcome.attr("src", `/core/assets/media/icons/${icon}.svg`);
     }
 
     generateClientsList(data) {
