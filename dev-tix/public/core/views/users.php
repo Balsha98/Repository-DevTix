@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../../source/classes/models/User.php';
 
 $user = new User(Session::get('user_id'), Session::getDbInstance());
 
-// require_once __DIR__ . '/partials/loaders/page-loader.php';
+require_once __DIR__ . '/partials/loaders/page-loader.php';
 require_once __DIR__ . '/partials/modals/alert-modal.php';
 ?>
 
@@ -19,7 +19,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                 <div class="div-users-content-container">
                     <div class="div-users-overview-container">
                         <header class="users-container-header flex-between">
-                            <h2 class="users-container-header-heading">Users List Overview</h2>
+                            <h2 class="users-container-header-heading">Users/Clients List Overview</h2>
                             <div class="div-users-actions-container">
                                 <div class="div-input-container">
                                     <label class="label-select absolute-y-center" for="filter">
@@ -44,7 +44,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                                 <p>User</p>
                                 <p>Full Name</p>
                                 <p>Email Address</p>
-                                <p>Details</p>
+                                <p>Activity</p>
                             </header>
                             <div class="div-users-list-container">
                                 <?php require_once __DIR__ . '/partials/signs/none-data.php'; ?>
@@ -56,13 +56,13 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                         </div>
                         <footer class="users-container-footer flex-between">
                             <p>Applied Filter: <span class="span-applied-filter">All</span></p>
-                            <p>Viewing <span class="span-total-tickets">0</span> total users.</p>
+                            <p>Viewing <span class="span-total-users">0</span> total users.</p>
                         </footer>
                     </div>
                 </div>
             </div>
             <div class="div-hidden-inputs">
-                <input id="view" type="hidden" name="view" value="views/dashboard">
+                <input id="view" type="hidden" name="view" value="views/users">
                 <input id="user_id" type="hidden" name="user_id" value="<?php echo $user->getId(); ?>">
                 <input id="csrf_token" type="hidden" name="csrf_token" value="<?php echo Session::get('csrf_token'); ?>">
             </div>
