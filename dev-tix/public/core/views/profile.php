@@ -31,7 +31,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                             if ($isRecordIdSet && $recordID === 0) {
                                 if ($user->getRoleId() === 1) {
                                     echo '
-                                        <button class="btn btn-success btn-create-profile" data-method="POST">
+                                        <button class="btn btn-success btn-alter-profile" data-method="POST" data-status="create">
                                             <ion-icon src="' . ICON_PATH . '/user.svg"></ion-icon>
                                             <span>Create Profile</span>
                                         </button>
@@ -49,7 +49,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
 
                                 if ($user->getViewAsUserId() === $recordID || $user->getViewAsRoleId() === 1) {
                                     echo '
-                                        <button class="btn btn-primary btn-update-profile" data-method="PUT">
+                                        <button class="btn btn-primary btn-alter-profile" data-method="PUT" data-status="update">
                                             <ion-icon src="' . ICON_PATH . '/user.svg"></ion-icon>
                                             <span>Update Profile</span>
                                         </button>
@@ -103,6 +103,14 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                                     </label>
                                     <input id="username" class="profile-input" type="text" name="username" placeholder="Username" required>
                                 </div>
+                                <?php if (($isRecordIdSet && $recordID === 0) && $user->getViewAsRoleId() === 1) { ?>
+                                <div class="div-input-container required-container">
+                                    <label class="absolute-y-center" for="password">
+                                        <ion-icon src="<?php echo ICON_PATH; ?>/lock.svg"></ion-icon>
+                                    </label>
+                                    <input id="password" class="profile-input" type="password" name="password" placeholder="Password" required>
+                                </div>
+                                <?php } ?>
                                 <?php if ($user->getViewAsUserId() === $recordID) { ?>
                                 <div class="div-grid-link-container">
                                     <a class="link link-primary link-forgot-password" href="/forgot-password">Forgot Password?</a>

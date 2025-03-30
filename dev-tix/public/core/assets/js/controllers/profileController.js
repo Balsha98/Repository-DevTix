@@ -7,15 +7,17 @@ import sidebarView from "./../views/sidebarView.js";
 import * as sidebarController from "./sidebarController.js";
 import profileView from "./../views/profileView.js";
 
-const controlUpdateProfile = function () {
+const controlAlterProfileData = function () {
     // Guard clause: empty input.
     if (isInputEmpty()) return;
 
     const form = $(".form-profile");
     const url = form.attr("action");
     const method = $(this).data("method");
+    const status = $(this).data("status");
 
     const data = {};
+    data["action"] = `${status}/user`;
     data["id"] = $("#record_id").val();
     data["route"] = $("#view").val();
     data["csrf_token"] = $("#csrf_token").val();
@@ -25,17 +27,20 @@ const controlUpdateProfile = function () {
 
     handleRequest(url, method, data);
 
-    // Guard clause: image not set.
-    if (!$("#image").val()) return;
+    // Wait for data validation.
+    setTimeout(() => {
+        // Guard clause: image not set or invalid input.
+        if ($(".invalid-input-container").length || !$("#image").val()) return;
 
-    const imageData = new FormData();
-    imageData.append("action", "update/image");
-    imageData.append("id", $("#record_id").val());
-    imageData.append("route", $("#view").val());
-    imageData.append("csrf_token", $("#csrf_token").val());
-    imageData.append("image", $("#image")[0].files[0]);
+        const imageData = new FormData();
+        imageData.append("action", "update/image");
+        imageData.append("id", $("#record_id").val());
+        imageData.append("route", $("#view").val());
+        imageData.append("csrf_token", $("#csrf_token").val());
+        imageData.append("image", $("#image")[0].files[0]);
 
-    handleRequest(url, "POST", imageData, "form");
+        handleRequest(url, "POST", imageData, "form");
+    }, 200);
 };
 
 const controlGetProfileData = function () {
@@ -99,7 +104,7 @@ const controlRemoveImageInput = function () {
 };
 
 const initController = function () {
-    pageLoaderController.controlHidePageLoader(0.1);
+    pageLoaderController.controlHidePageLoader(2);
 
     // Setup navigation.
     navigationView.setWelcomeMessage();
@@ -113,7 +118,7 @@ const initController = function () {
     sidebarView.addEventToggleSidebarDropdown(sidebarController.controlToggleSidebarDropdown);
 
     // Setup profile view.
-    profileView.addEventUpdateProfile(controlUpdateProfile);
+    profileView.addEventAlterProfileData(controlAlterProfileData);
     profileView.addEventToggleInputImage(controlToggleInputImage);
 
     controlGetProfileData();
