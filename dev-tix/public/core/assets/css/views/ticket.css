@@ -300,9 +300,6 @@
 
 /* TICKET TOPIC DATA CONTAINER FOOTER */
 .ticket-topic-data-container-footer {
-    display: inherit;
-    align-items: center;
-    justify-content: space-between;
     margin-top: 0.4rem;
 }
 
@@ -313,6 +310,32 @@
 .ticket-topic-data-container-footer span {
     font-weight: 500;
     color: var(--primary);
+}
+
+.ticket-topic-data-container-footer a:link,
+.ticket-topic-data-container-footer a:visited {
+    position: relative;
+    display: inline-block;
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.ticket-topic-data-container-footer a:link::after,
+.ticket-topic-data-container-footer a:visited::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background-color: transparent;
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    transition: background-color 0.3s;
+}
+
+.ticket-topic-data-container-footer a:hover::after,
+.ticket-topic-data-container-footer a:active::after {
+    background-color: var(--primary);
 }
 
 /* TICKET IMAGES CONTAINER */
@@ -418,6 +441,32 @@
 .ticket-response-data-container-footer span {
     font-weight: 500;
     color: var(--primary);
+}
+
+.ticket-response-data-container-footer a:link,
+.ticket-response-data-container-footer a:visited {
+    position: relative;
+    display: inline-block;
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.ticket-response-data-container-footer a:link::after,
+.ticket-response-data-container-footer a:visited::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background-color: transparent;
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    transition: background-color 0.3s;
+}
+
+.ticket-response-data-container-footer a:hover::after,
+.ticket-response-data-container-footer a:active::after {
+    background-color: var(--primary);
 }
 
 /* TICKET CONTAINER FOOTER */

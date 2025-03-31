@@ -246,15 +246,17 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                             <div class="div-ticket-responses-container">
                                 <div class="div-scrollable-responses-container">
                                     <div class="div-ticket-topic-container">
-                                        <?php echo Image::renderTicketUserImage($requestUser, 'tickets'); ?>
+                                        <?php echo Image::renderListItemUserImage($requestUser, 'tickets'); ?>
                                         <div class="div-ticket-topic-data-container">
                                             <header class="ticket-topic-data-container-header">
                                                 <h4><?php echo $request->getSubject(); ?></h4>
                                                 <span><?php echo $request->getType(); ?></span>
                                             </header>
                                             <p><?php echo $request->getQuestion(); ?></p>
-                                            <footer class="ticket-topic-data-container-footer">
-                                                <p>User: <span><?php echo $requestUser->getUsername(); ?></span></p>
+                                            <footer class="ticket-topic-data-container-footer flex-between">
+                                                <p>User: <a href="/profile/<?php echo $requestUser->getId(); ?>" target="_blank">
+                                                    <?php echo $requestUser->getUsername(); ?></a>
+                                                </p>
                                                 <p>Posted: <span><?php echo Date::getTimeAgo($request->getPostedAt()); ?></span></p>
                                             </footer>
                                         </div>
@@ -269,11 +271,13 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
 
                                                 echo '
                                                     <li class="ticket-responses-list-item">
-                                                        ' . Image::renderTicketUserImage($responseUser, 'tickets') . '
+                                                        ' . Image::renderListItemUserImage($responseUser, 'tickets') . '
                                                         <div class="div-ticket-response-data-container">
                                                             <p>' . $response->getResponse() . '</p>
                                                             <footer class="ticket-response-data-container-footer flex-between">
-                                                                <p>User: <span>' . $responseUser->getUsername() . '</span></p>
+                                                                <p>User: <a href="/profile/' . $responseUser->getId() . '" target="_blank">
+                                                                    ' . $responseUser->getUsername() . '</a>
+                                                                </p>
                                                                 <p>Posted: <span>' . Date::getTimeAgo($response->getPostedAt()) . '</span></p>
                                                             </footer>
                                                         </div>
