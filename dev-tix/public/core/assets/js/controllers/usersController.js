@@ -90,7 +90,7 @@ const initController = function () {
     sidebarView.addEventToggleSidebar(sidebarController.controlToggleSidebar);
     sidebarView.addEventToggleSidebarDropdown(sidebarController.controlToggleSidebarDropdown);
 
-    // Setup dashboard.
+    // Setup users.
     usersView.addEventChangeFilter(controlChangeFilter);
     controlGenerateUsersList();
 };
