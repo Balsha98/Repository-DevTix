@@ -2,7 +2,7 @@
 
 class Image
 {
-    public static function renderTicketUserImage(User $user, string $type)
+    public static function renderListItemUserImage(User $user, string $type)
     {
         $userDetails = $user->getDetails();
 
