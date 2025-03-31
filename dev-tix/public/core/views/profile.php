@@ -60,7 +60,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                         </div>
                     </header>
                     <div class="div-profile-overview-container">
-                        <?php $isDisabled = $user->getId() !== $recordID && $user->getViewAsRoleId() !== 1; ?>
+                        <?php $isDisabled = $user->getId() !== $recordID && $user->getRoleId() !== 1; ?>
                         <form class="form form-profile" action="/api/" enctype="multipart/form-data">
                             <div class="div-user-details-container">
                                 <div class="div-image-container div-profile-image-container">
