@@ -17,7 +17,7 @@ class ApiRouter
      */
     public static function getResponse(string $method, array $data)
     {
-        $id = self::extractValue('id', $data) ?? 0;
+        $id = (int) self::extractValue('id', $data) ?? 0;
         [$directory, $script] = self::extractValue('route', $data);
 
         // Guard clause: check if route is valid.
