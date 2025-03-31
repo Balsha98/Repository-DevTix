@@ -59,7 +59,8 @@ CREATE TABLE user_details (
     city VARCHAR(50) NULL,
     zip INT NULL,
     PRIMARY KEY (details_id),
-    FOREIGN KEY (user_id) REFERENCES users (user_id)
+    FOREIGN KEY (user_id) REFERENCES users (user_id) 
+        ON DELETE CASCADE
 );
 
 INSERT INTO user_details (details_id, user_id, age, gender) VALUES 
@@ -84,8 +85,10 @@ CREATE TABLE ticket_requests (
     status ENUM("unassigned", "pending", "resolved", "cancelled") NOT NULL,
     turn_id INT NULL DEFAULT 0,
     PRIMARY KEY (request_id),
-    FOREIGN KEY (patron_id) REFERENCES users (user_id),
-    FOREIGN KEY (assistant_id) REFERENCES users (user_id)
+    FOREIGN KEY (patron_id) REFERENCES users (user_id) 
+        ON DELETE CASCADE,
+    FOREIGN KEY (assistant_id) REFERENCES users (user_id) 
+        ON DELETE SET NULL
 );
 
 INSERT INTO ticket_requests (request_id, patron_id, assistant_id, type, subject, question, status, turn_id) VALUES
@@ -104,7 +107,8 @@ CREATE TABLE request_images (
     request_image LONGBLOB NOT NULL,
     request_image_type VARCHAR(10),
     PRIMARY KEY (request_image_id),
-    FOREIGN KEY (request_id) REFERENCES ticket_requests (request_id)
+    FOREIGN KEY (request_id) REFERENCES ticket_requests (request_id) 
+        ON DELETE CASCADE
 );
 
 -- SELECT * FROM request_images;
@@ -118,8 +122,10 @@ CREATE TABLE ticket_responses (
     response TEXT NOT NULL,
     posted_at TIMESTAMP NOT NULL,
     PRIMARY KEY (response_id),
-    FOREIGN KEY (request_id) REFERENCES ticket_requests (request_id),
-    FOREIGN KEY (user_id) REFERENCES users (user_id)
+    FOREIGN KEY (request_id) REFERENCES ticket_requests (request_id) 
+        ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users (user_id) 
+        ON DELETE CASCADE
 );
 
 
@@ -134,6 +140,7 @@ CREATE TABLE notifications (
     sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (notification_id),
     FOREIGN KEY (user_id) REFERENCES users (user_id) 
+        ON DELETE CASCADE
 );
 
 INSERT INTO notifications (notification_id, user_id, type, title, message, is_read, sent_at) VALUES
