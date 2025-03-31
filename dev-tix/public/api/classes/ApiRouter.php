@@ -17,11 +17,7 @@ class ApiRouter
      */
     public static function getResponse(string $method, array $data)
     {
-        $id = $data['id'] ?? 0;
-        if ($method === 'GET' && isset($_GET['id'])) {
-            $id = $_GET['id'];
-        }
-
+        $id = self::extractValue('id', $data) ?? 0;
         [$directory, $script] = self::extractValue('route', $data);
 
         // Guard clause: check if route is valid.
@@ -71,7 +67,7 @@ class ApiRouter
             return explode('/', $return);
         }
 
-        // Get token.
+        // Get id/token.
         return $return;
     }
 
