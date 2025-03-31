@@ -43,6 +43,19 @@ const controlAlterProfileData = function () {
     }, 200);
 };
 
+const controlDeleteProfileData = function () {
+    const form = $(".form-profile");
+    const url = form.attr("action");
+    const method = $(this).data("method");
+
+    const data = {};
+    data["id"] = $("#record_id").val();
+    data["route"] = $("#view").val();
+    data["csrf_token"] = $("#csrf_token").val();
+
+    handleRequest(url, method, data);
+};
+
 const controlGetProfileData = function () {
     const recordID = +$("#record_id").val();
 
@@ -119,6 +132,7 @@ const initController = function () {
 
     // Setup profile view.
     profileView.addEventAlterProfileData(controlAlterProfileData);
+    profileView.addEventDeleteProfileData(controlDeleteProfileData);
     profileView.addEventToggleInputImage(controlToggleInputImage);
 
     controlGetProfileData();

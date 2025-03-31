@@ -1,6 +1,7 @@
 class ProfileView {
     #spanProfileUser = $(".span-profile-user");
     #btnsAlterProfile = $(".btn-alter-profile");
+    #btnDeleteProfile = $(".btn-delete-profile");
     #btnUploadImage = $(".btn-upload-image");
     #spanProfileView = $(".span-profile-view");
 
@@ -42,6 +43,10 @@ class ProfileView {
         this.#btnsAlterProfile.each((_, btn) => {
             $(btn)?.click(handlerFunction);
         });
+    }
+
+    addEventDeleteProfileData(handlerFunction) {
+        this.#btnDeleteProfile?.click(handlerFunction);
     }
 
     addEventToggleInputImage(handlerFunction) {
