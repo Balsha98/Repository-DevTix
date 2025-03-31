@@ -85,6 +85,26 @@ class ProfileApiController extends AbsApiController
         return ApiMessage::alertDataAlterAttempt(true);
     }
 
+    public function delete()
+    {
+        $userID = $this->getId();
+        $roleID = $this->getUserRoleId($userID);
+
+        if ($roleID === 2) {
+            // Guard clause: unable to process request.
+            if (isset($this->setTicketsAsUnassigned($userID)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
+        }
+
+        // Guard clause: unable to process request.
+        if (isset($this->deleteUserData($userID)['error'])) {
+            return ApiMessage::alertDataAlterAttempt(false);
+        }
+
+        return ApiMessage::alertDataAlterAttempt(true, '/users');
+    }
+
     private function getProfileData(int $userID)
     {
         $query = '
@@ -190,6 +210,30 @@ class ProfileApiController extends AbsApiController
         $query = 'UPDATE user_details SET user_image = :user_image, user_image_type = :user_image_type WHERE user_id = :user_id;';
         return Session::getDbInstance()->executeQuery($query, [
             ':user_image' => $imageData['image'], ':user_image_type' => $imageData['type'], ':user_id' => $userID
+        ])->getQueryResult();
+    }
+
+    private function deleteUserData(int $userID)
+    {
+        $query = 'DELETE FROM users WHERE user_id = :user_id;';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':user_id' => $userID]
+        )->getQueryResult();
+    }
+
+    private function getUserRoleId(int $userID)
+    {
+        $query = 'SELECT role_id FROM users WHERE user_id = :user_id;';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':user_id' => $userID]
+        )->getQueryResult()['role_id'];
+    }
+
+    private function setTicketsAsUnassigned(int $userID)
+    {
+        $query = 'UPDATE ticket_requests SET status = :status WHERE assistant_id = :assistant_id;';
+        return Session::getDbInstance()->executeQuery($query, [
+            ':status' => 'unassigned', ':assistant_id' => $userID
         ])->getQueryResult();
     }
 
