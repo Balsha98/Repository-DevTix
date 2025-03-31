@@ -217,7 +217,7 @@ const controlToggleImageModal = function () {
 };
 
 const initController = function () {
-    pageLoaderController.controlHidePageLoader(0.1);
+    pageLoaderController.controlHidePageLoader(1);
 
     // Setup navigation.
     navigationView.setWelcomeMessage();
