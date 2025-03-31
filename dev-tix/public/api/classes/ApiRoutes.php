@@ -23,7 +23,8 @@ class ApiRoutes
             'profile',
             'ticket'
         ],
-        'DELETE' =>
-            'profile',
+        'DELETE' => [
+            'profile'
+        ],
     ];
 }
