@@ -14,6 +14,17 @@
         }
     },
     {
+        "leagues": {
+            "css": [
+                "css/partials/navigation",
+                "css/partials/signs/none-notifications",
+                "css/partials/loaders/page-loader",
+                "css/partials/sidebar"
+            ],
+            "js": []
+        }
+    },
+    {
         "login": {
             "css": ["css/partials/modals/alert-modal", "css/partials/loaders/page-loader"],
             "js": []
