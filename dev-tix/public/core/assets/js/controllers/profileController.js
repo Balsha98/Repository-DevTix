@@ -130,11 +130,10 @@ const initController = function () {
     sidebarView.addEventToggleSidebar(sidebarController.controlToggleSidebar);
     sidebarView.addEventToggleSidebarDropdown(sidebarController.controlToggleSidebarDropdown);
 
-    // Setup profile view.
+    // Setup profile.
     profileView.addEventAlterProfileData(controlAlterProfileData);
     profileView.addEventDeleteProfileData(controlDeleteProfileData);
     profileView.addEventToggleInputImage(controlToggleInputImage);
-
     controlGetProfileData();
 };
 
