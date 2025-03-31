@@ -29,7 +29,7 @@ class ApiRouter
         Session::start();
 
         // Guard clause: check CSRF token.
-        if ($script !== 'login' && $script !== 'signup') {
+        if ($script !== 'welcome' && $script !== 'login' && $script !== 'signup') {
             $authToken = self::extractValue('csrf_token', $data);
 
             if ($authToken !== Session::get('csrf_token') ||
