@@ -160,8 +160,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--transparent-black-xs);
-    backdrop-filter: blur(0.8rem);
+    background-color: var(--primary);
     transform: translateY(100%);
     transition: transform 0.5s;
     z-index: 2;
