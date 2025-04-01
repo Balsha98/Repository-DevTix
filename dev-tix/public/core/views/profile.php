@@ -248,7 +248,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                     </div>
                     <footer class="profile-container-footer flex-between">
                         <p>User View: <span class="span-profile-view">New</span></p>
-                        <p>Viewing Since: <span><?php echo date('H:i:s'); ?></span></p>
+                        <p>Viewing Since: <span><?php echo date('H:i'); ?></span></p>
                     </footer>
                 </div>
             </div>
