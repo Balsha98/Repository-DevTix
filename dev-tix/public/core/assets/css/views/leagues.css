@@ -41,17 +41,11 @@
     bottom: -6.4rem;
     left: -6.4rem;
     display: inline-block;
-    width: 0;
     width: 16rem;
     aspect-ratio: 1 / 1;
     background-color: var(--primary);
     border-radius: var(--border-radius-circle);
-    transition: background-color 0.3s;
     z-index: 1;
-}
-
-.leagues-overview-list-item:hover::after {
-    background-color: var(--primary-shade);
 }
 
 /* LEAGUE OVERVIEW ICON CONTAINER */
@@ -63,7 +57,6 @@
     aspect-ratio: 1 / 1;
     background-color: var(--primary);
     border-radius: var(--border-radius-circle);
-    transition: background-color 0.3s;
 }
 
 .div-league-overview-icon-container ion-icon {
@@ -72,10 +65,6 @@
     right: 2.8rem;
     font-size: 7.4rem;
     color: var(--white);
-}
-
-.leagues-overview-list-item:hover .div-league-overview-icon-container {
-    background-color: var(--primary-shade);
 }
 
 /* LEAGUE OVERVIEW INFO CONTAINER */
@@ -99,15 +88,15 @@
     border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
 }
 
+.legendary-info::after {
+    background-image: var(--gradient-theme);
+    background-color: transparent;
+}
+
 .div-league-overview-info-container h2 {
     font-size: 3.6rem;
     text-transform: uppercase;
     color: var(--primary);
-}
-
-.legendary-info::after {
-    background-image: var(--gradient-theme);
-    background-color: transparent;
 }
 
 .legendary-info h2 {
@@ -167,31 +156,29 @@
 /* LEADERBOARD LINK CONTAINER */
 .div-leaderboard-link-container {
     position: absolute;
-    bottom: 1.6rem;
-    left: 1.6rem;
-    transform: translateY(250%);
-    transition: all 0.3s;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--transparent-black-xs);
+    backdrop-filter: blur(0.8rem);
+    transform: translateY(100%);
+    transition: transform 0.5s;
     z-index: 2;
 }
 
 .div-leaderboard-link-container a:link,
 .div-leaderboard-link-container a:visited {
-    width: 4.8rem;
-    aspect-ratio: 1 / 1;
-    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
     box-shadow: 0 0.4rem 1.2rem var(--shadow-sm);
-    border-radius: var(--border-radius-circle);
 }
 
 .div-leaderboard-link-container ion-icon {
     font-size: 1.8rem;
-    color: var(--white);
 }
 
 .leagues-overview-list-item:hover .div-leaderboard-link-container {
     transform: translateY(0);
-}
-
-.div-leaderboard-link-container:hover {
-    opacity: var(--opacity-lg);
 }
