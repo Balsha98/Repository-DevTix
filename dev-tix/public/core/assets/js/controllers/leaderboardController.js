@@ -3,10 +3,10 @@ import navigationView from "./../views/navigationView.js";
 import * as navigationController from "./navigationController.js";
 import sidebarView from "./../views/sidebarView.js";
 import * as sidebarController from "./sidebarController.js";
-import leaguesView from "./../views/leaguesView.js";
+import leaderboardView from "./../views/leaderboardView.js";
 
 const initController = function () {
-    pageLoaderController.controlHidePageLoader(1);
+    pageLoaderController.controlHidePageLoader(0.1);
 
     // Setup navigation.
     navigationView.setWelcomeMessage();
@@ -19,7 +19,7 @@ const initController = function () {
     sidebarView.addEventToggleSidebar(sidebarController.controlToggleSidebar);
     sidebarView.addEventToggleSidebarDropdown(sidebarController.controlToggleSidebarDropdown);
 
-    // Setup leagues.
+    // Setup leaderboard.
 };
 
 initController();
