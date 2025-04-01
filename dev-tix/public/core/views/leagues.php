@@ -29,7 +29,7 @@ require_once __DIR__ . '/partials/loaders/page-loader.php';
                             <p>Assistant Username</p>
                         </div>
                         <div class="div-leaderboard-link-container flex-center">
-                            <a class="link link-primary flex-center" href="/leaderboard/?league=legendary">
+                            <a class="link link-white flex-center" href="/leaderboard/?league=legendary">
                                 <ion-icon src="<?php echo ICON_PATH; ?>/bar-chart-2.svg"></ion-icon>
                                 <span>View Standings</span>
                             </a>
@@ -48,7 +48,7 @@ require_once __DIR__ . '/partials/loaders/page-loader.php';
                             <p>Assistant Username</p>
                         </div>
                         <div class="div-leaderboard-link-container flex-center">
-                            <a class="link link-primary flex-center" href="/leaderboard/?league=senior">
+                            <a class="link link-white flex-center" href="/leaderboard/?league=senior">
                                 <ion-icon src="<?php echo ICON_PATH; ?>/bar-chart-2.svg"></ion-icon>
                                 <span>View Standings</span>
                             </a>
@@ -67,7 +67,7 @@ require_once __DIR__ . '/partials/loaders/page-loader.php';
                             <p>Assistant Username</p>
                         </div>
                         <div class="div-leaderboard-link-container flex-center">
-                            <a class="link link-primary flex-center" href="/leaderboard/?league=junior">
+                            <a class="link link-white flex-center" href="/leaderboard/?league=junior">
                                 <ion-icon src="<?php echo ICON_PATH; ?>/bar-chart-2.svg"></ion-icon>
                                 <span>View Standings</span>
                             </a>
@@ -86,7 +86,7 @@ require_once __DIR__ . '/partials/loaders/page-loader.php';
                             <p>Assistant Username</p>
                         </div>
                         <div class="div-leaderboard-link-container flex-center">
-                            <a class="link link-primary flex-center" href="/leaderboard/?league=rookie">
+                            <a class="link link-white flex-center" href="/leaderboard/?league=rookie">
                                 <ion-icon src="<?php echo ICON_PATH; ?>/bar-chart-2.svg"></ion-icon>
                                 <span>View Standings</span>
                             </a>
