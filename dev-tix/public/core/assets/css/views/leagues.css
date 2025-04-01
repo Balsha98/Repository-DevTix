@@ -28,7 +28,164 @@
 
 /* LEAGUES OVERVIEW LIST ITEM */
 .leagues-overview-list-item {
+    position: relative;
     background-color: var(--white);
     box-shadow: 0 0.4rem 1.6rem var(--shadow-sm);
     border-radius: var(--border-radius-lg);
+    overflow: hidden;
+}
+
+.leagues-overview-list-item::after {
+    content: "";
+    position: absolute;
+    bottom: 50%;
+    right: 0;
+    display: inline-block;
+    width: 120%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--primary);
+    border-radius: var(--border-radius-circle);
+    transform: translate(50%, 50%);
+    transition: background-color 0.3s;
+    z-index: 1;
+}
+
+.leagues-overview-list-item:hover::after {
+    background-color: var(--primary-shade);
+}
+
+/* LEAGUE OVERVIEW ICON CONTAINER */
+.div-league-overview-icon-container {
+    position: absolute;
+    top: -4.8rem;
+    left: -4.8rem;
+    width: 16rem;
+    aspect-ratio: 1 / 1;
+    background-color: var(--primary);
+    border-radius: var(--border-radius-circle);
+    transition: background-color 0.3s;
+}
+
+.div-league-overview-icon-container ion-icon {
+    position: absolute;
+    bottom: 2.8rem;
+    right: 2.8rem;
+    font-size: 7.4rem;
+    color: var(--white);
+}
+
+.leagues-overview-list-item:hover .div-league-overview-icon-container {
+    background-color: var(--primary-shade);
+}
+
+/* LEAGUE OVERVIEW INFO CONTAINER */
+.div-league-overview-info-container {
+    position: absolute;
+    top: 50%;
+    right: 2.4rem;
+    text-align: right;
+    transform: translateY(-120%);
+    z-index: 2;
+}
+
+.div-league-overview-info-container h2 {
+    font-size: 3.6rem;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.legendary-info h2 {
+    color: transparent;
+    background-image: var(--gradient-theme);
+    background-clip: text;
+}
+
+.div-league-overview-info-container p {
+    font-size: 1.6rem;
+}
+
+.div-league-overview-info-container span {
+    font-weight: 500;
+    color: var(--white);
+}
+
+/* LEAGUE OVERVIEW LEADER CONTAINER */
+.div-league-overview-leader-container {
+    position: absolute;
+    bottom: 2.4rem;
+    right: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.2rem;
+    padding: 1.2rem;
+    z-index: 2;
+}
+
+.div-league-overview-leader-container::before,
+.div-league-overview-leader-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--white);
+}
+
+.legendary-leader::before,
+.legendary-leader::after {
+    background-image: var(--gradient-theme);
+    background-color: transparent;
+}
+
+.div-league-overview-leader-container::before {
+    width: 0.2rem;
+    height: 100%;
+    border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+}
+
+.div-league-overview-leader-container::after {
+    width: 100%;
+    height: 0.2rem;
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+}
+
+.div-league-overview-leader-container span {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.div-league-overview-leader-container p {
+    font-size: 1.8rem;
+}
+
+/* LEADERBOARD LINK CONTAINER */
+.div-leaderboard-link-container {
+    position: absolute;
+    bottom: 2.4rem;
+    left: 2.4rem;
+    transform: translateY(250%);
+    transition: all 0.3s;
+}
+
+.div-leaderboard-link-container a:link,
+.div-leaderboard-link-container a:visited {
+    width: 4.8rem;
+    aspect-ratio: 1 / 1;
+    background-color: var(--primary);
+    border-radius: var(--border-radius-circle);
+}
+
+.div-leaderboard-link-container ion-icon {
+    font-size: 1.8rem;
+    color: var(--white);
+}
+
+.leagues-overview-list-item:hover .div-leaderboard-link-container {
+    transform: translateY(0);
+}
+
+.div-leaderboard-link-container:hover {
+    opacity: var(--opacity-lg);
 }

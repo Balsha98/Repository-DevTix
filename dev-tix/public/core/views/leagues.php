@@ -16,10 +16,78 @@ require_once __DIR__ . '/partials/loaders/page-loader.php';
             <div class="div-leagues-container">
                 <?php require_once __DIR__ . '/partials/navigation.php'; ?>
                 <ul class="leagues-overview-list grid-2-columns">
-                    <li class="leagues-overview-list-item"></li>
-                    <li class="leagues-overview-list-item"></li>
-                    <li class="leagues-overview-list-item"></li>
-                    <li class="leagues-overview-list-item"></li>
+                    <li class="leagues-overview-list-item">
+                        <div class="div-league-overview-icon-container">
+                            <ion-icon src="<?php echo ICON_PATH; ?>/legend.svg"></ion-icon>
+                        </div>
+                        <div class="div-league-overview-info-container legendary-info">
+                            <p>Solved Tickets: <span>500+</span></p>
+                            <h2>Legendary</h2>
+                        </div>
+                        <div class="div-league-overview-leader-container legendary-leader">
+                            <span>Leading The Way</span>
+                            <p>Assistant Username</p>
+                        </div>
+                        <div class="div-leaderboard-link-container flex-center">
+                            <a class="flex-center" href="/leaderboard/?league=legendary">
+                                <ion-icon src="<?php echo ICON_PATH; ?>/bar-chart-2.svg"></ion-icon>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="leagues-overview-list-item">
+                        <div class="div-league-overview-icon-container">
+                            <ion-icon src="<?php echo ICON_PATH; ?>/senior.svg"></ion-icon>
+                        </div>
+                        <div class="div-league-overview-info-container">
+                            <p>Solved Tickets: <span>250+</span></p>
+                            <h2>Senior League</h2>
+                        </div>
+                        <div class="div-league-overview-leader-container">
+                            <span>Leading The Way</span>
+                            <p>Assistant Username</p>
+                        </div>
+                        <div class="div-leaderboard-link-container flex-center">
+                            <a class="flex-center" href="/leaderboard/?league=senior">
+                                <ion-icon src="<?php echo ICON_PATH; ?>/bar-chart-2.svg"></ion-icon>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="leagues-overview-list-item">
+                        <div class="div-league-overview-icon-container">
+                            <ion-icon src="<?php echo ICON_PATH; ?>/junior.svg"></ion-icon>
+                        </div>
+                        <div class="div-league-overview-info-container">
+                            <p>Solved Tickets: <span>100+</span></p>
+                            <h2>Junior League</h2>
+                        </div>
+                        <div class="div-league-overview-leader-container">
+                            <span>Leading The Way</span>
+                            <p>Assistant Username</p>
+                        </div>
+                        <div class="div-leaderboard-link-container flex-center">
+                            <a class="flex-center" href="/leaderboard/?league=junior">
+                                <ion-icon src="<?php echo ICON_PATH; ?>/bar-chart-2.svg"></ion-icon>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="leagues-overview-list-item">
+                        <div class="div-league-overview-icon-container">
+                            <ion-icon src="<?php echo ICON_PATH; ?>/rookie.svg"></ion-icon>
+                        </div>
+                        <div class="div-league-overview-info-container">
+                            <p>Solved Tickets: <span>10+</span></p>
+                            <h2>Rookie League</h2>
+                        </div>
+                        <div class="div-league-overview-leader-container">
+                            <span>Leading The Way</span>
+                            <p>Assistant Username</p>
+                        </div>
+                        <div class="div-leaderboard-link-container flex-center">
+                            <a class="flex-center" href="/leaderboard/?league=rookie">
+                                <ion-icon src="<?php echo ICON_PATH; ?>/bar-chart-2.svg"></ion-icon>
+                            </a>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div class="div-hidden-inputs">

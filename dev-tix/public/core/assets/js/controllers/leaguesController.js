@@ -1,5 +1,3 @@
-import { redirectTo } from "./../helpers/redirect.js";
-import { renderListItemUserImage } from "./../helpers/image.js";
 import * as pageLoaderController from "./pageLoaderController.js";
 import navigationView from "./../views/navigationView.js";
 import * as navigationController from "./navigationController.js";
@@ -8,7 +6,7 @@ import * as sidebarController from "./sidebarController.js";
 import leaguesView from "./../views/leaguesView.js";
 
 const initController = function () {
-    pageLoaderController.controlHidePageLoader(1);
+    pageLoaderController.controlHidePageLoader(0.1);
 
     // Setup navigation.
     navigationView.setWelcomeMessage();
