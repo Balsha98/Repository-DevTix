@@ -16,6 +16,7 @@
     {
         "leaderboard": {
             "css": [
+                "css/partials/loaders/data-loader",
                 "css/partials/navigation",
                 "css/partials/signs/none-notifications",
                 "css/partials/loaders/page-loader",
