@@ -129,7 +129,6 @@
 .users-list {
     padding-right: 1.2rem;
     border-radius: var(--border-radius-lg);
-    overflow-y: scroll;
 }
 
 .users-list::-webkit-scrollbar {

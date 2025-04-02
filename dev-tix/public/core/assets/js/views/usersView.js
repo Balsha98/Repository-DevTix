@@ -1,5 +1,4 @@
 class UsersView {
-    #spanOverviewItems = $(".span-overview-item");
     #usersOverviewContainer = $(".div-users-overview-container");
     #usersSelectFilter = $(".users-select-filter");
     #usersContainerHeaders = $(".div-users-overview-container header");
@@ -16,8 +15,8 @@ class UsersView {
             (height, element) => height + parseFloat($(element).css("height")), 0
         );
 
-        const elementHeightDifference = containerHeight - innerElementHeightTotal;
-        this.#usersList.css("height", `calc(${elementHeightDifference}px - 64px)`);
+        const elementHeightDifference = containerHeight - innerElementHeightTotal - 64;
+        this.#usersList.css("height", `${elementHeightDifference}px`);
 
         // Guard clause.
         if (!users) return;
@@ -32,8 +31,9 @@ class UsersView {
             this.#usersList.append(`
                 <li 
                     class="users-list-item" 
+                    data-role-id="${user["role_id"]}" 
                     data-href="profile/${user["user_id"]}" 
-                    data-role-id="${user["role_id"]}"
+                    data-activity="${activity}"
                 >
                     <div class="div-users-id-content-container">
                         <p>#${user["user_id"]}</p>
@@ -54,9 +54,15 @@ class UsersView {
                     <div class="div-users-activity-info-container status-${activity}">
                         <p>${activity[0].toUpperCase() + activity.slice(1)}</p>
                     </div>
-                </li>    
+                </li>
             `);
         }
+
+        const listItemsHeightTotal = [...$(".users-list-item")].reduce((height, item) => {
+            return height + parseFloat($(item).css("height"));
+        }, 0);
+
+        if (listItemsHeightTotal > elementHeightDifference) this.#usersList.css("overflow-y", "scroll");
 
         this.setSpanTotalUsers(users.length);
     }

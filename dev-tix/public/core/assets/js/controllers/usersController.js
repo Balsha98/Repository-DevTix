@@ -44,10 +44,10 @@ const controlChangeFilter = function () {
 };
 
 const controlViewUserProfile = function () {
-    const status = $(this).data("status");
     const href = $(this).data("href");
+    const activity = $(this).data("activity");
 
-    if (status !== "cancelled") redirectTo(href);
+    if (activity === "active") redirectTo(href);
 };
 
 const controlGenerateUsersList = function () {
