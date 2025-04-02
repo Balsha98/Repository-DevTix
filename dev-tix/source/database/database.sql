@@ -156,6 +156,8 @@ CREATE TABLE leaderboards (
         ON DELETE CASCADE
 );
 
+-- SELECT * FROM leaderboards;
+
 
 -- NOTIFICATIONS
 CREATE TABLE notifications (
