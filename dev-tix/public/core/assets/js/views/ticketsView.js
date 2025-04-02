@@ -4,6 +4,7 @@ class TicketsView {
     #ticketsSelectFilter = $(".tickets-select-filter");
     #ticketsContainerHeaders = $(".div-tickets-overview-container header");
     #ticketsContainerFooter = $(".div-tickets-overview-container footer");
+    #ticketsListOverviewHeader = $(".tickets-list-overview-header");
     #ticketsList = $(".tickets-list");
     #spanAppliedFilter = $(".span-applied-filter");
     #spanTotalTickets = $(".span-total-tickets");
@@ -74,7 +75,12 @@ class TicketsView {
             return height + parseFloat($(item).css("height"));
         }, 0);
 
-        if (listItemsHeightTotal > elementHeightDifference) this.#ticketsList.css("overflow-y", "scroll");
+        if (listItemsHeightTotal > elementHeightDifference) {
+            this.#ticketsListOverviewHeader.css("padding-right", "36px");
+
+            this.#ticketsList.css("padding-right", "12px");
+            this.#ticketsList.css("overflow-y", "scroll");
+        }
 
         this.setSpanTotalTickets(tickets.length);
     }

@@ -159,7 +159,7 @@
     align-items: center;
     gap: 1.6rem;
     height: 2rem;
-    padding: 0 3.6rem 0 1.6rem;
+    padding: 0 1.6rem;
 }
 
 .tickets-list-overview-header p {
@@ -178,7 +178,6 @@
 
 /* TICKETS LIST */
 .tickets-list {
-    padding-right: 1.2rem;
     border-radius: var(--border-radius-lg);
 }
 
