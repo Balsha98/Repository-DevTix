@@ -21,7 +21,7 @@ class AlertModalView {
         this.#redirect = response["redirect"];
 
         // Reload page after some time.
-        if (this.#alertType === "success") setTimeout(this.#redirectToPage.bind(this), 20000);
+        if (this.#alertType === "success") setTimeout(this.#redirectToPage.bind(this), 2000);
 
         // Set alert message.
         const iconType = this.#alertType === "success" ? "check" : "x";
