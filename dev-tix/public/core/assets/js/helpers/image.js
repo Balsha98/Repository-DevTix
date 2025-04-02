@@ -4,7 +4,7 @@ export const renderListItemUserImage = function (user) {
         const imageType = user["user_image_type"];
 
         return `
-            <div class="div-image-container div-tickets-user-image-container">
+            <div class="div-image-container div-list-item-user-image-container">
                 <img src="/core/assets/media/images/users/${userID}/user-${userID}.${imageType}" alt="User Image">
             </div>
         `;
