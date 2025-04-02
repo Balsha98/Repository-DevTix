@@ -77,9 +77,9 @@
 /* LEADERBOARD OVERVIEW CONTAINER */
 .div-leaderboard-overview-container {
     flex-grow: inherit;
+    position: relative;
     display: inherit;
     flex-direction: inherit;
-    gap: 1.6rem;
     padding: 0 2.4rem;
 }
 
@@ -90,7 +90,7 @@
     align-items: center;
     gap: 1.6rem;
     height: 2rem;
-    padding: 0 3.6rem 0 1.6rem;
+    padding: 0 1.6rem;
 }
 
 .leaderboard-overview-header p {
@@ -102,17 +102,17 @@
     text-align: right;
 }
 
-/* ASSISTANTS LISTS CONTAINER */
-.div-assistants-lists-container {
+/* ASSISTANTS LIST CONTAINER */
+.div-assistants-list-container {
     flex-grow: inherit;
-    position: relative;
+    display: inherit;
+    flex-direction: inherit;
+    gap: 1.6rem;
 }
 
 /* ASSISTANTS LIST */
 .assistants-list {
-    padding-right: 1.2rem;
     border-radius: var(--border-radius-lg);
-    overflow-y: scroll;
 }
 
 .assistants-list::-webkit-scrollbar {

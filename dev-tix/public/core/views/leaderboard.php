@@ -6,7 +6,6 @@ require_once __DIR__ . '/../../../source/classes/models/User.php';
 $user = new User(Session::get('user_id'), Session::getDbInstance());
 
 require_once __DIR__ . '/partials/loaders/page-loader.php';
-require_once __DIR__ . '/partials/modals/alert-modal.php';
 ?>
 
     <!-- MAIN CONTAINER -->
@@ -36,46 +35,53 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                         </div>
                     </header>
                     <div class="div-leaderboard-overview-container">
-                        <header class="leaderboard-overview-header">
-                            <p>Position</p>
-                            <p>User</p>
-                            <p>Email Address</p>
-                            <p>Tickets</p>
-                            <p>Activity</p>
-                        </header>
-                        <div class="div-assistants-lists-container">
-                            <?php require_once __DIR__ . '/partials/loaders/data-loader.php'; ?>
-                            <ul class="assistants-list" data-league-type="legendary">
-                                <!-- DYNAMICALLY GENERATED ASSISTANTS VIA AJAX -->
-                                <!-- <li class="assistants-list-item" data-href="profile/1" data-activity="">
-                                    <div class="div-assistants-position-content-container">
-                                        <p>#1</p>
-                                    </div>
-                                    <div class="div-assistants-data-content-container">
-                                        <img src="" alt="">
-                                        <div class="div-assistants-data-info-container">
-                                            <p>Username</p>
-                                            <span>Role Name</span>
-                                        </div>
-                                    </div>
-                                    <div class="div-assistants-email-info-container">
-                                        <a href="mailto:">email address</a>
-                                    </div>
-                                    <div class="div-assistants-tickets-info-container">
-                                        <p>500</p>
-                                    </div>
-                                    <div class="div-assistants-activity-info-container status-active">
-                                        <p>Legendary</p>
-                                    </div>
-                                </li> -->
-                            </ul>
-                            <ul class="assistants-list hide-element" data-league-type="senior">
+                        <?php require_once __DIR__ . '/partials/signs/none-data.php'; ?>
+                        <?php require_once __DIR__ . '/partials/loaders/data-loader.php'; ?>
+                        <div class="div-assistants-list-container" data-league-type="legendary">
+                            <header class="leaderboard-overview-header legendary-overview-header">
+                                <p>Position</p>
+                                <p>User</p>
+                                <p>Email Address</p>
+                                <p>Tickets</p>
+                                <p>Activity</p>
+                            </header>
+                            <ul class="assistants-list legendary-list">
                                 <!-- DYNAMICALLY GENERATED ASSISTANTS VIA AJAX -->
                             </ul>
-                            <ul class="assistants-list hide-element" data-league-type="junior">
+                        </div>
+                        <div class="div-assistants-list-container" data-league-type="senior">
+                            <header class="leaderboard-overview-header senior-overview-header">
+                                <p>Position</p>
+                                <p>User</p>
+                                <p>Email Address</p>
+                                <p>Tickets</p>
+                                <p>Activity</p>
+                            </header>
+                            <ul class="assistants-list senior-list">
                                 <!-- DYNAMICALLY GENERATED ASSISTANTS VIA AJAX -->
                             </ul>
-                            <ul class="assistants-list hide-element" data-league-type="rookie">
+                        </div>
+                        <div class="div-assistants-list-container" data-league-type="junior">
+                            <header class="leaderboard-overview-header junior-overview-header">
+                                <p>Position</p>
+                                <p>User</p>
+                                <p>Email Address</p>
+                                <p>Tickets</p>
+                                <p>Activity</p>
+                            </header>
+                            <ul class="assistants-list junior-list">
+                                <!-- DYNAMICALLY GENERATED ASSISTANTS VIA AJAX -->
+                            </ul>
+                        </div>
+                        <div class="div-assistants-list-container" data-league-type="rookie">
+                            <header class="leaderboard-overview-header rookie-overview-header">
+                                <p>Position</p>
+                                <p>User</p>
+                                <p>Email Address</p>
+                                <p>Tickets</p>
+                                <p>Activity</p>
+                            </header>
+                            <ul class="assistants-list rookie-list">
                                 <!-- DYNAMICALLY GENERATED ASSISTANTS VIA AJAX -->
                             </ul>
                         </div>
