@@ -21,7 +21,7 @@ require_once __DIR__ . '/partials/loaders/page-loader.php';
                             <ion-icon src="<?php echo ICON_PATH; ?>/legendary.svg"></ion-icon>
                         </div>
                         <div class="div-league-overview-info-container legendary-info">
-                            <p>Solved Tickets: <span>500+</span></p>
+                            <p>Resolved Tickets: <span>500+</span></p>
                             <h2>Legendary</h2>
                         </div>
                         <div class="div-league-overview-leader-container legendary-leader">
@@ -40,7 +40,7 @@ require_once __DIR__ . '/partials/loaders/page-loader.php';
                             <ion-icon src="<?php echo ICON_PATH; ?>/senior.svg"></ion-icon>
                         </div>
                         <div class="div-league-overview-info-container">
-                            <p>Solved Tickets: <span>250+</span></p>
+                            <p>Resolved Tickets: <span>250+</span></p>
                             <h2>Senior League</h2>
                         </div>
                         <div class="div-league-overview-leader-container">
@@ -59,7 +59,7 @@ require_once __DIR__ . '/partials/loaders/page-loader.php';
                             <ion-icon src="<?php echo ICON_PATH; ?>/junior.svg"></ion-icon>
                         </div>
                         <div class="div-league-overview-info-container">
-                            <p>Solved Tickets: <span>100+</span></p>
+                            <p>Resolved Tickets: <span>100+</span></p>
                             <h2>Junior League</h2>
                         </div>
                         <div class="div-league-overview-leader-container">
@@ -78,7 +78,7 @@ require_once __DIR__ . '/partials/loaders/page-loader.php';
                             <ion-icon src="<?php echo ICON_PATH; ?>/rookie.svg"></ion-icon>
                         </div>
                         <div class="div-league-overview-info-container">
-                            <p>Solved Tickets: <span>10+</span></p>
+                            <p>Resolved Tickets: <span>1+</span></p>
                             <h2>Rookie League</h2>
                         </div>
                         <div class="div-league-overview-leader-container">
