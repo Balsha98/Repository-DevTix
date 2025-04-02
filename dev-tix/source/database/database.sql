@@ -156,10 +156,6 @@ CREATE TABLE leaderboards (
         ON DELETE CASCADE
 );
 
-INSERT INTO leaderboards (leaderboard_id, league_id, assistant_id, resolved_tickets) VALUES 
-(1, 1, 2, 510),
-(2, 1, 3, 540);
-
 -- SELECT * FROM leaderboards;
 
 
