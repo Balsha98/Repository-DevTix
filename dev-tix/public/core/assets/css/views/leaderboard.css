@@ -52,37 +52,38 @@
     font-size: 1.6rem;
 }
 
-/* TICKETS ACTIONS CONTAINER */
-.div-pagination-btns-container {
+/* LEADERBOARD ACTIONS CONTAINER */
+.div-leaderboard-actions-container {
     display: inherit;
     align-items: center;
     gap: 0.8rem;
 }
 
-/* BUTTON (OVERRIDE) */
-.btn-pagination {
-    display: inherit;
-    align-items: inherit;
-    gap: 0.4rem;
-    padding: 0.8rem 1.2rem;
-    font-size: 1.2rem;
+/* INPUT CONTAINER (OVERRIDE) */
+.div-input-container .label-select {
+    right: 0.8rem;
 }
 
-.btn-pagination ion-icon {
+.div-input-container select {
+    width: 16rem;
+    padding: 0.8rem 1.2rem;
     font-size: 1.4rem;
 }
 
-/* TICKETS LIST OVERVIEW CONTAINER */
+.div-input-container ion-icon {
+    font-size: 2rem;
+}
+
+/* LEADERBOARD OVERVIEW CONTAINER */
 .div-leaderboard-overview-container {
     flex-grow: inherit;
-    position: relative;
     display: inherit;
     flex-direction: inherit;
     gap: 1.6rem;
     padding: 0 2.4rem;
 }
 
-/* TICKETS LIST OVERVIEW HEADER */
+/* LEADERBOARD OVERVIEW HEADER */
 .leaderboard-overview-header {
     display: grid;
     grid-template-columns: 12rem repeat(3, 1fr) 12rem;
@@ -99,6 +100,156 @@
 
 .leaderboard-overview-header p:last-child {
     text-align: right;
+}
+
+/* ASSISTANTS LISTS CONTAINER */
+.div-assistants-lists-container {
+    flex-grow: inherit;
+    position: relative;
+}
+
+/* ASSISTANTS LIST */
+.assistants-list {
+    padding-right: 1.2rem;
+    border-radius: var(--border-radius-lg);
+    overflow-y: scroll;
+}
+
+.assistants-list::-webkit-scrollbar {
+    width: 0.8rem;
+    background-color: var(--gray-tint);
+    border-radius: inherit;
+}
+
+.assistants-list::-webkit-scrollbar-thumb {
+    background-color: var(--primary-tint);
+    border-radius: inherit;
+}
+
+/* ASSISTANTS LIST */
+.assistants-list-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 12rem repeat(3, 1fr) 12rem;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 1.6rem;
+    background-color: var(--gray-tint);
+    border-radius: inherit;
+    transition: opacity 0.3s;
+    overflow-x: hidden;
+    cursor: pointer;
+}
+
+.assistants-list-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.2rem;
+    height: 100%;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.assistants-list-item:not(:first-child)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--white);
+    transform: translateY(-50%);
+}
+
+.assistants-list-item:nth-child(2)::after {
+    background-color: gold;
+}
+
+.assistants-list-item:nth-child(3)::after {
+    background-color: silver;
+}
+
+.assistants-list-item:nth-child(4)::after {
+    background-color: brown;
+}
+
+.assistants-list-item:hover::before {
+    background-color: var(--primary);
+}
+
+.assistants-list-item:hover {
+    opacity: var(--opacity-lg);
+}
+
+/* ASSISTANTS POSITION CONTENT CONTAINER */
+.div-assistants-position-content-container p {
+    font-size: 1.4rem;
+}
+
+/* ASSISTANTS DATA CONTENT CONTAINER */
+.div-assistants-data-content-container {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* IMAGE CONTAINER (OVERRIDE) */
+.div-list-item-user-image-container {
+    width: 3.6rem;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--border-radius-circle);
+}
+
+/* ASSISTANTS DATA/EMAIL/TICKETS INFO CONTAINER */
+.div-assistants-data-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.div-assistants-data-info-container p,
+.div-assistants-tickets-info-container p {
+    font-size: 1.4rem;
+}
+
+.div-assistants-data-info-container span {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.div-assistants-email-info-container a:link,
+.div-assistants-email-info-container a:visited {
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+/* ASSISTANTS ACTIVITY INFO CONTAINER */
+.div-assistants-activity-info-container {
+    justify-self: end;
+    width: fit-content;
+    padding: 0.6rem 0.8rem;
+    text-align: center;
+    color: var(--white);
+    background-color: transparent;
+    border-radius: var(--border-radius-md);
+}
+
+.status-active {
+    background-color: var(--success);
+}
+
+.status-inactive {
+    background-color: var(--error);
+}
+
+.div-assistants-activity-info-container p {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: inherit;
 }
 
 /* LEADER CONTENT FOOTER */

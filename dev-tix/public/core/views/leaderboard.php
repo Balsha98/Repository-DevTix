@@ -19,15 +19,20 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                 <div class="div-leaderboard-content-container">
                     <header class="leaderboard-content-header flex-between">
                         <h2 class="leaderboard-content-header-heading">
-                            <span class="span-current-leaderboard">Legendary</span> Leaderboard Overview
+                            <span class="span-leaderboard-type">Legendary</span> Leaderboard Overview
                         </h2>
-                        <div class="div-pagination-btns-container">
-                            <button class="btn btn-primary btn-pagination" data-direction="prev">
-                                <ion-icon src="<?php echo ICON_PATH; ?>/chevron-left.svg"></ion-icon>
-                            </button>
-                            <button class="btn btn-primary btn-pagination" data-direction="next">
-                                <ion-icon src="<?php echo ICON_PATH; ?>/chevron-right.svg"></ion-icon>
-                            </button>
+                        <div class="div-leaderboard-actions-container">
+                            <div class="div-input-container">
+                                <label class="label-select absolute-y-center" for="type">
+                                    <ion-icon src="<?php echo ICON_PATH; ?>/chevron-down.svg"></ion-icon>
+                                </label>
+                                <select id="type" class="leaderboard-select-type" name="type">
+                                    <option value="legendary">Show Legendary</option>
+                                    <option value="senior">Show Senior</option>
+                                    <option value="junior">Show Junior</option>
+                                    <option value="rookie">Show Rookie</option>
+                                </select>
+                            </div>
                         </div>
                     </header>
                     <div class="div-leaderboard-overview-container">
@@ -38,23 +43,45 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                             <p>Tickets</p>
                             <p>Activity</p>
                         </header>
-                        <div class="div-leaderboard-lists-container">
-                            <ul class="">
-                                <!-- DYNAMICALLY GENERATED USERS VIA AJAX -->
+                        <div class="div-assistants-lists-container">
+                            <?php require_once __DIR__ . '/partials/loaders/data-loader.php'; ?>
+                            <ul class="assistants-list" data-league-type="legendary">
+                                <!-- DYNAMICALLY GENERATED ASSISTANTS VIA AJAX -->
+                                <!-- <li class="assistants-list-item" data-href="profile/1" data-activity="">
+                                    <div class="div-assistants-position-content-container">
+                                        <p>#1</p>
+                                    </div>
+                                    <div class="div-assistants-data-content-container">
+                                        <img src="" alt="">
+                                        <div class="div-assistants-data-info-container">
+                                            <p>Username</p>
+                                            <span>Role Name</span>
+                                        </div>
+                                    </div>
+                                    <div class="div-assistants-email-info-container">
+                                        <a href="mailto:">email address</a>
+                                    </div>
+                                    <div class="div-assistants-tickets-info-container">
+                                        <p>500</p>
+                                    </div>
+                                    <div class="div-assistants-activity-info-container status-active">
+                                        <p>Legendary</p>
+                                    </div>
+                                </li> -->
                             </ul>
-                            <ul class="">
-                                <!-- DYNAMICALLY GENERATED USERS VIA AJAX -->
+                            <ul class="assistants-list hide-element" data-league-type="senior">
+                                <!-- DYNAMICALLY GENERATED ASSISTANTS VIA AJAX -->
                             </ul>
-                            <ul class="">
-                                <!-- DYNAMICALLY GENERATED USERS VIA AJAX -->
+                            <ul class="assistants-list hide-element" data-league-type="junior">
+                                <!-- DYNAMICALLY GENERATED ASSISTANTS VIA AJAX -->
                             </ul>
-                            <ul class="">
-                                <!-- DYNAMICALLY GENERATED USERS VIA AJAX -->
+                            <ul class="assistants-list hide-element" data-league-type="rookie">
+                                <!-- DYNAMICALLY GENERATED ASSISTANTS VIA AJAX -->
                             </ul>
                         </div>
                     </div>
                     <footer class="leaderboard-content-footer flex-between">
-                        <p>Leaderboard: <span class="span-current-leaderboard">Legendary</span></p>
+                        <p>Leaderboard: <span class="span-leaderboard-type">Legendary</span></p>
                         <p>Viewing Since: <span><?php echo date('H:i'); ?></span></p>
                     </footer>
                 </div>
