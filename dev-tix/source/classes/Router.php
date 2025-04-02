@@ -24,7 +24,9 @@ class Router
             if (!in_array($uriParts[0], Routes::ROUTES)) {
                 return self::requireView('invalid-route');
             } else if (count($uriParts) === 2) {
-                Session::set('record_id', $uriParts[1]);
+                if (is_numeric($uriParts[1])) {
+                    Session::set('record_id', $uriParts[1]);
+                }
             }
 
             $page = $uriParts[0];
