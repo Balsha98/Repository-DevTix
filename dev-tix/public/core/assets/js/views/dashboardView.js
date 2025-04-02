@@ -1,9 +1,9 @@
 class DashboardView {
     #spanOverviewItems = $(".span-overview-item");
     #dashboardTicketsContainer = $(".div-dashboard-tickets-container");
-    #ticketsSelectFilter = $(".tickets-select-filter");
     #ticketsContainerHeaders = $(".div-dashboard-tickets-container header");
     #ticketsContainerFooter = $(".div-dashboard-tickets-container footer");
+    #ticketsSelectFilter = $(".tickets-select-filter");
     #ticketsListOverviewHeader = $(".tickets-list-overview-header");
     #ticketsList = $(".tickets-list");
     #spanAppliedFilter = $(".span-applied-filter");
