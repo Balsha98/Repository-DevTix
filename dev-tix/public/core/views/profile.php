@@ -2,6 +2,7 @@
 // Import needed models.
 // TODO: Might create custom autoloader.
 require_once __DIR__ . '/../../../source/classes/models/User.php';
+require_once __DIR__ . '/../../../source/classes/models/Leaderboard.php';
 
 $user = new User(Session::get('user_id'), Session::getDbInstance());
 
@@ -63,6 +64,22 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                         <?php $isDisabled = $user->getId() !== $recordID && $user->getRoleId() !== 1; ?>
                         <form class="form form-profile" action="/api/" enctype="multipart/form-data">
                             <div class="div-user-details-container">
+                                <?php
+                                if ($isRecordIdSet && $recordID !== 0) {
+                                    $profileUser = new User($recordID, Session::getDbInstance());
+
+                                    if ($profileUser->getRoleId() === 2) {
+                                        $leaderboard = new Leaderboard($profileUser->getId(), Session::getDbInstance());
+                                        $leagueName = strtolower($leaderboard->getLeagueName());
+
+                                        echo "
+                                            <div class='div-league-icon-container flex-center'>
+                                                <ion-icon src='" . ICON_PATH . '/' . $leagueName . ".svg'></ion-icon>
+                                            </div>
+                                        ";
+                                    }
+                                }
+                                ?>
                                 <div class="div-image-container div-profile-image-container">
                                     <?php
                                     if ($isRecordIdSet && $recordID === 0) {
