@@ -105,6 +105,26 @@ class TicketApiController extends AbsApiController
             }
         }
 
+        // Update leaderboard.
+        if ($action === 'resolved/request') {
+            $totalTickets = (int) $this->getTotalResolvedTickets($userID);
+
+            $leagueID = 0;
+            if ($totalTickets >= 500) {
+                $leagueID = 1;
+            } else if ($totalTickets >= 250) {
+                $leagueID = 2;
+            } else if ($totalTickets >= 100) {
+                $leagueID = 3;
+            } else if ($totalTickets >= 1) {
+                $leagueID = 4;
+            }
+
+            if (isset($this->updateUserStanding($leagueID, $userID, $totalTickets)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
+        }
+
         if ($action === 'cancelled/request') {
             return ApiMessage::alertDataAlterAttempt(true, '/tickets');
         }
@@ -182,10 +202,35 @@ class TicketApiController extends AbsApiController
         )->getQueryResult();
     }
 
+    private function getTotalResolvedTickets(int $userID)
+    {
+        $query = 'SELECT COUNT(request_id) AS total FROM ticket_requests WHERE assistant_id = :assistant_id;';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':assistant_id' => $userID]
+        )->getQueryResult()['total'];
+    }
+
+    private function updateUserStanding(int $leagueID, int $userID, int $totalTickets)
+    {
+        $query = '
+            INSERT INTO leaderboards SET 
+                league_id = :league_id, 
+                assistant_id = :assistant_id, 
+                resolved_tickets = :resolved_tickets 
+            ON DUPLICATE KEY UPDATE 
+                league_id = VALUES(league_id), 
+                resolved_tickets = VALUES(resolved_tickets);
+        ';
+
+        return Session::getDbInstance()->executeQuery($query, [
+            ':league_id' => $leagueID, ':assistant_id' => $userID, ':resolved_tickets' => $totalTickets
+        ])->getQueryResult();
+    }
+
     private function getLastInsertId()
     {
         return Session::getDbInstance()->executeQuery(
-            'SELECT MAX(request_id) as id FROM ticket_requests;'
+            'SELECT MAX(request_id) AS id FROM ticket_requests;'
         )->getQueryResult()['id'];
     }
 }
