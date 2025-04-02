@@ -25,8 +25,8 @@ class DashboardView {
             (height, element) => height + parseFloat($(element).css("height")), 0
         );
 
-        const elementHeightDifference = containerHeight - innerElementHeightTotal;
-        this.#ticketsList.css("height", `calc(${elementHeightDifference}px - 64px)`);
+        const elementHeightDifference = containerHeight - innerElementHeightTotal - 64;
+        this.#ticketsList.css("height", `${elementHeightDifference}px`);
 
         // Guard clause.
         if (!tickets) return;
@@ -66,9 +66,15 @@ class DashboardView {
                     <div class="div-tickets-status-info-container status-${ticket["status"]}">
                         <p>${ticket["status"][0].toUpperCase() + ticket["status"].slice(1)}</p>
                     </div>
-                </li>    
+                </li>
             `);
         }
+
+        const listItemsHeightTotal = [...$(".tickets-list-item")].reduce((height, item) => {
+            return height + parseFloat($(item).css("height"));
+        }, 0);
+
+        if (listItemsHeightTotal > elementHeightDifference) this.#ticketsList.css("overflow-y", "scroll");
 
         this.setSpanTotalTickets(tickets.length);
     }
