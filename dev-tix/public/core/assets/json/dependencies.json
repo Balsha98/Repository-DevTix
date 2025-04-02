@@ -18,6 +18,7 @@
             "css": [
                 "css/partials/loaders/data-loader",
                 "css/partials/navigation",
+                "css/partials/signs/none-data",
                 "css/partials/signs/none-notifications",
                 "css/partials/loaders/page-loader",
                 "css/partials/sidebar"
