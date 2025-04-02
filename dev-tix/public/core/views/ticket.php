@@ -99,10 +99,12 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                                     $request = new Request($recordID, Session::getDbInstance());
 
                                     if (in_array($recordID, $user->getRequestIDs())) {
+                                        $viewAsUser = new User($request->getTurnId(), Session::getDbInstance());
+
                                         if ($request->getStatus() === 'resolved') {
                                             echo '
                                                 <p class="text-ticket-assignment">
-                                                    Resolved By: <span>' . $user->getUsername() . '</span>
+                                                    Resolved By: <span>' . $viewAsUser->getUsername() . '</span>
                                                 </p>
                                             ';
                                         } else if ($request->getStatus() === 'cancelled') {
