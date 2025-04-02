@@ -252,7 +252,7 @@
 }
 
 /* IMAGE CONTAINER (OVERRIDE) */
-.div-tickets-user-image-container {
+.div-list-item-user-image-container {
     width: 3.6rem;
     aspect-ratio: 1 / 1;
     border-radius: var(--border-radius-circle);

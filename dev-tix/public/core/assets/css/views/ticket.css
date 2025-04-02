@@ -262,7 +262,7 @@
 }
 
 /* IMAGE CONTAINER (OVERRIDE) */
-.div-ticket-topic-container .div-tickets-user-image-container {
+.div-ticket-topic-container .div-list-item-user-image-container {
     width: 4.4rem;
     aspect-ratio: 1 / 1;
     border-radius: var(--border-radius-circle);
@@ -404,7 +404,7 @@
 }
 
 /* IMAGE CONTAINER (OVERRIDE) */
-.ticket-responses-list-item .div-tickets-user-image-container {
+.ticket-responses-list-item .div-list-item-user-image-container {
     width: 4.4rem;
     aspect-ratio: 1 / 1;
     border-radius: var(--border-radius-circle);
