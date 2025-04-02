@@ -4,8 +4,6 @@ class LeaderboardView {
     #leaderboardContentFooter = $(".leaderboard-content-footer");
     #leaderboardSelectType = $(".leaderboard-select-type");
     #assistantsListContainers = $(".div-assistants-list-container");
-    #leaderboardOverviewHeaders = $(".leaderboard-overview-header");
-    #assistantsLists = $(".assistants-list");
     #spansLeaderboardType = $(".span-leaderboard-type");
 
     setTargetLeaderboardAsMain(leagueType) {
