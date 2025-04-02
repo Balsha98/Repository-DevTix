@@ -3,6 +3,7 @@ class UsersView {
     #usersSelectFilter = $(".users-select-filter");
     #usersContainerHeaders = $(".div-users-overview-container header");
     #usersContainerFooters = $(".div-users-overview-container footer");
+    #usersListOverviewHeader = $(".users-list-overview-header");
     #usersList = $(".users-list");
     #spanAppliedFilter = $(".span-applied-filter");
     #spanTotalUsers = $(".span-total-users");
@@ -62,7 +63,12 @@ class UsersView {
             return height + parseFloat($(item).css("height"));
         }, 0);
 
-        if (listItemsHeightTotal > elementHeightDifference) this.#usersList.css("overflow-y", "scroll");
+        if (listItemsHeightTotal > elementHeightDifference) {
+            this.#usersListOverviewHeader.css("padding-right", "36px");
+
+            this.#usersList.css("padding-right", "12px");
+            this.#usersList.css("overflow-y", "scroll");
+        }
 
         this.setSpanTotalUsers(users.length);
     }
