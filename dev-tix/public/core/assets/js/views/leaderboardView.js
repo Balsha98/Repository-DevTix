@@ -5,6 +5,7 @@ class LeaderboardView {
     #leaderboardSelectType = $(".leaderboard-select-type");
     #assistantsListContainers = $(".div-assistants-list-container");
     #spansLeaderboardType = $(".span-leaderboard-type");
+    #iconLeague = $(".icon-league");
 
     setTargetLeaderboardAsMain(leagueType) {
         this.#assistantsListContainers.each((_, container) => {
@@ -15,6 +16,7 @@ class LeaderboardView {
 
         this.#leaderboardSelectType.val(leagueType);
         this.setSpansLeaderboardType(leagueType);
+        this.setLeagueIcon(leagueType);
     }
 
     generateLeaderboardsData(data, renderImage, getTimeAgo) {
@@ -100,6 +102,10 @@ class LeaderboardView {
         this.#spansLeaderboardType.each((_, span) => {
             $(span).text(leagueType[0].toUpperCase() + leagueType.slice(1));
         });
+    }
+
+    setLeagueIcon(leagueType) {
+        this.#iconLeague.attr("src", `/core/assets/media/icons/${leagueType}.svg`);
     }
 
     addEventChangeLeaderboardType(handlerFunction) {

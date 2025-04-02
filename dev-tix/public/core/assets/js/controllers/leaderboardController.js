@@ -25,6 +25,7 @@ const controlChangeLeaderboardType = function () {
     });
 
     leaderboardView.setSpansLeaderboardType(leagueType);
+    leaderboardView.setLeagueIcon(leagueType);
 
     // Calculate visible assistants.
     const totalAssistantsLeft = $(`.${leagueType}-list li`).length;

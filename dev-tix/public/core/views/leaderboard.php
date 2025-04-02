@@ -21,6 +21,9 @@ require_once __DIR__ . '/partials/loaders/page-loader.php';
                             <span class="span-leaderboard-type">Legendary</span> Leaderboard Overview
                         </h2>
                         <div class="div-leaderboard-actions-container">
+                            <div class="div-league-icon-container flex-center">
+                                <ion-icon class="icon-league" src="<?php echo ICON_PATH; ?>/legendary.svg"></ion-icon>
+                            </div>
                             <div class="div-input-container">
                                 <label class="label-select absolute-y-center" for="type">
                                     <ion-icon src="<?php echo ICON_PATH; ?>/chevron-down.svg"></ion-icon>
