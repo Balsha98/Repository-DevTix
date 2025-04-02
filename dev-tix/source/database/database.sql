@@ -129,6 +129,34 @@ CREATE TABLE ticket_responses (
 );
 
 
+-- LEAGUES
+CREATE TABLE leagues (
+    league_id INT NOT NULL AUTO_INCREMENT,
+    league_name VARCHAR(25) NOT NULL,
+    PRIMARY KEY (league_id)
+);
+
+INSERT INTO leagues (league_id, league_name) VALUES 
+(1, "Legendary"),
+(2, "Senior"),
+(3, "Junior"),
+(4, "Rookie");
+
+
+-- LEADERBOARDS
+CREATE TABLE leaderboards (
+    leaderboard_id INT NOT NULL AUTO_INCREMENT,
+    league_id INT NOT NULL,
+    assistant_id INT NOT NULL UNIQUE,
+    resolved_tickets INT NOT NULL,
+    PRIMARY KEY (leaderboard_id),
+    FOREIGN KEY (league_id) REFERENCES leagues (league_id)
+        ON DELETE CASCADE,
+    FOREIGN KEY (assistant_id) REFERENCES users (user_id) 
+        ON DELETE CASCADE
+);
+
+
 -- NOTIFICATIONS
 CREATE TABLE notifications (
     notification_id INT NOT NULL AUTO_INCREMENT,
