@@ -18,7 +18,7 @@ require_once __DIR__ . '/partials/loaders/page-loader.php';
                 <ul class="leagues-overview-list grid-2-columns">
                     <li class="leagues-overview-list-item">
                         <div class="div-league-overview-icon-container">
-                            <ion-icon src="<?php echo ICON_PATH; ?>/legend.svg"></ion-icon>
+                            <ion-icon src="<?php echo ICON_PATH; ?>/legendary.svg"></ion-icon>
                         </div>
                         <div class="div-league-overview-info-container legendary-info">
                             <p>Solved Tickets: <span>500+</span></p>
