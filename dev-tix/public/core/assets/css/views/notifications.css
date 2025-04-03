@@ -1,0 +1,276 @@
+/* CENTERED CONTAINER (OVERRIDE) */
+.centered-container {
+    height: inherit;
+}
+
+/* MAIN CONTAINER */
+.main-container {
+    display: flex;
+    height: inherit;
+}
+
+/* NOTIFICATIONS CONTAINER */
+.div-notifications-container {
+    flex-grow: 1;
+    display: inherit;
+    flex-direction: column;
+    gap: 2.4rem;
+    height: inherit;
+    padding: 2.4rem;
+}
+
+/* NOTIFICATIONS CONTENT CONTAINER */
+.div-notifications-content-container {
+    flex-grow: 1;
+    display: inherit;
+    flex-direction: inherit;
+    gap: 2.4rem;
+    background-color: var(--white);
+    box-shadow: 0 0.4rem 1.6rem var(--shadow-sm);
+    border-radius: var(--border-radius-lg);
+}
+
+/* NOTIFICATIONS CONTAINER HEADER */
+.notifications-container-header {
+    position: relative;
+    height: 6.4rem;
+    padding: 0 2.4rem;
+}
+
+.notifications-container-header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--gray-tint);
+    transform: translateY(50%);
+}
+
+.notifications-container-header-heading {
+    font-size: 1.6rem;
+}
+
+/* NOTIFICATIONS ACTIONS CONTAINER */
+.div-notifications-actions-container {
+    display: inherit;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* INPUT CONTAINER (OVERRIDE) */
+.div-input-container .label-select {
+    right: 0.8rem;
+}
+
+.div-input-container select {
+    width: 16rem;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.4rem;
+}
+
+.div-input-container ion-icon {
+    font-size: 2rem;
+}
+
+/* BUTTON (OVERRIDE) */
+.div-notifications-actions-container button,
+.div-notifications-actions-container button {
+    display: inherit;
+    align-items: inherit;
+    gap: 0.4rem;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.2rem;
+}
+
+/* NOTIFICATIONS LIST OVERVIEW CONTAINER */
+.div-notifications-list-overview-container {
+    flex-grow: inherit;
+    position: relative;
+    display: inherit;
+    flex-direction: inherit;
+    gap: 1.6rem;
+    padding: 0 2.4rem;
+}
+
+/* NOTIFICATIONS LIST OVERVIEW HEADER */
+.notifications-list-overview-header {
+    display: grid;
+    grid-template-columns: 6.4rem repeat(3, 1fr) 12rem;
+    align-items: center;
+    gap: 1.6rem;
+    height: 2rem;
+    padding: 0 1.6rem;
+}
+
+.notifications-list-overview-header p {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+
+.notifications-list-overview-header p:last-child {
+    text-align: right;
+}
+
+/* NOTIFICATIONS LIST CONTAINER */
+.div-notifications-list-container {
+    flex-grow: inherit;
+    position: relative;
+}
+
+/* NOTIFICATIONS LIST */
+.notifications-list {
+    border-radius: var(--border-radius-lg);
+}
+
+.notifications-list::-webkit-scrollbar {
+    width: 0.8rem;
+    background-color: var(--gray-tint);
+    border-radius: inherit;
+}
+
+.notifications-list::-webkit-scrollbar-thumb {
+    background-color: var(--primary-tint);
+    border-radius: inherit;
+}
+
+/* NOTIFICATIONS LIST */
+.notifications-list-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 6.4rem repeat(3, 1fr) 12rem;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 1.6rem;
+    background-color: var(--gray-tint);
+    border-radius: inherit;
+    transition: opacity 0.3s;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.notifications-list-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.2rem;
+    height: 100%;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.notifications-list-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--white);
+    transform: translateY(50%);
+}
+
+.notifications-list-item:hover::before {
+    background-color: var(--primary);
+}
+
+.notifications-list-item:hover {
+    opacity: var(--opacity-lg);
+}
+
+/* NOTIFICATIONS ID CONTENT CONTAINER */
+.div-notifications-id-content-container p {
+    font-size: 1.4rem;
+}
+
+/* NOTIFICATIONS USER CONTENT CONTAINER */
+.div-notifications-user-content-container {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* IMAGE CONTAINER (OVERRIDE) */
+.div-list-item-user-image-container {
+    width: 3.6rem;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--border-radius-circle);
+}
+
+/* NOTIFICATIONS USER/CONTENT/TIMESTAMP INFO CONTAINER */
+.div-notifications-user-info-container,
+.div-notifications-content-info-container,
+.div-notifications-timestamp-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.div-notifications-user-info-container p,
+.div-notifications-content-info-container p,
+.div-notifications-timestamp-info-container p {
+    font-size: 1.4rem;
+}
+
+.div-notifications-user-info-container span,
+.div-notifications-content-info-container span,
+.div-notifications-timestamp-info-container span {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+/* NOTIFICATIONS STATUS INFO CONTAINER */
+.div-notifications-status-info-container {
+    justify-self: end;
+    width: fit-content;
+    padding: 0.6rem 0.8rem;
+    text-align: center;
+    color: var(--white);
+    background-color: transparent;
+    border-radius: var(--border-radius-md);
+}
+
+.status-read {
+    background-color: var(--pending);
+}
+
+.status-unread {
+    background-color: var(--warning);
+}
+
+.div-notifications-status-info-container p {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: inherit;
+}
+
+/* NOTIFICATIONS CONTAINER FOOTER */
+.notifications-container-footer {
+    position: relative;
+    height: 4.8rem;
+    padding: 0 2.4rem;
+}
+
+.notifications-container-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--gray-tint);
+    transform: translateY(-50%);
+}
+
+.notifications-container-footer p {
+    font-size: 1.4rem;
+}
+
+.notifications-container-footer span {
+    font-weight: 500;
+    color: var(--primary);
+}

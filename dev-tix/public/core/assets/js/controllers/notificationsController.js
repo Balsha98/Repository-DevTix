@@ -1,0 +1,98 @@
+import { getTimeAgo } from "./../helpers/date.js";
+import { renderListItemUserImage } from "./../helpers/image.js";
+import * as pageLoaderController from "./pageLoaderController.js";
+import * as dataLoaderController from "./dataLoaderController.js";
+import navigationView from "./../views/navigationView.js";
+import * as navigationController from "./navigationController.js";
+import sidebarView from "./../views/sidebarView.js";
+import * as sidebarController from "./sidebarController.js";
+import notificationsView from "./../views/notificationsView.js";
+import * as noneDataController from "./noneDataController.js";
+
+const controlChangeFilter = function () {
+    const notificationListItems = $(".notifications-list-item");
+
+    // Guard clause.
+    if (notificationListItems.length === 0) return;
+
+    // Show visuals.
+    noneDataController.controlHideNoneDataContainer();
+    dataLoaderController.controlShowDataLoader();
+
+    // Verify filter.
+    const filter = isNaN($(this).val()) ? $(this).val() : +$(this).val();
+    notificationListItems.each((_, item) => {
+        const isRead = $(item).data("status");
+        if (filter === "all") $(item).removeClass("hide-element");
+        else if (isRead !== filter) $(item).addClass("hide-element");
+        else $(item).removeClass("hide-element");
+    });
+
+    notificationsView.setSpanFilterName(filter);
+
+    // Get difference between filtered data.
+    const { length: totalHidden } = $(".notifications-list-item.hide-element");
+    const totalNotifications = notificationListItems.length - totalHidden;
+    setTimeout(() => notificationsView.setSpanTotalNotifications(totalNotifications), 1000);
+
+    // Show none data container if list is empty.
+    if (totalNotifications === 0) noneDataController.controlShowNoneDataContainer(1);
+
+    // Hide data loader.
+    dataLoaderController.controlHideDataLoader(1);
+};
+
+const controlMarkAllNotificationsAsRead = function () {
+    // TODO: Mark all notifications altogether...
+};
+
+const controlMarkNotificationAsRead = function () {
+    // TODO: Mark each notification individually...
+};
+
+const controlGenerateNotificationsList = function () {
+    const route = $("#view").val();
+    const userID = $("#view_as_user_id").val();
+    const authToken = $("#csrf_token").val();
+    const url = `/api/?route=${route}&id=${userID}&csrf_token=${authToken}`;
+    const method = "GET";
+
+    $.ajax({
+        url: url,
+        method: method,
+        success: function (response) {
+            console.log(route, response);
+
+            // Render ticket list items.
+            const notifications = response["response"]["data"]["notifications"] ?? null;
+            if (!notifications || notifications.length === 0) noneDataController.controlShowNoneDataContainer(0);
+
+            notificationsView.generateNotificationsList(notifications, renderListItemUserImage, getTimeAgo);
+            notificationsView.addEventMarkNotificationAsRead(controlMarkNotificationAsRead);
+        },
+        error: function (response) {
+            console.log(response.responseText);
+        },
+    });
+};
+
+const initController = function () {
+    pageLoaderController.controlHidePageLoader(1);
+
+    // Setup navigation.
+    navigationView.setWelcomeMessage();
+    navigationController.controlGenerateNavigationLists();
+    navigationView.addEventToggleDropdown(navigationController.controlToggleDropdown);
+    navigationView.addEventRevertClientData(navigationController.controlRevertClientData);
+    navigationView.addEventMarkNotificationsAsRead(navigationController.controlMarkNotificationsAsRead);
+
+    // Setup sidebar.
+    sidebarView.addEventToggleSidebar(sidebarController.controlToggleSidebar);
+    sidebarView.addEventToggleSidebarDropdown(sidebarController.controlToggleSidebarDropdown);
+
+    // Setup dashboard.
+    notificationsView.addEventChangeFilter(controlChangeFilter);
+    controlGenerateNotificationsList();
+};
+
+initController();
