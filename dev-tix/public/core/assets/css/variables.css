@@ -20,6 +20,9 @@
     --success-shade: #40c057;
     --error: #ff6b6b;
     --error-shade: #fa5252;
+    --gold: #f5bf11;
+    --silver: #c0c0c0;
+    --bronze: #6e4d06;
     --transparent-black-xs: rgba(0, 0, 0, var(--opacity-xs));
     --transparent-black-sm: rgba(0, 0, 0, var(--opacity-sm));
     --transparent-black-md: rgba(0, 0, 0, var(--opacity-md));
