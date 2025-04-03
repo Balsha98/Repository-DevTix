@@ -329,7 +329,7 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                     </div>
                     <footer class="ticket-container-footer flex-between">
                         <p>Ticket View: <span class="span-ticket-view">New</span></p>
-                        <p>Viewing Since: <span><?php echo date('H:i'); ?></span></p>
+                        <p>Viewing Since: <span><?php echo date('H:i a'); ?></span></p>
                     </footer>
                 </div>
             </div>
