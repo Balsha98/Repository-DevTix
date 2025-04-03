@@ -22,6 +22,7 @@ class ApiRoutes
         ],
         'PUT' => [
             'navigation',
+            'notifications',
             'profile',
             'ticket'
         ],
