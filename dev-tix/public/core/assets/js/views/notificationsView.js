@@ -44,7 +44,7 @@ class NotificationsView {
                     <div class="div-notifications-user-content-container">
                         ${renderImage(notification)}
                         <div class="div-notifications-user-info-container">
-                            <p>${notification["first_name"]} ${notification["last_name"]}</p>
+                            <p>${notification["username"]}</p>
                             <span>${notification["email"]}</span>
                         </div>
                     </div>
@@ -77,7 +77,8 @@ class NotificationsView {
     }
 
     setSpanFilterName(filter) {
-        this.#spanAppliedFilter.text(filter[0].toUpperCase() + filter.slice(1));
+        const filterName = isNaN(filter) ? filter : filter ? "read" : "unread";
+        this.#spanAppliedFilter.text(filterName[0].toUpperCase() + filterName.slice(1));
     }
 
     setSpanTotalNotifications(totalNotifications) {
