@@ -233,7 +233,7 @@
 }
 
 .status-read {
-    background-color: var(--pending);
+    background-color: var(--success);
 }
 
 .status-unread {
