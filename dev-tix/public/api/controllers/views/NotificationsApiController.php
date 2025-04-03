@@ -41,6 +41,7 @@ class NotificationsApiController extends AbsApiController
             'notification_id' => $data['notification_id'],
             'title' => $data['title'],
             'message' => $data['message'],
+            'is_read' => $data['is_read'],
             'sent_at' => $data['sent_at']
         ];
     }
