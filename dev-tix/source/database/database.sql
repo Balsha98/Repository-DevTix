@@ -39,8 +39,9 @@ INSERT INTO users (user_id, view_as_user_id, role_id, view_as_role_id, first_nam
 (1, 1, 1, 1, "Admin", "User", "admin@devtix.com", "Admin", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", NOW()),
 (2, 2, 2, 2, "Assistant1", "User", "assistant1@devtix.com", "Assistant1", "a39a7ffad4a3013f29da97b84f264337f234c1cf9b3c40c7c30c677a8a18609a", NOW()),
 (3, 3, 2, 2, "Assistant2", "User", "assistant2@devtix.com", "Assistant2", "a39a7ffad4a3013f29da97b84f264337f234c1cf9b3c40c7c30c677a8a18609a", NOW()),
-(4, 4, 3, 3, "Patron1", "User", "patron1@devtix.com", "Patron1", "6e753a6b0a37cd1032c991ba167cee596db9adca33162ea9e48a0ba86c4daed3", NOW()),
-(5, 5, 3, 3, "Patron2", "User", "patron2@devtix.com", "Patron2", "6e753a6b0a37cd1032c991ba167cee596db9adca33162ea9e48a0ba86c4daed3", NOW());
+(4, 4, 2, 2, "Assistant3", "User", "assistant3@devtix.com", "Assistant3", "a39a7ffad4a3013f29da97b84f264337f234c1cf9b3c40c7c30c677a8a18609a", NOW()),
+(5, 5, 3, 3, "Patron1", "User", "patron1@devtix.com", "Patron1", "6e753a6b0a37cd1032c991ba167cee596db9adca33162ea9e48a0ba86c4daed3", NOW()),
+(6, 6, 3, 3, "Patron2", "User", "patron2@devtix.com", "Patron2", "6e753a6b0a37cd1032c991ba167cee596db9adca33162ea9e48a0ba86c4daed3", NOW());
 
 -- SELECT * FROM users;
 
@@ -68,7 +69,8 @@ INSERT INTO user_details (details_id, user_id, age, gender) VALUES
 (2, 2, NULL, NULL),
 (3, 3, NULL, NULL),
 (4, 4, NULL, NULL),
-(5, 5, NULL, NULL);
+(5, 5, NULL, NULL),
+(6, 6, NULL, NULL);
 
 -- SELECT * FROM user_details;
 
@@ -92,10 +94,12 @@ CREATE TABLE ticket_requests (
 );
 
 INSERT INTO ticket_requests (request_id, patron_id, assistant_id, type, subject, question, status, turn_id) VALUES
-(1, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
-(2, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
-(3, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
-(4, 4, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0);
+(1, 5, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
+(2, 5, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
+(3, 5, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
+(4, 5, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
+(5, 5, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
+(6, 5, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0);
 
 -- SELECT * FROM ticket_requests;
 
