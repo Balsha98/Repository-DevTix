@@ -3,6 +3,7 @@ class NotificationsView {
     #notificationsContainerHeader = $(".notifications-container-header");
     #notificationsContainerFooter = $(".notifications-container-footer");
     #notificationsSelectFilter = $(".notifications-select-filter");
+    #btnMarkAll = $(".btn-mark-all");
     #notificationsListOverviewHeader = $(".notifications-list-overview-header");
     #notificationsList = $(".notifications-list");
     #spanAppliedFilter = $(".span-applied-filter");
@@ -36,7 +37,8 @@ class NotificationsView {
                 <li 
                     class="notifications-list-item" 
                     data-notification-id="${notification["notification_id"]}" 
-                    data-status="${notification["is_read"]}"
+                    data-status="${notification["is_read"]}" 
+                    data-method="PUT"
                 >
                     <div class="div-notifications-id-content-container">
                         <p>#${notification["notification_id"]}</p>
@@ -85,6 +87,14 @@ class NotificationsView {
         this.#spanTotalNotifications.text(totalNotifications);
     }
 
+    addEventChangeFilter(handlerFunction) {
+        this.#notificationsSelectFilter.change(handlerFunction);
+    }
+
+    addEventMarkAllAsRead(handlerFunction) {
+        this.#btnMarkAll.click(handlerFunction);
+    }
+
     addEventMarkNotificationAsRead(handlerFunction) {
         const notificationListItems = $(".notifications-list-item");
 
@@ -94,10 +104,6 @@ class NotificationsView {
         notificationListItems.each((_, item) => {
             $(item).click(handlerFunction);
         });
-    }
-
-    addEventChangeFilter(handlerFunction) {
-        this.#notificationsSelectFilter.change(handlerFunction);
     }
 }
 

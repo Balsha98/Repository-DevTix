@@ -1,4 +1,5 @@
 import { getTimeAgo } from "./../helpers/date.js";
+import { handleRequest } from "./../helpers/request.js";
 import { renderListItemUserImage } from "./../helpers/image.js";
 import * as pageLoaderController from "./pageLoaderController.js";
 import * as dataLoaderController from "./dataLoaderController.js";
@@ -42,12 +43,37 @@ const controlChangeFilter = function () {
     dataLoaderController.controlHideDataLoader(1);
 };
 
-const controlMarkAllNotificationsAsRead = function () {
-    // TODO: Mark all notifications altogether...
+const controlMarkAllAsRead = function () {
+    const url = "/api/";
+    const method = $(this).data("method");
+
+    const data = {};
+    data["action"] = "mark/all";
+    data["id"] = $("#view_as_user_id").val();
+    data["route"] = $("#view").val();
+    data["csrf_token"] = $("#csrf_token").val();
+    data["is_read"] = $("#is_read").val();
+
+    handleRequest(url, method, data);
 };
 
 const controlMarkNotificationAsRead = function () {
-    // TODO: Mark each notification individually...
+    const status = +$(this).data("status");
+
+    // Guard clause: only mark unread ones.
+    if (status === 1) return;
+
+    const url = "/api/";
+    const method = $(this).data("method");
+
+    const data = {};
+    data["action"] = "mark/one";
+    data["id"] = +$(this).data("notification-id");
+    data["route"] = $("#view").val();
+    data["csrf_token"] = $("#csrf_token").val();
+    data["is_read"] = $("#is_read").val();
+
+    handleRequest(url, method, data);
 };
 
 const controlGenerateNotificationsList = function () {
@@ -92,6 +118,7 @@ const initController = function () {
 
     // Setup dashboard.
     notificationsView.addEventChangeFilter(controlChangeFilter);
+    notificationsView.addEventMarkAllAsRead(controlMarkAllAsRead);
     controlGenerateNotificationsList();
 };
 
