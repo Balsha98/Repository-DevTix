@@ -73,7 +73,7 @@ class NavigationApiController extends AbsApiController
 
     private function getAllClients(int $userID, int $roleID)
     {
-        $query = 'SELECT * FROM users WHERE user_id != :user_id OR role_id != :role_id;';
+        $query = 'SELECT * FROM users WHERE user_id != :user_id OR role_id != :role_id ORDER BY role_id ASC, username ASC;';
         return Session::getDbInstance()->executeQuery(
             $query, [':user_id' => $userID, ':role_id' => $roleID]
         )->getQueryResult();
