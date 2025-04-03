@@ -26,7 +26,32 @@ class NotificationsApiController extends AbsApiController
 
     public function put()
     {
-        // TODO: Mark notifications as read...
+        $data = $this->getData();
+        $action = $data['action'];
+
+        // Update single notification.
+        if ($action === 'mark/one') {
+            $notificationID = $this->getId();
+            $isRead = $data['is_read'];
+
+            // Guard clause: process fails.
+            if (isset($this->markNotificationAsRead($notificationID, $isRead)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
+        }
+
+        // Update all notifications.
+        if ($action === 'mark/all') {
+            $userID = $this->getId();
+            $roleID = $this->getClientRoleID($userID);
+
+            // Guard clause: process fails.
+            if (isset($this->markAllAsRead($data, $userID, $roleID)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
+        }
+
+        return ApiMessage::alertDataAlterAttempt(true);
     }
 
     private function extractNotificationData(array $data)
@@ -45,6 +70,14 @@ class NotificationsApiController extends AbsApiController
             'is_read' => $data['is_read'],
             'sent_at' => $data['sent_at']
         ];
+    }
+
+    private function getClientRoleID(int $clientID)
+    {
+        $query = 'SELECT role_id FROM users WHERE user_id = :user_id';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':user_id' => $clientID]
+        )->getQueryResult()['role_id'];
     }
 
     private function getAllNotifications(int $userID, int $roleID)
@@ -71,7 +104,15 @@ class NotificationsApiController extends AbsApiController
         )->getQueryResult();
     }
 
-    private function markNotificationsAsRead(array $data, int $userID, int $roleID)
+    private function markNotificationAsRead(int $notificationID, int $isRead)
+    {
+        $query = 'UPDATE notifications SET is_read = :is_read WHERE notification_id = :notification_id;';
+        return Session::getDbInstance()->executeQuery($query, [
+            ':is_read' => $isRead, ':notification_id' => $notificationID
+        ])->getQueryResult();
+    }
+
+    private function markAllAsRead(array $data, int $userID, int $roleID)
     {
         if (Session::get('user_id') === $userID && $roleID === 1) {
             $query = 'UPDATE notifications SET is_read = :is_read;';
