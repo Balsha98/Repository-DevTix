@@ -178,8 +178,6 @@ CREATE TABLE notifications (
 );
 
 INSERT INTO notifications (notification_id, user_id, type, title, message, is_read, sent_at) VALUES
-(1, 2, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW()),
-(2, 5, "request", "Request Successfully Posted", "You have successfully posted a request.", 0, NOW()),
-(3, 6, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW());
+(1, 2, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW());
 
 -- SELECT * FROM notifications;
