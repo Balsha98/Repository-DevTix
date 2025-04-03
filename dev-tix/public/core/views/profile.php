@@ -68,7 +68,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                                 if ($isRecordIdSet && $recordID !== 0) {
                                     $profileUser = new User($recordID, Session::getDbInstance());
 
-                                    if ($profileUser->getRoleId() === 2) {
+                                    if ($profileUser->getRoleId() === 2 && !empty($profileUser->getRequestIDs())) {
                                         $leaderboard = new Leaderboard($profileUser->getId(), Session::getDbInstance());
                                         $leagueName = strtolower($leaderboard->getLeagueName());
 
