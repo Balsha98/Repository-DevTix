@@ -91,7 +91,7 @@ require_once __DIR__ . '/partials/loaders/page-loader.php';
                     </div>
                     <footer class="leaderboard-content-footer flex-between">
                         <p>Leaderboard: <span class="span-leaderboard-type">Legendary</span></p>
-                        <p>Viewing Since: <span><?php echo date('H:i'); ?></span></p>
+                        <p>Viewing Since: <span><?php echo date('H:i a'); ?></span></p>
                     </footer>
                 </div>
             </div>

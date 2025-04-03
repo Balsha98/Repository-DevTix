@@ -50,14 +50,15 @@ class LeaderboardView {
 
                 $(`.${leagueType}-list`).append(`
                     <li 
-                        class="assistants-list-item" 
+                        class="assistants-list-item assistants-list-item-${++position}" 
                         data-href="profile/${assistant["user_id"]}" 
                         data-activity="${activity}"
                     >
                         <div class="div-assistants-position-content-container">
-                            <p>#${++position}</p>
+                            <p>#${position}</p>
                         </div>
                         <div class="div-assistants-data-content-container">
+                            <span class="span-position-indicator span-position-indicator-${position}">&nbsp;</span>
                             ${renderImage(assistant)}
                             <div class="div-assistants-data-info-container">
                                 <p>${assistant["username"]}</p>
