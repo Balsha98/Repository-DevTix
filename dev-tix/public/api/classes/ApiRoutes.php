@@ -7,6 +7,7 @@ class ApiRoutes
             'dashboard',
             'leaderboard',
             'navigation',
+            'notifications',
             'profile',
             'ticket',
             'tickets',
