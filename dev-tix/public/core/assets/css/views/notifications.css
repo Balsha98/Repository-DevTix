@@ -135,7 +135,7 @@
     border-radius: inherit;
 }
 
-/* NOTIFICATIONS LIST */
+/* NOTIFICATIONS LIST ITEM */
 .notifications-list-item {
     position: relative;
     display: grid;
