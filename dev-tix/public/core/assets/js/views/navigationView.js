@@ -54,7 +54,10 @@ class NavigationView {
             if (viewingAsClient && this.#spanClientName) this.#spanClientName.text(item["first_name"]);
 
             this.#clientsMenuList.append(`
-                <li class="dropdown-menu-list-item clients-menu-list-item ${viewingAsClient}" data-client-id="${item["user_id"]}">
+                <li 
+                    class="dropdown-menu-list-item clients-menu-list-item ${viewingAsClient}" 
+                    data-client-id="${item["user_id"]}"
+                >
                     <form class="form client-form-${item["user_id"]}" action="/api/" method="PUT">
                         <div class="div-notifications-icon-container flex-center">
                             <ion-icon src="/core/assets/media/icons/user.svg"></ion-icon>
@@ -97,7 +100,12 @@ class NavigationView {
             const isUnread = item["is_read"] === 0 ? "unread-notification" : "";
 
             this.#notificationsMenuList.append(`
-                <li class="dropdown-menu-list-item notifications-menu-list-item ${isUnread}">
+                <li 
+                    class="dropdown-menu-list-item notifications-menu-list-item ${isUnread}" 
+                    data-notification-id="${item["notification_id"]}" 
+                    data-status="${item["is_read"]}" 
+                    data-method="PUT"
+                >
                     <div class="div-notifications-icon-container flex-center">
                         <ion-icon src="/core/assets/media/icons/${this.#getIconType(item["type"])}.svg"></ion-icon>
                     </div>
@@ -121,7 +129,7 @@ class NavigationView {
         else if (type === "request") return "paperclip";
         else if (type === "response") return "wind";
         else if (type === "league") return "award";
-        else if (type === "leaderboard") return "chart";
+        else if (type === "leaderboard") return "bar-chart-2";
     }
 
     addEventToggleDropdown(handlerFunction) {
@@ -131,7 +139,12 @@ class NavigationView {
     }
 
     addEventSetViewAsClient(handlerFunction) {
-        $(".clients-menu-list-item").each((_, item) => {
+        const clientListItems = $(".clients-menu-list-item");
+
+        // Guard clause: no clients available.
+        if (clientListItems.length === 0) return;
+
+        clientListItems.each((_, item) => {
             $(item).click(handlerFunction);
         });
     }
@@ -140,12 +153,17 @@ class NavigationView {
         this.#btnRevert.click(handlerFunction);
     }
 
-    addEventMarkNotificationsAsRead(handlerFunction) {
+    addEventMarkAllAsRead(handlerFunction) {
         this.#btnMarkAsRead.click(handlerFunction);
     }
 
-    addEventViewNotificationDetails(handlerFunction) {
-        $(".notification-list-item").each((_, item) => {
+    addEventMarkNotificationAsRead(handlerFunction) {
+        const notificationListItems = $(".notifications-menu-list-item");
+
+        // Guard clause: no unread notifications.
+        if (notificationListItems.length === 0) return;
+
+        notificationListItems.each((_, item) => {
             $(item).click(handlerFunction);
         });
     }

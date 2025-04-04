@@ -1,4 +1,3 @@
-import { redirectTo } from "./../helpers/redirect.js";
 import { handleRequest } from "./../helpers/request.js";
 import { getTimeAgo } from "./../helpers/date.js";
 import navigationView from "./../views/navigationView.js";
@@ -41,7 +40,7 @@ export const controlRevertClientData = function (formEvent) {
     handleRequest(url, method, data);
 };
 
-export const controlMarkNotificationsAsRead = function (formEvent) {
+export const controlMarkAllAsRead = function (formEvent) {
     formEvent.preventDefault();
 
     const form = $(this.closest(".form"));
@@ -49,11 +48,30 @@ export const controlMarkNotificationsAsRead = function (formEvent) {
     const method = form.attr("method");
 
     const data = {};
-    data["action"] = "mark/notification";
+    data["action"] = "mark/all";
     data["id"] = $("#view_as_user_id").val();
     data["is_read"] = $("#is_read").val();
     data["route"] = $("#partial").val();
     data["csrf_token"] = $("#csrf_token").val();
+
+    handleRequest(url, method, data);
+};
+
+const controlMarkNotificationAsRead = function () {
+    const status = +$(this).data("status");
+
+    // Guard clause: only mark unread ones.
+    if (status === 1) return;
+
+    const url = "/api/";
+    const method = $(this).data("method");
+
+    const data = {};
+    data["action"] = "mark/one";
+    data["id"] = +$(this).data("notification-id");
+    data["route"] = $("#view").val();
+    data["csrf_token"] = $("#csrf_token").val();
+    data["is_read"] = $("#is_read").val();
 
     handleRequest(url, method, data);
 };
@@ -79,14 +97,10 @@ export const controlGenerateNavigationLists = function () {
 
             // Render notification list items.
             navigationView.generateNotificationsList(response["response"]["data"]["notifications"], getTimeAgo);
-            navigationView.addEventViewNotificationDetails(controlViewNotificationDetails);
+            navigationView.addEventMarkNotificationAsRead(controlMarkNotificationAsRead);
         },
         error: function (response) {
             console.log(response.responseText);
         },
     });
-};
-
-const controlViewNotificationDetails = function () {
-    redirectTo($(this).data("href"));
 };
