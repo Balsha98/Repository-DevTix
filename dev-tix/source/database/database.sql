@@ -183,3 +183,12 @@ INSERT INTO notifications (notification_id, user_id, type, title, message, is_re
 (3, 6, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW());
 
 -- SELECT * FROM notifications;
+
+
+-- NEWSLETTERS
+CREATE TABLE newsletters (
+    newsletter_id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(50) NOT NULL,
+    activated_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (newsletter_id)
+);
