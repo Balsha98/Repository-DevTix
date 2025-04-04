@@ -85,7 +85,7 @@ const initController = function () {
     navigationView.setWelcomeMessage();
     navigationView.addEventToggleDropdown(navigationController.controlToggleDropdown);
     navigationView.addEventRevertClientData(navigationController.controlRevertClientData);
-    navigationView.addEventMarkNotificationsAsRead(navigationController.controlMarkNotificationsAsRead);
+    navigationView.addEventMarkAllAsRead(navigationController.controlMarkAllAsRead);
     navigationController.controlGenerateNavigationLists();
 
     // Setup sidebar.

@@ -110,7 +110,7 @@ const initController = function () {
     navigationController.controlGenerateNavigationLists();
     navigationView.addEventToggleDropdown(navigationController.controlToggleDropdown);
     navigationView.addEventRevertClientData(navigationController.controlRevertClientData);
-    navigationView.addEventMarkNotificationsAsRead(navigationController.controlMarkNotificationsAsRead);
+    navigationView.addEventMarkAllAsRead(navigationController.controlMarkAllAsRead);
 
     // Setup sidebar.
     sidebarView.addEventToggleSidebar(sidebarController.controlToggleSidebar);
