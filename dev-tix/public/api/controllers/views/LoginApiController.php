@@ -33,11 +33,7 @@ class LoginApiController extends AbsApiController
 
     private function getAccount(array $data)
     {
-        $query = '
-            SELECT * FROM users 
-            WHERE username = :username;
-        ';
-
+        $query = 'SELECT * FROM users WHERE username = :username;';
         return Session::getDbInstance()->executeQuery(
             $query, [':username' => $data['username']]
         )->getQueryResult();
