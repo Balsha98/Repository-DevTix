@@ -9,7 +9,7 @@ class NotificationsView {
     #spanAppliedFilter = $(".span-applied-filter");
     #spanTotalNotifications = $(".span-total-notifications");
 
-    generateNotificationsList(notifications, renderImage, getTimeAgo) {
+    generateNotificationsList(data, renderImage, getTimeAgo) {
         const containerHeight = parseFloat(this.#notificationsContentContainer.css("height"));
 
         // prettier-ignore
@@ -25,10 +25,15 @@ class NotificationsView {
         this.#notificationsList.css("height", `${elementHeightDifference}px`);
 
         // Guard clause.
-        if (!notifications || notifications.length === 0) return;
+        if (!data || data["notifications"].length === 0) return;
+
+        // Check if any are unread.
+        const totalUnread = data["total_unread"];
+        if (totalUnread === 0) this.#btnMarkAll.remove();
 
         // Make sure notifications are processed as an array.
-        notifications = Array.isArray(notifications) ? notifications : [notifications];
+        const isArray = Array.isArray(data["notifications"]);
+        const notifications = isArray ? data["notifications"] : [data["notifications"]];
 
         for (const notification of notifications) {
             const read = notification["is_read"] === 1 ? "read" : "unread";

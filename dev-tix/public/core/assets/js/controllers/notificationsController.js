@@ -90,10 +90,10 @@ const controlGenerateNotificationsList = function () {
             console.log(route, response);
 
             // Render ticket list items.
-            const notifications = response["response"]["data"]["notifications"] ?? null;
-            if (!notifications || notifications.length === 0) noneDataController.controlShowNoneDataContainer(0);
+            const data = response["response"]["data"] ?? null;
+            if (!data || data["notifications"].length === 0) noneDataController.controlShowNoneDataContainer(0);
 
-            notificationsView.generateNotificationsList(notifications, renderListItemUserImage, getTimeAgo);
+            notificationsView.generateNotificationsList(data, renderListItemUserImage, getTimeAgo);
             notificationsView.addEventMarkNotificationAsRead(controlMarkNotificationAsRead);
         },
         error: function (response) {
