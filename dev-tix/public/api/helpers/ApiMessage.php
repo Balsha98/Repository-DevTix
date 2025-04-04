@@ -67,7 +67,7 @@ class ApiMessage
         return [
             'status' => $isValid ? 'success' : 'error',
             'response' => [
-                'heading' => 'Data Updated ' . ($isValid ? 'Successfully' : 'Unsuccessfully'),
+                'heading' => ($isValid ? 'Successful' : 'Unsuccessful') . ' Data Update',
                 'message' => match ($isValid) {
                     true => 'Your request was processed successfully.',
                     false => 'Your request could not be processed.'
