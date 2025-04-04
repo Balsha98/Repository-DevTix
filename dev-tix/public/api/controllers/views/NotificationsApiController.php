@@ -16,10 +16,15 @@ class NotificationsApiController extends AbsApiController
                 $return['notifications'][] = $this->extractNotificationData($notification);
             }
 
+            $return['total_unread'] = $this->getTotalUnread($userID, $roleID);
+
             return ApiMessage::dataFetchAttempt($return);
         }
 
-        $return['notifications'] = $this->extractNotificationData($notifications);
+        $return = [
+            'notifications' => $this->extractNotificationData($notifications),
+            'total_unread' => $this->getTotalUnread($userID, $roleID)
+        ];
 
         return ApiMessage::dataFetchAttempt($return);
     }
@@ -104,6 +109,21 @@ class NotificationsApiController extends AbsApiController
         )->getQueryResult();
     }
 
+    private function getTotalUnread(int $userID, int $roleID)
+    {
+        if (Session::get('user_id') === $userID && $roleID === 1) {
+            $query = 'SELECT COUNT(notification_id) AS total FROM notifications WHERE is_read = :is_read;';
+            return Session::getDbInstance()->executeQuery(
+                $query, [':is_read' => 0]
+            )->getQueryResult()['total'];
+        }
+
+        $query = 'SELECT COUNT(notification_id) AS total FROM notifications WHERE user_id = :user_id AND is_read = :is_read;';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':user_id' => $userID, ':is_read' => 0]
+        )->getQueryResult()['total'];
+    }
+
     private function markNotificationAsRead(int $notificationID, int $isRead)
     {
         $query = 'UPDATE notifications SET is_read = :is_read WHERE notification_id = :notification_id;';
@@ -115,15 +135,15 @@ class NotificationsApiController extends AbsApiController
     private function markAllAsRead(array $data, int $userID, int $roleID)
     {
         if (Session::get('user_id') === $userID && $roleID === 1) {
-            $query = 'UPDATE notifications SET is_read = :is_read;';
+            $query = 'UPDATE notifications SET is_read = :is_read WHERE is_read = :unread;';
             return Session::getDbInstance()->executeQuery(
-                $query, [':is_read' => $data['is_read']]
+                $query, [':is_read' => $data['is_read'], ':unread' => 0]
             )->getQueryResult();
         }
 
-        $query = 'UPDATE notifications SET is_read = :is_read WHERE user_id = :user_id;';
-        return Session::getDbInstance()->executeQuery(
-            $query, [':is_read' => $data['is_read'], ':user_id' => $userID]
-        )->getQueryResult();
+        $query = 'UPDATE notifications SET is_read = :is_read WHERE user_id = :user_id AND is_read = :unread;';
+        return Session::getDbInstance()->executeQuery($query, [
+            ':is_read' => $data['is_read'], ':user_id' => $userID, ':unread' => 0
+        ])->getQueryResult();
     }
 }
