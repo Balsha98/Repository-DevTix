@@ -15,7 +15,6 @@ class LoginApiController extends AbsApiController
 
         $passwordHash = hash('sha256', $data['password']);
         if ($account['password'] === $passwordHash) {
-            // Set session variable.
             Session::set('active', true);
             Session::set('user_id', $account['user_id']);
             Session::set('role_id', $account['role_id']);
