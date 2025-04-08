@@ -20,9 +20,10 @@ const controlUserLogin = function (formEvent) {
     const method = form.attr("method");
 
     const data = {};
+    data["route"] = $("#view").val();
     data["username"] = $("#username").val();
     data["password"] = $("#password").val();
-    data["route"] = $("#view").val();
+    data["csrf_token"] = $("#csrf_token").val();
 
     handleRequest(url, method, data);
 };
