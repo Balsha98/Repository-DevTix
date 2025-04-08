@@ -37,6 +37,7 @@ const controlUserSignup = function (formEvent) {
     const method = form.attr("method");
 
     const data = {};
+    data["route"] = $("#view").val();
     data["first_name"] = $("#first_name").val();
     data["last_name"] = $("#last_name").val();
     data["email"] = $("#email").val();
@@ -45,7 +46,7 @@ const controlUserSignup = function (formEvent) {
     data["username"] = $("#username").val();
     data["role"] = $("#role").val();
     data["password"] = $("#password").val();
-    data["route"] = $("#view").val();
+    data["csrf_token"] = $("#csrf_token").val();
 
     handleRequest(url, method, data);
 

@@ -138,6 +138,7 @@
                 </div>
                 <div class="div-hidden-inputs">
                     <input id="view" type="hidden" name="view" value="views/signup">
+                    <input id="csrf_token" type="hidden" name="csrf_token" value="<?php echo Session::get('csrf_token'); ?>">
                 </div>
             </form>
             <div class="div-login-container">
