@@ -12,7 +12,7 @@ class Router
     {
         Session::start();
 
-        // Check CSRF token expiration.
+        // Check CSRF token validity.
         self::refreshAuthTokenIfValid();
 
         // Parse uri.
@@ -32,8 +32,10 @@ class Router
             $page = $uriParts[0];
         }
 
-        // User activity verification.
-        Session::set('last_route', "/{$uri}");
+        // Save last visited route.
+        Session::set('last_route', $uri);
+
+        // Check user activity.
         self::confirmTraffic($page);
 
         // Render target page.
@@ -46,12 +48,9 @@ class Router
      */
     private static function refreshAuthTokenIfValid()
     {
-        if (Session::isSet('csrf_token')) {
-            if (((time() - Session::get('csrf_token_set_at')) / 60) > 5) {
-                if (Session::get('active')) {
-                    Session::setAuthToken('sha256', 'jagshemash');
-                }
-            }
+        if (!Session::isSet('csrf_token') ||
+                ((time() - Session::get('csrf_token_set_at')) / 60) > 5) {
+            Session::setAuthToken('sha256', 'jagshemash');
         }
     }
 
