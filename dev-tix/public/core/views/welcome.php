@@ -475,6 +475,7 @@
                             <button class="btn btn-primary btn-newsletter">Yes!</button>
                             <div class="div-hidden-inputs">
                                 <input id="route" type="hidden" name="route" value="views/welcome">
+                                <input id="csrf_token" type="hidden" name="csrf_token" value="<?php echo Session::get('csrf_token'); ?>">
                             </div>
                         </form>
                     </div>
