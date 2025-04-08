@@ -6,6 +6,7 @@ class ApiRoutes
         'GET' => [
             'dashboard',
             'leaderboard',
+            'leagues',
             'navigation',
             'notifications',
             'profile',
