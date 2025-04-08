@@ -65,8 +65,9 @@ const controlNewsletterSubmit = function (formEvent) {
     const method = form.attr("method");
 
     const data = {};
+    data["route"] = $("#view").val();
     data["email"] = $("#email").val();
-    data["route"] = $("#route").val();
+    data["csrf_token"] = $("#csrf_token").val();
 
     handleRequest(url, method, data);
 };
