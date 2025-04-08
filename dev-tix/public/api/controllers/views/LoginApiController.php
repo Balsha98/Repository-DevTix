@@ -19,9 +19,6 @@ class LoginApiController extends AbsApiController
             Session::set('user_id', $account['user_id']);
             Session::set('role_id', $account['role_id']);
 
-            // Set CSRF token.
-            Session::setAuthToken('sha256', 'jagshemash');
-
             // If login was successful.
             return ApiMessage::alertAuthAttempt($data, true, '/dashboard');
         }

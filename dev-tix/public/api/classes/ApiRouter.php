@@ -28,14 +28,11 @@ class ApiRouter
         // Start session.
         Session::start();
 
-        // Guard clause: check CSRF token.
-        if ($script !== 'welcome' && $script !== 'login' && $script !== 'signup') {
-            $authToken = self::extractValue('csrf_token', $data);
-
-            if ($authToken !== Session::get('csrf_token') ||
-                    ((time() - Session::get('csrf_token_set_at')) / 60) > 5) {
-                return Encode::toJSON(ApiMessage::apiError('token'));
-            }
+        // Guard clause: invalid CSRF token.
+        $authToken = self::extractValue('csrf_token', $data);
+        if ($authToken !== Session::get('csrf_token') ||
+                ((time() - Session::get('csrf_token_set_at')) / 60) > 5) {
+            return Encode::toJSON(ApiMessage::apiError('token'));
         }
 
         // Set request method.
