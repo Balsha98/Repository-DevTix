@@ -26,7 +26,7 @@ require_once __DIR__ . '/partials/loaders/page-loader.php';
                         </div>
                         <div class="div-league-overview-leader-container legendary-leader">
                             <span>Leading The Way</span>
-                            <p>Assistant Username</p>
+                            <p class="text-legendary-leader">To Be Determined</p>
                         </div>
                         <div class="div-leaderboard-link-container flex-center">
                             <a class="link link-white flex-center" href="/leaderboard/?league=legendary">
@@ -45,7 +45,7 @@ require_once __DIR__ . '/partials/loaders/page-loader.php';
                         </div>
                         <div class="div-league-overview-leader-container">
                             <span>Leading The Way</span>
-                            <p>Assistant Username</p>
+                            <p class="text-senior-leader">To Be Determined</p>
                         </div>
                         <div class="div-leaderboard-link-container flex-center">
                             <a class="link link-white flex-center" href="/leaderboard/?league=senior">
@@ -64,7 +64,7 @@ require_once __DIR__ . '/partials/loaders/page-loader.php';
                         </div>
                         <div class="div-league-overview-leader-container">
                             <span>Leading The Way</span>
-                            <p>Assistant Username</p>
+                            <p class="text-junior-leader">To Be Determined</p>
                         </div>
                         <div class="div-leaderboard-link-container flex-center">
                             <a class="link link-white flex-center" href="/leaderboard/?league=junior">
@@ -83,7 +83,7 @@ require_once __DIR__ . '/partials/loaders/page-loader.php';
                         </div>
                         <div class="div-league-overview-leader-container">
                             <span>Leading The Way</span>
-                            <p>Assistant Username</p>
+                            <p class="text-rookie-leader">To Be Determined</p>
                         </div>
                         <div class="div-leaderboard-link-container flex-center">
                             <a class="link link-white flex-center" href="/leaderboard/?league=rookie">

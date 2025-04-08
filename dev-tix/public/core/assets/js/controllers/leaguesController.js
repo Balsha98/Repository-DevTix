@@ -5,6 +5,27 @@ import sidebarView from "./../views/sidebarView.js";
 import * as sidebarController from "./sidebarController.js";
 import leaguesView from "./../views/leaguesView.js";
 
+const controlGenerateLeagueLeaders = function () {
+    const route = $("#view").val();
+    const authToken = $("#csrf_token").val();
+    const url = `/api/?route=${route}&csrf_token=${authToken}`;
+    const method = "GET";
+
+    $.ajax({
+        url: url,
+        method: method,
+        success: function (response) {
+            console.log(route, response);
+
+            const leaders = response["response"]["data"];
+            if (leaders) leaguesView.setLeagueLeaders(leaders);
+        },
+        error: function (response) {
+            console.log(response.responseText);
+        },
+    });
+};
+
 const initController = function () {
     pageLoaderController.controlHidePageLoader(1);
 
@@ -20,6 +41,7 @@ const initController = function () {
     sidebarView.addEventToggleSidebarDropdown(sidebarController.controlToggleSidebarDropdown);
 
     // Setup leagues.
+    controlGenerateLeagueLeaders();
 };
 
 initController();
