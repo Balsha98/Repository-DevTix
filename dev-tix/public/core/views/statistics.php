@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../../source/classes/models/User.php';
 
 $user = new User(Session::get('user_id'), Session::getDbInstance());
 
-// require_once __DIR__ . '/partials/loaders/page-loader.php';
+require_once __DIR__ . '/partials/loaders/page-loader.php';
 ?>
 
     <!-- MAIN CONTAINER -->
