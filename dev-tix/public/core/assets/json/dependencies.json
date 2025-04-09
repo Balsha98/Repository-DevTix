@@ -82,7 +82,7 @@
                 "css/partials/loaders/page-loader",
                 "css/partials/sidebar"
             ],
-            "js": []
+            "js": ["https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"]
         }
     },
     {

@@ -86,4 +86,29 @@ class Template
 
         return $return ?? '<!-- END -->';
     }
+
+    public static function buildPageImportedModules(string $page)
+    {
+        $filePath = SERVER_PATH . '/core/assets/json/dependencies.json';
+        $dependencies = Encode::fromJSON(file_get_contents($filePath));
+
+        $return = '';
+        foreach ($dependencies as $dependency) {
+            if (array_key_exists($page, $dependency)) {
+                $modules = $dependency[$page]['js'];
+
+                if (!empty($modules)) {
+                    foreach ($modules as $module) {
+                        $return .= "
+                            <script 
+                                type='module' 
+                                src='{$module}'
+                            ></script>";
+                    }
+                }
+            }
+        }
+
+        return $return ?? '<!-- END -->';
+    }
 }
