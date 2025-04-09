@@ -75,6 +75,17 @@
         }
     },
     {
+        "statistics": {
+            "css": [
+                "css/partials/navigation",
+                "css/partials/signs/none-notifications",
+                "css/partials/loaders/page-loader",
+                "css/partials/sidebar"
+            ],
+            "js": []
+        }
+    },
+    {
         "ticket": {
             "css": [
                 "css/partials/modals/alert-modal",
