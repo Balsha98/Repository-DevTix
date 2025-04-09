@@ -10,6 +10,7 @@ class ApiRoutes
             'navigation',
             'notifications',
             'profile',
+            'statistics',
             'ticket',
             'tickets',
             'users'
