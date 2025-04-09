@@ -219,13 +219,23 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                                 </div>
                                 <div class="div-multiple-inputs-grid grid-2-columns">
                                     <div class="div-input-container">
-                                        <label class="absolute-y-center" for="profession">
-                                            <ion-icon src="<?php echo ICON_PATH; ?>/activity.svg"></ion-icon>
+                                        <label class="label-select absolute-y-center" for="profession">
+                                            <ion-icon src="<?php echo ICON_PATH; ?>/chevron-down.svg"></ion-icon>
                                         </label>
-                                        <input 
-                                            id="profession" class="profile-input" type="text" name="profession" 
-                                            placeholder="Profession" <?php echo $isDisabled ? 'disabled' : ''; ?>
+                                        <select 
+                                            id="profession" class="profile-input" name="profession" 
+                                            <?php echo $isDisabled ? 'disabled' : ''; ?>
                                         >
+                                            <option value="">Select Profession</option>
+                                            <option value="frontend developer">Frontend Developer</option>
+                                            <option value="backend developer">Backend Developer</option>
+                                            <option value="full-stack developer">Full-Stack Developer</option>
+                                            <option value="software engineer">Software Engineer</option>
+                                            <option value="devops engineer">DevOps Engineer</option>
+                                            <option value="data analyst">Data Analyst</option>
+                                            <option value="project manager">Project Manager</option>
+                                            <option value="other">Other</option>
+                                        </select>
                                     </div>
                                     <div class="div-input-container">
                                         <label class="absolute-y-center" for="country">
