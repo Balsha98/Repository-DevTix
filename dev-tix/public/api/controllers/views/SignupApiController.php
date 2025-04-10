@@ -67,14 +67,14 @@ class SignupApiController extends AbsApiController
             ':view_as_user_id' => $this->getLastInsertID() + 1, ':role_id' => $data['role'], ':view_as_role_id' => $data['role'],
             ':first_name' => $data['first_name'], ':last_name' => $data['last_name'], ':email' => $data['email'],
             ':username' => $data['username'], ':password' => hash('sha256', $data['password']), ':joined_at' => time()
-        ])->getQueryResult()['id'];
+        ])->getQueryResult();
     }
 
     private function getLastInsertID()
     {
         return Session::getDbInstance()->executeQuery(
-            'SELECT MAX(user_id) as id FROM users;',
-        )->getQueryResult();
+            'SELECT MAX(user_id) AS id FROM users;',
+        )->getQueryResult()['id'];
     }
 
     private function insertNewUserDetails($data)
