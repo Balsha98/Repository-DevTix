@@ -227,13 +227,13 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                                             <?php echo $isDisabled ? 'disabled' : ''; ?>
                                         >
                                             <option value="">Select Profession</option>
-                                            <option value="frontend developer">Frontend Developer</option>
-                                            <option value="backend developer">Backend Developer</option>
-                                            <option value="fullStack developer">Full-Stack Developer</option>
-                                            <option value="software engineer">Software Engineer</option>
-                                            <option value="devOps engineer">DevOps Engineer</option>
-                                            <option value="data analyst">Data Analyst</option>
-                                            <option value="project manager">Project Manager</option>
+                                            <option value="frontend-developer">Frontend Developer</option>
+                                            <option value="backend-developer">Backend Developer</option>
+                                            <option value="fullStack-developer">Full-Stack Developer</option>
+                                            <option value="software-engineer">Software Engineer</option>
+                                            <option value="devOps-engineer">DevOps Engineer</option>
+                                            <option value="data-analyst">Data Analyst</option>
+                                            <option value="project-manager">Project Manager</option>
                                             <option value="other">Other</option>
                                         </select>
                                     </div>
