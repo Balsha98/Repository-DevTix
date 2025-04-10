@@ -5,7 +5,7 @@
                 <ion-icon src="<?php echo ICON_PATH; ?>/check.svg"></ion-icon>
             </div>
             <div class="div-none-notifications-info-container">
-                 <h4>No  New Notifications</h4>
+                 <h4>No New Notifications</h4>
                  <p>There aren't any new notifications.</p>
             </div>
         </div>
