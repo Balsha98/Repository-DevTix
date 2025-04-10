@@ -38,6 +38,9 @@ class TicketApiController extends AbsApiController
 
             $ticketID = $this->getLastInsertId();
 
+            // Send request notification.
+            Notification::sendRequestNotification($ticketID, $data['user_id'], 'unassigned');
+
             return ApiMessage::alertDataAlterAttempt(true, "/ticket/{$ticketID}");
         }
 
@@ -89,7 +92,7 @@ class TicketApiController extends AbsApiController
     {
         $data = $this->getData();
         $action = $data['action'];
-        $tickedID = $this->getId();
+        $ticketID = $this->getId();
         $userID = $data['user_id'];
         $status = $data['status'];
 
@@ -100,7 +103,7 @@ class TicketApiController extends AbsApiController
         ];
 
         foreach ($columns[$action] as $column => $value) {
-            if (isset($this->updateRequestColumn($column, $value, $tickedID)['error'])) {
+            if (isset($this->updateRequestColumn($column, $value, $ticketID)['error'])) {
                 return ApiMessage::alertDataAlterAttempt(false);
             }
         }
@@ -108,6 +111,7 @@ class TicketApiController extends AbsApiController
         // Update leaderboard.
         if ($action === 'resolved/request') {
             $totalTickets = (int) $this->getTotalResolvedTickets($userID);
+            $currUserStanding = (int) $this->getUserStanding($userID) ?? 0;
 
             $leagueID = 0;
             if ($totalTickets >= 500) {
@@ -120,10 +124,18 @@ class TicketApiController extends AbsApiController
                 $leagueID = 4;
             }
 
+            // Send league notification.
+            if ($currUserStanding !== $leagueID) {
+                Notification::sendPrivateNotification($userID, 'league');
+            }
+
             if (isset($this->updateUserStanding($leagueID, $userID, $totalTickets)['error'])) {
                 return ApiMessage::alertDataAlterAttempt(false);
             }
         }
+
+        // Send request notification.
+        Notification::sendRequestNotification($ticketID, $userID, $status);
 
         if ($action === 'cancelled/request') {
             return ApiMessage::alertDataAlterAttempt(true, '/tickets');
@@ -208,6 +220,14 @@ class TicketApiController extends AbsApiController
         return Session::getDbInstance()->executeQuery(
             $query, [':assistant_id' => $userID]
         )->getQueryResult()['total'];
+    }
+
+    private function getUserStanding(int $userID)
+    {
+        $query = 'SELECT league_id FROM leaderboards WHERE user_id = :user_id;';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':user_id' => $userID]
+        )->getQueryResult()['league_id'];
     }
 
     private function updateUserStanding(int $leagueID, int $userID, int $totalTickets)
