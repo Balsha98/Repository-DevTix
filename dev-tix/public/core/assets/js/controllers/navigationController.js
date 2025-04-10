@@ -69,7 +69,7 @@ const controlMarkNotificationAsRead = function () {
     const data = {};
     data["action"] = "mark/one";
     data["id"] = +$(this).data("notification-id");
-    data["route"] = $("#view").val();
+    data["route"] = $("#partial").val();
     data["csrf_token"] = $("#csrf_token").val();
     data["is_read"] = $("#is_read").val();
 
