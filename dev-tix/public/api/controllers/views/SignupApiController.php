@@ -36,6 +36,9 @@ class SignupApiController extends AbsApiController
         Session::set('user_id', $newAccount['user_id']);
         Session::set('role_id', $newAccount['role_id']);
 
+        // Send signup notification.
+        Notification::sendPrivateNotification($newAccount['user_id'], 'signup');
+
         // If signup was successful.
         return ApiMessage::alertAuthAttempt($data, true, '/dashboard');
     }
