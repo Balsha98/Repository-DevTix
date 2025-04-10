@@ -58,7 +58,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                     <div class="div-tickets-overview-container">
                         <header class="tickets-container-header flex-between">
                             <h2 class="tickets-container-header-heading">
-                                <span class="span-client-name"><?php echo $user->getFirstName(); ?></span>'s Tickets Overview
+                                <span class="span-client-username"><?php echo $user->getUsername(); ?></span>'s Tickets Overview
                             </h2>
                             <?php if ($user->getViewAsRoleId() !== 1) { ?>
                             <div class="div-tickets-actions-container">
