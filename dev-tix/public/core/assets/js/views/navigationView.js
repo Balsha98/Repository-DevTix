@@ -129,7 +129,6 @@ class NavigationView {
         else if (type === "request") return "paperclip";
         else if (type === "response") return "wind";
         else if (type === "league") return "award";
-        else if (type === "leaderboard") return "bar-chart-2";
     }
 
     addEventToggleDropdown(handlerFunction) {
