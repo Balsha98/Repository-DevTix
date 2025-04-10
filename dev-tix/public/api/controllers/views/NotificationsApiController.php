@@ -12,6 +12,7 @@ class NotificationsApiController extends AbsApiController
 
         $return = [];
         if (!isset($notifications['notification_id'])) {
+            $return['notifications'] = [];
             foreach ($notifications as $notification) {
                 $return['notifications'][] = $this->extractNotificationData($notification);
             }
