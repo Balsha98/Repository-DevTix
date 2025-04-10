@@ -15,7 +15,7 @@ class DashboardApiController extends AbsApiController
         $data = $this->getAllRows('ticket_requests');
 
         // Get all present tickets.
-        if (count($data) > 1) {
+        if (!isset($data['request_id'])) {
             foreach ($data as $item) {
                 $return['tickets'][] = $this->extractTicketData($item);
             }
