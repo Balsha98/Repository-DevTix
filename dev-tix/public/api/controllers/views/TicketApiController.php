@@ -37,9 +37,12 @@ class TicketApiController extends AbsApiController
             }
 
             $ticketID = $this->getLastInsertId();
+            $userID = $data['user_id'];
 
-            // Send request notification.
-            Notification::sendRequestNotification($ticketID, $data['user_id'], 'unassigned');
+            // Guard clause: notification process error.
+            if (isset(Notification::sendRequestNotification($ticketID, $userID)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
 
             return ApiMessage::alertDataAlterAttempt(true, "/ticket/{$ticketID}");
         }
@@ -126,17 +129,24 @@ class TicketApiController extends AbsApiController
 
             // Send league notification.
             if ($currUserStanding !== $leagueID) {
-                Notification::sendPrivateNotification($userID, 'league');
+                // Guard clause: notification process error.
+                if (isset(Notification::sendPrivateNotification($userID, 'league')['error'])) {
+                    return ApiMessage::alertDataAlterAttempt(false);
+                };
             }
 
+            // Guard clause: league standing process error.
             if (isset($this->updateUserStanding($leagueID, $userID, $totalTickets)['error'])) {
                 return ApiMessage::alertDataAlterAttempt(false);
             }
         }
 
-        // Send request notification.
-        Notification::sendRequestNotification($ticketID, $userID, $status);
+        // Guard clause: notification process error.
+        if (isset(Notification::sendRequestNotification($ticketID, $userID, $status)['error'])) {
+            return ApiMessage::alertDataAlterAttempt(false);
+        }
 
+        // Guard clause: redirect to tickets view if request was cancelled.
         if ($action === 'cancelled/request') {
             return ApiMessage::alertDataAlterAttempt(true, '/tickets');
         }
