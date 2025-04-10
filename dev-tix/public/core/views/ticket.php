@@ -186,7 +186,7 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                                         <option value="web development">Web Development</option>
                                         <option value="frontend">Frontend</option>
                                         <option value="backend">Backend</option>
-                                        <option value="full-stack">Full-Stack</option>
+                                        <option value="fullStack">Full-Stack</option>
                                         <option value="programming">Programming</option>
                                         <option value="artificial intelligence">Artificial Intelligence</option>
                                         <option value="database">Database</option>
