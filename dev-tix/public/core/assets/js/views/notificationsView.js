@@ -25,11 +25,11 @@ class NotificationsView {
         this.#notificationsList.css("height", `${elementHeightDifference}px`);
 
         // Guard clause.
-        if (!data || data["notifications"].length === 0) return;
+        if (!data) return;
 
-        // Check if any are unread.
+        // Check if any exist, or are unread.
         const totalUnread = data["total_unread"];
-        if (totalUnread === 0) this.#btnMarkAll.remove();
+        if (data["notifications"].length === 0 || totalUnread === 0) this.#btnMarkAll.remove();
 
         // Make sure notifications are processed as an array.
         const isArray = Array.isArray(data["notifications"]);
