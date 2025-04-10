@@ -171,7 +171,6 @@ CREATE TABLE notifications (
     title VARCHAR(50) NOT NULL,
     message VARCHAR(100) NOT NULL,
     is_read INT NULL DEFAULT 0,
-    is_public INT NULL DEFAULT 0,
     sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (notification_id),
     FOREIGN KEY (user_id) REFERENCES users (user_id) 
