@@ -2,6 +2,13 @@
 
 class Notification
 {
+    private const REQUEST_STATUS = [
+        'unassigned' => 'Posted',
+        'pending' => 'Claimed',
+        'cancelled' => 'Cancelled',
+        'resolved' => 'Resolved'
+    ];
+
     private const PRIVATE_TYPES = [
         'signup' => [
             'title' => 'Welcome To DevTix',
@@ -19,10 +26,66 @@ class Notification
 
     public static function sendPrivateNotification(int $userID, string $type)
     {
+        $title = self::PRIVATE_TYPES[$type]['title'];
+        $message = self::PRIVATE_TYPES[$type]['message'];
+
         $query = 'INSERT INTO notifications (user_id, type, title, message) VALUES (:user_id, :type, :title, :message);';
         return Session::getDbInstance()->executeQuery($query, [
-            ':user_id' => $userID, ':type' => $type, ':title' => self::PRIVATE_TYPES[$type]['title'],
-            ':message' => self::PRIVATE_TYPES[$type]['message']
+            ':user_id' => $userID, ':type' => $type, ':title' => $title, ':message' => $message
         ])->getQueryResult();
+    }
+
+    private static function getRequestNotificationData(int $ticketID, string $username, string $status)
+    {
+        $ticketAction = self::REQUEST_STATUS[$status];
+
+        return [
+            'title' => "Request #{$ticketID} {$ticketAction}",
+            'message' => "{$username} {$ticketAction} a request."
+        ];
+    }
+
+    public static function sendRequestNotification(int $ticketID, int $userID, string $status)
+    {
+        $username = self::getUsernameByUserId($userID);
+        $title = self::getRequestNotificationData($ticketID, $username, $status)['title'];
+        $message = self::getRequestNotificationData($ticketID, $username, $status)['message'];
+
+        $query = '
+            INSERT INTO notifications (
+                user_id, type, title, message, is_public
+            ) VALUES (
+                :user_id, :type, :title, :message, :is_public
+            );
+        ';
+
+        $result = [];
+        foreach (self::getAllUserIDs() as $id) {
+            $result = Session::getDbInstance()->executeQuery($query, [
+                ':user_id' => $id, ':type' => 'request', ':title' => $title, ':message' => $message
+            ])->getQueryResult();
+
+            if (isset($result['error'])) {
+                return $result;
+            }
+        }
+
+        return $result;
+    }
+
+    private static function getAllUserIDs()
+    {
+        $query = 'SELECT user_id FROM users WHERE role_id != :role_id;';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':role_id' => 1]
+        )->getQueryResult();
+    }
+
+    private static function getUsernameByUserId(int $userID)
+    {
+        $query = 'SELECT username FROM users WHERE user_id = :user_id';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':user_id' => $userID]
+        )->getQueryResult()['username'];
     }
 }
