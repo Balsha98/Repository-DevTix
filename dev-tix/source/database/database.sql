@@ -170,7 +170,7 @@ CREATE TABLE notifications (
     type ENUM("signup", "profile", "request", "response", "league") NOT NULL,
     title VARCHAR(50) NOT NULL,
     message VARCHAR(100) NOT NULL,
-    is_read INT NOT NULL,
+    is_read INT NULL DEFAULT 0,
     is_public INT NULL DEFAULT 0,
     sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (notification_id),
@@ -178,12 +178,12 @@ CREATE TABLE notifications (
         ON DELETE CASCADE
 );
 
-INSERT INTO notifications (notification_id, user_id, type, title, message, is_read, sent_at) VALUES
-(1, 2, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW()),
-(2, 3, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW()),
-(3, 4, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW()),
-(4, 5, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW()),
-(5, 6, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW());
+-- INSERT INTO notifications (notification_id, user_id, type, title, message) VALUES
+-- (1, 2, "signup", "Welcome To DevTix", "You have successfully made an account."),
+-- (2, 3, "signup", "Welcome To DevTix", "You have successfully made an account."),
+-- (3, 4, "signup", "Welcome To DevTix", "You have successfully made an account."),
+-- (4, 5, "signup", "Welcome To DevTix", "You have successfully made an account."),
+-- (5, 6, "signup", "Welcome To DevTix", "You have successfully made an account.");
 
 -- SELECT * FROM notifications;
 
