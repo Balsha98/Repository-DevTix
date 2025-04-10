@@ -19,7 +19,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                 <div class="div-notifications-content-container">
                     <header class="notifications-container-header flex-between">
                         <h2 class="notifications-container-header-heading">
-                            <span class="span-client-name"><?php echo $user->getFirstName(); ?></span>'s Notifications Overview
+                            <span class="span-client-username"><?php echo $user->getUsername(); ?></span>'s Notifications Overview
                         </h2>
                         <div class="div-notifications-actions-container">
                             <div class="div-input-container">
