@@ -40,6 +40,9 @@ class ProfileApiController extends AbsApiController
 
             $userID = $this->getLastInsertId();
 
+            // Send signup notification.
+            Notification::sendPrivateNotification($userID, 'signup');
+
             return ApiMessage::alertDataAlterAttempt(true, "/profile/{$userID}");
         }
 
@@ -81,6 +84,9 @@ class ProfileApiController extends AbsApiController
         if (isset($this->updateUserDetailsData($userID, $data)['error'])) {
             return ApiMessage::alertDataAlterAttempt(false);
         }
+
+        // Send profile notification.
+        Notification::sendPrivateNotification($userID, 'profile');
 
         return ApiMessage::alertDataAlterAttempt(true);
     }
@@ -240,7 +246,7 @@ class ProfileApiController extends AbsApiController
     private function getLastInsertId()
     {
         return Session::getDbInstance()->executeQuery(
-            'SELECT MAX(user_id) as id FROM users;'
+            'SELECT MAX(user_id) AS id FROM users;'
         )->getQueryResult()['id'];
     }
 }
