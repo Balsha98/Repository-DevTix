@@ -184,7 +184,6 @@ INSERT INTO notifications (notification_id, user_id, type, title, message, is_re
 (3, 4, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW()),
 (4, 5, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW()),
 (5, 6, "signup", "Welcome To DevTix", "You have successfully made an account.", 0, NOW());
--- (2, 5, "request", "Request Successfully Posted", "You have successfully made an account.", 0, NOW()),
 
 -- SELECT * FROM notifications;
 
