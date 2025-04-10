@@ -40,8 +40,10 @@ class ProfileApiController extends AbsApiController
 
             $userID = $this->getLastInsertId();
 
-            // Send signup notification.
-            Notification::sendPrivateNotification($userID, 'signup');
+            // Guard clause: notification process error.
+            if (isset(Notification::sendPrivateNotification($userID, 'profile')['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
 
             return ApiMessage::alertDataAlterAttempt(true, "/profile/{$userID}");
         }
@@ -85,8 +87,10 @@ class ProfileApiController extends AbsApiController
             return ApiMessage::alertDataAlterAttempt(false);
         }
 
-        // Send profile notification.
-        Notification::sendPrivateNotification($userID, 'profile');
+        // Guard clause: notification process error.
+        if (isset(Notification::sendPrivateNotification($userID, 'profile')['error'])) {
+            return ApiMessage::alertDataAlterAttempt(false);
+        }
 
         return ApiMessage::alertDataAlterAttempt(true);
     }
