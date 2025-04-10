@@ -10,7 +10,7 @@ class NavigationView {
     #spanTotalUnread = $(".span-total-unread");
     #btnMarkAsRead = $(".btn-mark-as-read");
     #notificationsMenuList = $(".notifications-menu-list");
-    #spanClientName = $(".span-client-name");
+    #spanClientName = $(".span-client-username");
 
     setWelcomeMessage() {
         const hours = new Date().getHours();
@@ -50,8 +50,8 @@ class NavigationView {
         for (const item of clientsList) {
             const viewingAsClient = viewAsUserID ? (viewAsUserID === item["user_id"] ? "viewing-as-client" : "") : "";
 
-            // Visually show client's name; has to consistent across required pages.
-            if (viewingAsClient && this.#spanClientName) this.#spanClientName.text(item["first_name"]);
+            // Visually show client's name; has to be consistent across required pages.
+            if (viewingAsClient && this.#spanClientName.length !== 0) this.#spanClientName.text(item["username"]);
 
             this.#clientsMenuList.append(`
                 <li 
