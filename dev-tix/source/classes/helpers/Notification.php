@@ -40,27 +40,31 @@ class Notification
         $ticketAction = self::REQUEST_STATUS[$status];
 
         return [
-            'title' => "Request #{$ticketID} {$ticketAction}",
-            'message' => "{$username} {$ticketAction} a request."
+            'title' => "{$username} {$ticketAction} Request #{$ticketID}",
+            'message' => "{$username} successfully {$ticketAction} a request."
         ];
     }
 
     public static function sendRequestNotification(int $ticketID, int $userID, string $status)
     {
         $username = self::getUsernameByUserId($userID);
-        $title = self::getRequestNotificationData($ticketID, $username, $status)['title'];
-        $message = self::getRequestNotificationData($ticketID, $username, $status)['message'];
+        $query = 'INSERT INTO notifications (user_id, type, title, message) VALUES (:user_id, :type, :title, :message);';
 
-        $query = '
-            INSERT INTO notifications (
-                user_id, type, title, message, is_public
-            ) VALUES (
-                :user_id, :type, :title, :message, :is_public
-            );
-        ';
+        $allUserIDs = [];
+        if (!isset(self::getAllUserIDs()['user_id'])) {
+            foreach (self::getAllUserIDs() as $id) {
+                $allUserIDs[] = $id['user_id'];
+            }
+        } else {
+            $allUserIDs = self::getAllUserIDs();
+        }
 
         $result = [];
-        foreach (self::getAllUserIDs() as $id) {
+        foreach ($allUserIDs as $id) {
+            $username = $id === $userID ? 'You' : $username;
+            $title = self::getRequestNotificationData($ticketID, $username, $status)['title'];
+            $message = self::getRequestNotificationData($ticketID, $username, $status)['message'];
+
             $result = Session::getDbInstance()->executeQuery($query, [
                 ':user_id' => $id, ':type' => 'request', ':title' => $title, ':message' => $message
             ])->getQueryResult();
