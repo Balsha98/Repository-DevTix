@@ -2,6 +2,7 @@ class NavigationView {
     #iconWelcome = $(".icon-welcome");
     #spanWelcomeMessage = $(".span-welcome-message");
     #dropdownContainers = $(".dropdown-container");
+    #noneClientsData = $(".div-none-clients-container");
     #spanTotalClients = $(".span-total-clients");
     #btnRevert = $(".btn-revert");
     #clientsMenuList = $(".clients-menu-list");
@@ -46,6 +47,9 @@ class NavigationView {
             const [element] = this.#btnRevert;
             $(element.closest(".form")).remove();
         }
+
+        // Guard clause: show none sign.
+        if (clientsList.length === 0) return this.#noneClientsData.removeClass("hide-none-clients");
 
         for (const item of clientsList) {
             const viewingAsClient = viewAsUserID ? (viewAsUserID === item["user_id"] ? "viewing-as-client" : "") : "";

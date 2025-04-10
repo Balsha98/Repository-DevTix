@@ -24,9 +24,12 @@
                                 </div>
                             </form>
                         </header>
-                        <ul class="dropdown-menu-list clients-menu-list">
-                            <!-- DYNAMICALLY GENERATED VIA AJAX -->
-                        </ul>
+                        <div class="div-clients-menu-list-container">
+                            <?php require_once __DIR__ . '/signs/none-clients.php'; ?>
+                            <ul class="dropdown-menu-list clients-menu-list">
+                                <!-- DYNAMICALLY GENERATED VIA AJAX -->
+                            </ul>
+                        </div>
                         <footer class="clients-menu-footer">
                             <a class="link link-primary flex-between" href="/users">
                                 <span>View Clients</span>

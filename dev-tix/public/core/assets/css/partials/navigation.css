@@ -104,7 +104,8 @@
     background-color: var(--primary-tint);
 }
 
-/* NOTIFICATIONS MENU LIST CONTAINER */
+/* CLIENTS & NOTIFICATIONS MENU LIST CONTAINER */
+.div-clients-menu-list-container,
 .div-notifications-menu-list-container {
     position: relative;
 }
