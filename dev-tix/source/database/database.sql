@@ -84,7 +84,7 @@ CREATE TABLE ticket_requests (
     subject VARCHAR(50) NOT NULL,
     question TEXT NOT NULL,
     posted_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-    status ENUM("unassigned", "pending", "resolved", "cancelled") NOT NULL,
+    status ENUM("unassigned", "pending", "resolved", "cancelled") NOT NULL DEFAULT "unassigned",
     turn_id INT NULL DEFAULT 0,
     PRIMARY KEY (request_id),
     FOREIGN KEY (patron_id) REFERENCES users (user_id) 
