@@ -94,6 +94,7 @@ class NavigationView {
             $(element.closest(".form")).remove();
         }
 
+        // Guard clause: show none sign.
         if (notificationsList.length === 0) return this.#noneNotificationsData.removeClass("hide-none-notifications");
 
         for (const item of notificationsList) {
