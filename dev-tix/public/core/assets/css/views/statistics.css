@@ -131,7 +131,7 @@
     left: 0;
     width: 0.2rem;
     height: 100%;
-    background-color: transparent;
+    background-color: var(--primary);
 }
 
 .chart-color-1::before {
