@@ -45,7 +45,7 @@ class Notification
         ];
     }
 
-    public static function sendRequestNotification(int $ticketID, int $userID, string $status)
+    public static function sendRequestNotification(int $ticketID, int $userID, string $status = 'unassigned')
     {
         $username = self::getUsernameByUserId($userID);
         $query = 'INSERT INTO notifications (user_id, type, title, message) VALUES (:user_id, :type, :title, :message);';
