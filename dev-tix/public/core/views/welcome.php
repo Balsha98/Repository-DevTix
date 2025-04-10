@@ -72,7 +72,11 @@
                     </p>
                 </header>
                 <div class="div-grid-btn-container grid-2-columns">
+                    <?php if (Session::isSet('active')) { ?>
+                    <a class="link link-primary" href="/dashboard">Dashboard</a>
+                    <?php } else { ?>
                     <a class="link link-primary" href="/signup" target="_blank">Signup</a>
+                    <?php } ?>
                     <a class="link link-outline-primary" href="#about">Get Started</a>
                 </div>
                 <div class="div-hero-data-container">
