@@ -21,7 +21,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                     <ul class="dashboard-overview-list grid-4-columns">
                         <!-- TOTAL TICKETS -->
                         <li class="dashboard-overview-list-item">
-                            <div class="div-overview-item-icon-container flex-center">
+                            <div class="div-overview-item-icon-container">
                                 <ion-icon src="<?php echo ICON_PATH; ?>/paperclip.svg"></ion-icon>
                             </div>
                             <div class="div-overview-item-data-container">
@@ -31,7 +31,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                         </li>
                         <!-- TOTAL SOLVED TICKETS -->
                         <li class="dashboard-overview-list-item">
-                            <div class="div-overview-item-icon-container flex-center">
+                            <div class="div-overview-item-icon-container">
                                 <ion-icon src="<?php echo ICON_PATH; ?>/check.svg"></ion-icon>
                             </div>
                             <div class="div-overview-item-data-container">
@@ -41,7 +41,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                         </li>
                         <!-- TOTAL CANCELED TICKETS -->
                         <li class="dashboard-overview-list-item">
-                            <div class="div-overview-item-icon-container flex-center">
+                            <div class="div-overview-item-icon-container">
                                 <ion-icon src="<?php echo ICON_PATH; ?>/x.svg"></ion-icon>
                             </div>
                             <div class="div-overview-item-data-container">
@@ -51,7 +51,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                         </li>
                         <!-- TOTAL USERS -->
                         <li class="dashboard-overview-list-item">
-                            <div class="div-overview-item-icon-container flex-center">
+                            <div class="div-overview-item-icon-container">
                                 <ion-icon src="<?php echo ICON_PATH; ?>/users.svg"></ion-icon>
                             </div>
                             <div class="div-overview-item-data-container">
