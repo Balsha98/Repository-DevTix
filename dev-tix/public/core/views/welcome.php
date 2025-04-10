@@ -31,6 +31,16 @@
                     <button class="btn btn-dropdown">Account</button>
                     <div class="dropdown-menu hide-dropdown">
                         <span class="span-dropdown-indicator">&nbsp;</span>
+                        <?php if (Session::isSet('active')) { ?>
+                        <ul class="dropdown-menu-list">
+                            <li class="dropdown-menu-list-item">
+                                <a class="dropdown-link" href="/dashboard">Dashboard</a>
+                            </li>
+                            <li class="dropdown-menu-list-item">
+                                <a class="dropdown-link" href="/logout">Logout</a>
+                            </li>
+                        </ul>
+                        <?php } else { ?>
                         <ul class="dropdown-menu-list">
                             <li class="dropdown-menu-list-item">
                                 <a class="dropdown-link" href="/login" target="_blank">Login</a>
@@ -39,6 +49,7 @@
                                 <a class="dropdown-link" href="/signup" target="_blank">Signup</a>
                             </li>
                         </ul>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
