@@ -47,7 +47,7 @@ class ApiMessage
         ];
     }
 
-    // ***** DATA FETCHING (REQUESTS, RESPONSES, NOTIFICATIONS) ***** //
+    // ***** DATA FETCHING (EVERYTHING) ***** //
 
     public static function dataFetchAttempt(array $data)
     {
