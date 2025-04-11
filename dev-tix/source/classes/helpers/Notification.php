@@ -40,14 +40,13 @@ class Notification
         $ticketAction = self::REQUEST_STATUS[$status];
 
         return [
-            'title' => "{$username} {$ticketAction} Request #{$ticketID}",
+            'title' => "{$username} {$ticketAction} Req. #{$ticketID}",
             'message' => "{$username} successfully {$ticketAction} a request."
         ];
     }
 
     public static function sendRequestNotification(int $ticketID, int $userID, string $status = 'unassigned')
     {
-        $username = self::getUsernameByUserId($userID);
         $query = 'INSERT INTO notifications (user_id, type, title, message) VALUES (:user_id, :type, :title, :message);';
 
         $allUserIDs = [];
@@ -61,7 +60,7 @@ class Notification
 
         $result = [];
         foreach ($allUserIDs as $id) {
-            $username = $id === $userID ? 'You' : $username;
+            $username = $id === $userID ? 'You' : self::getUsernameByUserId($userID);
             $title = self::getRequestNotificationData($ticketID, $username, $status)['title'];
             $message = self::getRequestNotificationData($ticketID, $username, $status)['message'];
 
@@ -75,6 +74,26 @@ class Notification
         }
 
         return $result;
+    }
+
+    private static function getResponseNotificationData(int $ticketID, string $username)
+    {
+        return [
+            'title' => "{$username} Responded To Req. #{$ticketID}",
+            'message' => "{$username} responded to the request."
+        ];
+    }
+
+    public static function sendResponseNotification(int $ticketID, int $currUserID, int $userID)
+    {
+        $username = $userID === $currUserID ? 'You' : self::getUsernameByUserId($currUserID);
+        $title = self::getResponseNotificationData($ticketID, $username)['title'];
+        $message = self::getResponseNotificationData($ticketID, $username)['message'];
+
+        $query = 'INSERT INTO notifications (user_id, type, title, message) VALUES (:user_id, :type, :title, :message);';
+        return Session::getDbInstance()->executeQuery($query, [
+            ':user_id' => $userID, ':type' => 'response', ':title' => $title, ':message' => $message
+        ])->getQueryResult();
     }
 
     private static function getAllUserIDs()
