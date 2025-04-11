@@ -238,6 +238,23 @@
     font-weight: 500;
 }
 
+/* LINE CLAMP */
+.line-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.clamp-1 {
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+}
+
+.clamp-2 {
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+}
+
 /* MULTIPLE INPUTS GRID */
 .div-multiple-inputs-grid {
     display: grid;
