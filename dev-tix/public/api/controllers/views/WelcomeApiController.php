@@ -11,5 +11,22 @@ class WelcomeApiController extends AbsApiController
         if (!empty(Validate::validateInputs($data, WelcomeInputRules::RULES))) {
             return Validate::getValidationResult();
         }
+
+        // Guard clause: newsletter process error.
+        if (isset($this->insertNewNewsletterUser($data['email'])['error'])) {
+            return ApiMessage::alertDataAlterAttempt(false);
+        }
+
+        return ApiMessage::alertDataAlterAttempt(true);
+    }
+
+    // ***** HELPER DATABASE FUNCTIONS ***** //
+
+    private function insertNewNewsletterUser(string $email)
+    {
+        $query = 'INSERT INTO newsletters (email) VALUES (:email);';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':email' => $email]
+        )->getQueryResult();
     }
 }
