@@ -73,6 +73,15 @@ class TicketApiController extends AbsApiController
 
             $ticketID = $data['request_id'];
             $ticketData = $this->getRequestData($ticketID);
+            $userID = $data['user_id'];
+
+            // Send response notification to ticket users.
+            $ticketUsersIDs = [$ticketData['patron_id'], $ticketData['assistant_id']];
+            foreach ($ticketUsersIDs as $id) {
+                if (isset(Notification::sendResponseNotification($ticketID, $userID, $id)['error'])) {
+                    return ApiMessage::alertDataAlterAttempt(false);
+                }
+            }
 
             $turnID = $data['user_id'];
             if ((int) $data['user_id'] === (int) $ticketData['turn_id']) {
@@ -96,7 +105,7 @@ class TicketApiController extends AbsApiController
         $data = $this->getData();
         $action = $data['action'];
         $ticketID = $this->getId();
-        $userID = $data['user_id'];
+        $userID = (int) $data['user_id'];
         $status = $data['status'];
 
         $columns = [
@@ -114,7 +123,7 @@ class TicketApiController extends AbsApiController
         // Update leaderboard.
         if ($action === 'resolved/request') {
             $totalTickets = (int) $this->getTotalResolvedTickets($userID);
-            $currUserStanding = (int) $this->getUserStanding($userID) ?? 0;
+            $currUserStanding = (int) $this->getUserStanding($userID);
 
             $leagueID = 0;
             if ($totalTickets >= 500) {
@@ -234,10 +243,10 @@ class TicketApiController extends AbsApiController
 
     private function getUserStanding(int $userID)
     {
-        $query = 'SELECT league_id FROM leaderboards WHERE user_id = :user_id;';
+        $query = 'SELECT league_id FROM leaderboards WHERE assistant_id = :assistant_id;';
         return Session::getDbInstance()->executeQuery(
-            $query, [':user_id' => $userID]
-        )->getQueryResult()['league_id'];
+            $query, [':assistant_id' => $userID]
+        )->getQueryResult()['league_id'] ?? 0;
     }
 
     private function updateUserStanding(int $leagueID, int $userID, int $totalTickets)
