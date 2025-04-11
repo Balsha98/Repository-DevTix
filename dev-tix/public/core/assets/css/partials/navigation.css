@@ -242,6 +242,7 @@
 .div-notifications-info-container {
     display: inherit;
     flex-direction: column;
+    width: calc(100% - (4rem + 3.6rem));
 }
 
 .div-clients-info-container h4,

@@ -115,7 +115,7 @@ class NavigationView {
                         <ion-icon src="/core/assets/media/icons/${this.#getIconType(item["type"])}.svg"></ion-icon>
                     </div>
                     <div class="div-notifications-info-container">
-                        <h4>${item["title"]}</h4>
+                        <h4 class="line-clamp clamp-1">${item["title"]}</h4>
                         <span>${getTimeAgo(item["sent_at"])}</span>
                     </div>
                 </li>
