@@ -38,6 +38,8 @@ class UsersApiController extends AbsApiController
         ];
     }
 
+    // ***** HELPER DATABASE FUNCTIONS ***** //
+
     private function getUserData(int $userID)
     {
         $query = '

@@ -163,6 +163,8 @@ class TicketApiController extends AbsApiController
         return ApiMessage::alertDataAlterAttempt(true);
     }
 
+    // ***** HELPER DATABASE FUNCTIONS ***** //
+
     private function getRequestData(int $ticketID)
     {
         $query = 'SELECT * FROM ticket_requests WHERE request_id = :request_id;';

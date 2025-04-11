@@ -2,6 +2,7 @@
 
 class TicketInputRules
 {
+    // Constants.
     public const RULES = [
         'custom_type' => [
             'type' => 'str',

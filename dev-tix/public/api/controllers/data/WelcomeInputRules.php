@@ -2,6 +2,7 @@
 
 class WelcomeInputRules
 {
+    // Constants.
     public const RULES = [
         'email' => [
             'type' => 'email',

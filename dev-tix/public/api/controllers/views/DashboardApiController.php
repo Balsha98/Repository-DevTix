@@ -49,6 +49,8 @@ class DashboardApiController extends AbsApiController
         ];
     }
 
+    // ***** HELPER DATABASE FUNCTIONS ***** //
+
     private function getAllRows(string $tableName)
     {
         return Session::getDbInstance()->executeQuery(

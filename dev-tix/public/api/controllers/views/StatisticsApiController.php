@@ -24,14 +24,6 @@ class StatisticsApiController extends AbsApiController
         ];
     }
 
-    private function getTotalUsersPerRole(int $roleID)
-    {
-        $query = 'SELECT COUNT(user_id) AS total FROM users WHERE role_id = :role_id;';
-        return Session::getDbInstance()->executeQuery(
-            $query, [':role_id' => $roleID]
-        )->getQueryResult()['total'];
-    }
-
     private function extractAgeData()
     {
         return [
@@ -44,28 +36,12 @@ class StatisticsApiController extends AbsApiController
         ];
     }
 
-    private function getTotalUserPerAge(int $minAge, int $maxAge)
-    {
-        $query = 'SELECT COUNT(user_id) AS total FROM user_details WHERE age >= :min AND age <= :max;';
-        return Session::getDbInstance()->executeQuery(
-            $query, [':min' => $minAge, ':max' => $maxAge]
-        )->getQueryResult()['total'];
-    }
-
     private function extractGenderData()
     {
         return [
             'male' => $this->getTotalUsersPerGender('male'),
             'female' => $this->getTotalUsersPerGender('female')
         ];
-    }
-
-    private function getTotalUsersPerGender(string $gender)
-    {
-        $query = 'SELECT COUNT(user_id) AS total FROM user_details WHERE gender = :gender;';
-        return Session::getDbInstance()->executeQuery(
-            $query, [':gender' => $gender]
-        )->getQueryResult()['total'];
     }
 
     private function extractProfessionData()
@@ -80,6 +56,32 @@ class StatisticsApiController extends AbsApiController
             'project-manager' => $this->getTotalUsersPerProfession('project-manager'),
             'other' => $this->getTotalUsersPerProfession('other'),
         ];
+    }
+
+    // ***** HELPER DATABASE FUNCTIONS ***** //
+
+    private function getTotalUsersPerRole(int $roleID)
+    {
+        $query = 'SELECT COUNT(user_id) AS total FROM users WHERE role_id = :role_id;';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':role_id' => $roleID]
+        )->getQueryResult()['total'];
+    }
+
+    private function getTotalUserPerAge(int $minAge, int $maxAge)
+    {
+        $query = 'SELECT COUNT(user_id) AS total FROM user_details WHERE age >= :min AND age <= :max;';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':min' => $minAge, ':max' => $maxAge]
+        )->getQueryResult()['total'];
+    }
+
+    private function getTotalUsersPerGender(string $gender)
+    {
+        $query = 'SELECT COUNT(user_id) AS total FROM user_details WHERE gender = :gender;';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':gender' => $gender]
+        )->getQueryResult()['total'];
     }
 
     private function getTotalUsersPerProfession(string $profession)

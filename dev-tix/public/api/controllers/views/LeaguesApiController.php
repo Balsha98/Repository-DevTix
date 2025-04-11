@@ -15,6 +15,8 @@ class LeaguesApiController extends AbsApiController
         return ApiMessage::dataFetchAttempt($return);
     }
 
+    // ***** HELPER DATABASE FUNCTIONS ***** //
+
     private function getLeagueLeaderTickets(int $leagueID)
     {
         $query = 'SELECT MAX(resolved_tickets) AS total FROM leaderboards WHERE league_id = :league_id';

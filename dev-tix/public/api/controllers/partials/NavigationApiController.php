@@ -84,6 +84,8 @@ class NavigationApiController extends AbsApiController
         }
     }
 
+    // ***** HELPER DATABASE FUNCTIONS ***** //
+
     private function getAllClients(int $userID, int $roleID)
     {
         $query = 'SELECT * FROM users WHERE user_id != :user_id OR role_id != :role_id ORDER BY role_id ASC, username ASC;';

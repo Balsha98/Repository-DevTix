@@ -6,9 +6,9 @@ class LeaderboardApiController extends AbsApiController
     public function get()
     {
         $return = [];
-        $leagues = ['legendary', 'senior', 'junior', 'rookie'];
-        foreach ($leagues as $i => $league) {
-            $data = $this->getLeaderboardData($i + 1);
+        $leagues = [1 => 'legendary', 2 => 'senior', 3 => 'junior', 4 => 'rookie'];
+        foreach ($leagues as $id => $league) {
+            $data = $this->getLeaderboardData($id);
 
             if (!isset($data['league_id'])) {
                 foreach ($data as $row) {
@@ -39,6 +39,8 @@ class LeaderboardApiController extends AbsApiController
             'last_active' => $data['last_active']
         ];
     }
+
+    // ***** HELPER DATABASE FUNCTIONS ***** //
 
     private function getLeaderboardData(int $leagueID)
     {

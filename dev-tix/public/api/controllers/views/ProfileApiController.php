@@ -115,6 +115,8 @@ class ProfileApiController extends AbsApiController
         return ApiMessage::alertDataAlterAttempt(true, '/users');
     }
 
+    // ***** HELPER DATABASE FUNCTIONS ***** //
+
     private function getProfileData(int $userID)
     {
         $query = '

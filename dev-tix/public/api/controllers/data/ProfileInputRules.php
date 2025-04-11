@@ -2,6 +2,7 @@
 
 class ProfileInputRules
 {
+    // Constants.
     public const RULES = [
         'username' => [
             'type' => 'str',

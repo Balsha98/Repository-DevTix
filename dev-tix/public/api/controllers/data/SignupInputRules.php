@@ -2,6 +2,7 @@
 
 class SignupInputRules
 {
+    // Constants.
     public const RULES = [
         'first_name' => [
             'type' => 'str',

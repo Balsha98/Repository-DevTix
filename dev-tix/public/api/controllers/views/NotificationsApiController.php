@@ -78,6 +78,8 @@ class NotificationsApiController extends AbsApiController
         ];
     }
 
+    // ***** HELPER DATABASE FUNCTIONS ***** //
+
     private function getClientRoleID(int $clientID)
     {
         $query = 'SELECT role_id FROM users WHERE user_id = :user_id';

@@ -27,6 +27,8 @@ class LoginApiController extends AbsApiController
         return ApiMessage::alertAuthAttempt($data, false);
     }
 
+    // ***** HELPER DATABASE FUNCTIONS ***** //
+
     private function getAccount(array $data)
     {
         $query = 'SELECT * FROM users WHERE username = :username;';
