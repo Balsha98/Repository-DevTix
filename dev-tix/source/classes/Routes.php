@@ -2,7 +2,7 @@
 
 class Routes
 {
-    // Attributes.
+    // Constants.
     public const ROUTES = [
         'dashboard',
         'forgot-password',

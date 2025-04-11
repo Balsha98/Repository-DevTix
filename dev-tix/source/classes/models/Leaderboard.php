@@ -2,6 +2,7 @@
 
 class Leaderboard
 {
+    // Attributes.
     private int $id;
     private int $leagueID;
     private string $leagueName;
@@ -9,6 +10,11 @@ class Leaderboard
     private int $resolvedTickets;
     private Database $database;
 
+    /**
+     * Class constructor.
+     * @param int $assistantID - assistant id.
+     * @param Database $database - database object.
+     */
     public function __construct(int $assistantID, Database $database)
     {
         $this->assistantID = $assistantID;
@@ -17,6 +23,10 @@ class Leaderboard
         $this->getLeaderboardData();
     }
 
+    /**
+     * Get leaderboard data per assistant.
+     * @return array data - leaderboard data.
+     */
     private function getLeaderboardData()
     {
         $query = '
@@ -39,26 +49,46 @@ class Leaderboard
         return $result;
     }
 
+    /**
+     * Get leaderboard id.
+     * @return int $id - leaderboard id.
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * Get league id.
+     * @return int $leagueID - league id.
+     */
     public function getLeagueId()
     {
         return $this->leagueID;
     }
 
+    /**
+     * Get league name.
+     * @return string $leagueName - league name.
+     */
     public function getLeagueName()
     {
         return $this->leagueName;
     }
 
+    /**
+     * Get assistant id.
+     * @return int $assistantID - assistant id.
+     */
     public function getAssistantId()
     {
         return $this->assistantID;
     }
 
+    /**
+     * Get # of resolved tickets.
+     * @return int $resolvedTickets - # of resolved tickets.
+     */
     public function getResolvedTickets()
     {
         return $this->resolvedTickets;

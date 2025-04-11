@@ -4,7 +4,7 @@ class Image
 {
     /**
      * Display user image.
-     * @param User $user - object of User class.
+     * @param User $user - user object.
      * @param string $type - type of image expected.
      * @return string markup - HTML markup of the data.
      */
