@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . '/../source/configuration.php';
 require_once __DIR__ . '/../source/classes/helpers/Debug.php';
 require_once __DIR__ . '/../source/classes/helpers/Session.php';
