@@ -2,6 +2,11 @@
 
 class Date
 {
+    /**
+     * Calculate time age.
+     * @param string $datetime - passed timestamp.
+     * @return string data - time passed displayed nicely.
+     */
     public static function getTimeAgo(string $datetime)
     {
         $today = new DateTime();
@@ -13,6 +18,11 @@ class Date
         return self::setTimeAgo($difference);
     }
 
+    /**
+     * Set time passed as string.
+     * @param DateInterval $difference - calculated difference.
+     * @return string data - time passed displayed nicely.
+     */
     private static function setTimeAgo(DateInterval $difference)
     {
         $properties = [

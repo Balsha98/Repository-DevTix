@@ -2,6 +2,7 @@
 
 class Notification
 {
+    // Constants.
     private const REQUEST_STATUS = [
         'unassigned' => 'Posted',
         'pending' => 'Claimed',
@@ -24,6 +25,12 @@ class Notification
         ]
     ];
 
+    /**
+     * Send user-specific notification.
+     * @param int $userID - user's id.
+     * @param string $type - type of notification.
+     * @return array data - either successful or failed.
+     */
     public static function sendPrivateNotification(int $userID, string $type)
     {
         $title = self::PRIVATE_TYPES[$type]['title'];
@@ -35,6 +42,13 @@ class Notification
         ])->getQueryResult();
     }
 
+    /**
+     * Generate request notification data.
+     * @param int $ticketID - request's id.
+     * @param string $username - user's username.
+     * @param string $status - request status.
+     * @return array data - request notification data.
+     */
     private static function getRequestNotificationData(int $ticketID, string $username, string $status)
     {
         $ticketAction = self::REQUEST_STATUS[$status];
@@ -45,10 +59,15 @@ class Notification
         ];
     }
 
+    /**
+     * Send request-related notification publicly.
+     * @param int $ticketID - request's id.
+     * @param int $userID - user's id.
+     * @param string $status - request status.
+     * @return array data - either successful or failed.
+     */
     public static function sendRequestNotification(int $ticketID, int $userID, string $status = 'unassigned')
     {
-        $query = 'INSERT INTO notifications (user_id, type, title, message) VALUES (:user_id, :type, :title, :message);';
-
         $allUserIDs = [];
         if (!isset(self::getAllUserIDs()['user_id'])) {
             foreach (self::getAllUserIDs() as $id) {
@@ -61,11 +80,11 @@ class Notification
         $result = [];
         foreach ($allUserIDs as $id) {
             $username = $id === $userID ? 'You' : self::getUsernameByUserId($userID);
-            $title = self::getRequestNotificationData($ticketID, $username, $status)['title'];
-            $message = self::getRequestNotificationData($ticketID, $username, $status)['message'];
+            $requestData = self::getRequestNotificationData($ticketID, $username, $status);
 
+            $query = 'INSERT INTO notifications (user_id, type, title, message) VALUES (:user_id, :type, :title, :message);';
             $result = Session::getDbInstance()->executeQuery($query, [
-                ':user_id' => $id, ':type' => 'request', ':title' => $title, ':message' => $message
+                ':user_id' => $id, ':type' => 'request', ':title' => $requestData['title'], ':message' => $requestData['message']
             ])->getQueryResult();
 
             if (isset($result['error'])) {
@@ -76,6 +95,12 @@ class Notification
         return $result;
     }
 
+    /**
+     * Generate response notification data.
+     * @param int $ticketID - request's id.
+     * @param string $username - user's username.
+     * @return array data - response notification data.
+     */
     private static function getResponseNotificationData(int $ticketID, string $username)
     {
         return [
@@ -84,17 +109,25 @@ class Notification
         ];
     }
 
+    /**
+     * Send response-related notification privately.
+     * @param int $ticketID - request's id.
+     * @param int $currUserID - user sending the response.
+     * @param int $userID - id used for comparison.
+     * @return array data - either successful or failed.
+     */
     public static function sendResponseNotification(int $ticketID, int $currUserID, int $userID)
     {
         $username = $userID === $currUserID ? 'You' : self::getUsernameByUserId($currUserID);
-        $title = self::getResponseNotificationData($ticketID, $username)['title'];
-        $message = self::getResponseNotificationData($ticketID, $username)['message'];
+        $responseData = self::getResponseNotificationData($ticketID, $username);
 
         $query = 'INSERT INTO notifications (user_id, type, title, message) VALUES (:user_id, :type, :title, :message);';
         return Session::getDbInstance()->executeQuery($query, [
-            ':user_id' => $userID, ':type' => 'response', ':title' => $title, ':message' => $message
+            ':user_id' => $userID, ':type' => 'response', ':title' => $responseData['title'], ':message' => $responseData['message']
         ])->getQueryResult();
     }
+
+    // ***** HELPER DATABASE FUNCTIONS ***** //
 
     private static function getAllUserIDs()
     {

@@ -2,6 +2,12 @@
 
 class Image
 {
+    /**
+     * Display user image.
+     * @param User $user - object of User class.
+     * @param string $type - type of image expected.
+     * @return string markup - HTML markup of the data.
+     */
     public static function renderListItemUserImage(User $user, string $type)
     {
         $userDetails = $user->getDetails();
@@ -24,6 +30,13 @@ class Image
         ";
     }
 
+    /**
+     * Saving copies of user images locally.
+     * @param int $userID - user id.
+     * @param string $imageName - image file name.
+     * @param string $image - image data.
+     * @return void saves the image locally.
+     */
     public static function saveUserProfileImage(int $userID, string $imageName, string $image)
     {
         // Set image file related data.
@@ -39,6 +52,13 @@ class Image
         file_put_contents($imageFullPath, base64_decode($image));
     }
 
+    /**
+     * Save copies of ticket images locally.
+     * @param int $requestID - request id.
+     * @param string $imageName - image file name.
+     * @param string $image - image data.
+     * @return void saves the image locally.
+     */
     public static function saveTicketSnippetImage(int $requestID, string $imageName, string $image)
     {
         // Set image file related data.

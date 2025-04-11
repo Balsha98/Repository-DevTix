@@ -42,6 +42,11 @@ class Template
         return $return ?? '';
     }
 
+    /**
+     * Render page-dependent CSS files.
+     * @param string $page - name of page.
+     * @return string - file if true; nothing if false.
+     */
     public static function buildPagePartialStyleSheets(string $page)
     {
         $filePath = SERVER_PATH . '/core/assets/json/dependencies.json';
@@ -87,6 +92,11 @@ class Template
         return $return ?? '<!-- END -->';
     }
 
+    /**
+     * Render page-dependent JS modules.
+     * @param string $page - name of page.
+     * @return string - file if true; nothing if false.
+     */
     public static function buildPageImportedModules(string $page)
     {
         $filePath = SERVER_PATH . '/core/assets/json/dependencies.json';
