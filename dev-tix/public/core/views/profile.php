@@ -30,7 +30,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                         <div class="div-profile-actions-container" data-url="/api/">
                             <?php
                             if ($isRecordIdSet && $recordID === 0) {
-                                if ($user->getRoleId() === 1) {
+                                if ($user->getViewAsRoleId() === 1) {
                                     echo '
                                         <button class="btn btn-success btn-alter-profile" data-method="POST" data-status="create">
                                             <ion-icon src="' . ICON_PATH . '/user.svg"></ion-icon>
