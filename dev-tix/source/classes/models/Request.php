@@ -2,6 +2,7 @@
 
 class Request
 {
+    // Attributes.
     private int $id;
     private int $patronID;
     private int $assistantID;
@@ -15,6 +16,11 @@ class Request
     private array $responseIDs = [];
     private Database $database;
 
+    /**
+     * Class constructor.
+     * @param int $id - ticket id.
+     * @param Database $database - database object.
+     */
     public function __construct(int $id, Database $database)
     {
         $this->id = $id;
@@ -23,6 +29,10 @@ class Request
         $this->getRequestData();
     }
 
+    /**
+     * Get ticket-related data.
+     * @return array data - ticket data.
+     */
     private function getRequestData()
     {
         $query = '
@@ -48,51 +58,91 @@ class Request
         return $result;
     }
 
+    /**
+     * Get ticket id.
+     * @return int $id - ticket id.
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * Get patron id.
+     * @return int $patronID - patron id.
+     */
     public function getPatronId()
     {
         return $this->patronID;
     }
 
+    /**
+     * Get assistant id.
+     * @return int $assistantID - assistant id.
+     */
     public function getAssistantId()
     {
         return $this->assistantID;
     }
 
+    /**
+     * Get ticket type.
+     * @return string $type - ticket type.
+     */
     public function getType()
     {
         return $this->type;
     }
 
+    /**
+     * Get ticket subject.
+     * @return string $subject - ticket subject.
+     */
     public function getSubject()
     {
         return $this->subject;
     }
 
+    /**
+     * Get ticket question.
+     * @return string $question - ticket question.
+     */
     public function getQuestion()
     {
         return $this->question;
     }
 
+    /**
+     * Get postedAt timestamp.
+     * @return string $postedAt - postedAt timestamp.
+     */
     public function getPostedAt()
     {
         return $this->postedAt;
     }
 
+    /**
+     * Get ticket status.
+     * @return string $status - ticket status.
+     */
     public function getStatus()
     {
         return $this->status;
     }
 
+    /**
+     * Get ticket turn id.
+     * @return int $turnID - turn id.
+     */
     public function getTurnId()
     {
         return $this->turnID;
     }
 
+    /**
+     * Get responses related to the ticket.
+     * @return array data - array of response ids.
+     */
     public function getResponseIDs()
     {
         if (empty($this->responseIDs)) {
@@ -116,6 +166,10 @@ class Request
         return $this->responseIDs;
     }
 
+    /**
+     * Get ticket snippet images.
+     * @return array data - snippet images.
+     */
     public function getImages(): array
     {
         if (empty($this->images)) {

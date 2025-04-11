@@ -3,6 +3,7 @@ require_once __DIR__ . '/UserDetails.php';
 
 class User
 {
+    // Attributes.
     private int $id;
     private int $viewAsUserID;
     private int $roleID;
@@ -18,6 +19,11 @@ class User
     private UserDetails $details;
     private Database $database;
 
+    /**
+     * Class constructor.
+     * @param int $id - user id.
+     * @param Database $database - database object.
+     */
     public function __construct(int $id, Database $database)
     {
         $this->id = $id;
@@ -28,6 +34,10 @@ class User
         $this->getUserData();
     }
 
+    /**
+     * Get user-related data.
+     * @return array data - user data.
+     */
     private function getUserData()
     {
         $query = 'SELECT * FROM users JOIN roles ON users.role_id = roles.role_id WHERE user_id = :user_id;';
@@ -52,46 +62,82 @@ class User
         return $result;
     }
 
+    /**
+     * Get user id.
+     * @return int $id - user id.
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * Get view-as-user id.
+     * @return int $viewAsUserID - view-as-user id.
+     */
     public function getViewAsUserId()
     {
         return $this->viewAsUserID;
     }
 
+    /**
+     * Get role id.
+     * @return int $roleID - role id.
+     */
     public function getRoleId()
     {
         return $this->roleID;
     }
 
+    /**
+     * Get view-as-role id.
+     * @return int $viewAsRoleID - view-as-role id.
+     */
     public function getViewAsRoleId()
     {
         return $this->viewAsRoleID;
     }
 
+    /**
+     * Get role name.
+     * @return string $roleName - role name.
+     */
     public function getRoleName()
     {
         return $this->roleName;
     }
 
+    /**
+     * Get first name.
+     * @return string $firstName - first name.
+     */
     public function getFirstName()
     {
         return $this->firstName;
     }
 
+    /**
+     * Get last name.
+     * @return string $lastName - last name.
+     */
     public function getLastName()
     {
         return $this->lastName;
     }
 
+    /**
+     * Get full name.
+     * @return string $fullName - full name.
+     */
     public function getFullName()
     {
         return "{$this->firstName} {$this->lastName}";
     }
 
+    /**
+     * Get user initials.
+     * @return string initials - user initials.
+     */
     public function getInitials()
     {
         return implode(array_map(function ($part) {
@@ -99,26 +145,46 @@ class User
         }, explode(' ', $this->getFullName())));
     }
 
+    /**
+     * Get user email.
+     * @return string $email - user email.
+     */
     public function getEmail()
     {
         return $this->email;
     }
 
+    /**
+     * Get username.
+     * @return string $username - username.
+     */
     public function getUsername()
     {
         return $this->username;
     }
 
+    /**
+     * Get joinedAt timestamp.
+     * @return string $joinedAt - joinedAt timestamp.
+     */
     public function getJoinedAt()
     {
         return $this->joinedAt;
     }
 
+    /**
+     * Get lastActive timestamp.
+     * @return string $lastActive - lastActive timestamp.
+     */
     public function getLastActive()
     {
         return $this->lastActive;
     }
 
+    /**
+     * Get user-related request ids.
+     * @return array data - request ids.
+     */
     public function getRequestIDs()
     {
         if (empty($this->requestIDs)) {
@@ -142,6 +208,10 @@ class User
         return $this->requestIDs;
     }
 
+    /**
+     * Get user details object.
+     * @return UserDetails $details - user details object.
+     */
     public function getDetails()
     {
         return $this->details;

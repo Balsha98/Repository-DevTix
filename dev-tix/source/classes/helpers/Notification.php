@@ -27,7 +27,7 @@ class Notification
 
     /**
      * Send user-specific notification.
-     * @param int $userID - user's id.
+     * @param int $userID - user id.
      * @param string $type - type of notification.
      * @return array data - either successful or failed.
      */
@@ -44,7 +44,7 @@ class Notification
 
     /**
      * Generate request notification data.
-     * @param int $ticketID - request's id.
+     * @param int $ticketID - request id.
      * @param string $username - user's username.
      * @param string $status - request status.
      * @return array data - request notification data.
@@ -61,8 +61,8 @@ class Notification
 
     /**
      * Send request-related notification publicly.
-     * @param int $ticketID - request's id.
-     * @param int $userID - user's id.
+     * @param int $ticketID - request id.
+     * @param int $userID - user id.
      * @param string $status - request status.
      * @return array data - either successful or failed.
      */
@@ -97,7 +97,7 @@ class Notification
 
     /**
      * Generate response notification data.
-     * @param int $ticketID - request's id.
+     * @param int $ticketID - request id.
      * @param string $username - user's username.
      * @return array data - response notification data.
      */
@@ -111,7 +111,7 @@ class Notification
 
     /**
      * Send response-related notification privately.
-     * @param int $ticketID - request's id.
+     * @param int $ticketID - request id.
      * @param int $currUserID - user sending the response.
      * @param int $userID - id used for comparison.
      * @return array data - either successful or failed.
