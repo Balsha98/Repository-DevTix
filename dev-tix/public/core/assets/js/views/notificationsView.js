@@ -56,8 +56,8 @@ class NotificationsView {
                         </div>
                     </div>
                     <div class="div-notifications-content-info-container">
-                        <p>${notification["title"]}</p>
-                        <span>${notification["message"]}</span>
+                        <p class="line-clamp clamp-1">${notification["title"]}</p>
+                        <span class="line-clamp clamp-1">${notification["message"]}</span>
                     </div>
                     <div class="div-notifications-timestamp-info-container">
                         <p>${getTimeAgo(notification["sent_at"])}</p>
