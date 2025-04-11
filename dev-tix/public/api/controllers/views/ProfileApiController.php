@@ -41,7 +41,7 @@ class ProfileApiController extends AbsApiController
             $userID = $this->getLastInsertId();
 
             // Guard clause: notification process error.
-            if (isset(Notification::sendPrivateNotification($userID, 'profile')['error'])) {
+            if (isset(Notification::sendPrivateNotification($userID, 'signup')['error'])) {
                 return ApiMessage::alertDataAlterAttempt(false);
             }
 
