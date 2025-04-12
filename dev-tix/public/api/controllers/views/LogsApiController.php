@@ -46,7 +46,8 @@ class LogsApiController extends AbsApiController
         $query = '
             SELECT * FROM logs 
             JOIN users ON logs.user_id = users.user_id 
-            JOIN user_details ON users.user_id = user_details.user_id;
+            JOIN user_details ON users.user_id = user_details.user_id 
+            ORDER BY logs.log_id ASC;
         ';
 
         return Session::getDbInstance()->executeQuery(
