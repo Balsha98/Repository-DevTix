@@ -7,6 +7,7 @@ class ApiRoutes
             'dashboard',
             'leaderboard',
             'leagues',
+            'logs',
             'navigation',
             'notifications',
             'profile',
