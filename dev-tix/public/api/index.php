@@ -6,6 +6,7 @@ require_once __DIR__ . '/../../source/classes/helpers/Validate.php';
 require_once __DIR__ . '/../../source/classes/helpers/Notification.php';
 require_once __DIR__ . '/../../source/classes/helpers/Encode.php';
 require_once __DIR__ . '/../../source/classes/helpers/Image.php';
+require_once __DIR__ . '/../../source/classes/helpers/Log.php';
 require_once __DIR__ . '/classes/ApiRouter.php';
 
 // API resources.
