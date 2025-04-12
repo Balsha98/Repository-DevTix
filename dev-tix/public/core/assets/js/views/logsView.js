@@ -8,7 +8,7 @@ class LogsView {
     #spanAppliedFilter = $(".span-applied-filter");
     #spanTotalLogs = $(".span-total-logs");
 
-    generateUsersList(logs, renderImage, getTimeAgo) {
+    generateLogsList(logs, renderImage, getTimeAgo) {
         const containerHeight = parseFloat(this.#logsOverviewContainer.css("height"));
 
         // prettier-ignore
@@ -39,8 +39,8 @@ class LogsView {
                         </div>
                     </div>
                     <div class="div-logs-data-info-container">
-                        <p>${log["title"]}</p>
-                        <span>${log["message"]}</span>
+                        <p class="line-clamp clamp-1">${log["title"]}</p>
+                        <span class="line-clamp clamp-1">${log["message"]}</span>
                     </div>
                     <div class="div-logs-timestamp-info-container">
                         <p>${getTimeAgo(log["timestamp"])}</p>

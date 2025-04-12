@@ -10,39 +10,39 @@ import logsView from "./../views/logsView.js";
 import * as noneDataController from "./noneDataController.js";
 
 const controlChangeFilter = function () {
-    const usersListItems = $(".users-list-item");
+    const logsListItems = $(".logs-list-item");
 
     // Guard clause.
-    if (usersListItems.length === 0) return;
+    if (logsListItems.length === 0) return;
 
     // Show visuals.
     noneDataController.controlHideNoneDataContainer();
     dataLoaderController.controlShowDataLoader();
 
     // Verify filter.
-    const filter = isNaN($(this).val()) ? $(this).val() : +$(this).val();
-    usersListItems.each((_, item) => {
-        const userRoleID = +$(item).data("role-id");
+    const filter = $(this).val();
+    logsListItems.each((_, item) => {
+        const logType = $(item).data("type");
         if (filter === "all") $(item).removeClass("hide-element");
-        else if (userRoleID !== filter) $(item).addClass("hide-element");
+        else if (logType !== filter) $(item).addClass("hide-element");
         else $(item).removeClass("hide-element");
     });
 
     logsView.setSpanFilterName(filter);
 
     // Get difference between filtered data.
-    const { length: totalHidden } = $(".users-list-item.hide-element");
-    const totalUsersLeft = usersListItems.length - totalHidden;
-    setTimeout(() => logsView.setSpanTotalUsers(totalUsersLeft), 1000);
+    const { length: totalHidden } = $(".logs-list-item.hide-element");
+    const totalLogsLeft = logsListItems.length - totalHidden;
+    setTimeout(() => logsView.setSpanTotalUsers(totalLogsLeft), 1000);
 
     // Show none data container if list is empty.
-    if (totalUsersLeft === 0) noneDataController.controlShowNoneDataContainer(1);
+    if (totalLogsLeft === 0) noneDataController.controlShowNoneDataContainer(1);
 
     // Hide data loader.
     dataLoaderController.controlHideDataLoader(1);
 };
 
-const controlGenerateUsersList = function () {
+const controlGenerateLogsList = function () {
     const route = $("#view").val();
     const userID = $("#user_id").val();
     const authToken = $("#csrf_token").val();
@@ -55,11 +55,11 @@ const controlGenerateUsersList = function () {
         success: function (response) {
             console.log(route, response);
 
-            // Render ticket list items.
-            const users = response["response"]["data"]["users"] ?? null;
-            if (!users || users.length === 0) noneDataController.controlShowNoneDataContainer(0);
+            // Render log list items.
+            const logs = response["response"]["data"]["logs"] ?? null;
+            if (!logs || logs.length === 0) noneDataController.controlShowNoneDataContainer(0);
 
-            logsView.generateLogsList(users, renderListItemUserImage, getTimeAgo);
+            logsView.generateLogsList(logs, renderListItemUserImage, getTimeAgo);
         },
         error: function (response) {
             console.log(response.responseText);
@@ -83,7 +83,7 @@ const initController = function () {
 
     // Setup logs.
     logsView.addEventChangeFilter(controlChangeFilter);
-    controlGenerateUsersList();
+    controlGenerateLogsList();
 };
 
 initController();

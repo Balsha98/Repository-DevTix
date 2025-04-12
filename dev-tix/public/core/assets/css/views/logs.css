@@ -145,7 +145,6 @@
     border-radius: inherit;
     transition: opacity 0.3s;
     overflow: hidden;
-    cursor: pointer;
 }
 
 .logs-list-item::before {
