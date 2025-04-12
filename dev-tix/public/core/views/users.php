@@ -16,49 +16,47 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
             <!-- USERS CONTAINER -->
             <div class="div-users-container">
                 <?php require_once __DIR__ . '/partials/navigation.php'; ?>
-                <div class="div-users-content-container">
-                    <div class="div-users-overview-container">
-                        <header class="users-container-header flex-between">
-                            <h2 class="users-container-header-heading">Users/Clients List Overview</h2>
-                            <div class="div-users-actions-container">
-                                <div class="div-input-container">
-                                    <label class="label-select absolute-y-center" for="filter">
-                                        <ion-icon src="<?php echo ICON_PATH; ?>/chevron-down.svg"></ion-icon>
-                                    </label>
-                                    <select id="filter" class="users-select-filter" name="filter">
-                                        <option value="all">Filter All</option>
-                                        <option value="1">Filter Administrator</option>
-                                        <option value="2">Filter Assistant</option>
-                                        <option value="3">Filter Patron</option>
-                                    </select>
-                                </div>
-                                <a class="link link-primary" href="/profile">
-                                    <ion-icon src="<?php echo ICON_PATH; ?>/plus.svg"></ion-icon>
-                                    <span>New User</span>
-                                </a>
+                <div class="div-users-overview-container">
+                    <header class="users-container-header flex-between">
+                        <h2 class="users-container-header-heading">Users/Clients List Overview</h2>
+                        <div class="div-users-actions-container">
+                            <div class="div-input-container">
+                                <label class="label-select absolute-y-center" for="filter">
+                                    <ion-icon src="<?php echo ICON_PATH; ?>/chevron-down.svg"></ion-icon>
+                                </label>
+                                <select id="filter" class="users-select-filter" name="filter">
+                                    <option value="all">Filter All</option>
+                                    <option value="1">Filter Administrator</option>
+                                    <option value="2">Filter Assistant</option>
+                                    <option value="3">Filter Patron</option>
+                                </select>
                             </div>
-                        </header>
-                        <div class="div-users-list-overview-container">
-                            <header class="users-list-overview-header">
-                                <p>#ID</p>
-                                <p>User</p>
-                                <p>Full Name</p>
-                                <p>Email Address</p>
-                                <p>Activity</p>
-                            </header>
-                            <div class="div-users-list-container">
-                                <?php require_once __DIR__ . '/partials/signs/none-data.php'; ?>
-                                <?php require_once __DIR__ . '/partials/loaders/data-loader.php'; ?>
-                                <ul class="users-list">
-                                    <!-- DYNAMICALLY GENERATED TICKETS VIA AJAX -->
-                                </ul>
-                            </div>
+                            <a class="link link-primary" href="/profile">
+                                <ion-icon src="<?php echo ICON_PATH; ?>/plus.svg"></ion-icon>
+                                <span>New User</span>
+                            </a>
                         </div>
-                        <footer class="users-container-footer flex-between">
-                            <p>Applied Filter: <span class="span-applied-filter">All</span></p>
-                            <p>Viewing <span class="span-total-users">0</span> total users.</p>
-                        </footer>
+                    </header>
+                    <div class="div-users-list-overview-container">
+                        <header class="users-list-overview-header">
+                            <p>#ID</p>
+                            <p>User</p>
+                            <p>Full Name</p>
+                            <p>Email Address</p>
+                            <p>Activity</p>
+                        </header>
+                        <div class="div-users-list-container">
+                            <?php require_once __DIR__ . '/partials/signs/none-data.php'; ?>
+                            <?php require_once __DIR__ . '/partials/loaders/data-loader.php'; ?>
+                            <ul class="users-list">
+                                <!-- DYNAMICALLY GENERATED TICKETS VIA AJAX -->
+                            </ul>
+                        </div>
                     </div>
+                    <footer class="users-container-footer flex-between">
+                        <p>Applied Filter: <span class="span-applied-filter">All</span></p>
+                        <p>Viewing <span class="span-total-users">0</span> total users.</p>
+                    </footer>
                 </div>
             </div>
             <div class="div-hidden-inputs">

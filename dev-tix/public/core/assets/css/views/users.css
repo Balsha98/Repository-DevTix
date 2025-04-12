@@ -19,14 +19,6 @@
     padding: 2.4rem;
 }
 
-/* USERS CONTENT CONTAINER */
-.div-users-content-container {
-    flex-grow: 1;
-    display: inherit;
-    flex-direction: inherit;
-    gap: 2.4rem;
-}
-
 /* USERS OVERVIEW CONTAINER */
 .div-users-overview-container {
     flex-grow: inherit;
