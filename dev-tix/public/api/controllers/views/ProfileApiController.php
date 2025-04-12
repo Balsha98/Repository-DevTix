@@ -92,6 +92,9 @@ class ProfileApiController extends AbsApiController
             return ApiMessage::alertDataAlterAttempt(false);
         }
 
+        // Save user-related log.
+        Log::saveUserLog($userID, 'profile');
+
         return ApiMessage::alertDataAlterAttempt(true);
     }
 

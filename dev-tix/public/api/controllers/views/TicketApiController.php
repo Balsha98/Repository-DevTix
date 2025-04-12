@@ -44,6 +44,10 @@ class TicketApiController extends AbsApiController
                 return ApiMessage::alertDataAlterAttempt(false);
             }
 
+            // Save request-related log.
+            Log::saveTicketRequestLog($userID, $ticketID);
+
+            // Request post was successful.
             return ApiMessage::alertDataAlterAttempt(true, "/ticket/{$ticketID}");
         }
 
@@ -92,10 +96,15 @@ class TicketApiController extends AbsApiController
                 }
             }
 
+            // Guard clause: turn process error.
             if (isset($this->updateRequestColumn('turn_id', $turnID, $ticketID)['error'])) {
                 return ApiMessage::alertDataAlterAttempt(false);
             }
 
+            // Save response-related log.
+            Log::saveTicketResponseLog($userID, $ticketID);
+
+            // Response post was successful.
             return ApiMessage::alertDataAlterAttempt(true);
         }
     }
@@ -154,6 +163,9 @@ class TicketApiController extends AbsApiController
         if (isset(Notification::sendRequestNotification($ticketID, $userID, $status)['error'])) {
             return ApiMessage::alertDataAlterAttempt(false);
         }
+
+        // Save request-related log.
+        Log::saveTicketRequestLog($userID, $ticketID, $status);
 
         // Guard clause: redirect to tickets view if request was cancelled.
         if ($action === 'cancelled/request') {

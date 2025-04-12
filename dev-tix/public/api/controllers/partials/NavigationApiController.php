@@ -42,6 +42,9 @@ class NavigationApiController extends AbsApiController
                 return ApiMessage::alertDataAlterAttempt(false);
             }
 
+            // Save user-related log.
+            Log::saveUserLog($userID, 'client');
+
             return ApiMessage::alertDataAlterAttempt(true, '/dashboard');
         }
 
@@ -54,6 +57,9 @@ class NavigationApiController extends AbsApiController
             if (isset($this->updateViewAsUserData($userID, $clientID, $clientRoleID)['error'])) {
                 return ApiMessage::alertDataAlterAttempt(false);
             }
+
+            // Save user-related log.
+            Log::saveUserLog($userID, 'client');
 
             return ApiMessage::alertDataAlterAttempt(true, '/dashboard');
         }

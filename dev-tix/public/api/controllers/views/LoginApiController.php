@@ -19,6 +19,9 @@ class LoginApiController extends AbsApiController
             Session::set('user_id', $account['user_id']);
             Session::set('role_id', $account['role_id']);
 
+            // Save login-related log.
+            Log::saveAuthLog($account['user_id'], 'login');
+
             // If login was successful.
             return ApiMessage::alertAuthAttempt($data, true, '/dashboard');
         }
