@@ -67,7 +67,7 @@ class NavigationView {
                             <ion-icon src="/core/assets/media/icons/user.svg"></ion-icon>
                         </div>
                         <div class="div-notifications-info-container">
-                            <h4>${item["first_name"]} ${item["last_name"]}</h4>
+                            <h4 class="line-clamp clamp-1">${item["first_name"]} ${item["last_name"]}</h4>
                             <span>${item["email"]}</span>
                         </div>
                         <div class="div-hidden-inputs">
