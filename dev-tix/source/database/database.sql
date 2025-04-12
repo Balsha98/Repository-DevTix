@@ -194,3 +194,17 @@ CREATE TABLE newsletters (
     activated_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (newsletter_id)
 );
+
+
+-- LOGS
+CREATE TABLE logs (
+    log_id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    type ENUM("signup", "login", "profile", "request", "response", "client") NOT NULL,
+    title VARCHAR(50) NOT NULL,
+    message VARCHAR(100) NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (log_id),
+    FOREIGN KEY (user_id) REFERENCES users (user_id) 
+        ON DELETE CASCADE
+);
