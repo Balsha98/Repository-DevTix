@@ -8,7 +8,7 @@ class LeaguesApiController extends AbsApiController
         $return = [];
         $leagues = [1 => 'legendary', 2 => 'senior', 3 => 'junior', 4 => 'rookie'];
         foreach ($leagues as $id => $league) {
-            $totalTickets = $this->getLeagueLeaderTickets($id);
+            $totalTickets = (int) $this->getLeagueLeaderTickets($id);
             $return[$league] = $this->getLeagueLeaderUsername($totalTickets, $id);
         }
 
