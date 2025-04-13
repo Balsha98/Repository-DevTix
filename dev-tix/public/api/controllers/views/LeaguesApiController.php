@@ -6,10 +6,10 @@ class LeaguesApiController extends AbsApiController
     public function get()
     {
         $return = [];
-        $leagueNames = [1 => 'legendary', 2 => 'senior', 3 => 'junior', 4 => 'rookie'];
-        foreach ($leagueNames as $id => $leagueName) {
-            $totalTickets = $this->getLeagueLeaderTickets($id) ?? 0;
-            $return[$leagueName] = $this->getLeagueLeaderUsername($totalTickets, $id);
+        $leagues = [1 => 'legendary', 2 => 'senior', 3 => 'junior', 4 => 'rookie'];
+        foreach ($leagues as $id => $league) {
+            $totalTickets = $this->getLeagueLeaderTickets($id);
+            $return[$league] = $this->getLeagueLeaderUsername($totalTickets, $id);
         }
 
         return ApiMessage::dataFetchAttempt($return);
@@ -22,7 +22,7 @@ class LeaguesApiController extends AbsApiController
         $query = 'SELECT MAX(resolved_tickets) AS total FROM leaderboards WHERE league_id = :league_id';
         return Session::getDbInstance()->executeQuery(
             $query, [':league_id' => $leagueID]
-        )->getQueryResult()['total'];
+        )->getQueryResult()['total'] ?? 0;
     }
 
     private function getLeagueLeaderUsername(int $totalTickets, int $leagueID)
