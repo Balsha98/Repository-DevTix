@@ -10,9 +10,8 @@ class NotificationsApiController extends AbsApiController
 
         $notifications = $this->getAllNotifications($userID, $roleID);
 
-        $return = [];
+        $return['notifications'] = [];
         if (!isset($notifications['notification_id'])) {
-            $return['notifications'] = [];
             foreach ($notifications as $notification) {
                 $return['notifications'][] = $this->extractNotificationData($notification);
             }
@@ -35,17 +34,6 @@ class NotificationsApiController extends AbsApiController
         $data = $this->getData();
         $action = $data['action'];
 
-        // Update single notification.
-        if ($action === 'mark/one') {
-            $notificationID = $this->getId();
-            $isRead = $data['is_read'];
-
-            // Guard clause: process fails.
-            if (isset($this->markNotificationAsRead($notificationID, $isRead)['error'])) {
-                return ApiMessage::alertDataAlterAttempt(false);
-            }
-        }
-
         // Update all notifications.
         if ($action === 'mark/all') {
             $userID = $this->getId();
@@ -53,6 +41,17 @@ class NotificationsApiController extends AbsApiController
 
             // Guard clause: process fails.
             if (isset($this->markAllAsRead($data, $userID, $roleID)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
+        }
+
+        // Update single notification.
+        if ($action === 'mark/one') {
+            $notificationID = $this->getId();
+            $isRead = $data['is_read'];
+
+            // Guard clause: process fails.
+            if (isset($this->markNotificationAsRead($notificationID, $isRead)['error'])) {
                 return ApiMessage::alertDataAlterAttempt(false);
             }
         }
@@ -127,14 +126,6 @@ class NotificationsApiController extends AbsApiController
         )->getQueryResult()['total'];
     }
 
-    private function markNotificationAsRead(int $notificationID, int $isRead)
-    {
-        $query = 'UPDATE notifications SET is_read = :is_read WHERE notification_id = :notification_id;';
-        return Session::getDbInstance()->executeQuery($query, [
-            ':is_read' => $isRead, ':notification_id' => $notificationID
-        ])->getQueryResult();
-    }
-
     private function markAllAsRead(array $data, int $userID, int $roleID)
     {
         if (Session::get('user_id') === $userID && $roleID === 1) {
@@ -147,6 +138,14 @@ class NotificationsApiController extends AbsApiController
         $query = 'UPDATE notifications SET is_read = :is_read WHERE user_id = :user_id AND is_read = :unread;';
         return Session::getDbInstance()->executeQuery($query, [
             ':is_read' => $data['is_read'], ':user_id' => $userID, ':unread' => 0
+        ])->getQueryResult();
+    }
+
+    private function markNotificationAsRead(int $notificationID, int $isRead)
+    {
+        $query = 'UPDATE notifications SET is_read = :is_read WHERE notification_id = :notification_id;';
+        return Session::getDbInstance()->executeQuery($query, [
+            ':is_read' => $isRead, ':notification_id' => $notificationID
         ])->getQueryResult();
     }
 }
