@@ -7,7 +7,7 @@ class LogsApiController extends AbsApiController
     {
         $logs = $this->getAllLogs();
 
-        $return['logs'] = [];
+        $return = [];
         if (!isset($logs['log_id'])) {
             foreach ($logs as $log) {
                 $return['logs'][] = $this->extractLogData($log);
