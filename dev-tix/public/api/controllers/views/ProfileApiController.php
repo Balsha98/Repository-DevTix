@@ -7,14 +7,9 @@ class ProfileApiController extends AbsApiController
     public function get()
     {
         $userID = $this->getId();
-        $data = $this->getProfileData($userID);
+        $profileData = $this->extractProfileData($this->getProfileData($userID));
 
-        // Guard clause: empty data.
-        if (empty($data)) {
-            return ApiMessage::dataFetchAttempt($data);
-        }
-
-        return ApiMessage::dataFetchAttempt($data);
+        return ApiMessage::dataFetchAttempt($profileData);
     }
 
     public function post()
@@ -118,20 +113,29 @@ class ProfileApiController extends AbsApiController
         return ApiMessage::alertDataAlterAttempt(true, '/users');
     }
 
+    private function extractProfileData(array $data)
+    {
+        return [
+            'role_id' => $data['role_id'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'email' => $data['email'],
+            'username' => $data['username'],
+            'bio' => $data['bio'],
+            'age' => $data['age'],
+            'gender' => $data['gender'],
+            'profession' => $data['profession'],
+            'country' => $data['country'],
+            'city' => $data['city'],
+            'zip' => $data['zip'],
+        ];
+    }
+
     // ***** HELPER DATABASE FUNCTIONS ***** //
 
     private function getProfileData(int $userID)
     {
-        $query = '
-            SELECT 
-                users.role_id, users.first_name, users.last_name, users.email,
-                users.username, user_details.bio, user_details.age, user_details.gender, 
-                user_details.profession, user_details.country, user_details.city, user_details.zip 
-            FROM users JOIN user_details 
-            ON users.user_id = user_details.user_id 
-            WHERE users.user_id = :user_id;
-        ';
-
+        $query = 'SELECT * FROM users JOIN user_details ON users.user_id = user_details.user_id WHERE users.user_id = :user_id;';
         return Session::getDbInstance()->executeQuery(
             $query, [':user_id' => $userID]
         )->getQueryResult();
@@ -160,8 +164,8 @@ class ProfileApiController extends AbsApiController
     {
         $query = '
             UPDATE users SET 
-                first_name = :first_name, last_name = :last_name, email = :email, 
-                username = :username' . (isset($data['password']) ? ', password = :password' : '') . '
+            first_name = :first_name, last_name = :last_name, email = :email, 
+            username = :username' . (isset($data['password']) ? ', password = :password' : '') . '
             WHERE user_id = :user_id;
         ';
 
@@ -202,8 +206,8 @@ class ProfileApiController extends AbsApiController
     {
         $query = '
             UPDATE user_details SET 
-                bio = :bio, age = :age, gender = :gender, profession = :profession, 
-                country = :country, city = :city, zip = :zip 
+            bio = :bio, age = :age, gender = :gender, profession = :profession, 
+            country = :country, city = :city, zip = :zip 
             WHERE user_id = :user_id;
         ';
 
@@ -228,20 +232,20 @@ class ProfileApiController extends AbsApiController
         ])->getQueryResult();
     }
 
-    private function deleteUserData(int $userID)
-    {
-        $query = 'DELETE FROM users WHERE user_id = :user_id;';
-        return Session::getDbInstance()->executeQuery(
-            $query, [':user_id' => $userID]
-        )->getQueryResult();
-    }
-
     private function getUserRoleId(int $userID)
     {
         $query = 'SELECT role_id FROM users WHERE user_id = :user_id;';
         return Session::getDbInstance()->executeQuery(
             $query, [':user_id' => $userID]
         )->getQueryResult()['role_id'];
+    }
+
+    private function deleteUserData(int $userID)
+    {
+        $query = 'DELETE FROM users WHERE user_id = :user_id;';
+        return Session::getDbInstance()->executeQuery(
+            $query, [':user_id' => $userID]
+        )->getQueryResult();
     }
 
     private function setTicketsAsUnassigned(int $userID)
