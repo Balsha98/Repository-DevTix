@@ -23,6 +23,7 @@ class DashboardApiController extends AbsApiController
             return ApiMessage::dataFetchAttempt($return);
         }
 
+        // Check if any exist.
         if (!empty($data)) {
             $return['tickets'] = $this->extractTicketData($data);
         }
@@ -61,13 +62,13 @@ class DashboardApiController extends AbsApiController
     private function getRowCount(string $tableName, string $column)
     {
         return Session::getDbInstance()->executeQuery(
-            "SELECT COUNT({$column}) as total FROM {$tableName};"
+            "SELECT COUNT({$column}) AS total FROM {$tableName};"
         )->getQueryResult()['total'];
     }
 
     private function getAllTicketsPerStatus(string $status)
     {
-        $query = 'SELECT COUNT(request_id) as total FROM ticket_requests WHERE status = :status;';
+        $query = 'SELECT COUNT(request_id) AS total FROM ticket_requests WHERE status = :status;';
         return Session::getDbInstance()->executeQuery(
             $query, [':status' => $status]
         )->getQueryResult()['total'];
