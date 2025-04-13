@@ -6,11 +6,10 @@ class TicketsApiController extends AbsApiController
     public function get()
     {
         $viewAsUserID = $this->getId();
-        $viewAsRoleID = $this->getViewAsRoleId($viewAsUserID);
-        $return = [];
+        $viewAsRoleID = (int) $this->getViewAsRoleId($viewAsUserID);
+        $return['overviews'] = $this->extractTicketsOverviewData($viewAsUserID, $viewAsRoleID);
 
         $data = $this->getAllTicketsPerUser($viewAsUserID, $viewAsRoleID);
-        $return['overviews'] = $this->extractTicketsOverviewData($viewAsUserID, $viewAsRoleID);
 
         // Get all related tickets, if more than 1.
         if (!isset($data['request_id'])) {
