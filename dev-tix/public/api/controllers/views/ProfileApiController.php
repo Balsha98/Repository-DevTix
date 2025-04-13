@@ -33,7 +33,7 @@ class ProfileApiController extends AbsApiController
                 return ApiMessage::alertDataAlterAttempt(false);
             }
 
-            $userID = $this->getLastInsertId();
+            $userID = (int) $this->getLastInsertId();
 
             // Guard clause: notification process error.
             if (isset(Notification::sendPrivateNotification($userID, 'signup')['error'])) {
@@ -47,7 +47,7 @@ class ProfileApiController extends AbsApiController
         if (preg_match('#image#', $action)) {
             if (isset($_FILES['image'])) {
                 $isUpload = preg_match('#upload#', $action);
-                $userID = $isUpload ? $this->getLastInsertId() : Session::get('record_id');
+                $userID = (int) ($isUpload ? $this->getLastInsertId() : Session::get('record_id'));
                 $file = $_FILES['image'];
 
                 $imageData = [
@@ -96,7 +96,7 @@ class ProfileApiController extends AbsApiController
     public function delete()
     {
         $userID = $this->getId();
-        $roleID = $this->getUserRoleId($userID);
+        $roleID = (int) $this->getUserRoleId($userID);
 
         if ($roleID === 2) {
             // Guard clause: unable to process request.
