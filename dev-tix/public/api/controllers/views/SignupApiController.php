@@ -30,19 +30,20 @@ class SignupApiController extends AbsApiController
 
         // Get newly signed up user.
         $newAccount = $this->getAccount($data);
+        $newUserID = $newAccount['user_id'];
 
         // Set session variable.
         Session::set('active', true);
-        Session::set('user_id', $newAccount['user_id']);
+        Session::set('user_id', $newUserID);
         Session::set('role_id', $newAccount['role_id']);
 
         // Guard clause: notification process error.
-        if (isset(Notification::sendPrivateNotification($newAccount['user_id'], 'signup')['error'])) {
+        if (isset(Notification::sendPrivateNotification($newUserID, 'signup')['error'])) {
             return ApiMessage::alertDataAlterAttempt(false);
         }
 
         // Save signup-related log.
-        Log::saveAuthLog($newAccount['user_id'], 'signup');
+        Log::saveAuthLog($newUserID, 'signup');
 
         // If signup was successful.
         return ApiMessage::alertAuthAttempt($data, true, '/dashboard');
@@ -77,18 +78,18 @@ class SignupApiController extends AbsApiController
         ])->getQueryResult();
     }
 
-    private function getLastInsertID()
-    {
-        return Session::getDbInstance()->executeQuery(
-            'SELECT MAX(user_id) AS id FROM users;',
-        )->getQueryResult()['id'];
-    }
-
     private function insertNewUserDetails($data)
     {
         $query = 'INSERT INTO user_details (user_id, age, gender) VALUES (:user_id, :age, :gender);';
         return Session::getDbInstance()->executeQuery($query, [
             ':user_id' => $this->getLastInsertID(), ':age' => $data['age'], ':gender' => $data['gender']
         ])->getQueryResult();
+    }
+
+    private function getLastInsertID()
+    {
+        return Session::getDbInstance()->executeQuery(
+            'SELECT MAX(user_id) AS id FROM users;',
+        )->getQueryResult()['id'];
     }
 }
