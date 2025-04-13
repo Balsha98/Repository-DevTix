@@ -9,19 +9,22 @@ class NavigationApiController extends AbsApiController
 
         $return = [];
         if ($roleID === 1) {
-            $allClients = $this->getAllClients(Session::get('user_id'), $roleID);
+            $adminID = Session::get('user_id');
+            $allClients = $this->getAllClients($adminID, $roleID);
+            $totalClients = isset($allClients['user_id']) ? 1 : count($allClients);
 
             $return['clients'] = [
                 'clients_list' => $allClients,
-                'total_clients' => isset($allClients['user_id']) ? 1 : count($allClients)
+                'total_clients' => $totalClients
             ];
         }
 
         $unreadNotifications = $this->getUnreadNotifications($this->getId(), $roleID);
+        $totalUnread = isset($unreadNotifications['notification_id']) ? 1 : count($unreadNotifications);
 
         $return['notifications'] = [
             'notifications_list' => $unreadNotifications,
-            'total_unread' => isset($unreadNotifications['notification_id']) ? 1 : count($unreadNotifications)
+            'total_unread' => $totalUnread
         ];
 
         return ApiMessage::dataFetchAttempt($return);
@@ -64,6 +67,18 @@ class NavigationApiController extends AbsApiController
             return ApiMessage::alertDataAlterAttempt(true, '/dashboard');
         }
 
+        // Marking all notifications as read.
+        if ($action === 'mark/all') {
+            $roleID = Session::get('role_id');
+
+            // Guard clause: request error.
+            if (isset($this->markAllAsRead($data, $userID, $roleID)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
+
+            return ApiMessage::alertDataAlterAttempt(true);
+        }
+
         // Marking one notification as read.
         if ($action === 'mark/one') {
             $notificationID = $this->getId();
@@ -71,18 +86,6 @@ class NavigationApiController extends AbsApiController
 
             // Guard clause: request error.
             if (isset($this->markNotificationAsRead($notificationID, $isRead)['error'])) {
-                return ApiMessage::alertDataAlterAttempt(false);
-            }
-
-            return ApiMessage::alertDataAlterAttempt(true);
-        }
-
-        // Marking all notifications as read.
-        if ($action === 'mark/all') {
-            $roleID = Session::get('role_id');
-
-            // Guard clause: request error.
-            if (isset($this->markAllAsRead($data, $userID, $roleID)['error'])) {
                 return ApiMessage::alertDataAlterAttempt(false);
             }
 
@@ -137,14 +140,6 @@ class NavigationApiController extends AbsApiController
         )->getQueryResult();
     }
 
-    private function markNotificationAsRead(int $notificationID, int $isRead)
-    {
-        $query = 'UPDATE notifications SET is_read = :is_read WHERE notification_id = :notification_id;';
-        return Session::getDbInstance()->executeQuery($query, [
-            ':is_read' => $isRead, ':notification_id' => $notificationID
-        ])->getQueryResult();
-    }
-
     private function markAllAsRead(array $data, int $userID, int $roleID)
     {
         if (Session::get('user_id') === $userID && $roleID === 1) {
@@ -158,5 +153,13 @@ class NavigationApiController extends AbsApiController
         return Session::getDbInstance()->executeQuery(
             $query, [':is_read' => $data['is_read'], ':user_id' => $userID]
         )->getQueryResult();
+    }
+
+    private function markNotificationAsRead(int $notificationID, int $isRead)
+    {
+        $query = 'UPDATE notifications SET is_read = :is_read WHERE notification_id = :notification_id;';
+        return Session::getDbInstance()->executeQuery($query, [
+            ':is_read' => $isRead, ':notification_id' => $notificationID
+        ])->getQueryResult();
     }
 }
