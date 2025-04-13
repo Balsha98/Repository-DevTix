@@ -33,13 +33,7 @@ class Notification
      */
     public static function sendPrivateNotification(int $userID, string $type)
     {
-        $title = self::PRIVATE_TYPES[$type]['title'];
-        $message = self::PRIVATE_TYPES[$type]['message'];
-
-        $query = 'INSERT INTO notifications (user_id, type, title, message) VALUES (:user_id, :type, :title, :message);';
-        return Session::getDbInstance()->executeQuery($query, [
-            ':user_id' => $userID, ':type' => $type, ':title' => $title, ':message' => $message
-        ])->getQueryResult();
+        return self::insertNewNotification($userID, $type, self::PRIVATE_TYPES[$type]);
     }
 
     /**
@@ -81,11 +75,7 @@ class Notification
         foreach ($allUserIDs as $id) {
             $username = $id === $userID ? 'You' : self::getUsernameByUserId($userID);
             $requestData = self::getRequestNotificationData($ticketID, $username, $status);
-
-            $query = 'INSERT INTO notifications (user_id, type, title, message) VALUES (:user_id, :type, :title, :message);';
-            $result = Session::getDbInstance()->executeQuery($query, [
-                ':user_id' => $id, ':type' => 'request', ':title' => $requestData['title'], ':message' => $requestData['message']
-            ])->getQueryResult();
+            $result = self::insertNewNotification($id, 'request', $requestData);
 
             if (isset($result['error'])) {
                 return $result;
@@ -120,11 +110,7 @@ class Notification
     {
         $username = $userID === $currUserID ? 'You' : self::getUsernameByUserId($currUserID);
         $responseData = self::getResponseNotificationData($ticketID, $username);
-
-        $query = 'INSERT INTO notifications (user_id, type, title, message) VALUES (:user_id, :type, :title, :message);';
-        return Session::getDbInstance()->executeQuery($query, [
-            ':user_id' => $userID, ':type' => 'response', ':title' => $responseData['title'], ':message' => $responseData['message']
-        ])->getQueryResult();
+        return self::insertNewNotification($userID, 'response', $responseData);
     }
 
     // ***** HELPER DATABASE FUNCTIONS ***** //
@@ -143,5 +129,13 @@ class Notification
         return Session::getDbInstance()->executeQuery(
             $query, [':user_id' => $userID]
         )->getQueryResult()['username'];
+    }
+
+    private static function insertNewNotification(int $userID, string $type, array $data)
+    {
+        $query = 'INSERT INTO notifications (user_id, type, title, message) VALUES (:user_id, :type, :title, :message);';
+        return Session::getDbInstance()->executeQuery($query, [
+            ':user_id' => $userID, ':type' => $type, ':title' => $data['title'], ':message' => $data['message']
+        ])->getQueryResult();
     }
 }
