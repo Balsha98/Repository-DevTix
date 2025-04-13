@@ -23,12 +23,11 @@ class TicketApiController extends AbsApiController
     public function post()
     {
         $data = $this->getData();
+        $action = $data['action'];
 
         if (!empty(Validate::validateInputs($data, TicketInputRules::RULES))) {
             return Validate::getValidationResult();
         }
-
-        $action = $data['action'];
 
         // Request posted by patron.
         if ($action === 'post/request') {
@@ -36,8 +35,8 @@ class TicketApiController extends AbsApiController
                 return ApiMessage::alertDataAlterAttempt(false);
             }
 
-            $ticketID = $this->getLastInsertId();
-            $userID = $data['user_id'];
+            $ticketID = (int) $this->getLastInsertId();
+            $userID = (int) $data['user_id'];
 
             // Guard clause: notification process error.
             if (isset(Notification::sendRequestNotification($ticketID, $userID)['error'])) {
@@ -54,7 +53,7 @@ class TicketApiController extends AbsApiController
         // Request images posted by patron.
         if ($action === 'post/images') {
             if (!empty($_FILES)) {
-                $ticketID = $this->getLastInsertId();
+                $ticketID = (int) $this->getLastInsertId();
 
                 foreach ($_FILES as $image) {
                     $imageData = [
@@ -75,19 +74,19 @@ class TicketApiController extends AbsApiController
                 return ApiMessage::alertDataAlterAttempt(false);
             }
 
-            $ticketID = $data['request_id'];
+            $ticketID = (int) $data['request_id'];
             $ticketData = $this->getRequestData($ticketID);
-            $userID = $data['user_id'];
+            $userID = (int) $data['user_id'];
 
             // Send response notification to ticket users.
-            $ticketUsersIDs = [$ticketData['patron_id'], $ticketData['assistant_id']];
+            $ticketUsersIDs = [(int) $ticketData['patron_id'], (int) $ticketData['assistant_id']];
             foreach ($ticketUsersIDs as $id) {
                 if (isset(Notification::sendResponseNotification($ticketID, $userID, $id)['error'])) {
                     return ApiMessage::alertDataAlterAttempt(false);
                 }
             }
 
-            $turnID = $data['user_id'];
+            $turnID = $userID;
             if ((int) $data['user_id'] === (int) $ticketData['turn_id']) {
                 if ((int) $data['user_id'] === (int) $ticketData['patron_id']) {
                     $turnID = $ticketData['assistant_id'];
