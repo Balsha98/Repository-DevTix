@@ -8,7 +8,7 @@ class DashboardApiController extends AbsApiController
         $return = [];
 
         // In case an admin user is logged in.
-        if (Session::get('role_id') === 1) {
+        if ((int) Session::get('role_id') === 1) {
             $return['overviews'] = $this->extractAdminOverviewData();
         }
 
