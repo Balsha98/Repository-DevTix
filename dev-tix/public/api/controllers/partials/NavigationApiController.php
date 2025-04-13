@@ -5,11 +5,11 @@ class NavigationApiController extends AbsApiController
 {
     public function get()
     {
-        $roleID = Session::get('role_id');
+        $roleID = (int) Session::get('role_id');
 
         $return = [];
         if ($roleID === 1) {
-            $adminID = Session::get('user_id');
+            $adminID = (int) Session::get('user_id');
             $allClients = $this->getAllClients($adminID, $roleID);
             $totalClients = isset($allClients['user_id']) ? 1 : count($allClients);
 
@@ -38,7 +38,7 @@ class NavigationApiController extends AbsApiController
 
         // Reverting view_as_user_id.
         if ($action === 'revert/client') {
-            $roleID = Session::get('role_id');
+            $roleID = (int) Session::get('role_id');
 
             // Guard clause: request error.
             if (isset($this->updateViewAsUserData($userID, $userID, $roleID)['error'])) {
@@ -53,8 +53,8 @@ class NavigationApiController extends AbsApiController
 
         // Updating view_as_user_id column.
         if ($action === 'update/client') {
-            $clientID = $data['client_id'];
-            $clientRoleID = $this->getClientRoleID($clientID);
+            $clientID = (int) $data['client_id'];
+            $clientRoleID = (int) $this->getClientRoleID($clientID);
 
             // Guard clause: request error.
             if (isset($this->updateViewAsUserData($userID, $clientID, $clientRoleID)['error'])) {
@@ -69,7 +69,7 @@ class NavigationApiController extends AbsApiController
 
         // Marking all notifications as read.
         if ($action === 'mark/all') {
-            $roleID = Session::get('role_id');
+            $roleID = (int) Session::get('role_id');
 
             // Guard clause: request error.
             if (isset($this->markAllAsRead($data, $userID, $roleID)['error'])) {
@@ -82,7 +82,7 @@ class NavigationApiController extends AbsApiController
         // Marking one notification as read.
         if ($action === 'mark/one') {
             $notificationID = $this->getId();
-            $isRead = $data['is_read'];
+            $isRead = (int) $data['is_read'];
 
             // Guard clause: request error.
             if (isset($this->markNotificationAsRead($notificationID, $isRead)['error'])) {
