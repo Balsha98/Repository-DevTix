@@ -7,13 +7,14 @@ class WelcomeApiController extends AbsApiController
     public function post()
     {
         $data = $this->getData();
+        $email = $data['email'];
 
         if (!empty(Validate::validateInputs($data, WelcomeInputRules::RULES))) {
             return Validate::getValidationResult();
         }
 
         // Guard clause: newsletter process error.
-        if (isset($this->insertNewNewsletterUser($data['email'])['error'])) {
+        if (isset($this->insertNewNewsletterUser($email)['error'])) {
             return ApiMessage::alertDataAlterAttempt(false);
         }
 
