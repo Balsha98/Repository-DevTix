@@ -75,6 +75,7 @@ class Notification
         foreach ($allUserIDs as $id) {
             $username = $id === $userID ? 'You' : self::getUsernameByUserId($userID);
             $requestData = self::getRequestNotificationData($ticketID, $username, $status);
+
             $result = self::insertNewNotification($id, 'request', $requestData);
 
             if (isset($result['error'])) {
@@ -110,6 +111,7 @@ class Notification
     {
         $username = $userID === $currUserID ? 'You' : self::getUsernameByUserId($currUserID);
         $responseData = self::getResponseNotificationData($ticketID, $username);
+
         return self::insertNewNotification($userID, 'response', $responseData);
     }
 
