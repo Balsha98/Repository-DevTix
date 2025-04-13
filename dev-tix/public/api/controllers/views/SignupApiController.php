@@ -30,7 +30,7 @@ class SignupApiController extends AbsApiController
 
         // Get newly signed up user.
         $newAccount = $this->getAccount($data);
-        $newUserID = $newAccount['user_id'];
+        $newUserID = (int) $newAccount['user_id'];
 
         // Set session variable.
         Session::set('active', true);
