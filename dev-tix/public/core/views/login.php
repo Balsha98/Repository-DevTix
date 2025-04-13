@@ -23,7 +23,7 @@
                         <ion-icon src="<?php echo ICON_PATH; ?>/lock.svg"></ion-icon>
                     </label>
                     <input id="password" type="password" name="password" placeholder="Password" autocomplete="on" required>
-                    <a class="link-forgot-password" href="/forgot-password">
+                    <a class="link-forgot-password" href="#">
                         Forgot your password?
                     </a>
                 </div>

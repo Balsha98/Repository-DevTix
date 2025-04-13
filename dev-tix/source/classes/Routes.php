@@ -5,7 +5,6 @@ class Routes
     // Constants.
     public const ROUTES = [
         'dashboard',
-        'forgot-password',
         'leaderboard',
         'leagues',
         'login',
