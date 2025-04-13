@@ -6,7 +6,7 @@ class NotificationsApiController extends AbsApiController
     public function get()
     {
         $userID = $this->getId();
-        $roleID = Session::get('role_id');
+        $roleID = (int) Session::get('role_id');
 
         $notifications = $this->getAllNotifications($userID, $roleID);
 
@@ -37,7 +37,7 @@ class NotificationsApiController extends AbsApiController
         // Update all notifications.
         if ($action === 'mark/all') {
             $userID = $this->getId();
-            $roleID = $this->getClientRoleID($userID);
+            $roleID = (int) $this->getClientRoleID($userID);
 
             // Guard clause: process fails.
             if (isset($this->markAllAsRead($data, $userID, $roleID)['error'])) {
@@ -48,7 +48,7 @@ class NotificationsApiController extends AbsApiController
         // Update single notification.
         if ($action === 'mark/one') {
             $notificationID = $this->getId();
-            $isRead = $data['is_read'];
+            $isRead = (int) $data['is_read'];
 
             // Guard clause: process fails.
             if (isset($this->markNotificationAsRead($notificationID, $isRead)['error'])) {
