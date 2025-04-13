@@ -45,9 +45,10 @@ class UsersApiController extends AbsApiController
         $query = '
             SELECT * FROM users JOIN user_details 
             ON users.user_id = user_details.user_id 
-            WHERE users.user_id != :user_id
+            WHERE users.user_id != :user_id 
             ORDER BY users.role_id ASC, users.username ASC;
         ';
+
         return Session::getDbInstance()->executeQuery(
             $query, [':user_id' => $userID]
         )->getQueryResult();
