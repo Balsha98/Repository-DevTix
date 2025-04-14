@@ -42,8 +42,10 @@ class SignupApiController extends AbsApiController
             return ApiMessage::alertDataAlterAttempt(false);
         }
 
-        // Save signup-related log.
-        Log::saveAuthLog($newUserID, 'signup');
+        // Guard clause: log process error.
+        if (isset(Log::saveAuthLog($newUserID, 'signup')['error'])) {
+            return ApiMessage::alertDataAlterAttempt(false);
+        }
 
         // If signup was successful.
         return ApiMessage::alertAuthAttempt($data, true, '/dashboard');
