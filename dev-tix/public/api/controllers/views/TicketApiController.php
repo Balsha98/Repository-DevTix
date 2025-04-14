@@ -43,8 +43,10 @@ class TicketApiController extends AbsApiController
                 return ApiMessage::alertDataAlterAttempt(false);
             }
 
-            // Save request-related log.
-            Log::saveTicketRequestLog($userID, $ticketID);
+            // Guard clause: log process error.
+            if (isset(Log::saveTicketRequestLog($ticketID, $userID)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
 
             // Request post was successful.
             return ApiMessage::alertDataAlterAttempt(true, "/ticket/{$ticketID}");
@@ -100,8 +102,10 @@ class TicketApiController extends AbsApiController
                 return ApiMessage::alertDataAlterAttempt(false);
             }
 
-            // Save response-related log.
-            Log::saveTicketResponseLog($userID, $ticketID);
+            // Guard clause: log process error.
+            if (isset(Log::saveTicketResponseLog($ticketID, $userID)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
 
             // Response post was successful.
             return ApiMessage::alertDataAlterAttempt(true);
@@ -163,8 +167,10 @@ class TicketApiController extends AbsApiController
             return ApiMessage::alertDataAlterAttempt(false);
         }
 
-        // Save request-related log.
-        Log::saveTicketRequestLog($userID, $ticketID, $status);
+        // Guard clause: log process error.
+        if (isset(Log::saveTicketRequestLog($ticketID, $userID, $status)['error'])) {
+            return ApiMessage::alertDataAlterAttempt(false);
+        }
 
         // Guard clause: redirect to tickets view if request was cancelled.
         if ($action === 'cancelled/request') {
