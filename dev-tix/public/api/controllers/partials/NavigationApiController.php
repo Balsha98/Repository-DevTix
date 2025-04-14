@@ -45,8 +45,10 @@ class NavigationApiController extends AbsApiController
                 return ApiMessage::alertDataAlterAttempt(false);
             }
 
-            // Save user-related log.
-            Log::saveUserLog($userID, 'client');
+            // Guard clause: log process error.
+            if (isset(Log::saveUserLog($userID, 'client')['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
 
             return ApiMessage::alertDataAlterAttempt(true, '/dashboard');
         }
@@ -61,8 +63,10 @@ class NavigationApiController extends AbsApiController
                 return ApiMessage::alertDataAlterAttempt(false);
             }
 
-            // Save user-related log.
-            Log::saveUserLog($userID, 'client');
+            // Guard clause: log process error.
+            if (isset(Log::saveUserLog($userID, 'client')['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
 
             return ApiMessage::alertDataAlterAttempt(true, '/dashboard');
         }
