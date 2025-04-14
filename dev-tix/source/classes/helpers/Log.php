@@ -32,7 +32,7 @@ class Log
         self::insertNewLog($userID, $type, $logData);
     }
 
-    private static function getRequestLogData(string $username, int $ticketID, string $status)
+    private static function getRequestLogData(int $ticketID, string $username, string $status)
     {
         return [
             'title' => 'Request Action Alert',
@@ -40,16 +40,15 @@ class Log
         ];
     }
 
-    public static function saveTicketRequestLog(int $userID, int $ticketID, string $status = 'unassigned')
+    public static function saveTicketRequestLog(int $ticketID, int $userID, string $status = 'unassigned')
     {
-        $status = self::REQUEST_STATUS[$status];
         $username = self::getUsernameByUserID($userID);
-        $logData = self::getRequestLogData($username, $ticketID, $status);
+        $logData = self::getRequestLogData($ticketID, $username, self::REQUEST_STATUS[$status]);
 
         self::insertNewLog($userID, 'request', $logData);
     }
 
-    private static function getResponseLogData(string $username, int $ticketID)
+    private static function getResponseLogData(int $ticketID, string $username)
     {
         return [
             'title' => 'Response Post Alert',
@@ -57,10 +56,10 @@ class Log
         ];
     }
 
-    public static function saveTicketResponseLog(int $userID, int $ticketID)
+    public static function saveTicketResponseLog(int $ticketID, int $userID)
     {
         $username = self::getUsernameByUserID($userID);
-        $logData = self::getResponseLogData($username, $ticketID);
+        $logData = self::getResponseLogData($ticketID, $username);
 
         self::insertNewLog($userID, 'response', $logData);
     }
