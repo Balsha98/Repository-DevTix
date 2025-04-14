@@ -148,6 +148,11 @@ class TicketApiController extends AbsApiController
                 $leagueID = 4;
             }
 
+            // Guard clause: notification process error.
+            if (isset(Notification::sendRequestNotification($ticketID, $userID, $status)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
+
             // Send league notification.
             if ($currUserStanding !== $leagueID) {
                 // Guard clause: notification process error.
@@ -160,6 +165,8 @@ class TicketApiController extends AbsApiController
             if (isset($this->updateUserStanding($leagueID, $userID, $totalTickets)['error'])) {
                 return ApiMessage::alertDataAlterAttempt(false);
             }
+
+            return ApiMessage::alertDataAlterAttempt(true);
         }
 
         // Guard clause: notification process error.
@@ -170,11 +177,6 @@ class TicketApiController extends AbsApiController
         // Guard clause: log process error.
         if (isset(Log::saveTicketRequestLog($ticketID, $userID, $status)['error'])) {
             return ApiMessage::alertDataAlterAttempt(false);
-        }
-
-        // Guard clause: redirect to tickets view if request was cancelled.
-        if ($action === 'cancelled/request') {
-            return ApiMessage::alertDataAlterAttempt(true, '/tickets');
         }
 
         return ApiMessage::alertDataAlterAttempt(true);
