@@ -15,12 +15,16 @@ class LoginApiController extends AbsApiController
 
         $passwordHash = hash('sha256', $data['password']);
         if ($account['password'] === $passwordHash) {
+            $userID = $account['user_id'];
+
             Session::set('active', true);
-            Session::set('user_id', $account['user_id']);
+            Session::set('user_id', $userID);
             Session::set('role_id', $account['role_id']);
 
-            // Save login-related log.
-            Log::saveAuthLog($account['user_id'], 'login');
+            // Guard clause: log process error.
+            if (isset(Log::saveAuthLog($userID, 'login')['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
 
             // If login was successful.
             return ApiMessage::alertAuthAttempt($data, true, '/dashboard');
