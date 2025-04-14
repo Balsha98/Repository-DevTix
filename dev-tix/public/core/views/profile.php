@@ -70,13 +70,16 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
 
                                     if ($profileUser->getRoleId() === 2 && !empty($profileUser->getRequestIDs())) {
                                         $leaderboard = new Leaderboard($profileUser->getId(), Session::getDbInstance());
-                                        $leagueName = strtolower($leaderboard->getLeagueName());
 
-                                        echo "
-                                            <div class='div-league-icon-container flex-center'>
-                                                <ion-icon src='" . ICON_PATH . '/' . $leagueName . ".svg'></ion-icon>
-                                            </div>
-                                        ";
+                                        if (!$leaderboard->isRecordEmpty()) {
+                                            $leagueName = strtolower($leaderboard->getLeagueName());
+
+                                            echo "
+                                                <div class='div-league-icon-container flex-center'>
+                                                    <ion-icon src='" . ICON_PATH . '/' . $leagueName . ".svg'></ion-icon>
+                                                </div>
+                                            ";
+                                        }
                                     }
                                 }
                                 ?>

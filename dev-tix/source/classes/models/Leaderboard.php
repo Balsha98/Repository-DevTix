@@ -50,6 +50,15 @@ class Leaderboard
     }
 
     /**
+     * Check if there is a record of the assistant.
+     * @return bool true/false - true if valid, false otherwise.
+     */
+    public function isRecordEmpty()
+    {
+        return empty($this->getLeaderboardData());
+    }
+
+    /**
      * Get leaderboard id.
      * @return int $id - leaderboard id.
      */
