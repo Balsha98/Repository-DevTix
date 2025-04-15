@@ -32,8 +32,8 @@ class Router
             $page = $uriParts[0];
         }
 
-        // Save last visited route.
-        Session::set('last_route', $uri);
+        // Save previously visited route.
+        Session::set('previous_route', $uri);
 
         // Check user activity.
         self::confirmTraffic($page);
