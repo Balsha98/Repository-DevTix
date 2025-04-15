@@ -282,6 +282,34 @@
     line-height: 1.5;
 }
 
+/* IMAGE CONTAINER (OVERRIDE) */
+.about-image-container {
+    overflow: visible;
+}
+
+.about-image-container::before {
+    content: "";
+    position: absolute;
+    top: -2.4rem;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 0 0.4rem var(--primary);
+    z-index: 0;
+}
+
+.left-about-image::before {
+    right: -2.4rem;
+}
+
+.right-about-image::before {
+    left: -2.4rem;
+}
+
+.about-image-container img {
+    position: relative;
+    z-index: 1;
+}
+
 /* HOW IT WORKS SECTION */
 .section-how-it-works {
     padding: 4.8rem 3.2rem;
@@ -367,13 +395,24 @@
 .steps-image-container::before {
     content: "";
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: calc(100% + 1.2rem);
-    height: calc(100% + 1.2rem);
-    background-color: var(--white);
-    transform: translate(-50%, -50%);
-    z-index: -1;
+    top: -1.6rem;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 0 0.4rem var(--white);
+    z-index: 0;
+}
+
+.left-steps-image::before {
+    right: -1.6rem;
+}
+
+.right-steps-image::before {
+    left: -1.6rem;
+}
+
+.steps-image-container img {
+    position: relative;
+    z-index: 1;
 }
 
 /* FEATURES SECTION */

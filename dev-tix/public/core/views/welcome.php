@@ -121,13 +121,13 @@
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus accusantium possimus iusto omnis vero itaque molestiae, aperiam eligendi alias corporis maiores veritatis ipsum, incidunt velit qui totam nihil magni. Dolorem odio aliquid expedita, possimus, veniam minus necessitatibus non hic accusamus quod dolor vero nesciunt, nemo culpa! Voluptate tempore beatae in?
                             </p>
                         </div>
-                        <div class="div-image-container">
-                            <img src="<?php echo IMAGE_PATH; ?>/login-banner.jpg" alt="About Image">
+                        <div class="div-image-container about-image-container right-about-image">
+                            <img src="<?php echo IMAGE_PATH; ?>/handshake.jpg" alt="About Image">
                         </div>
                     </li>
                     <li class="about-list-item grid-2-columns">
-                        <div class="div-image-container">
-                            <img src="<?php echo IMAGE_PATH; ?>/" alt="About Image">
+                        <div class="div-image-container about-image-container left-about-image">
+                            <img src="<?php echo IMAGE_PATH; ?>/customer-support.jpg" alt="About Image">
                         </div>
                         <div class="div-about-content-container right-about-content-container">
                             <h4 class="about-heading">We Resolve Your Requests</h4>
@@ -160,12 +160,12 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut voluptatem ad earum blanditiis quasi architecto nihil assumenda qui maxime quaerat. Doloribus, consequatur aperiam expedita quos velit sequi. Quidem doloribus assumenda dolor eius magnam perferendis veniam aut necessitatibus recusandae quis repellat natus reprehenderit, ipsa impedit quas, omnis velit eaque. Exercitationem, unde.
                             </p>
                         </div>
-                        <div class="div-image-container steps-image-container">
+                        <div class="div-image-container steps-image-container right-steps-image">
                             <img src="<?php echo IMAGE_PATH; ?>/signup-example.png" alt="How It Works Image">
                         </div>
                     </li>
                     <li class="steps-list-item grid-2-columns">
-                        <div class="div-image-container steps-image-container">
+                        <div class="div-image-container steps-image-container left-steps-image">
                             <img src="<?php echo IMAGE_PATH; ?>/post-ticket-example.png" alt="How It Works">
                         </div>
                         <div class="div-steps-content-container">
@@ -188,12 +188,12 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut voluptatem ad earum blanditiis quasi architecto nihil assumenda qui maxime quaerat. Doloribus, consequatur aperiam expedita quos velit sequi. Quidem doloribus assumenda dolor eius magnam perferendis veniam aut necessitatibus recusandae quis repellat natus reprehenderit, ipsa impedit quas, omnis velit eaque. Exercitationem, unde.
                             </p>
                         </div>
-                        <div class="div-image-container steps-image-container">
+                        <div class="div-image-container steps-image-container right-steps-image">
                             <img src="<?php echo IMAGE_PATH; ?>/claim-ticket-example.png" alt="How It Works Image">
                         </div>
                     </li>
                     <li class="steps-list-item grid-2-columns">
-                        <div class="div-image-container steps-image-container">
+                        <div class="div-image-container steps-image-container left-steps-image">
                             <img src="<?php echo IMAGE_PATH; ?>/response-ticket-example.png" alt="How It Works Image">
                         </div>
                         <div class="div-steps-content-container">
