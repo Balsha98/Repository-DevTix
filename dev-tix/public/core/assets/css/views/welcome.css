@@ -359,6 +359,23 @@
     line-height: 1.5;
 }
 
+/* IMAGE CONTAINER (OVERRIDE) */
+.steps-image-container {
+    overflow: visible;
+}
+
+.steps-image-container::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(100% + 1.2rem);
+    height: calc(100% + 1.2rem);
+    background-color: var(--white);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
 /* FEATURES SECTION */
 .section-features {
     padding: 4.8rem 3.2rem;

@@ -116,7 +116,7 @@
                 <ul class="about-list">
                     <li class="about-list-item grid-2-columns">
                         <div class="div-about-content-container left-about-content-container">
-                            <h4 class="about-heading">Some Cool Heading</h4>
+                            <h4 class="about-heading">Customers Are Our #1 Priority</h4>
                             <p class="about-description">
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus accusantium possimus iusto omnis vero itaque molestiae, aperiam eligendi alias corporis maiores veritatis ipsum, incidunt velit qui totam nihil magni. Dolorem odio aliquid expedita, possimus, veniam minus necessitatibus non hic accusamus quod dolor vero nesciunt, nemo culpa! Voluptate tempore beatae in?
                             </p>
@@ -127,10 +127,10 @@
                     </li>
                     <li class="about-list-item grid-2-columns">
                         <div class="div-image-container">
-                            <img src="<?php echo IMAGE_PATH; ?>/signup-banner.jpg" alt="About Image">
+                            <img src="<?php echo IMAGE_PATH; ?>/" alt="About Image">
                         </div>
                         <div class="div-about-content-container right-about-content-container">
-                            <h4 class="about-heading">Some Cool Heading</h4>
+                            <h4 class="about-heading">We Resolve Your Requests</h4>
                             <p class="about-description">
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus accusantium possimus iusto omnis vero itaque molestiae, aperiam eligendi alias corporis maiores veritatis ipsum, incidunt velit qui totam nihil magni. Dolorem odio aliquid expedita, possimus, veniam minus necessitatibus non hic accusamus quod dolor vero nesciunt, nemo culpa! Voluptate tempore beatae in?
                             </p>
@@ -140,7 +140,6 @@
             </div>
         </div>
     </section>
-    
     
     <!-- HOT IT WORKS SECTION -->
     <section id="how-it-works" class="section-content section-how-it-works hide-section">
@@ -155,24 +154,24 @@
                         <div class="div-steps-content-container">
                             <header class="steps-content-header">
                                 <span class="span-steps-counter">01</span>
-                                <h2 class="steps-heading">Some Cool Heading</h2>
+                                <h2 class="steps-heading">Create Your DevTix Account</h2>
                             </header>
                             <p class="steps-description">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut voluptatem ad earum blanditiis quasi architecto nihil assumenda qui maxime quaerat. Doloribus, consequatur aperiam expedita quos velit sequi. Quidem doloribus assumenda dolor eius magnam perferendis veniam aut necessitatibus recusandae quis repellat natus reprehenderit, ipsa impedit quas, omnis velit eaque. Exercitationem, unde.
                             </p>
                         </div>
-                        <div class="div-image-container">
-                            <img src="<?php echo IMAGE_PATH; ?>/welcome-banner.jpg" alt="How It Works Image">
+                        <div class="div-image-container steps-image-container">
+                            <img src="<?php echo IMAGE_PATH; ?>/signup-example.png" alt="How It Works Image">
                         </div>
                     </li>
                     <li class="steps-list-item grid-2-columns">
-                        <div class="div-image-container">
-                            <img src="<?php echo IMAGE_PATH; ?>/welcome-banner.jpg" alt="How It Works">
+                        <div class="div-image-container steps-image-container">
+                            <img src="<?php echo IMAGE_PATH; ?>/post-ticket-example.png" alt="How It Works">
                         </div>
                         <div class="div-steps-content-container">
                             <header class="steps-content-header">
                                 <span class="span-steps-counter">02</span>
-                                <h2 class="steps-heading">Some Cool Heading</h2>
+                                <h2 class="steps-heading">Post Your Request</h2>
                             </header>
                             <p class="steps-description">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut voluptatem ad earum blanditiis quasi architecto nihil assumenda qui maxime quaerat. Doloribus, consequatur aperiam expedita quos velit sequi. Quidem doloribus assumenda dolor eius magnam perferendis veniam aut necessitatibus recusandae quis repellat natus reprehenderit, ipsa impedit quas, omnis velit eaque. Exercitationem, unde.
@@ -183,24 +182,24 @@
                         <div class="div-steps-content-container">
                             <header class="steps-content-header">
                                 <span class="span-steps-counter">03</span>
-                                <h2 class="steps-heading">Some Cool Heading</h2>
+                                <h2 class="steps-heading">Wait For An Assistant</h2>
                             </header>
                             <p class="steps-description">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut voluptatem ad earum blanditiis quasi architecto nihil assumenda qui maxime quaerat. Doloribus, consequatur aperiam expedita quos velit sequi. Quidem doloribus assumenda dolor eius magnam perferendis veniam aut necessitatibus recusandae quis repellat natus reprehenderit, ipsa impedit quas, omnis velit eaque. Exercitationem, unde.
                             </p>
                         </div>
-                        <div class="div-image-container">
-                            <img src="<?php echo IMAGE_PATH; ?>/welcome-banner.jpg" alt="How It Works Image">
+                        <div class="div-image-container steps-image-container">
+                            <img src="<?php echo IMAGE_PATH; ?>/claim-ticket-example.png" alt="How It Works Image">
                         </div>
                     </li>
                     <li class="steps-list-item grid-2-columns">
-                        <div class="div-image-container">
-                            <img src="<?php echo IMAGE_PATH; ?>/welcome-banner.jpg" alt="How It Works Image">
+                        <div class="div-image-container steps-image-container">
+                            <img src="<?php echo IMAGE_PATH; ?>/response-ticket-example.png" alt="How It Works Image">
                         </div>
                         <div class="div-steps-content-container">
                             <header class="steps-content-header">
                                 <span class="span-steps-counter">04</span>
-                                <h2 class="steps-heading">Some Cool Heading</h2>
+                                <h2 class="steps-heading">Work Towards The Solution</h2>
                             </header>
                             <p class="steps-description">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut voluptatem ad earum blanditiis quasi architecto nihil assumenda qui maxime quaerat. Doloribus, consequatur aperiam expedita quos velit sequi. Quidem doloribus assumenda dolor eius magnam perferendis veniam aut necessitatibus recusandae quis repellat natus reprehenderit, ipsa impedit quas, omnis velit eaque. Exercitationem, unde.
@@ -211,7 +210,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- FEATURES SECTION -->
     <section id="features" class="section-content section-features hide-section">
@@ -227,7 +225,7 @@
                             <ion-icon src="<?php echo ICON_PATH; ?>/activity.svg"></ion-icon>
                         </div>
                         <div class="div-features-content-container">
-                            <h4 class="features-heading">Some Cool Heading</h4>
+                            <h4 class="features-heading">An Active Community</h4>
                             <p class="features-description">
                                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero asperiores, deleniti deserunt pariatur maiores aliquid fugiat inventore cum explicabo aliquam ad voluptatibus!
                             </p>
@@ -238,7 +236,7 @@
                             <ion-icon src="<?php echo ICON_PATH; ?>/headphones.svg"></ion-icon>
                         </div>
                         <div class="div-features-content-container">
-                            <h4 class="features-heading">Some Cool Heading</h4>
+                            <h4 class="features-heading">Focus On What Matters</h4>
                             <p class="features-description">
                                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero asperiores, deleniti deserunt pariatur maiores aliquid fugiat inventore cum explicabo aliquam ad voluptatibus!
                             </p>
@@ -249,7 +247,7 @@
                             <ion-icon src="<?php echo ICON_PATH; ?>/wind.svg"></ion-icon>
                         </div>
                         <div class="div-features-content-container">
-                            <h4 class="features-heading">Some Cool Heading</h4>
+                            <h4 class="features-heading">Response In Seconds</h4>
                             <p class="features-description">
                                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero asperiores, deleniti deserunt pariatur maiores aliquid fugiat inventore cum explicabo aliquam ad voluptatibus!
                             </p>
@@ -260,7 +258,7 @@
                             <ion-icon src="<?php echo ICON_PATH; ?>/feather.svg"></ion-icon>
                         </div>
                         <div class="div-features-content-container">
-                            <h4 class="features-heading">Some Cool Heading</h4>
+                            <h4 class="features-heading">Leave Your Mark</h4>
                             <p class="features-description">
                                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero asperiores, deleniti deserunt pariatur maiores aliquid fugiat inventore cum explicabo aliquam ad voluptatibus!
                             </p>
@@ -270,7 +268,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- TESTIMONIALS SECTION -->
     <section id="testimonials" class="section-content section-testimonials hide-section">
@@ -286,13 +283,13 @@
                             <img src="<?php echo IMAGE_PATH; ?>/hero-user-1.jpg" alt="User Image">
                         </div>
                         <div class="div-testimonials-data-container">
-                            <h4 class="testimonials-heading">Some Cool Heading</h4>
+                            <h4 class="testimonials-heading">Easy to use. They got my support!</h4>
                             <blockquote class="testimonials-quote">
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, distinctio ea maiores doloribus deserunt obcaecati iusto incidunt possimus, perspiciatis eveniet at ab, quam illo quae ipsa id accusantium aut. Cupiditate!
                             </blockquote>
                             <div class="div-testimonials-author-container">
-                                <p>First & Last</p>
-                                <span>Location</span>
+                                <p>Jenna Storm</p>
+                                <span>Cleveland, OH</span>
                             </div>
                         </div>
                     </li>
@@ -301,13 +298,13 @@
                             <img src="<?php echo IMAGE_PATH; ?>/hero-user-2.jpg" alt="User Image">
                         </div>
                         <div class="div-testimonials-data-container">
-                            <h4 class="testimonials-heading">Some Cool Heading</h4>
+                            <h4 class="testimonials-heading">Kudos to the customer support!</h4>
                             <blockquote class="testimonials-quote">
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, distinctio ea maiores doloribus deserunt obcaecati iusto incidunt possimus, perspiciatis eveniet at ab, quam illo quae ipsa id accusantium aut. Cupiditate!
                             </blockquote>
                             <div class="div-testimonials-author-container">
-                                <p>First & Last</p>
-                                <span>Location</span>
+                                <p>John Davis</p>
+                                <span>San Diego, CA</span>
                             </div>
                         </div>
                     </li>
@@ -316,13 +313,13 @@
                             <img src="<?php echo IMAGE_PATH; ?>/hero-user-3.jpg" alt="User Image">
                         </div>
                         <div class="div-testimonials-data-container">
-                            <h4 class="testimonials-heading">Some Cool Heading</h4>
+                            <h4 class="testimonials-heading">Money well spent after all!</h4>
                             <blockquote class="testimonials-quote">
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, distinctio ea maiores doloribus deserunt obcaecati iusto incidunt possimus, perspiciatis eveniet at ab, quam illo quae ipsa id accusantium aut. Cupiditate!
                             </blockquote>
                             <div class="div-testimonials-author-container">
-                                <p>First & Last</p>
-                                <span>Location</span>
+                                <p>Sarah Michaels</p>
+                                <span>Dallas, TX</span>
                             </div>
                         </div>
                     </li>
@@ -331,13 +328,13 @@
                             <img src="<?php echo IMAGE_PATH; ?>/hero-user-4.jpg" alt="User Image">
                         </div>
                         <div class="div-testimonials-data-container">
-                            <h4 class="testimonials-heading">Some Cool Heading</h4>
+                            <h4 class="testimonials-heading">An overall great community!</h4>
                             <blockquote class="testimonials-quote">
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, distinctio ea maiores doloribus deserunt obcaecati iusto incidunt possimus, perspiciatis eveniet at ab, quam illo quae ipsa id accusantium aut. Cupiditate!
                             </blockquote>
                             <div class="div-testimonials-author-container">
-                                <p>First & Last</p>
-                                <span>Location</span>
+                                <p>Steven Patrick</p>
+                                <span>Seattle, WA</span>
                             </div>
                         </div>
                     </li>
@@ -346,13 +343,13 @@
                             <img src="<?php echo IMAGE_PATH; ?>/hero-user-5.jpg" alt="User Image">
                         </div>
                         <div class="div-testimonials-data-container">
-                            <h4 class="testimonials-heading">Some Cool Heading</h4>
+                            <h4 class="testimonials-heading">Get yourself an account; it's worth it!</h4>
                             <blockquote class="testimonials-quote">
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, distinctio ea maiores doloribus deserunt obcaecati iusto incidunt possimus, perspiciatis eveniet at ab, quam illo quae ipsa id accusantium aut. Cupiditate!
                             </blockquote>
                             <div class="div-testimonials-author-container">
-                                <p>First & Last</p>
-                                <span>Location</span>
+                                <p>Yu Chen</p>
+                                <span>NYC, NY</span>
                             </div>
                         </div>
                     </li>
@@ -402,9 +399,11 @@
                         <ion-icon src="<?php echo ICON_PATH; ?>/page-logo.svg"></ion-icon>
                         <h2>DevTix</h2>
                     </div>
-                    <a class="link link-primary" href="/signup" target="_blank">
-                        Become a Member
-                    </a>
+                    <?php if (Session::isSet('active')) { ?>
+                    <a class="link link-primary" href="/dashboard">Dashboard</a>
+                    <?php } else { ?>
+                    <a class="link link-primary" href="/signup" target="_blank">Become a Member</a>
+                    <?php } ?>
                 </header>
                 <div class="div-footer-content">
                     <h2 class="footer-content-heading">Follow Us</h2>

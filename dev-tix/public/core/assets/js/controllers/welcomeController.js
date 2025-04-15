@@ -73,7 +73,7 @@ const controlNewsletterSubmit = function (formEvent) {
 };
 
 const initController = function () {
-    pageLoaderController.controlHidePageLoader(2);
+    pageLoaderController.controlHidePageLoader(0.1);
 
     // Setup welcome view.
     welcomeView.addEventToggleNavLinks(controlToggleNav);
