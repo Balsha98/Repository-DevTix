@@ -181,6 +181,7 @@ const controlGetTicketData = function () {
     // Guard clause: id is 0.
     if (!recordID) return;
 
+    // Set ticket visuals.
     ticketView.setSpanTicketView("existing");
     ticketView.setSpanTicketId(recordID);
 
@@ -238,7 +239,6 @@ const initController = function () {
     ticketView.addEventGenerateImageInput(controlGenerateImageInput);
     ticketView.addEventToggleResponseModal(controlToggleResponseModal);
     ticketView.addEventToggleImageModal(controlToggleImageModal);
-
     controlGetTicketData();
 };
 

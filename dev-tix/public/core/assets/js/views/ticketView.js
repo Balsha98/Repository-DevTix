@@ -10,6 +10,7 @@ class TicketView {
     #scrollableResponsesContainer = $(".div-scrollable-responses-container");
     #ticketImagesContainerHeader = $(".ticket-images-container-header");
     #ticketImagesList = $(".ticket-images-list");
+    #ticketImagesListItems = $(".ticket-images-list-item");
     #ticketSelectType = $(".ticket-select-type");
     #btnUploadImage = $(".btn-upload-image");
     #spanImagesLeft = $(".span-images-left");
@@ -42,9 +43,8 @@ class TicketView {
             return total + parseFloat($(element).css("height"));
         }, 0);
 
-        const elementHeightDifference = containerHeight - innerElementsHeightTotal;
-
-        this.#scrollableResponsesContainer.css("height", `calc(${elementHeightDifference}px - 48px)`);
+        const elementHeightDifference = containerHeight - innerElementsHeightTotal - 48;
+        this.#scrollableResponsesContainer.css("height", `${elementHeightDifference}px`);
     }
 
     setImageContainerHeight(recordID) {
@@ -61,9 +61,13 @@ class TicketView {
             return total + parseFloat($(element).css("height"));
         }, 0);
 
-        const elementHeightDifference = containerHeight - innerElementsHeightTotal;
+        if (this.#ticketImagesListItems.length > 1) {
+            this.#ticketImagesList.css("padding-right", "12px");
+            this.#ticketImagesList.css("overflow-y", "scroll");
+        }
 
-        this.#ticketImagesList.css("height", `calc(${elementHeightDifference}px - 48px - 16px)`);
+        const elementHeightDifference = containerHeight - innerElementsHeightTotal - 64;
+        this.#ticketImagesList.css("height", `${elementHeightDifference}px`);
     }
 
     toggleResponseModal() {

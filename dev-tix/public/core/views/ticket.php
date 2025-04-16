@@ -298,7 +298,7 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                                     <h4>Code Snippets</h4>
                                     <p>Posted screenshots of the code.</p>
                                 </header>
-                                <ul class="ticket-images-list grid-2-columns">
+                                <ul class="ticket-images-list">
                                     <?php
                                     $images = $request->getImages();
                                     if (!empty($images)) {

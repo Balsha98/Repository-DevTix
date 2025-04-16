@@ -241,8 +241,7 @@
     flex-direction: column;
     gap: 2.4rem;
     padding: 1.2rem;
-    /* Height will be calculated dynamically. */
-    height: 0;
+    height: 0; /* Height will be calculated dynamically. */
     border-radius: var(--border-radius-lg);
     overflow-y: scroll;
 }
@@ -360,22 +359,27 @@
 
 /* TICKET IMAGES LIST */
 .ticket-images-list {
-    position: relative;
-    display: grid;
+    display: inherit;
+    flex-direction: inherit;
     gap: 1.6rem;
-    /* Height will be calculated dynamically. */
-    height: 0;
+    height: 0; /* Height will be calculated dynamically. */
     border-radius: var(--border-radius-md);
-    overflow-y: scroll;
 }
 
 .ticket-images-list::-webkit-scrollbar {
-    display: none;
+    width: 0.8rem;
+    background-color: var(--gray-tint);
+    border-radius: inherit;
+}
+
+.ticket-images-list::-webkit-scrollbar-thumb {
+    background-color: var(--primary-tint);
+    border-radius: inherit;
 }
 
 /* IMAGE CONTAINER (OVERRIDE) */
 .ticket-images-list-item .div-image-container {
-    border-radius: var(--border-radius-md);
+    border-radius: var(--border-radius-lg);
 }
 
 .ticket-images-list-item .div-image-container img:hover {
