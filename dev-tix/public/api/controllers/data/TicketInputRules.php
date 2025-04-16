@@ -37,7 +37,7 @@ class TicketInputRules
             'pattern' => 'special_cases',
             'length' => [
                 'min' => 20,
-                'max' => 200
+                'max' => 250
             ]
         ],
     ];
