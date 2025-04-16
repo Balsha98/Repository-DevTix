@@ -29,19 +29,16 @@ CREATE TABLE users (
     email VARCHAR(50) NOT NULL,
     username VARCHAR(25) NOT NULL,
     password CHAR(64) NOT NULL,
-    joined_at TIMESTAMP NOT NULL,
-    last_active TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    joined_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+    last_active TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (user_id),
     FOREIGN KEY (role_id) REFERENCES roles (role_id)
 );
 
-INSERT INTO users (user_id, view_as_user_id, role_id, view_as_role_id, first_name, last_name, email, username, password, joined_at) VALUES
-(1, 1, 1, 1, "Admin", "User", "admin@devtix.com", "Administrator", "ac9689e2272427085e35b9d3e3e8bed88cb3434828b43b86fc0596cad4c6e270", NOW());
--- (2, 2, 2, 2, "Assistant1", "User", "assistant1@devtix.com", "Assistant1", "a39a7ffad4a3013f29da97b84f264337f234c1cf9b3c40c7c30c677a8a18609a", NOW()),
--- (3, 3, 2, 2, "Assistant2", "User", "assistant2@devtix.com", "Assistant2", "a39a7ffad4a3013f29da97b84f264337f234c1cf9b3c40c7c30c677a8a18609a", NOW()),
--- (4, 4, 2, 2, "Assistant3", "User", "assistant3@devtix.com", "Assistant3", "a39a7ffad4a3013f29da97b84f264337f234c1cf9b3c40c7c30c677a8a18609a", NOW()),
--- (5, 5, 3, 3, "Patron1", "User", "patron1@devtix.com", "Patron1", "6e753a6b0a37cd1032c991ba167cee596db9adca33162ea9e48a0ba86c4daed3", NOW()),
--- (6, 6, 3, 3, "Patron2", "User", "patron2@devtix.com", "Patron2", "6e753a6b0a37cd1032c991ba167cee596db9adca33162ea9e48a0ba86c4daed3", NOW());
+INSERT INTO users (user_id, view_as_user_id, role_id, view_as_role_id, first_name, last_name, email, username, password) VALUES
+(1, 1, 1, 1, "Admin", "User", "admin@devtix.com", "Administrator", "ac9689e2272427085e35b9d3e3e8bed88cb3434828b43b86fc0596cad4c6e270"),
+(2, 2, 2, 2, "Assistant", "User", "assistant1@devtix.com", "AssistantU1", "00ce2cf0fd8b61720f26f52224e0db0179986eb1697170e80d6380fdca7e4eba"),
+(3, 3, 3, 3, "Patron", "User", "patron1@devtix.com", "PatronU1", "da1daf969f581165d24ef5cf70969d2d62909c70ddc43332c3da5f7b227fffc3");
 
 -- SELECT * FROM users;
 
@@ -65,12 +62,9 @@ CREATE TABLE user_details (
 );
 
 INSERT INTO user_details (details_id, user_id, age, gender) VALUES 
-(1, 1, NULL, NULL);
--- (2, 2, NULL, NULL),
--- (3, 3, NULL, NULL),
--- (4, 4, NULL, NULL),
--- (5, 5, NULL, NULL),
--- (6, 6, NULL, NULL);
+(1, 1, NULL, NULL),
+(2, 2, NULL, NULL),
+(3, 3, NULL, NULL);
 
 -- SELECT * FROM user_details;
 
