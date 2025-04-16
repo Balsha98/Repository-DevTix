@@ -105,7 +105,7 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                                 </div>
                                 <?php if ($user->getViewAsUserId() === $recordID || $user->getViewAsRoleId() === 1) { ?>
                                 <div class="div-input-image-outer-container">
-                                    <label class="absolute-y-center input-image-label flex-center" for="image_name">
+                                    <label class="absolute-y-center input-image-label flex-center" for="image">
                                         <ion-icon src="<?php echo ICON_PATH; ?>/image.svg"></ion-icon>
                                     </label>
                                     <div class="div-input-image-inner-container">
