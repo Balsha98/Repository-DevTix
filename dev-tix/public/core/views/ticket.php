@@ -216,7 +216,7 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                                 </header>
                                 <ul class="form-upload-image-inputs-list">
                                     <li class="form-upload-image-inputs-list-item" data-image-id="1">
-                                        <label class="absolute-y-center input-image-label flex-center" for="image_name_1">
+                                        <label class="absolute-y-center input-image-label flex-center" for="image_1">
                                             <ion-icon src="<?php echo ICON_PATH; ?>/image.svg"></ion-icon>
                                         </label>
                                         <div class="div-input-image-container">

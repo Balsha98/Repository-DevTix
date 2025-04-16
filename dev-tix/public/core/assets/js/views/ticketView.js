@@ -100,7 +100,7 @@ class TicketView {
     generateImageInput(imageID) {
         return `
             <li class="form-upload-image-inputs-list-item" data-image-id="${imageID}">
-                <label class="absolute-y-center input-image-label flex-center" for="image_name_${imageID}">
+                <label class="absolute-y-center input-image-label flex-center" for="image_${imageID}">
                     <ion-icon src="/core/assets/media/icons/image.svg"></ion-icon>
                 </label>
                 <div class="div-input-image-container">
