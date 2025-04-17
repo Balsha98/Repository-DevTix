@@ -3,6 +3,9 @@ class ProfileView {
     #btnsAlterProfile = $(".btn-alter-profile");
     #btnDeleteProfile = $(".btn-delete-profile");
     #btnUploadImage = $(".btn-upload-image");
+    #profileBio = $("textarea#bio");
+    #textCharactersLimit = $(".text-characters-limit");
+    #spanCharactersWritten = $(".span-characters-written");
     #spanProfileView = $(".span-profile-view");
 
     setProfileUser(username) {
@@ -33,6 +36,19 @@ class ProfileView {
                 </div>
             </div>
         `;
+    }
+
+    checkCharacterLimit(charactersLimit) {
+        setInterval(() => {
+            const bio = this.#profileBio.val();
+            const writtenCharacters = bio.split("").length;
+            this.#textCharactersLimit.css("color", "var(--gray-shade)");
+
+            // Guard clause: character limit reached.
+            if (writtenCharacters > charactersLimit) return this.#textCharactersLimit.css("color", "var(--error)");
+
+            this.#spanCharactersWritten.text(writtenCharacters);
+        }, 100);
     }
 
     setSpanProfileView(viewType) {

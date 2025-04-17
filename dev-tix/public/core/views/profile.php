@@ -197,6 +197,9 @@ require_once __DIR__ . '/partials/modals/alert-modal.php';
                                         id="bio" class="profile-input" name="bio" placeholder="Write Your Bio Here" 
                                         <?php echo $isDisabled ? 'disabled' : ''; ?>
                                     ></textarea>
+                                    <p class="text-characters-limit">
+                                        <span class="span-characters-written">0</span> / 250
+                                    </p>
                                 </div>
                                 <div class="div-multiple-inputs-grid grid-2-columns">
                                     <div class="div-input-container">

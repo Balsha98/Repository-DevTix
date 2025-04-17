@@ -5,6 +5,7 @@ import navigationView from "./../views/navigationView.js";
 import * as navigationController from "./navigationController.js";
 import sidebarView from "./../views/sidebarView.js";
 import * as sidebarController from "./sidebarController.js";
+import profileModel from "./../models/profileModel.js";
 import profileView from "./../views/profileView.js";
 
 const controlAlterProfileData = function () {
@@ -134,6 +135,8 @@ const initController = function () {
     profileView.addEventAlterProfileData(controlAlterProfileData);
     profileView.addEventDeleteProfileData(controlDeleteProfileData);
     profileView.addEventToggleInputImage(controlToggleInputImage);
+    profileView.checkCharacterLimit(profileModel.getStateVal("bioLimit"));
+
     controlGetProfileData();
 };
 

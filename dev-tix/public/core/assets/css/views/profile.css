@@ -197,6 +197,17 @@
     flex-grow: 1;
 }
 
+.text-characters-limit {
+    position: absolute;
+    bottom: 0.8rem;
+    left: 1.2rem;
+    font-size: 1.4rem;
+}
+
+.text-characters-limit span {
+    color: inherit;
+}
+
 /* PROFILE CONTAINER FOOTER */
 .profile-container-footer {
     position: relative;
