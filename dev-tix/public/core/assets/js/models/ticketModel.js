@@ -5,6 +5,7 @@ class TicketModel extends Model {
         currImageID: 1,
         currNumImages: 0,
         maxNumImages: 5,
+        charLimit: 250,
     };
 }
 

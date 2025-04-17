@@ -239,6 +239,8 @@ const initController = function () {
     ticketView.addEventGenerateImageInput(controlGenerateImageInput);
     ticketView.addEventToggleResponseModal(controlToggleResponseModal);
     ticketView.addEventToggleImageModal(controlToggleImageModal);
+    ticketView.checkCharacterLimit(ticketModel.getStateVal("charLimit"));
+
     controlGetTicketData();
 };
 

@@ -204,6 +204,9 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                                         <ion-icon src="<?php echo ICON_PATH; ?>/help-circle.svg"></ion-icon>
                                     </label>
                                     <textarea id="question" name="question" placeholder="Write Your Question Here" required></textarea>
+                                    <p class="text-characters-limit question-limit">
+                                        <span class="span-characters-written question-written">0</span> / 250
+                                    </p>
                                 </div>
                                 <div class="div-hidden-inputs">
                                     <input type="hidden" name="csrf_token" value="<?php echo Session::get('csrf_token'); ?>">

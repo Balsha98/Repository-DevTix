@@ -12,6 +12,7 @@ class TicketView {
     #ticketImagesList = $(".ticket-images-list");
     #ticketImagesListItems = $(".ticket-images-list-item");
     #ticketSelectType = $(".ticket-select-type");
+    #textareaInputs = $("textarea");
     #btnUploadImage = $(".btn-upload-image");
     #spanImagesLeft = $(".span-images-left");
     #btnsToggleResponseModal = $(".btn-toggle-response-modal");
@@ -95,6 +96,21 @@ class TicketView {
                 <input id="custom_type" type="text" name="custom_type" placeholder="Custom Ticket Type" required>
             </div>
         `;
+    }
+
+    checkCharacterLimit(charactersLimit) {
+        setInterval(() => {
+            this.#textareaInputs.each((_, textarea) => {
+                const textareaID = $(textarea).attr("id");
+                const writtenCharacters = $(textarea).val().split("").length;
+                $(`.${textareaID}-limit`).css("color", "var(--gray-shade)");
+
+                // Guard clause: character limit reached.
+                if (writtenCharacters > charactersLimit) return $(`.${textareaID}-limit`).css("color", "var(--error)");
+
+                $(`.${textareaID}-written`).text(writtenCharacters);
+            });
+        }, 100);
     }
 
     generateImageInput(imageID) {

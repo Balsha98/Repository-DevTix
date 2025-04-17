@@ -128,6 +128,18 @@
     flex-grow: 1;
 }
 
+/* TEXT CHARACTERS LIMIT */
+.text-characters-limit {
+    position: absolute;
+    bottom: 0.8rem;
+    left: 1.2rem;
+    font-size: 1.4rem;
+}
+
+.text-characters-limit span {
+    color: inherit;
+}
+
 /* FORM UPLOAD TICKET IMAGES */
 .form-upload-image {
     display: flex;
