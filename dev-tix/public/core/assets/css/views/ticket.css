@@ -359,6 +359,7 @@
 
 /* TICKET IMAGES LIST */
 .ticket-images-list {
+    position: relative;
     display: inherit;
     flex-direction: inherit;
     gap: 1.6rem;
