@@ -49,7 +49,8 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
 
                                                 echo '
                                                     <p class="text-ticket-assignment">
-                                                        Resolved By: <span>' . $assistant->getUsername() . '</span>
+                                                        Resolved By: <a href="/profile/' . $assistant->getId() . '">
+                                                        ' . $assistant->getUsername() . '</a>
                                                     </p>
                                                 ';
                                             } else if ($request->getStatus() === 'cancelled') {
@@ -57,7 +58,8 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
 
                                                 echo '
                                                     <p class="text-ticket-assignment">
-                                                        Cancelled By: <span>' . $patron->getUsername() . '</span>
+                                                        Cancelled By: <a href="/profile/' . $patron->getId() . '">
+                                                        ' . $patron->getUsername() . '</a>
                                                     </p>
                                                 ';
                                             } else if ($request->getTurnId() !== $user->getViewAsUserId()) {
@@ -65,7 +67,8 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
 
                                                 echo '
                                                     <p class="text-ticket-assignment">
-                                                        Next Turn: <span>' . $turnUser->getUsername() . '</span>
+                                                        Next Turn: <a href="/profile/' . $turnUser->getId() . '">
+                                                        ' . $turnUser->getUsername() . '</a>
                                                     </p>
                                                 ';
                                             } else {
@@ -89,7 +92,8 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
 
                                         echo '
                                             <p class="text-ticket-assignment">
-                                                Posted By: <span>' . $patron->getUsername() . '</span>
+                                                Posted By: <a href="/profile/' . $patron->getId() . '">
+                                                ' . $patron->getUsername() . '</a>
                                             </p>
                                         ';
                                     }
@@ -104,7 +108,8 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
                                         if ($request->getStatus() === 'resolved') {
                                             echo '
                                                 <p class="text-ticket-assignment">
-                                                    Resolved By: <span>' . $viewAsUser->getUsername() . '</span>
+                                                    Resolved By: <a href="/profile/' . $viewAsUser->getId() . '">
+                                                    ' . $viewAsUser->getUsername() . '</a>
                                                 </p>
                                             ';
                                         } else if ($request->getStatus() === 'cancelled') {
@@ -112,7 +117,8 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
 
                                             echo '
                                                 <p class="text-ticket-assignment">
-                                                    Cancelled By: <span>' . $patron->getUsername() . '</span>
+                                                    Cancelled By: <a href="/profile/' . $patron->getId() . '">
+                                                    ' . $patron->getUsername() . '</a>
                                                 </p>
                                             ';
                                         } else if ($request->getTurnId() !== $user->getViewAsUserId()) {
@@ -120,7 +126,8 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
 
                                             echo '
                                                 <p class="text-ticket-assignment">
-                                                    Next Turn: <span>' . $turnUser->getUsername() . '</span>
+                                                    Next Turn: <a href="/profile/' . $turnUser->getId() . '">
+                                                    ' . $turnUser->getUsername() . '</a>
                                                 </p>
                                             ';
                                         } else {
@@ -148,7 +155,8 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
 
                                             echo '
                                                 <p class="text-ticket-assignment">
-                                                    Resolved By: <span>' . $assistant->getUsername() . '</span>
+                                                    Resolved By: <a href="/profile/' . $assistant->getId() . '">
+                                                    ' . $assistant->getUsername() . '</a>
                                                 </p>
                                             ';
                                         } else if ($request->getStatus() === 'cancelled') {
@@ -156,7 +164,8 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
 
                                             echo '
                                                 <p class="text-ticket-assignment">
-                                                    Cancelled By: <span>' . $patron->getUsername() . '</span>
+                                                    Cancelled By: <a href="/profile/' . $patron->getId() . '">
+                                                    ' . $patron->getUsername() . '</a>
                                                 </p>
                                             ';
                                         } else {
@@ -164,7 +173,8 @@ require_once __DIR__ . '/partials/modals/image-modal.php';
 
                                             echo '
                                                 <p class="text-ticket-assignment">
-                                                    Assigned To: <span>' . $assistant->getUsername() . '</span>
+                                                    Assigned To: <a href="/profile/' . $assistant->getId() . '">
+                                                    ' . $assistant->getUsername() . '</a>
                                                 </p>
                                             ';
                                         }
