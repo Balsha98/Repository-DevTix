@@ -14,6 +14,9 @@
                         <ion-icon src="<?php echo ICON_PATH; ?>/help-circle.svg"></ion-icon>
                     </label>
                     <textarea id="response" name="response" placeholder="Write Your Question Here" required></textarea>
+                    <p class="text-characters-limit response-limit">
+                        <span class="span-characters-written response-written">0</span> / 250
+                    </p>
                 </div>
                 <div class="div-grid-btn-container grid-2-columns">
                     <button class="btn btn-error flex-center btn-toggle-response-modal" type="button">
