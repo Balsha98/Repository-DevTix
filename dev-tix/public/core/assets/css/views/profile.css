@@ -197,6 +197,7 @@
     flex-grow: 1;
 }
 
+/* TEXT CHARACTERS LIMIT */
 .text-characters-limit {
     position: absolute;
     bottom: 0.8rem;
