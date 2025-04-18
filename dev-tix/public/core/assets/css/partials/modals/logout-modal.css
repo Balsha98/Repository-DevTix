@@ -67,13 +67,13 @@
 }
 
 /* GRID BUTTON CONTAINER (OVERRIDE) */
-.div-grid-btn-container {
+.div-grid-logout-modal-btn-container {
     column-gap: 1.6rem;
 }
 
 /* LINK/BUTTON (OVERRIDE) */
-.div-grid-btn-container a:link,
-.div-grid-btn-container a:visited,
-.div-grid-btn-container button {
+.div-grid-logout-modal-btn-container a:link,
+.div-grid-logout-modal-btn-container a:visited,
+.div-grid-logout-modal-btn-container button {
     gap: 0.4rem;
 }

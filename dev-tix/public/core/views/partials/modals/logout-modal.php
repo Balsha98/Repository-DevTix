@@ -8,7 +8,7 @@
                 <h2>Logout Confirmation</h2>
                 <p>Are you <span>sure</span> about logging out?</p>
             </header>
-            <div class="div-grid-btn-container grid-2-columns">
+            <div class="div-grid-btn-container div-grid-logout-modal-btn-container grid-2-columns">
                 <button class="btn btn-error flex-center btn-close-logout-modal">
                     <ion-icon src="<?php echo ICON_PATH; ?>/x.svg"></ion-icon>
                     <span>Cancel Logout</span>
