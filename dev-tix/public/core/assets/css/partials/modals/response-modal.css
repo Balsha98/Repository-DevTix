@@ -76,11 +76,11 @@
 }
 
 /* GRID BUTTON CONTAINER (OVERRIDE) */
-.div-grid-btn-container {
+.div-grid-response-modal-btn-container {
     column-gap: 1.6rem;
 }
 
 /* BUTTON (OVERRIDE) */
-.div-grid-btn-container button {
+.div-grid-response-modal-btn-container button {
     gap: 0.4rem;
 }

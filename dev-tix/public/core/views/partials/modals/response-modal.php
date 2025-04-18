@@ -18,7 +18,7 @@
                         <span class="span-characters-written response-written">0</span> / 250
                     </p>
                 </div>
-                <div class="div-grid-btn-container grid-2-columns">
+                <div class="div-grid-btn-container div-grid-response-modal-btn-container grid-2-columns">
                     <button class="btn btn-error flex-center btn-toggle-response-modal" type="button">
                         <ion-icon src="<?php echo ICON_PATH; ?>/x.svg"></ion-icon>
                         <span>Cancel Response</span>
