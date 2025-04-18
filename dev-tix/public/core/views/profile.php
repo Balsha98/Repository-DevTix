@@ -13,6 +13,7 @@ $recordID = $isRecordIdSet ? (int) Session::get('record_id') : 0;
 
 require_once __DIR__ . '/partials/loaders/page-loader.php';
 require_once __DIR__ . '/partials/modals/alert-modal.php';
+require_once __DIR__ . '/partials/modals/logout-modal.php';
 ?>
 
     <!-- MAIN CONTAINER -->

@@ -1,6 +1,7 @@
 import { handleRequest } from "./../helpers/request.js";
 import { isInputEmpty } from "./../helpers/validate.js";
 import * as pageLoaderController from "./pageLoaderController.js";
+import * as logoutModalController from "./logoutModalController.js";
 import navigationView from "./../views/navigationView.js";
 import * as navigationController from "./navigationController.js";
 import sidebarView from "./../views/sidebarView.js";
@@ -126,10 +127,12 @@ const initController = function () {
     navigationView.addEventToggleDropdown(navigationController.controlToggleDropdown);
     navigationView.addEventRevertClientData(navigationController.controlRevertClientData);
     navigationView.addEventMarkAllAsRead(navigationController.controlMarkAllAsRead);
+    navigationView.addEventToggleLogoutModal(logoutModalController.controlToggleLogoutModal);
 
     // Setup sidebar.
     sidebarView.addEventToggleSidebar(sidebarController.controlToggleSidebar);
     sidebarView.addEventToggleSidebarDropdown(sidebarController.controlToggleSidebarDropdown);
+    sidebarView.addEventToggleLogoutModal(logoutModalController.controlToggleLogoutModal);
 
     // Setup profile.
     profileView.addEventAlterProfileData(controlAlterProfileData);
