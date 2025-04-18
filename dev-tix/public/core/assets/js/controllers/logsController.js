@@ -1,6 +1,7 @@
 import { renderListItemUserImage } from "./../helpers/image.js";
 import { getTimeAgo } from "./../helpers/date.js";
 import * as pageLoaderController from "./pageLoaderController.js";
+import * as logoutModalController from "./logoutModalController.js";
 import * as dataLoaderController from "./dataLoaderController.js";
 import navigationView from "./../views/navigationView.js";
 import * as navigationController from "./navigationController.js";
@@ -76,10 +77,12 @@ const initController = function () {
     navigationView.addEventToggleDropdown(navigationController.controlToggleDropdown);
     navigationView.addEventRevertClientData(navigationController.controlRevertClientData);
     navigationView.addEventMarkAllAsRead(navigationController.controlMarkAllAsRead);
+    navigationView.addEventToggleLogoutModal(logoutModalController.controlToggleLogoutModal);
 
     // Setup sidebar.
     sidebarView.addEventToggleSidebar(sidebarController.controlToggleSidebar);
     sidebarView.addEventToggleSidebarDropdown(sidebarController.controlToggleSidebarDropdown);
+    sidebarView.addEventToggleLogoutModal(logoutModalController.controlToggleLogoutModal);
 
     // Setup logs.
     logsView.addEventChangeFilter(controlChangeFilter);
