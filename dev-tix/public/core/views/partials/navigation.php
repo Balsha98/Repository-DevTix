@@ -81,7 +81,7 @@
                                 <a class="dropdown-link" href="/profile/<?php echo $user->getViewAsUserId(); ?>">Profile</a>
                             </li>
                             <li class="dropdown-menu-list-item">
-                                <a class="dropdown-link" href="/logout">Logout</a>
+                                <button class="dropdown-btn btn-navigation-logout">Logout</button>
                             </li>
                         </ul>
                     </div>

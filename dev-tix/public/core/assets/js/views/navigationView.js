@@ -11,6 +11,7 @@ class NavigationView {
     #spanTotalUnread = $(".span-total-unread");
     #btnMarkAsRead = $(".btn-mark-as-read");
     #notificationsMenuList = $(".notifications-menu-list");
+    #btnNavigationLogout = $(".btn-navigation-logout");
     #spanClientName = $(".span-client-username");
 
     setWelcomeMessage() {
@@ -170,6 +171,10 @@ class NavigationView {
         notificationListItems.each((_, item) => {
             $(item).click(handlerFunction);
         });
+    }
+
+    addEventToggleLogoutModal(handlerFunction) {
+        this.#btnNavigationLogout.click(handlerFunction);
     }
 }
 
