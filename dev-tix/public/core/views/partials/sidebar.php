@@ -178,9 +178,9 @@
                             </span>
                         </div>
                     </div>
-                    <a class="link link-icon link-sidebar-logout flex-center" href="/logout">
+                    <button class="btn btn-icon btn-sidebar-logout flex-center">
                         <ion-icon src="<?php echo ICON_PATH; ?>/log-out.svg"></ion-icon>
-                    </a>
+                    </button>
                 </div>
             </footer>
         </div>

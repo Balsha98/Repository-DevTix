@@ -337,13 +337,12 @@
     text-transform: uppercase;
 }
 
-/* LINK ICON (OVERRIDE) */
-.link-sidebar-logout:link ion-icon,
-.link-sidebar-logout:visited ion-icon {
+/* BUTTON ICON (OVERRIDE) */
+.btn-sidebar-logout ion-icon {
     font-size: 1.8rem;
 }
 
-.link-sidebar-logout::before {
+.btn-sidebar-logout::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -356,12 +355,10 @@
     transition: background-color 0.3s;
 }
 
-.link-sidebar-logout:hover ion-icon,
-.link-sidebar-logout:active ion-icon {
+.btn-sidebar-logout:hover ion-icon {
     color: var(--white);
 }
 
-.link-sidebar-logout:hover:before,
-.link-sidebar-logout:active:before {
+.btn-sidebar-logout:hover:before {
     background-color: var(--primary);
 }
