@@ -87,6 +87,7 @@ const initController = function () {
     navigationView.addEventToggleDropdown(navigationController.controlToggleDropdown);
     navigationView.addEventRevertClientData(navigationController.controlRevertClientData);
     navigationView.addEventMarkAllAsRead(navigationController.controlMarkAllAsRead);
+    navigationView.addEventToggleLogoutModal(logoutModalController.controlToggleLogoutModal);
 
     // Setup sidebar.
     sidebarView.addEventToggleSidebar(sidebarController.controlToggleSidebar);
