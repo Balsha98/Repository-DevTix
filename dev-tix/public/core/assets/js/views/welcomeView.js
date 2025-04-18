@@ -5,6 +5,7 @@ class WelcomeView {
     #navLinks = $(".nav-link");
     #dropdownContainers = $(".dropdown-container");
     #dropdownLinks = $(".dropdown-link");
+    #btnWelcomeLogout = $(".btn-welcome-logout");
     #contentSections = $(".section-content");
     #testimonialItems = $(".testimonials-list-item");
     #btnsStep = $(".btn-testimonials-step");
@@ -60,23 +61,12 @@ class WelcomeView {
         });
     }
 
-    addEventToggleNavLinks(handlerFunction) {
-        this.#navLinks.each((_, link) => {
-            $(link).click(handlerFunction);
-        });
-    }
-
     resetNavLinks() {
         this.#navLinks.each((_, link) => {
             if ($(link).hasClass("active-nav-link")) {
                 $(link).removeClass("active-nav-link");
             }
         });
-    }
-
-    addEventToggleDropdown(handlerFunction) {
-        this.#btnToggleDropdown(handlerFunction);
-        this.#linkToggleDropdown(handlerFunction);
     }
 
     #btnToggleDropdown(handlerFunction) {
@@ -89,32 +79,6 @@ class WelcomeView {
         this.#dropdownLinks.each((_, link) => {
             $(link).click(handlerFunction);
         });
-    }
-
-    addEventTurnCarouselByBtn(handlerFunction) {
-        this.#btnsStep.each((_, btn) => {
-            $(btn).click(handlerFunction);
-        });
-    }
-
-    addEventTurnCarouselBySpan(handlerFunction) {
-        this.#spanIndicators.each((_, span) => {
-            $(span).click(handlerFunction);
-        });
-    }
-
-    addEventToTopBtn(handlerFunction) {
-        this.#btnToTop.click(handlerFunction);
-    }
-
-    addEventResetInput(handlerFunction) {
-        this.#requiredInputs.each((_, input) => {
-            $(input).click(handlerFunction);
-        });
-    }
-
-    addEventNewsletterSubmit(handlerFunction) {
-        this.#btnNewsletter.click(handlerFunction);
     }
 
     turnTestimonialItems(id) {
@@ -155,6 +119,47 @@ class WelcomeView {
                 $(span).removeClass("active-span-indicator");
             }
         });
+    }
+
+    addEventToggleNavLinks(handlerFunction) {
+        this.#navLinks.each((_, link) => {
+            $(link).click(handlerFunction);
+        });
+    }
+
+    addEventToggleDropdown(handlerFunction) {
+        this.#btnToggleDropdown(handlerFunction);
+        this.#linkToggleDropdown(handlerFunction);
+    }
+
+    addEventToggleLogoutModal(handlerFunction) {
+        this.#btnWelcomeLogout?.click(handlerFunction);
+    }
+
+    addEventTurnCarouselByBtn(handlerFunction) {
+        this.#btnsStep.each((_, btn) => {
+            $(btn).click(handlerFunction);
+        });
+    }
+
+    addEventTurnCarouselBySpan(handlerFunction) {
+        this.#spanIndicators.each((_, span) => {
+            $(span).click(handlerFunction);
+        });
+    }
+
+    addEventToTopBtn(handlerFunction) {
+        this.#btnToTop.click(handlerFunction);
+    }
+
+    addEventResetInput(handlerFunction) {
+        this.#requiredInputs.each((_, input) => {
+            $(input).click(handlerFunction);
+        });
+    }
+
+    addEventNewsletterSubmit(handlerFunction) {
+        this.#btnNewsletter.click(handlerFunction);
     }
 }
 

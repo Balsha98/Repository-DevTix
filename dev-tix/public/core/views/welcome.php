@@ -1,6 +1,7 @@
     <?php
     require_once __DIR__ . '/partials/loaders/page-loader.php';
     require_once __DIR__ . '/partials/modals/alert-modal.php';
+    require_once __DIR__ . '/partials/modals/logout-modal.php';
     ?>
 
     <!-- PAGE HEADER -->
@@ -37,7 +38,7 @@
                                 <a class="dropdown-link" href="/dashboard">Dashboard</a>
                             </li>
                             <li class="dropdown-menu-list-item">
-                                <a class="dropdown-link" href="/logout">Logout</a>
+                                <button class="dropdown-btn btn-welcome-logout">Logout</button>
                             </li>
                         </ul>
                         <?php } else { ?>

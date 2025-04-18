@@ -1,6 +1,7 @@
 import { isInputEmpty } from "./../helpers/validate.js";
 import { handleRequest } from "./../helpers/request.js";
 import * as pageLoaderController from "./pageLoaderController.js";
+import * as logoutModalController from "./logoutModalController.js";
 import welcomeModel from "./../models/welcomeModel.js";
 import welcomeView from "./../views/welcomeView.js";
 
@@ -78,6 +79,7 @@ const initController = function () {
     // Setup welcome view.
     welcomeView.addEventToggleNavLinks(controlToggleNav);
     welcomeView.addEventToggleDropdown(controlToggleDropdown);
+    welcomeView.addEventToggleLogoutModal(logoutModalController.controlToggleLogoutModal);
     welcomeView.addEventTurnCarouselByBtn(controlTurnCarouselByBtn);
     welcomeView.addEventTurnCarouselBySpan(controlTurnCarouselBySpan);
     welcomeView.addEventToTopBtn(controlToTopBtn);
