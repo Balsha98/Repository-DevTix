@@ -1,6 +1,7 @@
 import { redirectTo } from "./../helpers/redirect.js";
 import { renderListItemUserImage } from "./../helpers/image.js";
 import * as pageLoaderController from "./pageLoaderController.js";
+import * as logoutModalController from "./logoutModalController.js";
 import * as dataLoaderController from "./dataLoaderController.js";
 import navigationView from "./../views/navigationView.js";
 import * as navigationController from "./navigationController.js";
@@ -90,6 +91,7 @@ const initController = function () {
     // Setup sidebar.
     sidebarView.addEventToggleSidebar(sidebarController.controlToggleSidebar);
     sidebarView.addEventToggleSidebarDropdown(sidebarController.controlToggleSidebarDropdown);
+    sidebarView.addEventToggleLogoutModal(logoutModalController.controlToggleLogoutModal);
 
     // Setup dashboard.
     dashboardView.addEventChangeFilter(controlChangeFilter);
