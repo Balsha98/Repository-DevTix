@@ -366,6 +366,7 @@
 .div-grid-btn-container,
 .div-grid-link-container {
     display: grid;
+    width: 100%;
 }
 
 /* BUTTONS/LINKS */
