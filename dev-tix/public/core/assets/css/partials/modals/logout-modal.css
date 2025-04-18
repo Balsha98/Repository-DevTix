@@ -1,0 +1,79 @@
+/* LOGOUT MODAL CONTAINER */
+.div-logout-modal-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--transparent-black-md);
+    transition: all 0.5s;
+    z-index: 9999;
+}
+
+.hide-logout-modal {
+    opacity: 0;
+    z-index: -1;
+}
+
+/* LOGOUT MODAL */
+.div-logout-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    width: 100%;
+    max-width: 48rem;
+    height: fit-content;
+    padding: 2.4rem;
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+}
+
+/* BUTTON ICON (OVERRIDE) */
+.btn-icon.btn-close-logout-modal {
+    position: absolute;
+    top: -0.8rem;
+    right: -0.8rem;
+    width: 3.6rem;
+    aspect-ratio: 1 / 1;
+    color: var(--white);
+    background-color: var(--primary);
+    border-radius: var(--border-radius-circle);
+    transition: all 0.3s;
+    z-index: 1;
+}
+
+.btn-icon.btn-close-logout-modal:hover ion-icon {
+    color: var(--primary-tint);
+}
+
+.btn-icon.btn-close-logout-modal:hover {
+    background-color: var(--gray-tint);
+}
+
+/* LOGOUT MODAL HEADER */
+.logout-modal-header {
+    text-align: center;
+}
+
+.logout-modal-header h2 {
+    font-size: 2rem;
+}
+
+.logout-modal-header p {
+    font-size: 1.6rem;
+}
+
+.logout-modal-header span {
+    font-weight: 500;
+    color: var(--primary);
+}
+
+/* GRID BUTTON CONTAINER (OVERRIDE) */
+.div-grid-btn-container {
+    column-gap: 1.6rem;
+}
+
+/* LINK/BUTTON (OVERRIDE) */
+.div-grid-btn-container a:link,
+.div-grid-btn-container a:visited,
+.div-grid-btn-container button {
+    gap: 0.4rem;
+}
