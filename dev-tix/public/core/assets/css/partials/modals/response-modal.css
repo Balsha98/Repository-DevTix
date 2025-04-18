@@ -29,23 +29,23 @@
 /* BUTTON ICON (OVERRIDE) */
 .btn-icon.btn-toggle-response-modal {
     position: absolute;
-    top: 2.4rem;
-    right: 2.4rem;
+    top: -0.8rem;
+    right: -0.8rem;
     width: 3.6rem;
     aspect-ratio: 1 / 1;
-    color: var(--primary-tint);
-    background-color: var(--gray-tint);
+    color: var(--white);
+    background-color: var(--primary);
     border-radius: var(--border-radius-circle);
     transition: all 0.3s;
     z-index: 1;
 }
 
 .btn-icon.btn-toggle-response-modal:hover ion-icon {
-    color: var(--white);
+    color: var(--primary-tint);
 }
 
 .btn-icon.btn-toggle-response-modal:hover {
-    background-color: var(--primary);
+    background-color: var(--gray-tint);
 }
 
 /* RESPONSE MODAL HEADER */
@@ -77,7 +77,7 @@
 
 /* GRID BUTTON CONTAINER (OVERRIDE) */
 .div-grid-btn-container {
-    column-gap: 2.4rem;
+    column-gap: 1.6rem;
 }
 
 /* BUTTON (OVERRIDE) */
