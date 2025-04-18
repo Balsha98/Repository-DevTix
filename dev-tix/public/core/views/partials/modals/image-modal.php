@@ -1,5 +1,5 @@
     <!-- IMAGE MODAL CONTAINER -->
-    <div class="div-image-modal-container absolute-center hide-modal">
+    <div class="div-image-modal-container absolute-center hide-image-modal">
         <div class="div-image-modal absolute-center">
             <button class="btn btn-icon btn-close-image-modal">
                 <ion-icon src="<?php echo ICON_PATH; ?>/x.svg"></ion-icon>

@@ -8,7 +8,7 @@ class ImageModalView {
     }
 
     toggleImageModal() {
-        this.#imageModalContainer.toggleClass("hide-modal");
+        this.#imageModalContainer.toggleClass("hide-image-modal");
     }
 
     setModalImageSource(imageSrc) {
