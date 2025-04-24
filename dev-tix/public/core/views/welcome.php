@@ -119,7 +119,10 @@
                         <div class="div-about-content-container left-about-content-container">
                             <h4 class="about-heading">Customers Are Our #1 Priority</h4>
                             <p class="about-description">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus accusantium possimus iusto omnis vero itaque molestiae, aperiam eligendi alias corporis maiores veritatis ipsum, incidunt velit qui totam nihil magni. Dolorem odio aliquid expedita, possimus, veniam minus necessitatibus non hic accusamus quod dolor vero nesciunt, nemo culpa! Voluptate tempore beatae in?
+                                Since this is the about section of the website we will have to write some placeholder text to replace the dummy text
+                                that was initially placed there; having dummy text like that makes for a worse looking website, it just showcases gives
+                                off the wrong vibe. We will replace this text for each one of the sections, where one section will have more text and the
+                                other one will have less.
                             </p>
                         </div>
                         <div class="div-image-container about-image-container right-about-image">
@@ -133,7 +136,10 @@
                         <div class="div-about-content-container right-about-content-container">
                             <h4 class="about-heading">We Resolve Your Requests</h4>
                             <p class="about-description">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus accusantium possimus iusto omnis vero itaque molestiae, aperiam eligendi alias corporis maiores veritatis ipsum, incidunt velit qui totam nihil magni. Dolorem odio aliquid expedita, possimus, veniam minus necessitatibus non hic accusamus quod dolor vero nesciunt, nemo culpa! Voluptate tempore beatae in?
+                                Since this is the about section of the website we will have to write some placeholder text to replace the dummy text
+                                that was initially placed there; having dummy text like that makes for a worse looking website, it just showcases gives
+                                off the wrong vibe. We will replace this text for each one of the sections, where one section will have more text and the
+                                other one will have less.
                             </p>
                         </div>
                     </li>
@@ -158,7 +164,9 @@
                                 <h2 class="steps-heading">Create Your DevTix Account</h2>
                             </header>
                             <p class="steps-description">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut voluptatem ad earum blanditiis quasi architecto nihil assumenda qui maxime quaerat. Doloribus, consequatur aperiam expedita quos velit sequi. Quidem doloribus assumenda dolor eius magnam perferendis veniam aut necessitatibus recusandae quis repellat natus reprehenderit, ipsa impedit quas, omnis velit eaque. Exercitationem, unde.
+                                Since this is the steps section of the website we will have to write some placeholder text to replace the dummy text
+                                that was initially placed there; having dummy text like that makes for a worse looking website, it just showcases gives
+                                off the wrong vibe. We will replace this text for each one of the sections.
                             </p>
                         </div>
                         <div class="div-image-container steps-image-container right-steps-image">
@@ -175,7 +183,9 @@
                                 <h2 class="steps-heading">Post Your Request</h2>
                             </header>
                             <p class="steps-description">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut voluptatem ad earum blanditiis quasi architecto nihil assumenda qui maxime quaerat. Doloribus, consequatur aperiam expedita quos velit sequi. Quidem doloribus assumenda dolor eius magnam perferendis veniam aut necessitatibus recusandae quis repellat natus reprehenderit, ipsa impedit quas, omnis velit eaque. Exercitationem, unde.
+                                Since this is the steps section of the website we will have to write some placeholder text to replace the dummy text
+                                that was initially placed there; having dummy text like that makes for a worse looking website, it just showcases gives
+                                off the wrong vibe. We will replace this text for each one of the sections.
                             </p>
                         </div>
                     </li>
@@ -186,7 +196,9 @@
                                 <h2 class="steps-heading">Wait For An Assistant</h2>
                             </header>
                             <p class="steps-description">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut voluptatem ad earum blanditiis quasi architecto nihil assumenda qui maxime quaerat. Doloribus, consequatur aperiam expedita quos velit sequi. Quidem doloribus assumenda dolor eius magnam perferendis veniam aut necessitatibus recusandae quis repellat natus reprehenderit, ipsa impedit quas, omnis velit eaque. Exercitationem, unde.
+                                Since this is the steps section of the website we will have to write some placeholder text to replace the dummy text
+                                that was initially placed there; having dummy text like that makes for a worse looking website, it just showcases gives
+                                off the wrong vibe. We will replace this text for each one of the sections.
                             </p>
                         </div>
                         <div class="div-image-container steps-image-container right-steps-image">
@@ -203,7 +215,9 @@
                                 <h2 class="steps-heading">Work Towards The Solution</h2>
                             </header>
                             <p class="steps-description">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut voluptatem ad earum blanditiis quasi architecto nihil assumenda qui maxime quaerat. Doloribus, consequatur aperiam expedita quos velit sequi. Quidem doloribus assumenda dolor eius magnam perferendis veniam aut necessitatibus recusandae quis repellat natus reprehenderit, ipsa impedit quas, omnis velit eaque. Exercitationem, unde.
+                                Since this is the steps section of the website we will have to write some placeholder text to replace the dummy text
+                                that was initially placed there; having dummy text like that makes for a worse looking website, it just showcases gives
+                                off the wrong vibe. We will replace this text for each one of the sections.
                             </p>
                         </div>
                     </li>
@@ -228,7 +242,8 @@
                         <div class="div-features-content-container">
                             <h4 class="features-heading">An Active Community</h4>
                             <p class="features-description">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero asperiores, deleniti deserunt pariatur maiores aliquid fugiat inventore cum explicabo aliquam ad voluptatibus!
+                                Now these are the features container, and these will container a bit less text, just so we do not overflow the container's
+                                width; should work well enough in the end!
                             </p>
                         </div>
                     </li>
@@ -239,7 +254,8 @@
                         <div class="div-features-content-container">
                             <h4 class="features-heading">Focus On What Matters</h4>
                             <p class="features-description">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero asperiores, deleniti deserunt pariatur maiores aliquid fugiat inventore cum explicabo aliquam ad voluptatibus!
+                                Now these are the features container, and these will container a bit less text, just so we do not overflow the container's
+                                width; should work well enough in the end!
                             </p>
                         </div>
                     </li>
@@ -250,7 +266,8 @@
                         <div class="div-features-content-container">
                             <h4 class="features-heading">Response In Seconds</h4>
                             <p class="features-description">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero asperiores, deleniti deserunt pariatur maiores aliquid fugiat inventore cum explicabo aliquam ad voluptatibus!
+                                Now these are the features container, and these will container a bit less text, just so we do not overflow the container's
+                                width; should work well enough in the end!
                             </p>
                         </div>
                     </li>
@@ -261,7 +278,8 @@
                         <div class="div-features-content-container">
                             <h4 class="features-heading">Leave Your Mark</h4>
                             <p class="features-description">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero asperiores, deleniti deserunt pariatur maiores aliquid fugiat inventore cum explicabo aliquam ad voluptatibus!
+                                Now these are the features container, and these will container a bit less text, just so we do not overflow the container's
+                                width; should work well enough in the end!
                             </p>
                         </div>
                     </li>
@@ -286,7 +304,8 @@
                         <div class="div-testimonials-data-container">
                             <h4 class="testimonials-heading">Easy to use. They got my support!</h4>
                             <blockquote class="testimonials-quote">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, distinctio ea maiores doloribus deserunt obcaecati iusto incidunt possimus, perspiciatis eveniet at ab, quam illo quae ipsa id accusantium aut. Cupiditate!
+                                Wow, I really enjoyed using this application; definitely going up on my list of recommendations. No hassle, easy to
+                                us, and very well organized... I am for sure getting all of my friends on this wave before it's too late... Let's get it!
                             </blockquote>
                             <div class="div-testimonials-author-container">
                                 <p>Jenna Storm</p>
@@ -301,7 +320,8 @@
                         <div class="div-testimonials-data-container">
                             <h4 class="testimonials-heading">Kudos to the customer support!</h4>
                             <blockquote class="testimonials-quote">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, distinctio ea maiores doloribus deserunt obcaecati iusto incidunt possimus, perspiciatis eveniet at ab, quam illo quae ipsa id accusantium aut. Cupiditate!
+                                Wow, I really enjoyed using this application; definitely going up on my list of recommendations. No hassle, easy to
+                                us, and very well organized... I am for sure getting all of my friends on this wave before it's too late... Let's get it!
                             </blockquote>
                             <div class="div-testimonials-author-container">
                                 <p>John Davis</p>
@@ -316,7 +336,8 @@
                         <div class="div-testimonials-data-container">
                             <h4 class="testimonials-heading">Money well spent after all!</h4>
                             <blockquote class="testimonials-quote">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, distinctio ea maiores doloribus deserunt obcaecati iusto incidunt possimus, perspiciatis eveniet at ab, quam illo quae ipsa id accusantium aut. Cupiditate!
+                                Wow, I really enjoyed using this application; definitely going up on my list of recommendations. No hassle, easy to
+                                us, and very well organized... I am for sure getting all of my friends on this wave before it's too late... Let's get it!
                             </blockquote>
                             <div class="div-testimonials-author-container">
                                 <p>Sarah Michaels</p>
@@ -331,7 +352,8 @@
                         <div class="div-testimonials-data-container">
                             <h4 class="testimonials-heading">An overall great community!</h4>
                             <blockquote class="testimonials-quote">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, distinctio ea maiores doloribus deserunt obcaecati iusto incidunt possimus, perspiciatis eveniet at ab, quam illo quae ipsa id accusantium aut. Cupiditate!
+                                Wow, I really enjoyed using this application; definitely going up on my list of recommendations. No hassle, easy to
+                                us, and very well organized... I am for sure getting all of my friends on this wave before it's too late... Let's get it!
                             </blockquote>
                             <div class="div-testimonials-author-container">
                                 <p>Steven Patrick</p>
@@ -346,7 +368,8 @@
                         <div class="div-testimonials-data-container">
                             <h4 class="testimonials-heading">Get yourself an account; it's worth it!</h4>
                             <blockquote class="testimonials-quote">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, distinctio ea maiores doloribus deserunt obcaecati iusto incidunt possimus, perspiciatis eveniet at ab, quam illo quae ipsa id accusantium aut. Cupiditate!
+                                Wow, I really enjoyed using this application; definitely going up on my list of recommendations. No hassle, easy to
+                                us, and very well organized... I am for sure getting all of my friends on this wave before it's too late... Let's get it!
                             </blockquote>
                             <div class="div-testimonials-author-container">
                                 <p>Yu Chen</p>
