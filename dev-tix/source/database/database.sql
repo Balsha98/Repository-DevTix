@@ -38,7 +38,11 @@ CREATE TABLE users (
 INSERT INTO users (user_id, view_as_user_id, role_id, view_as_role_id, first_name, last_name, email, username, password) VALUES
 (1, 1, 1, 1, "Admin", "User", "admin@devtix.com", "Administrator", "ac9689e2272427085e35b9d3e3e8bed88cb3434828b43b86fc0596cad4c6e270"),
 (2, 2, 2, 2, "Assistant", "User", "assistant1@devtix.com", "AssistantU1", "00ce2cf0fd8b61720f26f52224e0db0179986eb1697170e80d6380fdca7e4eba"),
-(3, 3, 3, 3, "Patron", "User", "patron1@devtix.com", "PatronU1", "da1daf969f581165d24ef5cf70969d2d62909c70ddc43332c3da5f7b227fffc3");
+(3, 3, 2, 2, "Assistant", "User", "assistant2@devtix.com", "AssistantU2", "00ce2cf0fd8b61720f26f52224e0db0179986eb1697170e80d6380fdca7e4eba"),
+(4, 4, 2, 2, "Assistant", "User", "assistant3@devtix.com", "AssistantU3", "00ce2cf0fd8b61720f26f52224e0db0179986eb1697170e80d6380fdca7e4eba"),
+(5, 5, 3, 3, "Patron", "User", "patron1@devtix.com", "PatronU1", "da1daf969f581165d24ef5cf70969d2d62909c70ddc43332c3da5f7b227fffc3"),
+(6, 6, 3, 3, "Patron", "User", "patron2@devtix.com", "PatronU2", "da1daf969f581165d24ef5cf70969d2d62909c70ddc43332c3da5f7b227fffc3"),
+(7, 7, 3, 3, "Patron", "User", "patron3@devtix.com", "PatronU3", "da1daf969f581165d24ef5cf70969d2d62909c70ddc43332c3da5f7b227fffc3");
 
 -- SELECT * FROM users;
 
@@ -64,7 +68,11 @@ CREATE TABLE user_details (
 INSERT INTO user_details (details_id, user_id, age, gender) VALUES 
 (1, 1, NULL, NULL),
 (2, 2, NULL, NULL),
-(3, 3, NULL, NULL);
+(3, 3, NULL, NULL),
+(4, 4, NULL, NULL),
+(5, 5, NULL, NULL),
+(6, 6, NULL, NULL),
+(7, 7, NULL, NULL);
 
 -- SELECT * FROM user_details;
 
@@ -87,13 +95,10 @@ CREATE TABLE ticket_requests (
         ON DELETE SET NULL
 );
 
--- INSERT INTO ticket_requests (request_id, patron_id, assistant_id, type, subject, question, status, turn_id) VALUES
--- (1, 5, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
--- (2, 5, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
--- (3, 5, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
--- (4, 5, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
--- (5, 5, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
--- (6, 5, NULL, "Frontend", "Web Development", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0);
+INSERT INTO ticket_requests (request_id, patron_id, assistant_id, type, subject, question, status, turn_id) VALUES
+(1, 5, NULL, "Frontend", "UI/UX Design", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
+(2, 6, NULL, "Backend", "System Architecture", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0),
+(3, 7, NULL, "Programming", "Working In Java", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "unassigned", 0);
 
 -- SELECT * FROM ticket_requests;
 
@@ -171,12 +176,13 @@ CREATE TABLE notifications (
         ON DELETE CASCADE
 );
 
--- INSERT INTO notifications (notification_id, user_id, type, title, message) VALUES
--- (1, 2, "signup", "Welcome To DevTix", "You have successfully made an account."),
--- (2, 3, "signup", "Welcome To DevTix", "You have successfully made an account."),
--- (3, 4, "signup", "Welcome To DevTix", "You have successfully made an account."),
--- (4, 5, "signup", "Welcome To DevTix", "You have successfully made an account."),
--- (5, 6, "signup", "Welcome To DevTix", "You have successfully made an account.");
+INSERT INTO notifications (notification_id, user_id, type, title, message) VALUES
+(1, 2, "signup", "Welcome To DevTix", "You have successfully made an account."),
+(2, 3, "signup", "Welcome To DevTix", "You have successfully made an account."),
+(3, 4, "signup", "Welcome To DevTix", "You have successfully made an account."),
+(4, 5, "signup", "Welcome To DevTix", "You have successfully made an account."),
+(5, 6, "signup", "Welcome To DevTix", "You have successfully made an account."),
+(6, 7, "signup", "Welcome To DevTix", "You have successfully made an account.");
 
 -- SELECT * FROM notifications;
 
