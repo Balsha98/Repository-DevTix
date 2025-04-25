@@ -12,7 +12,7 @@ class DashboardApiController extends AbsApiController
             $return['overviews'] = $this->extractAdminOverviewData();
         }
 
-        $data = $this->getAllRows('ticket_requests');
+        $data = $this->getAllTicketsInOrder();
 
         // Get all present tickets.
         if (!isset($data['request_id'])) {
@@ -52,10 +52,10 @@ class DashboardApiController extends AbsApiController
 
     // ***** HELPER DATABASE FUNCTIONS ***** //
 
-    private function getAllRows(string $tableName)
+    private function getAllTicketsInOrder()
     {
         return Session::getDbInstance()->executeQuery(
-            "SELECT * FROM {$tableName};"
+            'SELECT * FROM ticket_requests ORDER BY posted_at DESC;'
         )->getQueryResult();
     }
 
