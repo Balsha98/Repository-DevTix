@@ -11,7 +11,7 @@ class Validate
     private const PATTERNS = [
         'only_letters' => '#[^a-zA-Z]#',
         'special_cases' => '#[^a-zA-Z0-9.,?! ]#',
-        'no_symbols' => '#[^a-zA-Z0-9 ]#',
+        'no_symbols' => '#[^a-zA-Z0-9- ]#',
     ];
 
     /**
