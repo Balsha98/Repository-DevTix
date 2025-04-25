@@ -61,7 +61,7 @@ class TicketsApiController extends AbsApiController
     private function getAllTicketsPerUser(int $userID, int $roleID)
     {
         $roleType = $roleID === 2 ? 'assistant' : 'patron';
-        $query = "SELECT * FROM ticket_requests WHERE {$roleType}_id = :user_id;";
+        $query = "SELECT * FROM ticket_requests WHERE {$roleType}_id = :user_id ORDER BY posted_at DESC;";
         return Session::getDbInstance()->executeQuery(
             $query, [':user_id' => $userID]
         )->getQueryResult();
