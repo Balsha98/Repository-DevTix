@@ -45,7 +45,7 @@ class LeaderboardApiController extends AbsApiController
     private function getLeaderboardData(int $leagueID)
     {
         $query = '
-            SELECT * FROM leaderboards
+            SELECT * FROM leaderboards 
             JOIN leagues ON leaderboards.league_id = leagues.league_id 
             JOIN users ON leaderboards.assistant_id = users.user_id 
             JOIN roles ON users.role_id = roles.role_id 

@@ -93,7 +93,8 @@ class NotificationsApiController extends AbsApiController
             $query = '
                 SELECT * FROM notifications 
                 JOIN users ON notifications.user_id = users.user_id 
-                JOIN user_details ON users.user_id = user_details.user_id;
+                JOIN user_details ON users.user_id = user_details.user_id 
+                ORDER BY notification_id ASC;
             ';
 
             return Session::getDbInstance()->executeQuery($query)->getQueryResult();
@@ -103,7 +104,8 @@ class NotificationsApiController extends AbsApiController
             SELECT * FROM notifications 
             JOIN users ON notifications.user_id = users.user_id 
             JOIN user_details ON users.user_id = user_details.user_id 
-            WHERE notifications.user_id = :user_id;
+            WHERE notifications.user_id = :user_id 
+            ORDER BY notification_id ASC;;
         ';
 
         return Session::getDbInstance()->executeQuery(
