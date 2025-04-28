@@ -19,8 +19,8 @@
     padding: 2.4rem;
 }
 
-/* NOTIFICATIONS CONTENT CONTAINER */
-.div-notifications-content-container {
+/* NOTIFICATIONS OVERVIEW CONTAINER */
+.div-notifications-overview-container {
     flex-grow: 1;
     display: inherit;
     flex-direction: inherit;

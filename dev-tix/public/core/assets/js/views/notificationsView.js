@@ -1,5 +1,5 @@
 class NotificationsView {
-    #notificationsContentContainer = $(".div-notifications-content-container");
+    #notificationsOverviewContainer = $(".div-notifications-overview-container");
     #notificationsContainerHeader = $(".notifications-container-header");
     #notificationsContainerFooter = $(".notifications-container-footer");
     #notificationsSelectFilter = $(".notifications-select-filter");
@@ -10,7 +10,7 @@ class NotificationsView {
     #spanTotalNotifications = $(".span-total-notifications");
 
     generateNotificationsList(data, renderImage, getTimeAgo) {
-        const containerHeight = parseFloat(this.#notificationsContentContainer.css("height"));
+        const containerHeight = parseFloat(this.#notificationsOverviewContainer.css("height"));
 
         // prettier-ignore
         const innerElementHeightTotal = [

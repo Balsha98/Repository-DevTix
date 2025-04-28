@@ -17,7 +17,7 @@ require_once __DIR__ . '/partials/modals/logout-modal.php';
             <!-- NOTIFICATIONS CONTAINER -->
             <div class="div-notifications-container">
                 <?php require_once __DIR__ . '/partials/navigation.php'; ?>
-                <div class="div-notifications-content-container">
+                <div class="div-notifications-overview-container">
                     <header class="notifications-container-header flex-between">
                         <h2 class="notifications-container-header-heading">
                             <span class="span-client-username"><?php echo $user->getUsername(); ?></span>'s Notifications Overview
