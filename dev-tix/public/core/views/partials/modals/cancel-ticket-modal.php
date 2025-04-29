@@ -6,7 +6,7 @@
             </button>
             <header class="cancel-ticket-modal-header">
                 <h2>Cancellation Confirmation</h2>
-                <p>Are you sure about <span>cancelling</span> your ticket?</p>
+                <p>Are you sure about <span>cancelling</span> this ticket?</p>
             </header>
             <div class="div-grid-btn-container div-grid-cancel-ticket-modal-btn-container grid-2-columns" data-url="/api/">
                 <button class="btn btn-error btn-close-cancel-ticket-modal flex-center">
