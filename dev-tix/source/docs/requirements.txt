@@ -5,7 +5,7 @@ Requirements:
 	- Request/Response actions with tickets. (YES)
 	- Ticket overview and time management. (YES)
 	- Keep history of all solved requests per Assistant. (YES)
-	- Patron will be able to edit a posted request before is was responded to. (NOT GONNA HAPPEN)
+	- Patron will be able to edit a posted request before is was responded to. (FUTURE TASK (MAYBE))
     	- Patron will be able to cancel a posted request. (YES)
     	- Patron will be able to leave a review of the Assistant’s response. (NOT GONNA HAPPEN)
     	- Tickets will be closed by the Assistant, or after some time of inactivity. (YES)
@@ -13,7 +13,7 @@ Requirements:
 
 Security:
 	- Data sanitization/validation to prevent XSS. (YES)
-	- Prepared SQL statments to prevent query injections. (YES)
+	- Prepared SQL statements to prevent query injections. (YES)
 	- Separate interface for Administrators. (NOT GONNA HAPPEN)
 	- Session tokens to prevent CSRF. (YES)
 
@@ -35,9 +35,9 @@ Required Pages:
 
 Optional Features:
 	- Image Uploads (Using FormData in JS) (YES)
-	- Forgot Password (NOT GONNA HAPPEN)
-	- Email Confirmations (NOT GONNA HAPPEN)
-	- Blog Page (Follow/Unfollow) (NOT GONNA HAPPEN)
+	- Forgot Password (FUTURE TASK)
+	- Email Confirmations (FUTURE TASK)
+	- Blog Page (Follow/Unfollow) (FUTURE TASK (MAYBE))
 
 Next Steps:
 	- Create CSRF token on login/signup. (YES)
