@@ -119,6 +119,7 @@
             "css": [
                 "css/partials/modals/alert-modal",
                 "css/partials/modals/cancel-ticket-modal",
+                "css/partials/modals/post-ticket-modal",
                 "css/partials/modals/logout-modal",
                 "css/partials/modals/image-modal",
                 "css/partials/navigation",
