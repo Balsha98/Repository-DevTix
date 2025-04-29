@@ -16,6 +16,7 @@ require_once __DIR__ . '/partials/loaders/page-loader.php';
 require_once __DIR__ . '/partials/modals/alert-modal.php';
 require_once __DIR__ . '/partials/modals/cancel-ticket-modal.php';
 require_once __DIR__ . '/partials/modals/post-ticket-modal.php';
+require_once __DIR__ . '/partials/modals/resolve-ticket-modal.php';
 require_once __DIR__ . '/partials/modals/image-modal.php';
 require_once __DIR__ . '/partials/modals/logout-modal.php';
 ?>
@@ -135,7 +136,7 @@ require_once __DIR__ . '/partials/modals/logout-modal.php';
                                             ';
                                         } else {
                                             echo '
-                                                <button class="btn btn-success btn-alter-request" data-method="PUT" data-status="resolved">
+                                                <button class="btn btn-success btn-show-resolve-ticket-modal">
                                                     <ion-icon src="' . ICON_PATH . '/check.svg"></ion-icon>
                                                     <span>Resolve Request</span>
                                                 </button>

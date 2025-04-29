@@ -3,6 +3,7 @@ import { isInputEmpty } from "./../helpers/validate.js";
 import * as pageLoaderController from "./pageLoaderController.js";
 import * as postTicketModalController from "./postTicketModalController.js";
 import * as cancelTicketModalController from "./cancelTicketModalController.js";
+import * as resolveTicketModalController from "./resolveTicketModalController.js";
 import * as imageModalController from "./imageModalController.js";
 import * as logoutModalController from "./logoutModalController.js";
 import navigationView from "./../views/navigationView.js";
@@ -59,7 +60,9 @@ const controlAlterRequest = function () {
     const method = $(this).data("method");
     const status = $(this).data("status");
 
+    // Hide appropriate modal.
     if (status === "cancelled") controlToggleCancelTicketModal();
+    else if (status === "resolved") controlToggleResolveTicketModal();
 
     const data = {};
     data["id"] = $("#record_id").val();
@@ -225,6 +228,10 @@ const controlToggleCancelTicketModal = function () {
     cancelTicketModalController.controlToggleCancelTicketModal();
 };
 
+const controlToggleResolveTicketModal = function () {
+    resolveTicketModalController.controlToggleResolveTicketModal();
+};
+
 const controlToggleResponseModal = function () {
     ticketView.toggleResponseModal();
 };
@@ -255,6 +262,7 @@ const initController = function () {
     ticketView.addEventAlterRequest(controlAlterRequest);
     ticketView.addEventShowPostTicketModal(controlTogglePostTicketModal);
     ticketView.addEventShowCancelTicketModal(controlToggleCancelTicketModal);
+    ticketView.addEventShowResolveTicketModal(controlToggleResolveTicketModal);
     ticketView.addEventPostResponse(controlPostResponse);
     ticketView.addEventSelectTicketType(controlSelectTicketType);
     ticketView.addEventGenerateImageInput(controlGenerateImageInput);
