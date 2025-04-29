@@ -15,6 +15,7 @@ $recordID = $isRecordIdSet ? (int) Session::get('record_id') : 0;
 require_once __DIR__ . '/partials/loaders/page-loader.php';
 require_once __DIR__ . '/partials/modals/alert-modal.php';
 require_once __DIR__ . '/partials/modals/cancel-ticket-modal.php';
+require_once __DIR__ . '/partials/modals/post-ticket-modal.php';
 require_once __DIR__ . '/partials/modals/image-modal.php';
 require_once __DIR__ . '/partials/modals/logout-modal.php';
 ?>
@@ -36,7 +37,7 @@ require_once __DIR__ . '/partials/modals/logout-modal.php';
                             if ($user->getViewAsRoleId() !== 2) {
                                 if ($isRecordIdSet && $recordID === 0) {
                                     echo '
-                                        <button class="btn btn-success btn-post-request" data-method="POST">
+                                        <button class="btn btn-success btn-show-post-ticket-modal">
                                             <ion-icon src="' . ICON_PATH . '/paperclip.svg"></ion-icon>
                                             <span>Post Request</span>
                                         </button>

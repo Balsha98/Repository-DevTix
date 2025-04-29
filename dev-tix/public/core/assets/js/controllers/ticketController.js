@@ -1,6 +1,7 @@
 import { handleRequest } from "./../helpers/request.js";
 import { isInputEmpty } from "./../helpers/validate.js";
 import * as pageLoaderController from "./pageLoaderController.js";
+import * as postTicketModalController from "./postTicketModalController.js";
 import * as cancelTicketModalController from "./cancelTicketModalController.js";
 import * as imageModalController from "./imageModalController.js";
 import * as logoutModalController from "./logoutModalController.js";
@@ -12,6 +13,9 @@ import ticketModel from "./../models/ticketModel.js";
 import ticketView from "./../views/ticketView.js";
 
 const controlPostRequest = function () {
+    controlTogglePostTicketModal();
+
+    // Guard clause: empty fields.
     if (isInputEmpty()) return;
 
     const form = $(".form-post-ticket");
@@ -87,6 +91,7 @@ const controlPostResponse = function (formEvent) {
 
     handleRequest(url, method, data);
 
+    // Hide response modal.
     controlToggleResponseModal();
 };
 
@@ -212,6 +217,10 @@ const controlGetTicketData = function () {
     });
 };
 
+const controlTogglePostTicketModal = function () {
+    postTicketModalController.controlTogglePostTicketModal();
+};
+
 const controlToggleCancelTicketModal = function () {
     cancelTicketModalController.controlToggleCancelTicketModal();
 };
@@ -244,6 +253,7 @@ const initController = function () {
     // Setup ticket view.
     ticketView.addEventPostRequest(controlPostRequest);
     ticketView.addEventAlterRequest(controlAlterRequest);
+    ticketView.addEventShowPostTicketModal(controlTogglePostTicketModal);
     ticketView.addEventShowCancelTicketModal(controlToggleCancelTicketModal);
     ticketView.addEventPostResponse(controlPostResponse);
     ticketView.addEventSelectTicketType(controlSelectTicketType);
