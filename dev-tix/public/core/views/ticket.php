@@ -14,6 +14,7 @@ $recordID = $isRecordIdSet ? (int) Session::get('record_id') : 0;
 
 require_once __DIR__ . '/partials/loaders/page-loader.php';
 require_once __DIR__ . '/partials/modals/alert-modal.php';
+require_once __DIR__ . '/partials/modals/cancel-ticket-modal.php';
 require_once __DIR__ . '/partials/modals/image-modal.php';
 require_once __DIR__ . '/partials/modals/logout-modal.php';
 ?>
@@ -82,7 +83,7 @@ require_once __DIR__ . '/partials/modals/logout-modal.php';
                                             }
                                         } else {
                                             echo '
-                                                <button class="btn btn-error btn-alter-request" data-method="PUT" data-status="cancelled">
+                                                <button class="btn btn-error btn-show-cancel-ticket-modal">
                                                     <ion-icon src="' . ICON_PATH . '/x.svg"></ion-icon>
                                                     <span>Cancel Request</span>
                                                 </button>

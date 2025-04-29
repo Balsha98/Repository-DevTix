@@ -1,6 +1,7 @@
 import { handleRequest } from "./../helpers/request.js";
 import { isInputEmpty } from "./../helpers/validate.js";
 import * as pageLoaderController from "./pageLoaderController.js";
+import * as cancelTicketModalController from "./cancelTicketModalController.js";
 import * as imageModalController from "./imageModalController.js";
 import * as logoutModalController from "./logoutModalController.js";
 import navigationView from "./../views/navigationView.js";
@@ -53,6 +54,8 @@ const controlAlterRequest = function () {
     const url = $(this.closest("div")).data("url");
     const method = $(this).data("method");
     const status = $(this).data("status");
+
+    if (status === "cancelled") controlToggleCancelTicketModal();
 
     const data = {};
     data["id"] = $("#record_id").val();
@@ -209,6 +212,10 @@ const controlGetTicketData = function () {
     });
 };
 
+const controlToggleCancelTicketModal = function () {
+    cancelTicketModalController.controlToggleCancelTicketModal();
+};
+
 const controlToggleResponseModal = function () {
     ticketView.toggleResponseModal();
 };
@@ -237,6 +244,7 @@ const initController = function () {
     // Setup ticket view.
     ticketView.addEventPostRequest(controlPostRequest);
     ticketView.addEventAlterRequest(controlAlterRequest);
+    ticketView.addEventShowCancelTicketModal(controlToggleCancelTicketModal);
     ticketView.addEventPostResponse(controlPostResponse);
     ticketView.addEventSelectTicketType(controlSelectTicketType);
     ticketView.addEventGenerateImageInput(controlGenerateImageInput);

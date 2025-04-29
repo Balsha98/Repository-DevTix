@@ -3,6 +3,7 @@ class TicketView {
     #ticketContentContainerHeader = $(".ticket-container-header");
     #btnPostRequest = $(".btn-post-request");
     #btnsAlterRequest = $(".btn-alter-request");
+    #btnShowCancelTicketModal = $(".btn-show-cancel-ticket-modal");
     #btnPostResponse = $(".btn-post-response");
     #spanTicketID = $(".span-ticket-id");
     #ticketDataContainers = $(".div-ticket-data-container");
@@ -148,6 +149,10 @@ class TicketView {
         this.#btnsAlterRequest.each((_, btn) => {
             $(btn)?.click(handlerFunction);
         });
+    }
+
+    addEventShowCancelTicketModal(handlerFunction) {
+        this.#btnShowCancelTicketModal?.click(handlerFunction);
     }
 
     addEventSelectTicketType(handlerFunction) {
