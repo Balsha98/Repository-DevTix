@@ -21,7 +21,7 @@ require_once __DIR__ . '/partials/modals/logout-modal.php';
         <main class="main-container">
             <?php require_once __DIR__ . '/partials/sidebar.php'; ?>
             <!-- PROFILE CONTAINER -->
-            <div class="div-profile-container">
+            <div class="div-main-container div-profile-container">
                 <?php require_once __DIR__ . '/partials/navigation.php'; ?>
                 <div class="div-profile-content-container">
                     <header class="profile-container-header flex-between">

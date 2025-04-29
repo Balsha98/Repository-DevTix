@@ -23,7 +23,7 @@ require_once __DIR__ . '/partials/modals/logout-modal.php';
         <main class="main-container">
             <?php require_once __DIR__ . '/partials/sidebar.php'; ?>
             <!-- TICKETS CONTAINER -->
-            <div class="div-ticket-container">
+            <div class="div-main-container div-ticket-container">
                 <?php require_once __DIR__ . '/partials/navigation.php'; ?>
                 <div class="div-ticket-content-container">
                     <header class="ticket-container-header flex-between">
