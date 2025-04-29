@@ -163,13 +163,11 @@
 .notifications-menu-list::-webkit-scrollbar {
     width: 0.8rem;
     background-color: var(--gray-tint);
-    border-radius: var(--border-radius-lg);
 }
 
 .clients-menu-list::-webkit-scrollbar-thumb,
 .notifications-menu-list::-webkit-scrollbar-thumb {
     background-color: var(--primary-tint);
-    border-radius: var(--border-radius-lg);
 }
 
 /* CLIENTS & NOTIFICATIONS MENU LIST ITEM */
