@@ -7,7 +7,7 @@ Requirements:
 	- Keep history of all solved requests per Assistant. (YES)
 	- Patron will be able to edit a posted request before is was responded to. (FUTURE TASK (MAYBE))
     	- Patron will be able to cancel a posted request. (YES)
-    	- Patron will be able to leave a review of the Assistant’s response. (NOT GONNA HAPPEN)
+    	- Patron will be able to leave a review of the Assistant’s response. (FUTURE TASK (MAYBE))
     	- Tickets will be closed by the Assistant, or after some time of inactivity. (YES)
 	- Logs will be kept on actions made within the app. (YES)
 
@@ -21,6 +21,7 @@ Extras (Gamification):
 	- Assistants Leaderboard; by overall review, or by # of resolved tickets. (YES)
 	- The app will have several levels of Assistants (Rookie, Junior, Senior, Legend). (YES)
 	- Each Assistant will be able to keep track of their status. (YES)
+    - Leaderboard status will be accessible view modal window. (FUTURE TASK)
 
 Required Pages:
 	- Dashboard (YES)
@@ -34,18 +35,8 @@ Required Pages:
 	- Logs (YES)
 
 Optional Features:
+    - Chat Popup (FUTURE TASK)
 	- Image Uploads (Using FormData in JS) (YES)
 	- Forgot Password (FUTURE TASK)
 	- Email Confirmations (FUTURE TASK)
 	- Blog Page (Follow/Unfollow) (FUTURE TASK (MAYBE))
-
-Next Steps:
-	- Create CSRF token on login/signup. (YES)
-	- Create turn-based environment. (YES)
-	- Create profile page. (YES)
-	- Make notifications functional. (YES)
-	- Create leagues/leaderboard. (YES)
-	- Create admin pages. (NOT GONNA HAPPEN)
-
-Suggestions:
-	- Save data through hidden inputs inside the views. (YES)
