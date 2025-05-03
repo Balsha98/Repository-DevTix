@@ -1,7 +1,7 @@
     <!-- SIDEBAR -->
-    <div class="div-sidebar-container">
+    <div class="div-sidebar-container collapse-sidebar">
         <!-- EXPANDED SIDEBAR -->
-        <div class="sidebar-container-expand collapse-sidebar">
+        <div class="sidebar-container-expand">
             <header class="sidebar-header">
                 <div class="div-logo-container dashboard-logo-container">
                     <ion-icon src="<?php echo ICON_PATH; ?>/page-logo.svg"></ion-icon>
@@ -353,3 +353,6 @@
             </footer>
         </div>
     </div>
+
+    <!-- SIDEBAR OVERLAY -->
+    <div class="overlay sidebar-overlay hide-sidebar-overlay">&nbsp;</div>
