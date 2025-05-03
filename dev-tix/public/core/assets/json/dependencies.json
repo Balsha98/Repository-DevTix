@@ -85,6 +85,7 @@
         "profile": {
             "css": [
                 "css/partials/modals/alert-modal",
+                "css/partials/modals/league-modal",
                 "css/partials/modals/logout-modal",
                 "css/partials/navigation",
                 "css/partials/signs/none-clients",
