@@ -121,10 +121,16 @@
     background-color: var(--primary);
     box-shadow: 0 0.4rem 1.2rem var(--shadow-sm);
     border-radius: var(--border-radius-circle);
+    transition: transform 0.3s;
+    cursor: pointer;
 }
 
 .div-league-icon-container ion-icon {
     font-size: 3.3rem;
+}
+
+.div-league-icon-container:hover {
+    transform: scale(1.1);
 }
 
 /* IMAGE CONTAINER (OVERRIDE) */

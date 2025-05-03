@@ -1,6 +1,7 @@
 import { handleRequest } from "./../helpers/request.js";
 import { isInputEmpty } from "./../helpers/validate.js";
 import * as pageLoaderController from "./pageLoaderController.js";
+import * as leagueModalController from "./leagueModalController.js";
 import * as logoutModalController from "./logoutModalController.js";
 import navigationView from "./../views/navigationView.js";
 import * as navigationController from "./navigationController.js";
@@ -137,6 +138,7 @@ const initController = function () {
     // Setup profile.
     profileView.addEventAlterProfileData(controlAlterProfileData);
     profileView.addEventDeleteProfileData(controlDeleteProfileData);
+    profileView.addEventToggleLeagueModal(leagueModalController.controlToggleLeagueModal);
     profileView.addEventToggleInputImage(controlToggleInputImage);
     profileView.checkCharacterLimit(profileModel.getStateVal("bioLimit"));
 

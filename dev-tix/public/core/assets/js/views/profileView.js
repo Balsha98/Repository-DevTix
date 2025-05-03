@@ -2,6 +2,7 @@ class ProfileView {
     #spanProfileUser = $(".span-profile-user");
     #btnsAlterProfile = $(".btn-alter-profile");
     #btnDeleteProfile = $(".btn-delete-profile");
+    #leagueIconContainer = $(".div-league-icon-container");
     #btnUploadImage = $(".btn-upload-image");
     #profileBio = $("textarea#bio");
     #textCharactersLimit = $(".text-characters-limit");
@@ -63,6 +64,10 @@ class ProfileView {
 
     addEventDeleteProfileData(handlerFunction) {
         this.#btnDeleteProfile?.click(handlerFunction);
+    }
+
+    addEventToggleLeagueModal(handlerFunction) {
+        this.#leagueIconContainer?.click(handlerFunction);
     }
 
     addEventToggleInputImage(handlerFunction) {
