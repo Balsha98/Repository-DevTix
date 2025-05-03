@@ -11,9 +11,19 @@ $user = new User(Session::get('user_id'), Session::getDbInstance());
 $isRecordIdSet = Session::isSet('record_id');
 $recordID = $isRecordIdSet ? (int) Session::get('record_id') : 0;
 
+// Import partial view scripts.
 require_once __DIR__ . '/partials/loaders/page-loader.php';
 require_once __DIR__ . '/partials/modals/alert-modal.php';
 require_once __DIR__ . '/partials/modals/logout-modal.php';
+
+// Import league-modal window.
+if ($isRecordIdSet && $recordID !== 0) {
+    $profileUser = new User($recordID, Session::getDbInstance());
+
+    if ($profileUser->getRoleId() === 2 && !empty($profileUser->getRequestIDs())) {
+        require_once __DIR__ . '/partials/modals/league-modal.php';
+    }
+}
 ?>
 
     <!-- MAIN CONTAINER -->
@@ -21,7 +31,7 @@ require_once __DIR__ . '/partials/modals/logout-modal.php';
         <main class="main-container">
             <?php require_once __DIR__ . '/partials/sidebar.php'; ?>
             <!-- PROFILE CONTAINER -->
-            <div class="div-main-container div-profile-container">
+            <div class="div-profile-container">
                 <?php require_once __DIR__ . '/partials/navigation.php'; ?>
                 <div class="div-profile-content-container">
                     <header class="profile-container-header flex-between">
