@@ -136,14 +136,15 @@ CREATE TABLE ticket_responses (
 CREATE TABLE leagues (
     league_id INT NOT NULL AUTO_INCREMENT,
     league_name VARCHAR(25) NOT NULL,
+    threshold INT NOT NULL,
     PRIMARY KEY (league_id)
 );
 
-INSERT INTO leagues (league_id, league_name) VALUES 
-(1, "Legendary"),
-(2, "Senior"),
-(3, "Junior"),
-(4, "Rookie");
+INSERT INTO leagues VALUES 
+(1, "Legendary", 500),
+(2, "Senior", 250),
+(3, "Junior", 100),
+(4, "Rookie", 1);
 
 
 -- LEADERBOARDS
