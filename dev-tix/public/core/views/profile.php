@@ -21,7 +21,11 @@ if ($isRecordIdSet && $recordID !== 0) {
     $profileUser = new User($recordID, Session::getDbInstance());
 
     if ($profileUser->getRoleId() === 2 && !empty($profileUser->getRequestIDs())) {
-        require_once __DIR__ . '/partials/modals/league-modal.php';
+        $leaderboard = new Leaderboard($profileUser->getId(), Session::getDbInstance());
+
+        if (!$leaderboard->isRecordEmpty()) {
+            require_once __DIR__ . '/partials/modals/league-modal.php';
+        }
     }
 }
 ?>
