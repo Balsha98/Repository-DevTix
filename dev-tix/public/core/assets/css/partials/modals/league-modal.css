@@ -15,8 +15,12 @@
 /* LEAGUE MODAL */
 .div-league-modal {
     display: flex;
-    justify-content: center;
-    width: 80rem;
+    align-items: center;
+    gap: 4.8rem;
+    width: 64rem;
+    padding: 2.4rem;
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
 }
 
 /* BUTTON ICON (OVERRIDE) */
@@ -40,4 +44,129 @@
 
 .btn-close-league-modal:hover {
     background-color: var(--gray-tint);
+}
+
+/* LEAGUE MODAL STATUS CONTAINER */
+.div-league-modal-status-container {
+    position: relative;
+    display: inherit;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.div-league-modal-status-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -2.4rem;
+    width: 0.2rem;
+    height: 100%;
+    background-color: var(--gray-tint);
+    transform: translateX(50%);
+}
+
+/* LEAGUE MODAL STATUS CIRCLE */
+.div-league-modal-status-circle {
+    position: relative;
+    width: 16rem;
+    aspect-ratio: 1 / 1;
+    box-shadow: 0 0.4rem 1.2rem var(--shadow-sm);
+    border-radius: var(--border-radius-circle);
+}
+
+/* LEAGUE MODAL STATUS CIRCLE HEADER */
+.league-modal-status-circle-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    width: 14.8rem;
+    aspect-ratio: inherit;
+    background-color: var(--white);
+    border-radius: inherit;
+}
+
+.league-modal-status-circle-header p {
+    font-size: 1.4rem;
+}
+
+.league-modal-status-circle-header span {
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--primary);
+}
+
+/* LEAGUE MODAL STATUS PROGRESS TEXT */
+.text-league-modal-status-progress {
+    display: inherit;
+    justify-content: space-between;
+    font-size: 1.4rem;
+}
+
+.text-league-modal-status-progress span {
+    font-weight: 500;
+    color: var(--primary);
+}
+
+/* LEAGUE MODAL OVERVIEW CONTAINER */
+.div-league-modal-overview-container {
+    flex-grow: 1;
+    display: inherit;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* LEAGUE MODAL HEADER */
+.league-modal-header h2 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* LEAGUE MODAL DATA LIST */
+.league-modal-data-list {
+    display: inherit;
+    flex-direction: inherit;
+    gap: 0.8rem;
+}
+
+/* LEAGUE MODAL DATA LIST ITEM */
+.league-modal-data-list-item {
+    display: inherit;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.league-modal-data-list-item p,
+.league-modal-data-list-item span {
+    font-size: 1.6rem;
+}
+
+.league-modal-data-list-item span {
+    font-weight: 500;
+    color: var(--primary);
+}
+
+/* LEAGUE RANK SPAN */
+span.span-league-rank {
+    padding: 0.2rem 3.2rem;
+    color: var(--white);
+    border-radius: var(--border-radius-md);
+}
+
+.regular-league-rank {
+    background-color: var(--primary);
+}
+
+.gold-league-rank {
+    background-color: var(--gold);
+}
+
+.silver-league-rank {
+    background-color: var(--silver);
+}
+
+.bronze-league-rank {
+    background-color: var(--bronze);
 }
