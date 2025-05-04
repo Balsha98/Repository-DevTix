@@ -23,6 +23,27 @@ class Leaderboard
         $this->getLeaderboardData();
     }
 
+    private function getAllLeagues()
+    {
+        $query = 'SELECT * FROM leagues;';
+        return $this->database->executeQuery(
+            $query
+        )->getQueryResult();
+    }
+
+    private function getLeagueOffset()
+    {
+        return $this->leagueID !== 1 ? 2 : 1;
+    }
+
+    private function getLeagueRankings()
+    {
+        $query = 'SELECT * FROM leaderboards WHERE league_id = :league_id ORDER BY resolved_tickets DESC;';
+        return $this->database->executeQuery(
+            $query, [':league_id' => $this->leagueID]
+        )->getQueryResult();
+    }
+
     /**
      * Get leaderboard data per assistant.
      * @return array data - leaderboard data.
@@ -101,5 +122,53 @@ class Leaderboard
     public function getResolvedTickets()
     {
         return $this->resolvedTickets;
+    }
+
+    /**
+     * Get next league's name.
+     * @return string $leagueName - next league's name.
+     */
+    public function getNextLeagueName()
+    {
+        $leagues = $this->getAllLeagues();
+
+        return (string) $leagues[
+            $this->leagueID - $this->getLeagueOffset()
+        ]['league_name'];
+    }
+
+    /**
+     * Get current league progress.
+     * @return float $percentage - league progress.
+     */
+    public function getLeagueProgress()
+    {
+        $leagues = $this->getAllLeagues();
+
+        $threshold = (int) $leagues[
+            $this->leagueID - $this->getLeagueOffset()
+        ]['threshold'];
+
+        // Progress in percentages.
+        return ($this->resolvedTickets / $threshold) * 100;
+    }
+
+    public function getLeagueRank()
+    {
+        $leaguesRankings = $this->getLeagueRankings();
+
+        $rank = 0;
+        if (!isset($leaguesRankings['leaderboard_id'])) {
+            foreach ($leaguesRankings as $i => $ranking) {
+                if ((int) $ranking['assistant_id'] === $this->getAssistantId()) {
+                    $rank = $i + 1;
+                }
+            }
+        } else {
+            $rank = 1;
+        }
+
+        // Assistant's ranking.
+        return (int) $rank;
     }
 }
