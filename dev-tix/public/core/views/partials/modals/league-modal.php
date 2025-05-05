@@ -31,7 +31,7 @@
                         <span><?php echo $leaderboard->getResolvedTickets(); ?></span>
                     </li>
                     <li class="league-modal-data-list-item">
-                        <p>League Rank:</p>
+                        <p class="text-league-rank">League Rank:</p>
                         <span class="span-league-rank">
                             <?php echo $leaderboard->getLeagueRank(); ?>
                         </span>

@@ -3,6 +3,7 @@ class LeagueModalView {
     #btnsCloseModal = $(".btn-close-league-modal");
     #leagueModalStatusCircle = $(".div-league-modal-status-circle");
     #spanLeagueProgress = $(".span-league-progress");
+    #textLeagueRank = $(".text-league-rank");
     #spanLeagueRank = $(".span-league-rank");
 
     toggleLeagueModal() {
@@ -22,7 +23,7 @@ class LeagueModalView {
     }
 
     setSpanLeagueRank() {
-        if (this.#spanLeagueRank.length === 0) return;
+        if (this.#textLeagueRank.length === 0) return;
 
         let leagueRank = "";
         const rank = +this.#spanLeagueRank.text();
@@ -31,7 +32,10 @@ class LeagueModalView {
         else if (rank === 3) leagueRank = "bronze";
         else leagueRank = "regular";
 
-        this.#spanLeagueRank.addClass(`${leagueRank}-league-rank`);
+        // Updated league rank visuals.
+        [this.#textLeagueRank, this.#spanLeagueRank].forEach((element) => [
+            $(element).addClass(`${leagueRank}-league-rank`),
+        ]);
     }
 
     addEventToggleLeagueModal(handlerFunction) {

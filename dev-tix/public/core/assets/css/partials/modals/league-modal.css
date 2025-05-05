@@ -140,6 +140,7 @@
 
 .league-modal-data-list-item p,
 .league-modal-data-list-item span {
+    position: relative;
     font-size: 1.6rem;
 }
 
@@ -148,25 +149,94 @@
     color: var(--primary);
 }
 
-/* LEAGUE RANK SPAN */
-span.span-league-rank {
-    padding: 0.2rem 3.2rem;
-    color: var(--white);
-    border-radius: var(--border-radius-md);
+/* LEAGUE RANK TEXT */
+p.text-league-rank::after {
+    content: "";
+    position: absolute;
+    bottom: -0.4rem;
+    left: 0;
+    width: 6.4rem;
+    height: 0.2rem;
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
 }
 
-.regular-league-rank {
+/* LEAGUE RANK TEXT TYPES */
+p.regular-league-rank::after {
     background-color: var(--primary);
 }
 
-.gold-league-rank {
+p.gold-league-rank::after {
     background-color: var(--gold);
 }
 
-.silver-league-rank {
+p.silver-league-rank::after {
     background-color: var(--silver);
 }
 
-.bronze-league-rank {
+p.bronze-league-rank::after {
+    background-color: var(--bronze);
+}
+
+/* LEAGUE RANK SPAN */
+span.span-league-rank {
+    padding: 0 0.8rem;
+    border-radius: var(--border-radius-md);
+}
+
+span.span-league-rank::before,
+span.span-league-rank::after {
+    content: "";
+    position: absolute;
+    right: 0;
+}
+
+span.span-league-rank::before {
+    bottom: -0.4rem;
+    width: 100%;
+    height: 0.2rem;
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+}
+
+span.span-league-rank::after {
+    top: 0;
+    width: 0.2rem;
+    height: 100%;
+    border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+}
+
+/* LEAGUE RANK SPAN TYPES */
+span.regular-league-rank {
+    color: var(--primary);
+}
+
+span.regular-league-rank::before,
+span.regular-league-rank::after {
+    background-color: var(--primary);
+}
+
+span.gold-league-rank {
+    color: var(--gold);
+}
+
+span.gold-league-rank::before,
+span.gold-league-rank::after {
+    background-color: var(--gold);
+}
+
+span.silver-league-rank {
+    color: var(--silver);
+}
+
+span.silver-league-rank::before,
+span.silver-league-rank::after {
+    background-color: var(--silver);
+}
+
+span.bronze-league-rank {
+    color: var(--bronze);
+}
+
+span.bronze-league-rank::before,
+span.bronze-league-rank::after {
     background-color: var(--bronze);
 }
