@@ -9,6 +9,7 @@ import sidebarView from "./../views/sidebarView.js";
 import * as sidebarController from "./sidebarController.js";
 import dashboardView from "./../views/dashboardView.js";
 import * as noneDataController from "./noneDataController.js";
+import * as chatMenuController from "./chatMenuController.js";
 
 const controlChangeFilter = function () {
     const ticketListItems = $(".tickets-list-item");

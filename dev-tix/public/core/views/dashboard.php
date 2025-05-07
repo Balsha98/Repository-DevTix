@@ -109,6 +109,8 @@ require_once __DIR__ . '/partials/modals/logout-modal.php';
                     </div>
                 </div>
             </div>
+            <?php require_once __DIR__ . '/partials/menus/chat-menu.php'; ?>
+            <!-- DIV HIDDEN INPUTS -->
             <div class="div-hidden-inputs">
                 <input id="view" type="hidden" name="view" value="views/dashboard">
                 <input id="user_id" type="hidden" name="user_id" value="<?php echo $user->getId(); ?>">
