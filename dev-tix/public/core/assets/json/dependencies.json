@@ -2,6 +2,7 @@
     {
         "dashboard": {
             "css": [
+                "css/partials/menus/chat-menu",
                 "css/partials/modals/alert-modal",
                 "css/partials/modals/logout-modal",
                 "css/partials/loaders/data-loader",
