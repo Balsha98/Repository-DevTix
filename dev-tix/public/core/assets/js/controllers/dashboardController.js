@@ -7,9 +7,10 @@ import navigationView from "./../views/navigationView.js";
 import * as navigationController from "./navigationController.js";
 import sidebarView from "./../views/sidebarView.js";
 import * as sidebarController from "./sidebarController.js";
+import chatMenuView from "./../views/chatMenuView.js";
+import * as chatMenuController from "./chatMenuController.js";
 import dashboardView from "./../views/dashboardView.js";
 import * as noneDataController from "./noneDataController.js";
-import * as chatMenuController from "./chatMenuController.js";
 
 const controlChangeFilter = function () {
     const ticketListItems = $(".tickets-list-item");
@@ -94,6 +95,11 @@ const initController = function () {
     sidebarView.addEventToggleSidebar(sidebarController.controlToggleSidebar);
     sidebarView.addEventToggleSidebarDropdown(sidebarController.controlToggleSidebarDropdown);
     sidebarView.addEventToggleLogoutModal(logoutModalController.controlToggleLogoutModal);
+
+    // Setup chat menu.
+    chatMenuController.controlGetChatMessages();
+    chatMenuView.addEventToggleChatMenu(chatMenuController.controlToggleChatMenu);
+    chatMenuView.addEventPostChatMessage(chatMenuController.controlPostChatMessage);
 
     // Setup dashboard.
     dashboardView.addEventChangeFilter(controlChangeFilter);
