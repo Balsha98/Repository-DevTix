@@ -19,7 +19,6 @@ export const controlGetChatMessages = function () {
             url: url,
             method: method,
             success: function (response) {
-                console.log(response);
                 const chatMessages = response["response"]["data"] ?? null;
 
                 // prettier-ignore
