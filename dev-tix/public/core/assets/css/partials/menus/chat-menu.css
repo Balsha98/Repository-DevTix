@@ -48,9 +48,15 @@
     font-size: 1.6rem;
 }
 
-.btn-close-chat-menu {
-    padding: 0.4rem 1.2rem;
-    font-size: 1rem;
+/* CHAT MENU NAVIGATION LIST */
+.chat-menu-nav-list {
+    display: flex;
+    gap: 1.2rem;
+}
+
+/* BUTTON ICON (OVERRIDE) */
+.btn-icon.btn-chat-nav-icon ion-icon {
+    font-size: 1.8rem;
 }
 
 /* CHAT MESSAGES LIST */

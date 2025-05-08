@@ -3,7 +3,25 @@
         <div class="div-chat-menu hide-chat-menu">
             <header class="chat-menu-header flex-between">
                 <h2 class="chat-menu-header-heading">Chat Room</h2>
-                <button class="btn btn-primary btn-close-chat-menu btn-toggle-chat-menu">Close</button>
+                <nav class="chat-menu-navigation">
+                    <ul class="chat-menu-nav-list">
+                        <li class="chat-menu-nav-list-item">
+                            <button class="btn btn-icon btn-chat-nav-icon" data-header-title="chat-room">
+                                <ion-icon src="<?php echo ICON_PATH; ?>/message-circle.svg"></ion-icon>
+                            </button>
+                        </li>
+                        <li class="chat-menu-nav-list-item">
+                            <button class="btn btn-icon btn-chat-nav-icon" data-header-title="active-users">
+                                <ion-icon src="<?php echo ICON_PATH; ?>/users.svg"></ion-icon>
+                            </button>
+                        </li>
+                        <li class="chat-menu-nav-list-item">
+                            <button class="btn btn-icon btn-chat-nav-icon btn-toggle-chat-menu" data-header-title="chat-room">
+                                <ion-icon src="<?php echo ICON_PATH; ?>/x.svg"></ion-icon>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
             </header>
             <div class="div-chat-messages-list-container">
                 <ul class="chat-messages-list">
