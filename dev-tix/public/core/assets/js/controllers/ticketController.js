@@ -78,6 +78,7 @@ const controlAlterRequest = function () {
 const controlPostResponse = function (formEvent) {
     formEvent.preventDefault();
 
+    // Guard clause: empty inputs.
     if (isInputEmpty()) return;
 
     const form = $(this.closest(".form"));

@@ -13,11 +13,10 @@ const setTimeAgo = function (difference) {
     const MIN = 60 * SEC;
     const HRS = 60 * MIN;
 
-    const periods = {
-        hours: { value: Math.floor(difference / HRS), name: "Hour" },
-        minutes: { value: Math.floor((difference % HRS) / MIN), name: "Minute" },
-        seconds: { value: Math.floor((difference % MIN) / SEC), name: "Second" },
-    };
+    const periods = {};
+    periods["hours"] = { value: Math.floor(difference / HRS), name: "Hour" };
+    periods["minutes"] = { value: Math.floor((difference % HRS) / MIN), name: "Minute" };
+    periods["seconds"] = { value: Math.floor((difference % MIN) / SEC), name: "Second" };
 
     let timeAgo;
     for (const [key, { value, name }] of Object.entries(periods)) {
@@ -30,5 +29,5 @@ const setTimeAgo = function (difference) {
         if (timeAgo) break;
     }
 
-    return `${timeAgo} Ago`;
+    return !timeAgo ? "Now" : `${timeAgo} Ago`;
 };

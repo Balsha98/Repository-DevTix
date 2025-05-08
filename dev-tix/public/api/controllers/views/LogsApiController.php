@@ -50,8 +50,6 @@ class LogsApiController extends AbsApiController
             ORDER BY logs.timestamp DESC;
         ';
 
-        return Session::getDbInstance()->executeQuery(
-            $query
-        )->getQueryResult();
+        return Session::getDbInstance()->executeQuery($query)->getQueryResult();
     }
 }
