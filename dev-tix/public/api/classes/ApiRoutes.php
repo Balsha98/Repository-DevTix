@@ -4,6 +4,7 @@ class ApiRoutes
 {
     public const ROUTES = [
         'GET' => [
+            'chat',
             'dashboard',
             'leaderboard',
             'leagues',
@@ -17,6 +18,7 @@ class ApiRoutes
             'users'
         ],
         'POST' => [
+            'chat',
             'login',
             'signup',
             'profile',
