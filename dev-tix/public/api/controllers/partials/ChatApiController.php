@@ -8,16 +8,16 @@ class ChatApiController extends AbsApiController
     {
         $chatMessages = $this->getAllChatMessages();
 
-        $return['chat_messages'] = [];
+        $return = [];
         if (!isset($chatMessages['chat_message_id'])) {
             foreach ($chatMessages as $chatMessage) {
-                $return['chat_messages'][] = $this->extractChatMessageData($chatMessage);
+                $return[] = $this->extractChatMessageData($chatMessage);
             }
 
             return ApiMessage::dataFetchAttempt($return);
         }
 
-        $return['chat_messages'] = $this->extractChatMessageData($chatMessages);
+        $return = $this->extractChatMessageData($chatMessages);
 
         return ApiMessage::dataFetchAttempt($return);
     }

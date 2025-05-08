@@ -19,7 +19,8 @@ export const controlGetChatMessages = function () {
             url: url,
             method: method,
             success: function (response) {
-                const chatMessages = response["response"]["data"]["chat_messages"] ?? null;
+                console.log(response);
+                const chatMessages = response["response"]["data"] ?? null;
 
                 // prettier-ignore
                 if (chatMessages) chatMenuView.generateChatMessagesList(chatMessages, renderListItemUserImage, getTimeAgo);
