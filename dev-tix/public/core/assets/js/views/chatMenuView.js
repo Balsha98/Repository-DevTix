@@ -49,7 +49,7 @@ class ChatMenuView {
 
         // Make sure tickets are processed as an array.
         chatMessages = Array.isArray(chatMessages) ? chatMessages : [chatMessages];
-        const userID = +$("#user_id").val();
+        const userID = +$("#view_as_user_id").val();
 
         for (const message of chatMessages) {
             const messageAuthor = message["user_id"] !== userID ? "message-author-other" : "";

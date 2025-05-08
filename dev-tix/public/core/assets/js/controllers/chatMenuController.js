@@ -19,7 +19,6 @@ export const controlGetChatMessages = function () {
             url: url,
             method: method,
             success: function (response) {
-                console.log(response);
                 const chatMessages = response["response"]["data"]["chat_messages"] ?? null;
 
                 // prettier-ignore
@@ -45,7 +44,7 @@ export const controlPostChatMessage = function (formEvent) {
 
     const data = {};
     data["route"] = route;
-    data["user_id"] = $("#user_id").val();
+    data["user_id"] = $("#view_as_user_id").val();
     data["chat_message"] = $("#chat_message").val();
     data["csrf_token"] = $("#csrf_token").val();
 

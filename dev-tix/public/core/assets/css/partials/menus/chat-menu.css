@@ -102,6 +102,11 @@
 .div-chat-user-identifier-container {
     flex-shrink: 0;
     position: relative;
+    display: none;
+}
+
+.message-author-other .div-chat-user-identifier-container {
+    display: block;
 }
 
 /* SPAN CHAT ACTIVITY STATUS */
@@ -136,6 +141,11 @@
     display: inherit;
     flex-direction: column;
     gap: 0.4rem;
+    margin-right: 0.6rem;
+}
+
+.message-author-other .div-chat-message-data-container {
+    margin-right: 0;
 }
 
 .div-chat-message-data-container::before {
@@ -156,10 +166,27 @@
 }
 
 .text-chat-message {
+    position: relative;
     padding: 1.2rem 1.6rem;
     font-size: 1.4rem;
     background-color: var(--gray-tint);
     border-radius: var(--border-radius-md);
+    overflow: hidden;
+}
+
+.text-chat-message::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.2rem;
+    height: 100%;
+    background-color: var(--primary-tint);
+}
+
+.message-author-other .text-chat-message::before {
+    left: unset;
+    right: 0;
 }
 
 .span-chat-message-timestamp {
@@ -167,7 +194,7 @@
     display: inline-block;
     text-align: right;
     padding: 0 1.2rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .message-author-other .span-chat-message-timestamp {
@@ -179,7 +206,7 @@
     position: absolute;
     top: 50%;
     right: 0;
-    width: 0.8rem;
+    width: 0.6rem;
     aspect-ratio: 1 / 1;
     background-color: var(--primary-tint);
     border-radius: var(--border-radius-circle);
@@ -189,23 +216,6 @@
 .message-author-other .span-chat-message-timestamp::before {
     left: 0;
     right: unset;
-}
-
-.span-chat-message-timestamp::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 9.6rem;
-    height: 0.2rem;
-    background-color: var(--primary-tint);
-    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
-    transform: translateY(-50%);
-}
-
-.message-author-other .span-chat-message-timestamp::after {
-    left: unset;
-    right: 0;
 }
 
 /* FORM POST CHAT MESSAGE */
