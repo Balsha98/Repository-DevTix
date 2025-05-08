@@ -29,5 +29,5 @@ const setTimeAgo = function (difference) {
         if (timeAgo) break;
     }
 
-    return !timeAgo ? "Now" : `${timeAgo} Ago`;
+    return !timeAgo ? "Just Now" : `${timeAgo} Ago`;
 };
