@@ -21,6 +21,11 @@ class LoginApiController extends AbsApiController
             Session::set('user_id', $userID);
             Session::set('role_id', $account['role_id']);
 
+            // Guard clause: activity process error.
+            if (isset($this->updateUserActivity($userID)['error'])) {
+                return ApiMessage::alertDataAlterAttempt(false);
+            }
+
             // Guard clause: log process error.
             if (isset(Log::saveAuthLog($userID, 'login')['error'])) {
                 return ApiMessage::alertDataAlterAttempt(false);
@@ -41,6 +46,14 @@ class LoginApiController extends AbsApiController
         $query = 'SELECT * FROM users WHERE username = :username;';
         return Session::getDbInstance()->executeQuery(
             $query, [':username' => $data['username']]
+        )->getQueryResult();
+    }
+
+    private function updateUserActivity(int $userID)
+    {
+        $query = 'UPDATE users SET is_active = :is_active WHERE user_id = :user_id;';
+        return Session::getDbInstance()->executeQuery(
+            $query, ['is_active' => 1, ':user_id' => $userID]
         )->getQueryResult();
     }
 }
