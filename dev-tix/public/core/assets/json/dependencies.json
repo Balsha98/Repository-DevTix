@@ -7,6 +7,7 @@
                 "css/partials/modals/logout-modal",
                 "css/partials/loaders/data-loader",
                 "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
                 "css/partials/signs/none-clients",
                 "css/partials/signs/none-data",
                 "css/partials/signs/none-notifications",
