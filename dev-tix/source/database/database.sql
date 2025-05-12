@@ -31,6 +31,7 @@ CREATE TABLE users (
     password CHAR(64) NOT NULL,
     joined_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
     last_active TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+    is_active INT NOT NULL DEFAULT 0,
     PRIMARY KEY (user_id),
     FOREIGN KEY (role_id) REFERENCES roles (role_id)
 );
