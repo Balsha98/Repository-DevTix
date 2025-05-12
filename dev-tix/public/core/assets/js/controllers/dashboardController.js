@@ -20,7 +20,7 @@ const controlChangeFilter = function () {
 
     // Show visuals.
     noneDataController.controlHideNoneDataContainer();
-    dataLoaderController.controlShowDataLoader();
+    dataLoaderController.controlShowDataLoader("div-tickets-list-container");
 
     // Verify filter.
     const filter = $(this).val();
@@ -42,7 +42,7 @@ const controlChangeFilter = function () {
     if (totalTicketsLeft === 0) noneDataController.controlShowNoneDataContainer(1);
 
     // Hide data loader.
-    dataLoaderController.controlHideDataLoader(1);
+    dataLoaderController.controlHideDataLoader("div-tickets-list-container", 1);
 };
 
 const controlViewTicketDetails = function () {
@@ -99,6 +99,7 @@ const initController = function () {
     // Setup chat menu.
     chatMenuController.controlGetChatMessages();
     chatMenuView.addEventToggleChatMenu(chatMenuController.controlToggleChatMenu);
+    chatMenuView.addEventToggleChatMenuLists(chatMenuController.controlToggleChatMenuLists);
     chatMenuView.addEventPostChatMessage(chatMenuController.controlPostChatMessage);
 
     // Setup dashboard.
