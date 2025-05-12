@@ -8,16 +8,25 @@ class ChatApiController extends AbsApiController
     {
         $chatMessages = $this->getAllChatMessages();
 
-        $return = [];
+        $return['chat_messages'] = [];
         if (!isset($chatMessages['chat_message_id'])) {
             foreach ($chatMessages as $chatMessage) {
-                $return[] = $this->extractChatMessageData($chatMessage);
+                $return['chat_messages'][] = $this->extractChatMessageData($chatMessage);
             }
-
-            return ApiMessage::dataFetchAttempt($return);
+        } else {
+            $return['chat_messages'] = $this->extractChatMessageData($chatMessages);
         }
 
-        $return = $this->extractChatMessageData($chatMessages);
+        $chatUsers = $this->getAllChatUsers();
+
+        $return['chat_users'] = [];
+        if (!isset($chatUsers['user_id'])) {
+            foreach ($chatUsers as $chatUser) {
+                $return['chat_users'][] = $this->extractChatUserData($chatUser);
+            }
+        } else {
+            $return['chat_users'] = $this->extractChatUserData($chatUsers);
+        }
 
         return ApiMessage::dataFetchAttempt($return);
     }
@@ -56,6 +65,7 @@ class ChatApiController extends AbsApiController
             'user_id' => $data['user_id'],
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
+            'is_active' => $data['is_active'],
             'user_image' => $data['user_image'],
             'user_image_type' => $data['user_image_type'],
             'chat_message' => $data['chat_message'],
@@ -95,6 +105,30 @@ class ChatApiController extends AbsApiController
         return Session::getDbInstance()->executeQuery($query, [
             ':user_id' => $data['user_id'], ':chat_message' => $data['chat_message']
         ])->getQueryResult();
+    }
+
+    private function extractChatUserData(array $data)
+    {
+        return [
+            'user_id' => $data['user_id'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'email' => $data['email'],
+            'is_active' => $data['is_active'],
+            'user_image' => $data['user_image'],
+            'user_image_type' => $data['user_image_type']
+        ];
+    }
+
+    private function getAllChatUsers()
+    {
+        $query = '
+            SELECT * FROM users 
+            JOIN user_details ON users.user_id = user_details.user_id 
+            ORDER BY users.role_id ASC, users.last_name ASC;
+        ';
+
+        return Session::getDbInstance()->executeQuery($query)->getQueryResult();
     }
 
     private function getLastInsertID()
