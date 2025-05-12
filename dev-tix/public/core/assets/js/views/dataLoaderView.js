@@ -1,12 +1,12 @@
 class DataLoaderView {
-    #dataLoaderContainer = $(".div-data-loader-container");
-
-    hideDataLoaderContainer(seconds) {
-        setTimeout(() => this.#dataLoaderContainer.addClass("hide-data-loader"), seconds * 1000);
+    hideDataLoaderContainer(parentContainer, seconds) {
+        setTimeout(() => {
+            $(`.${parentContainer} .div-data-loader-container`).addClass("hide-data-loader");
+        }, seconds * 1000);
     }
 
-    showDataLoaderContainer() {
-        this.#dataLoaderContainer.removeClass("hide-data-loader");
+    showDataLoaderContainer(parentContainer) {
+        $(`.${parentContainer} .div-data-loader-container`).removeClass("hide-data-loader");
     }
 }
 

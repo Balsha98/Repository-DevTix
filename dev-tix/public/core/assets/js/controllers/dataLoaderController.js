@@ -1,9 +1,9 @@
 import dataLoaderView from "./../views/dataLoaderView.js";
 
-export const controlHideDataLoader = function (seconds) {
-    dataLoaderView.hideDataLoaderContainer(seconds);
+export const controlHideDataLoader = function (parentContainer, seconds) {
+    dataLoaderView.hideDataLoaderContainer(parentContainer, seconds);
 };
 
-export const controlShowDataLoader = function () {
-    dataLoaderView.showDataLoaderContainer();
+export const controlShowDataLoader = function (parentContainer) {
+    dataLoaderView.showDataLoaderContainer(parentContainer);
 };
