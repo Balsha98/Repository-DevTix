@@ -59,10 +59,16 @@
     font-size: 1.8rem;
 }
 
-/* CHAT MESSAGES LIST */
-.div-chat-messages-list-container {
+.div-chat-overview-container {
     flex-grow: 1;
+    position: relative;
     padding: 0 1.2rem;
+}
+
+/* CHAT MESSAGES LIST/USERS CONTAINER */
+.div-chat-messages-list-container {
+    position: relative;
+    height: 100%;
 }
 
 /* CHAT MESSAGES LIST */
@@ -104,19 +110,19 @@
     flex-direction: row;
 }
 
-/* CHAT USER IDENTIFIER CONTAINER */
-.div-chat-user-identifier-container {
+/* CHAT MESSAGE ACTIVITY CONTAINER */
+.div-chat-message-activity-container {
     flex-shrink: 0;
     position: relative;
     display: none;
 }
 
-.message-author-other .div-chat-user-identifier-container {
+.message-author-other .div-chat-message-activity-container {
     display: block;
 }
 
-/* SPAN CHAT ACTIVITY STATUS */
-.span-chat-activity-status {
+/* SPAN CHAT MESSAGE ACTIVITY STATUS */
+.span-chat-message-activity-status {
     position: absolute;
     bottom: 0;
     right: 0.2rem;
@@ -127,15 +133,7 @@
     border-radius: var(--border-radius-circle);
 }
 
-.status-inactive {
-    background-color: var(--error);
-}
-
-.status-active {
-    background-color: var(--success);
-}
-
-.message-author-other .span-chat-activity-status {
+.message-author-other .span-chat-message-activity-status {
     left: 0.2rem;
     right: unset;
 }
@@ -262,6 +260,106 @@
 .form-post-chat-message button ion-icon {
     font-size: 1.8rem;
     color: var(--white);
+}
+
+/* CHAT USER LIST CONTAINER */
+.div-chat-users-list-container {
+    position: relative;
+    height: 100%;
+}
+
+/* CHAT USERS LIST */
+.chat-users-list {
+    display: flex;
+    flex-direction: column;
+    height: 0; /* Height will be calculated dynamically. */
+    padding-right: 1.2rem;
+    border-radius: var(--border-radius-md);
+    overflow-y: scroll;
+}
+
+.chat-users-list::-webkit-scrollbar {
+    width: 0.8rem;
+    background-color: var(--gray-tint);
+    border-radius: inherit;
+}
+
+.chat-users-list::-webkit-scrollbar-thumb {
+    background-color: var(--primary-tint);
+    border-radius: inherit;
+}
+
+/* CHAT USERS LIST ITEM */
+.chat-users-list-item {
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.6rem;
+    background-color: var(--gray-tint);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+}
+
+.chat-users-list-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--white);
+    transform: translateY(50%);
+}
+
+/* CHAT USER ACTIVITY CONTAINER */
+.div-chat-user-activity-container {
+    position: relative;
+}
+
+/* IMAGE CONTAINER (OVERRIDE) */
+.div-list-item-user-image-container {
+    width: 3.6rem;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--border-radius-circle);
+}
+
+/* SPAN CHAT USER ACTIVITY STATUS */
+.span-chat-user-activity-status {
+    position: absolute;
+    bottom: 0;
+    right: 0.2rem;
+    width: 1rem;
+    aspect-ratio: 1 / 1;
+    font-size: 0.2rem;
+    background-color: transparent;
+    border-radius: var(--border-radius-circle);
+}
+
+.status-inactive {
+    background-color: var(--error);
+}
+
+.status-active {
+    background-color: var(--success);
+}
+
+/* CHAT USER INFO CONTAINER */
+.div-chat-user-info-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.div-chat-user-info-container p {
+    font-size: 1.4rem;
+}
+
+.div-chat-user-info-container span {
+    font-size: 1rem;
+    text-transform: uppercase;
 }
 
 /* CHAT MENU BUTTON CONTAINER */
