@@ -20,9 +20,11 @@
     {
         "leaderboard": {
             "css": [
+                "css/partials/menus/chat-menu",
                 "css/partials/modals/logout-modal",
                 "css/partials/loaders/data-loader",
                 "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
                 "css/partials/signs/none-clients",
                 "css/partials/signs/none-data",
                 "css/partials/signs/none-notifications",
@@ -35,8 +37,10 @@
     {
         "leagues": {
             "css": [
+                "css/partials/menus/chat-menu",
                 "css/partials/modals/logout-modal",
                 "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
                 "css/partials/signs/none-clients",
                 "css/partials/signs/none-notifications",
                 "css/partials/loaders/page-loader",
@@ -54,10 +58,12 @@
     {
         "logs": {
             "css": [
+                "css/partials/menus/chat-menu",
                 "css/partials/modals/alert-modal",
                 "css/partials/modals/logout-modal",
                 "css/partials/loaders/data-loader",
                 "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
                 "css/partials/signs/none-clients",
                 "css/partials/signs/none-data",
                 "css/partials/signs/none-notifications",
@@ -70,10 +76,12 @@
     {
         "notifications": {
             "css": [
+                "css/partials/menus/chat-menu",
                 "css/partials/modals/alert-modal",
                 "css/partials/modals/logout-modal",
                 "css/partials/loaders/data-loader",
                 "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
                 "css/partials/signs/none-clients",
                 "css/partials/signs/none-data",
                 "css/partials/signs/none-notifications",
@@ -86,10 +94,12 @@
     {
         "profile": {
             "css": [
+                "css/partials/menus/chat-menu",
                 "css/partials/modals/alert-modal",
                 "css/partials/modals/league-modal",
                 "css/partials/modals/logout-modal",
                 "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
                 "css/partials/signs/none-clients",
                 "css/partials/signs/none-notifications",
                 "css/partials/loaders/page-loader",
@@ -107,8 +117,10 @@
     {
         "statistics": {
             "css": [
+                "css/partials/menus/chat-menu",
                 "css/partials/modals/logout-modal",
                 "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
                 "css/partials/signs/none-clients",
                 "css/partials/signs/none-notifications",
                 "css/partials/loaders/page-loader",
@@ -120,6 +132,7 @@
     {
         "ticket": {
             "css": [
+                "css/partials/menus/chat-menu",
                 "css/partials/modals/alert-modal",
                 "css/partials/modals/cancel-ticket-modal",
                 "css/partials/modals/post-ticket-modal",
@@ -128,6 +141,7 @@
                 "css/partials/modals/image-modal",
                 "css/partials/navigation",
                 "css/partials/signs/none-images",
+                "css/partials/signs/none-chat-messages",
                 "css/partials/signs/none-clients",
                 "css/partials/signs/none-notifications",
                 "css/partials/signs/none-responses",
@@ -141,10 +155,12 @@
     {
         "tickets": {
             "css": [
+                "css/partials/menus/chat-menu",
                 "css/partials/modals/alert-modal",
                 "css/partials/modals/logout-modal",
                 "css/partials/loaders/data-loader",
                 "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
                 "css/partials/signs/none-clients",
                 "css/partials/signs/none-data",
                 "css/partials/signs/none-notifications",
@@ -157,10 +173,12 @@
     {
         "users": {
             "css": [
+                "css/partials/menus/chat-menu",
                 "css/partials/modals/alert-modal",
                 "css/partials/modals/logout-modal",
                 "css/partials/loaders/data-loader",
                 "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
                 "css/partials/signs/none-clients",
                 "css/partials/signs/none-data",
                 "css/partials/signs/none-notifications",
