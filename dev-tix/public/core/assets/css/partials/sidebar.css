@@ -6,14 +6,14 @@
     /* Hide overflow on one sides (left). */
     clip-path: inset(-100% -32rem -100% 0);
     transition: width 0.5s;
-    z-index: 4;
+    z-index: 6;
 }
 
 /* SIDEBAR OVERLAY */
 .sidebar-overlay {
     background-color: var(--transparent-black-md);
     transition: transform 0.5s;
-    z-index: 3;
+    z-index: 5;
 }
 
 .hide-sidebar-overlay {
