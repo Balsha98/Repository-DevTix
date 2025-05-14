@@ -1,22 +1,22 @@
 <?php
 // Import needed models.
 // TODO: Might create custom autoloader.
-require_once __DIR__ . '/../../../source/classes/models/User.php';
+require __DIR__ . '/../../../source/classes/models/User.php';
 
 $user = new User(Session::get('user_id'), Session::getDbInstance());
 
-require_once __DIR__ . '/partials/loaders/page-loader.php';
-require_once __DIR__ . '/partials/modals/alert-modal.php';
-require_once __DIR__ . '/partials/modals/logout-modal.php';
+require __DIR__ . '/partials/loaders/page-loader.php';
+require __DIR__ . '/partials/modals/alert-modal.php';
+require __DIR__ . '/partials/modals/logout-modal.php';
 ?>
 
     <!-- MAIN CONTAINER -->
     <div class="centered-container">
         <main class="main-container">
-            <?php require_once __DIR__ . '/partials/sidebar.php'; ?>
+            <?php require __DIR__ . '/partials/sidebar.php'; ?>
             <!-- TICKETS CONTAINER -->
             <div class="div-tickets-container">
-                <?php require_once __DIR__ . '/partials/navigation.php'; ?>
+                <?php require __DIR__ . '/partials/navigation.php'; ?>
                 <div class="div-tickets-content-container">
                     <ul class="tickets-overview-list grid-4-columns">
                         <li class="tickets-overview-list-item">
@@ -93,8 +93,8 @@ require_once __DIR__ . '/partials/modals/logout-modal.php';
                                 <p>Status</p>
                             </header>
                             <div class="div-tickets-list-container">
-                                <?php require_once __DIR__ . '/partials/signs/none-data.php'; ?>
-                                <?php require_once __DIR__ . '/partials/loaders/data-loader.php'; ?>
+                                <?php require __DIR__ . '/partials/signs/none-data.php'; ?>
+                                <?php require __DIR__ . '/partials/loaders/data-loader.php'; ?>
                                 <ul class="tickets-list">
                                     <!-- DYNAMICALLY GENERATED TICKETS VIA AJAX -->
                                 </ul>
@@ -107,6 +107,8 @@ require_once __DIR__ . '/partials/modals/logout-modal.php';
                     </div>
                 </div>
             </div>
+            <?php require __DIR__ . '/partials/menus/chat-menu.php'; ?>
+            <!-- DIV HIDDEN INPUTS -->
             <div class="div-hidden-inputs">
                 <input id="view" type="hidden" name="view" value="views/tickets">
                 <input id="user_id" type="hidden" name="user_id" value="<?php echo $user->getId(); ?>">

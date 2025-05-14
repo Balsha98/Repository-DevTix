@@ -1,6 +1,7 @@
 /* CENTERED CONTAINER (OVERRIDE) */
 .centered-container {
     height: inherit;
+    overflow: hidden;
 }
 
 /* MAIN CONTAINER */
