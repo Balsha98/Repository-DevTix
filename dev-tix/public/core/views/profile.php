@@ -1,8 +1,8 @@
 <?php
 // Import needed models.
 // TODO: Might create custom autoloader.
-require_once __DIR__ . '/../../../source/classes/models/User.php';
-require_once __DIR__ . '/../../../source/classes/models/Leaderboard.php';
+require __DIR__ . '/../../../source/classes/models/User.php';
+require __DIR__ . '/../../../source/classes/models/Leaderboard.php';
 
 $user = new User(Session::get('user_id'), Session::getDbInstance());
 
@@ -12,9 +12,9 @@ $isRecordIdSet = Session::isSet('record_id');
 $recordID = $isRecordIdSet ? (int) Session::get('record_id') : 0;
 
 // Import partial view scripts.
-require_once __DIR__ . '/partials/loaders/page-loader.php';
-require_once __DIR__ . '/partials/modals/alert-modal.php';
-require_once __DIR__ . '/partials/modals/logout-modal.php';
+require __DIR__ . '/partials/loaders/page-loader.php';
+require __DIR__ . '/partials/modals/alert-modal.php';
+require __DIR__ . '/partials/modals/logout-modal.php';
 
 // Import league-modal window.
 if ($isRecordIdSet && $recordID !== 0) {
@@ -24,7 +24,7 @@ if ($isRecordIdSet && $recordID !== 0) {
         $leaderboard = new Leaderboard($profileUser->getId(), Session::getDbInstance());
 
         if (!$leaderboard->isRecordEmpty()) {
-            require_once __DIR__ . '/partials/modals/league-modal.php';
+            require __DIR__ . '/partials/modals/league-modal.php';
         }
     }
 }
@@ -33,10 +33,10 @@ if ($isRecordIdSet && $recordID !== 0) {
     <!-- MAIN CONTAINER -->
     <div class="centered-container">
         <main class="main-container">
-            <?php require_once __DIR__ . '/partials/sidebar.php'; ?>
+            <?php require __DIR__ . '/partials/sidebar.php'; ?>
             <!-- PROFILE CONTAINER -->
             <div class="div-profile-container">
-                <?php require_once __DIR__ . '/partials/navigation.php'; ?>
+                <?php require __DIR__ . '/partials/navigation.php'; ?>
                 <div class="div-profile-content-container">
                     <header class="profile-container-header flex-between">
                         <h2 class="profile-container-header-heading">
@@ -302,6 +302,8 @@ if ($isRecordIdSet && $recordID !== 0) {
                     </footer>
                 </div>
             </div>
+            <?php require __DIR__ . '/partials/menus/chat-menu.php'; ?>
+            <!-- DIV HIDDEN INPUTS -->
             <div class="div-hidden-inputs">
                 <input id="view" type="hidden" name="view" value="views/profile">
                 <input id="user_id" type="hidden" name="user_id" value="<?php echo $user->getId(); ?>">
