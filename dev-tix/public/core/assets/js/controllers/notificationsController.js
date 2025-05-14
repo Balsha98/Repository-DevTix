@@ -8,6 +8,8 @@ import navigationView from "./../views/navigationView.js";
 import * as navigationController from "./navigationController.js";
 import sidebarView from "./../views/sidebarView.js";
 import * as sidebarController from "./sidebarController.js";
+import chatMenuView from "./../views/chatMenuView.js";
+import * as chatMenuController from "./chatMenuController.js";
 import notificationsView from "./../views/notificationsView.js";
 import * as noneDataController from "./noneDataController.js";
 
@@ -118,6 +120,12 @@ const initController = function () {
     sidebarView.addEventToggleSidebar(sidebarController.controlToggleSidebar);
     sidebarView.addEventToggleSidebarDropdown(sidebarController.controlToggleSidebarDropdown);
     sidebarView.addEventToggleLogoutModal(logoutModalController.controlToggleLogoutModal);
+
+    // Setup chat menu.
+    chatMenuController.controlGetChatMessages();
+    chatMenuView.addEventToggleChatMenu(chatMenuController.controlToggleChatMenu);
+    chatMenuView.addEventToggleChatMenuLists(chatMenuController.controlToggleChatMenuLists);
+    chatMenuView.addEventPostChatMessage(chatMenuController.controlPostChatMessage);
 
     // Setup dashboard.
     notificationsView.addEventChangeFilter(controlChangeFilter);
