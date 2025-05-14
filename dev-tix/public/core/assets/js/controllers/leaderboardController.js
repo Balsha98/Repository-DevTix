@@ -8,6 +8,8 @@ import navigationView from "./../views/navigationView.js";
 import * as navigationController from "./navigationController.js";
 import sidebarView from "./../views/sidebarView.js";
 import * as sidebarController from "./sidebarController.js";
+import chatMenuView from "./../views/chatMenuView.js";
+import * as chatMenuController from "./chatMenuController.js";
 import leaderboardView from "./../views/leaderboardView.js";
 import * as noneDataController from "./noneDataController.js";
 
@@ -16,7 +18,7 @@ const controlChangeLeaderboardType = function () {
 
     // Show visuals.
     noneDataController.controlHideNoneDataContainer();
-    dataLoaderController.controlShowDataLoader();
+    dataLoaderController.controlShowDataLoader("div-leaderboard-overview-container");
 
     // Verify type.
     const leagueType = $(this).val();
@@ -34,7 +36,7 @@ const controlChangeLeaderboardType = function () {
     if (totalAssistantsLeft === 0) noneDataController.controlShowNoneDataContainer(1);
 
     // Hide data loader.
-    dataLoaderController.controlHideDataLoader(1);
+    dataLoaderController.controlHideDataLoader("div-leaderboard-overview-container", 1);
 };
 
 const controlGetLeaderboardsData = function () {
@@ -87,6 +89,12 @@ const initController = function () {
     sidebarView.addEventToggleSidebar(sidebarController.controlToggleSidebar);
     sidebarView.addEventToggleSidebarDropdown(sidebarController.controlToggleSidebarDropdown);
     sidebarView.addEventToggleLogoutModal(logoutModalController.controlToggleLogoutModal);
+
+    // Setup chat menu.
+    chatMenuController.controlGetChatMessages();
+    chatMenuView.addEventToggleChatMenu(chatMenuController.controlToggleChatMenu);
+    chatMenuView.addEventToggleChatMenuLists(chatMenuController.controlToggleChatMenuLists);
+    chatMenuView.addEventPostChatMessage(chatMenuController.controlPostChatMessage);
 
     // Setup leaderboard.
     leaderboardView.addEventChangeLeaderboardType(controlChangeLeaderboardType);
