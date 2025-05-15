@@ -75,7 +75,7 @@ class SignupApiController extends AbsApiController
 
         return Session::getDbInstance()->executeQuery($query, [
             ':view_as_user_id' => $this->getLastInsertID() + 1, ':role_id' => $data['role'], ':view_as_role_id' => $data['role'],
-            ':first_name' => $data['first_name'], ':last_name' => $data['last_name'], ':email' => $data['email'], ':username' => $data['username'], ':password' => hash('sha256', $data['password']), ':joined_at' => time(), ':is_active' => 1
+            ':first_name' => $data['first_name'], ':last_name' => $data['last_name'], ':email' => $data['email'], ':username' => $data['username'], ':password' => hash('sha256', $data['password']), ':joined_at' => date('Y-m-d H:i:s'), ':is_active' => 1
         ])->getQueryResult();
     }
 
