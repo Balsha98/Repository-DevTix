@@ -26,6 +26,7 @@ class ApiRoutes
             'welcome'
         ],
         'PUT' => [
+            'logout',
             'navigation',
             'notifications',
             'profile',
