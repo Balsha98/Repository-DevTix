@@ -51,9 +51,9 @@ class LoginApiController extends AbsApiController
 
     private function updateUserActivity(int $userID)
     {
-        $query = 'UPDATE users SET is_active = :is_active WHERE user_id = :user_id;';
-        return Session::getDbInstance()->executeQuery(
-            $query, ['is_active' => 1, ':user_id' => $userID]
-        )->getQueryResult();
+        $query = 'UPDATE users SET last_active = :last_active, is_active = :is_active WHERE user_id = :user_id;';
+        return Session::getDbInstance()->executeQuery($query, [
+            ':last_active' => date('Y-m-d H:i:s'), 'is_active' => 1, ':user_id' => $userID
+        ])->getQueryResult();
     }
 }
