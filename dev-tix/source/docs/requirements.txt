@@ -21,7 +21,7 @@ Extras (Gamification):
 	- Assistants Leaderboard; by overall review, or by # of resolved tickets. (YES)
 	- The app will have several levels of Assistants (Rookie, Junior, Senior, Legend). (YES)
 	- Each Assistant will be able to keep track of their status. (YES)
-    - Leaderboard status will be accessible view modal window. (FUTURE TASK)
+    - Leaderboard status will be accessible via modal window. (YES)
 
 Required Pages:
 	- Dashboard (YES)
@@ -35,7 +35,7 @@ Required Pages:
 	- Logs (YES)
 
 Optional Features:
-    - Chat Popup (FUTURE TASK)
+    - Chat Popup (YES)
 	- Image Uploads (Using FormData in JS) (YES)
 	- Forgot Password (FUTURE TASK)
 	- Email Confirmations (FUTURE TASK)
