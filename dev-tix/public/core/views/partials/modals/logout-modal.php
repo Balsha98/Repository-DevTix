@@ -8,15 +8,15 @@
                 <h2>Logout Confirmation</h2>
                 <p>Are you <span>sure</span> about logging out?</p>
             </header>
-            <div class="div-grid-btn-container div-grid-logout-modal-btn-container grid-2-columns">
-                <button class="btn btn-error flex-center btn-close-logout-modal">
+            <form class="form form-user-logout grid-2-columns" action="/api/" method="PUT">
+                <button class="btn btn-error btn-close-logout-modal flex-center" type="button">
                     <ion-icon src="<?php echo ICON_PATH; ?>/x.svg"></ion-icon>
                     <span>Cancel</span>
                 </button>
-                <a class="link link-success flex-center" href="/logout">
+                <button class="btn btn-success btn-logout flex-center" data-view="views/logout">
                     <ion-icon src="<?php echo ICON_PATH; ?>/log-out.svg"></ion-icon>
                     <span>Confirm</span>
-                </a>
-            </div>
+                </button>
+            </form>
         </div>
     </div>

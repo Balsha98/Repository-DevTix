@@ -67,15 +67,15 @@
     color: var(--primary);
 }
 
-/* GRID BUTTON CONTAINER (OVERRIDE) */
-.div-grid-logout-modal-btn-container {
+/* USER LOGOUT FORM */
+.form-user-logout {
+    display: grid;
     column-gap: 1.6rem;
+    width: 100%;
 }
 
-/* LINK/BUTTON (OVERRIDE) */
-.div-grid-logout-modal-btn-container a:link,
-.div-grid-logout-modal-btn-container a:visited,
-.div-grid-logout-modal-btn-container button {
+/* BUTTON (OVERRIDE) */
+.form-user-logout button {
     gap: 0.4rem;
     padding: 0.8rem;
     font-size: 1.2rem;
