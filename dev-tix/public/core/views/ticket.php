@@ -1,17 +1,4 @@
 <?php
-// Import needed models.
-// TODO: Might create custom autoloader.
-require_once __DIR__ . '/../../../source/classes/models/User.php';
-require_once __DIR__ . '/../../../source/classes/models/Request.php';
-require_once __DIR__ . '/../../../source/classes/models/Response.php';
-
-$user = new User(Session::get('user_id'), Session::getDbInstance());
-
-// Check if we're viewing an existing request.
-// and set the other data appropriately.
-$isRecordIdSet = Session::isSet('record_id');
-$recordID = $isRecordIdSet ? (int) Session::get('record_id') : 0;
-
 require_once __DIR__ . '/partials/loaders/page-loader.php';
 require_once __DIR__ . '/partials/modals/alert-modal.php';
 require_once __DIR__ . '/partials/modals/cancel-ticket-modal.php';
@@ -19,6 +6,13 @@ require_once __DIR__ . '/partials/modals/post-ticket-modal.php';
 require_once __DIR__ . '/partials/modals/resolve-ticket-modal.php';
 require_once __DIR__ . '/partials/modals/image-modal.php';
 require_once __DIR__ . '/partials/modals/logout-modal.php';
+
+$user = new User(Session::get('user_id'), Session::getDbInstance());
+
+// Check if we're viewing an existing request.
+// and set the other data appropriately.
+$isRecordIdSet = Session::isSet('record_id');
+$recordID = $isRecordIdSet ? (int) Session::get('record_id') : 0;
 ?>
 
     <!-- MAIN CONTAINER -->
@@ -350,6 +344,8 @@ require_once __DIR__ . '/partials/modals/logout-modal.php';
                     </footer>
                 </div>
             </div>
+            <?php require __DIR__ . '/partials/menus/chat-menu.php'; ?>
+            <!-- DIV HIDDEN INPUTS -->
             <div class="div-hidden-inputs">
                 <input id="view" type="hidden" name="view" value="views/ticket">
                 <input id="user_id" type="hidden" name="user_id" value="<?php echo $user->getId(); ?>">
