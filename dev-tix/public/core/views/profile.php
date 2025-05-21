@@ -1,8 +1,7 @@
 <?php
-// Import needed models.
-// TODO: Might create custom autoloader.
-require __DIR__ . '/../../../source/classes/models/User.php';
-require __DIR__ . '/../../../source/classes/models/Leaderboard.php';
+require __DIR__ . '/partials/loaders/page-loader.php';
+require __DIR__ . '/partials/modals/alert-modal.php';
+require __DIR__ . '/partials/modals/logout-modal.php';
 
 $user = new User(Session::get('user_id'), Session::getDbInstance());
 
@@ -10,11 +9,6 @@ $user = new User(Session::get('user_id'), Session::getDbInstance());
 // and set the other data appropriately.
 $isRecordIdSet = Session::isSet('record_id');
 $recordID = $isRecordIdSet ? (int) Session::get('record_id') : 0;
-
-// Import partial view scripts.
-require __DIR__ . '/partials/loaders/page-loader.php';
-require __DIR__ . '/partials/modals/alert-modal.php';
-require __DIR__ . '/partials/modals/logout-modal.php';
 
 // Import league-modal window.
 if ($isRecordIdSet && $recordID !== 0) {
