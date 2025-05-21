@@ -49,7 +49,7 @@ class Template
      */
     public static function buildPagePartialStyleSheets(string $page)
     {
-        $filePath = SERVER_PATH . '/core/assets/json/dependencies.json';
+        $filePath = SERVER_PATH . '/core/assets/json/template-dependencies.json';
         $dependencies = Encode::fromJSON(file_get_contents($filePath));
 
         $return = '';
@@ -99,7 +99,7 @@ class Template
      */
     public static function buildPageImportedModules(string $page)
     {
-        $filePath = SERVER_PATH . '/core/assets/json/dependencies.json';
+        $filePath = SERVER_PATH . '/core/assets/json/template-dependencies.json';
         $dependencies = Encode::fromJSON(file_get_contents($filePath));
 
         $return = '';

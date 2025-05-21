@@ -1,6 +1,5 @@
 <?php
-
-require_once __DIR__ . '/Sanitize.php';
+require_once __DIR__ . '/../helpers/Sanitize.php';
 
 class Validate
 {
@@ -94,7 +93,7 @@ class Validate
      * Dynamically build a results response.
      * @param string $id - input id.
      * @param string $key - name of the rule
-     * @param array $rules - array of validaton rules.
+     * @param array $rules - array of validation rules.
      * @param string $dataType - type of data being checked.
      * @return array - results response.
      */
