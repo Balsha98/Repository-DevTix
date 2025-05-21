@@ -1,0 +1,135 @@
+[
+    {
+        "dashboard": {
+            "php": [
+                "/../../configuration.php",
+                "/../handlers/Session.php",
+                "/../handlers/Template.php",
+                "/../helpers/Image.php",
+                "/../models/User.php"
+            ]
+        }
+    },
+    {
+        "invalid-route": {
+            "php": ["/../../configuration.php", "/../handlers/Session.php", "/../handlers/Template.php"]
+        }
+    },
+    {
+        "leaderboard": {
+            "php": [
+                "/../../configuration.php",
+                "/../handlers/Session.php",
+                "/../handlers/Template.php",
+                "/../helpers/Image.php",
+                "/../models/User.php"
+            ]
+        }
+    },
+    {
+        "leagues": {
+            "php": [
+                "/../../configuration.php",
+                "/../handlers/Session.php",
+                "/../handlers/Template.php",
+                "/../helpers/Image.php",
+                "/../models/User.php"
+            ]
+        }
+    },
+    {
+        "login": {
+            "php": ["/../../configuration.php", "/../handlers/Session.php", "/../handlers/Template.php"]
+        }
+    },
+    {
+        "logs": {
+            "php": [
+                "/../../configuration.php",
+                "/../handlers/Session.php",
+                "/../handlers/Template.php",
+                "/../helpers/Image.php",
+                "/../models/User.php"
+            ]
+        }
+    },
+    {
+        "notifications": {
+            "php": [
+                "/../../configuration.php",
+                "/../handlers/Session.php",
+                "/../handlers/Template.php",
+                "/../helpers/Image.php",
+                "/../models/User.php"
+            ]
+        }
+    },
+    {
+        "profile": {
+            "php": [
+                "/../../configuration.php",
+                "/../handlers/Session.php",
+                "/../handlers/Template.php",
+                "/../helpers/Image.php",
+                "/../models/User.php",
+                "/../models/Leaderboard.php"
+            ]
+        }
+    },
+    {
+        "signup": {
+            "php": ["/../../configuration.php", "/../handlers/Session.php", "/../handlers/Template.php"]
+        }
+    },
+    {
+        "statistics": {
+            "php": [
+                "/../../configuration.php",
+                "/../handlers/Session.php",
+                "/../handlers/Template.php",
+                "/../helpers/Image.php",
+                "/../models/User.php"
+            ]
+        }
+    },
+    {
+        "ticket": {
+            "php": [
+                "/../../configuration.php",
+                "/../handlers/Session.php",
+                "/../handlers/Template.php",
+                "/../helpers/Image.php",
+                "/../models/User.php",
+                "/../models/Request.php",
+                "/../models/Response.php"
+            ]
+        }
+    },
+    {
+        "tickets": {
+            "php": [
+                "/../../configuration.php",
+                "/../handlers/Session.php",
+                "/../handlers/Template.php",
+                "/../helpers/Image.php",
+                "/../models/User.php"
+            ]
+        }
+    },
+    {
+        "users": {
+            "php": [
+                "/../../configuration.php",
+                "/../handlers/Session.php",
+                "/../handlers/Template.php",
+                "/../helpers/Image.php",
+                "/../models/User.php"
+            ]
+        }
+    },
+    {
+        "welcome": {
+            "php": ["/../../configuration.php", "/../handlers/Session.php", "/../handlers/Template.php"]
+        }
+    }
+]
