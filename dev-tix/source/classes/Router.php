@@ -1,5 +1,8 @@
 <?php
 require_once __DIR__ . '/Routes.php';
+require_once __DIR__ . '/handlers/Autoload.php';
+require_once __DIR__ . '/handlers/Session.php';
+require_once __DIR__ . '/helpers/Redirect.php';
 
 class Router
 {
@@ -86,6 +89,9 @@ class Router
     private static function requireView(string $page)
     {
         ob_start();
+
+        // Include handler dependencies.
+        Autoload::autoloadClassesPerView($page);
 
         // Bind the page with the partials.
         require_once __DIR__ . '/../../public/core/views/partials/header.php';
