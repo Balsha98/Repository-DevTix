@@ -1,13 +1,9 @@
 <?php
-// Import needed models.
-// TODO: Might create custom autoloader.
-require __DIR__ . '/../../../source/classes/models/User.php';
-
-$user = new User(Session::get('user_id'), Session::getDbInstance());
-
 require __DIR__ . '/partials/loaders/page-loader.php';
 require __DIR__ . '/partials/modals/alert-modal.php';
 require __DIR__ . '/partials/modals/logout-modal.php';
+
+$user = new User(Session::get('user_id'), Session::getDbInstance());
 ?>
 
     <!-- MAIN CONTAINER -->
