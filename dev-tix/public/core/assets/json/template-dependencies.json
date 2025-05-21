@@ -1,0 +1,205 @@
+[
+    {
+        "dashboard": {
+            "css": [
+                "css/partials/loaders/data-loader",
+                "css/partials/loaders/page-loader",
+                "css/partials/menus/chat-menu",
+                "css/partials/modals/alert-modal",
+                "css/partials/modals/logout-modal",
+                "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
+                "css/partials/signs/none-clients",
+                "css/partials/signs/none-data",
+                "css/partials/signs/none-notifications",
+                "css/partials/sidebar"
+            ],
+            "js": []
+        }
+    },
+    {
+        "leaderboard": {
+            "css": [
+                "css/partials/loaders/data-loader",
+                "css/partials/loaders/page-loader",
+                "css/partials/menus/chat-menu",
+                "css/partials/modals/logout-modal",
+                "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
+                "css/partials/signs/none-clients",
+                "css/partials/signs/none-data",
+                "css/partials/signs/none-notifications",
+                "css/partials/sidebar"
+            ],
+            "js": []
+        }
+    },
+    {
+        "leagues": {
+            "css": [
+                "css/partials/loaders/data-loader",
+                "css/partials/loaders/page-loader",
+                "css/partials/menus/chat-menu",
+                "css/partials/modals/logout-modal",
+                "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
+                "css/partials/signs/none-clients",
+                "css/partials/signs/none-notifications",
+                "css/partials/sidebar"
+            ],
+            "js": []
+        }
+    },
+    {
+        "login": {
+            "css": ["css/partials/modals/alert-modal", "css/partials/loaders/page-loader"],
+            "js": []
+        }
+    },
+    {
+        "logs": {
+            "css": [
+                "css/partials/loaders/data-loader",
+                "css/partials/loaders/page-loader",
+                "css/partials/menus/chat-menu",
+                "css/partials/modals/alert-modal",
+                "css/partials/modals/logout-modal",
+                "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
+                "css/partials/signs/none-clients",
+                "css/partials/signs/none-data",
+                "css/partials/signs/none-notifications",
+                "css/partials/sidebar"
+            ],
+            "js": []
+        }
+    },
+    {
+        "notifications": {
+            "css": [
+                "css/partials/loaders/data-loader",
+                "css/partials/loaders/page-loader",
+                "css/partials/menus/chat-menu",
+                "css/partials/modals/alert-modal",
+                "css/partials/modals/logout-modal",
+                "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
+                "css/partials/signs/none-clients",
+                "css/partials/signs/none-data",
+                "css/partials/signs/none-notifications",
+                "css/partials/sidebar"
+            ],
+            "js": []
+        }
+    },
+    {
+        "profile": {
+            "css": [
+                "css/partials/loaders/data-loader",
+                "css/partials/loaders/page-loader",
+                "css/partials/menus/chat-menu",
+                "css/partials/modals/alert-modal",
+                "css/partials/modals/league-modal",
+                "css/partials/modals/logout-modal",
+                "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
+                "css/partials/signs/none-clients",
+                "css/partials/signs/none-notifications",
+                "css/partials/sidebar"
+            ],
+            "js": []
+        }
+    },
+    {
+        "signup": {
+            "css": ["css/partials/modals/alert-modal", "css/partials/loaders/page-loader"],
+            "js": []
+        }
+    },
+    {
+        "statistics": {
+            "css": [
+                "css/partials/loaders/data-loader",
+                "css/partials/loaders/page-loader",
+                "css/partials/menus/chat-menu",
+                "css/partials/modals/logout-modal",
+                "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
+                "css/partials/signs/none-clients",
+                "css/partials/signs/none-notifications",
+                "css/partials/sidebar"
+            ],
+            "js": ["https://cdn.jsdelivr.net/npm/chart.js"]
+        }
+    },
+    {
+        "ticket": {
+            "css": [
+                "css/partials/loaders/data-loader",
+                "css/partials/loaders/page-loader",
+                "css/partials/menus/chat-menu",
+                "css/partials/modals/alert-modal",
+                "css/partials/modals/cancel-ticket-modal",
+                "css/partials/modals/post-ticket-modal",
+                "css/partials/modals/resolve-ticket-modal",
+                "css/partials/modals/response-modal",
+                "css/partials/modals/logout-modal",
+                "css/partials/modals/image-modal",
+                "css/partials/navigation",
+                "css/partials/signs/none-images",
+                "css/partials/signs/none-chat-messages",
+                "css/partials/signs/none-clients",
+                "css/partials/signs/none-notifications",
+                "css/partials/signs/none-responses",
+                "css/partials/sidebar"
+            ],
+            "js": []
+        }
+    },
+    {
+        "tickets": {
+            "css": [
+                "css/partials/loaders/data-loader",
+                "css/partials/loaders/page-loader",
+                "css/partials/menus/chat-menu",
+                "css/partials/modals/alert-modal",
+                "css/partials/modals/logout-modal",
+                "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
+                "css/partials/signs/none-clients",
+                "css/partials/signs/none-data",
+                "css/partials/signs/none-notifications",
+                "css/partials/sidebar"
+            ],
+            "js": []
+        }
+    },
+    {
+        "users": {
+            "css": [
+                "css/partials/loaders/data-loader",
+                "css/partials/loaders/page-loader",
+                "css/partials/menus/chat-menu",
+                "css/partials/modals/alert-modal",
+                "css/partials/modals/logout-modal",
+                "css/partials/navigation",
+                "css/partials/signs/none-chat-messages",
+                "css/partials/signs/none-clients",
+                "css/partials/signs/none-data",
+                "css/partials/signs/none-notifications",
+                "css/partials/sidebar"
+            ],
+            "js": []
+        }
+    },
+    {
+        "welcome": {
+            "css": [
+                "css/partials/loaders/page-loader",
+                "css/partials/modals/alert-modal",
+                "css/partials/modals/logout-modal"
+            ],
+            "js": []
+        }
+    }
+]
