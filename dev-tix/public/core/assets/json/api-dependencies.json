@@ -1,0 +1,108 @@
+[
+    {
+        "chat": {
+            "php": ["/../../../source/configuration.php", "/../../../source/classes/handlers/Validate.php"]
+        }
+    },
+    {
+        "dashboard": {
+            "php": ["/../../../source/configuration.php", "/../../../source/classes/handlers/Session.php"]
+        }
+    },
+    {
+        "leaderboard": {
+            "php": ["/../../../source/configuration.php", "/../../../source/classes/handlers/Session.php"]
+        }
+    },
+    {
+        "leagues": {
+            "php": ["/../../../source/configuration.php", "/../../../source/classes/handlers/Session.php"]
+        }
+    },
+    {
+        "login": {
+            "php": [
+                "/../../../source/configuration.php",
+                "/../../../source/classes/handlers/Session.php",
+                "/../../../source/classes/handlers/Log.php"
+            ]
+        }
+    },
+    {
+        "logout": {
+            "php": ["/../../../source/configuration.php", "/../../../source/classes/handlers/Session.php"]
+        }
+    },
+    {
+        "logs": {
+            "php": ["/../../../source/configuration.php", "/../../../source/classes/handlers/Session.php"]
+        }
+    },
+    {
+        "navigation": {
+            "php": ["/../../../source/configuration.php", "/../../../source/classes/handlers/Session.php"]
+        }
+    },
+    {
+        "notifications": {
+            "php": ["/../../../source/configuration.php", "/../../../source/classes/handlers/Session.php"]
+        }
+    },
+    {
+        "profile": {
+            "php": [
+                "/../../../source/configuration.php",
+                "/../../../source/classes/handlers/Session.php",
+                "/../../../source/classes/handlers/Validate.php",
+                "/../../../source/classes/handlers/Notification.php",
+                "/../../../source/classes/handlers/Log.php"
+            ]
+        }
+    },
+    {
+        "signup": {
+            "php": [
+                "/../../../source/configuration.php",
+                "/../../../source/classes/handlers/Session.php",
+                "/../../../source/classes/handlers/Validate.php",
+                "/../../../source/classes/handlers/Notification.php",
+                "/../../../source/classes/handlers/Log.php"
+            ]
+        }
+    },
+    {
+        "statistics": {
+            "php": ["/../../../source/configuration.php", "/../../../source/classes/handlers/Session.php"]
+        }
+    },
+    {
+        "ticket": {
+            "php": [
+                "/../../../source/configuration.php",
+                "/../../../source/classes/handlers/Session.php",
+                "/../../../source/classes/handlers/Validate.php",
+                "/../../../source/classes/handlers/Notification.php",
+                "/../../../source/classes/handlers/Log.php"
+            ]
+        }
+    },
+    {
+        "tickets": {
+            "php": ["/../../../source/configuration.php", "/../../../source/classes/handlers/Session.php"]
+        }
+    },
+    {
+        "users": {
+            "php": ["/../../../source/configuration.php", "/../../../source/classes/handlers/Session.php"]
+        }
+    },
+    {
+        "welcome": {
+            "php": [
+                "/../../../source/configuration.php",
+                "/../../../source/classes/handlers/Session.php",
+                "/../../../source/classes/handlers/Validate.php"
+            ]
+        }
+    }
+]
