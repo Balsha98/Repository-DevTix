@@ -1,8 +1,9 @@
 <?php
-require_once __DIR__ . '/Routes.php';
 require_once __DIR__ . '/handlers/Autoload.php';
+require_once __DIR__ . '/helpers/Debug.php';
 require_once __DIR__ . '/handlers/Session.php';
 require_once __DIR__ . '/helpers/Redirect.php';
+require_once __DIR__ . '/Routes.php';
 
 class Router
 {
@@ -91,7 +92,7 @@ class Router
         ob_start();
 
         // Include handler dependencies.
-        Autoload::autoloadClassesPerView($page);
+        Autoload::autoloadClassesPerRequest('view', $page);
 
         // Bind the page with the partials.
         require_once __DIR__ . '/../../public/core/views/partials/header.php';
