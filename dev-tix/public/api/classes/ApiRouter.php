@@ -1,6 +1,9 @@
 <?php
-require_once __DIR__ . '/AbsApiController.php';
 require_once __DIR__ . '/../helpers/ApiMessage.php';
+require_once __DIR__ . '/../../../source/classes/handlers/Autoload.php';
+require_once __DIR__ . '/../../../source/classes/helpers/Debug.php';
+require_once __DIR__ . '/../../../source/classes/handlers/Session.php';
+require_once __DIR__ . '/../../../source/classes/helpers/Encode.php';
 require_once __DIR__ . '/ApiRoutes.php';
 
 class ApiRouter
@@ -37,6 +40,9 @@ class ApiRouter
 
         // Set request method.
         self::$method = $method;
+
+        // Include handler dependencies.
+        Autoload::autoloadClassesPerRequest('api', $script);
 
         // Instantiate appropriate controller.
         $className = ucfirst($script) . 'ApiController';
