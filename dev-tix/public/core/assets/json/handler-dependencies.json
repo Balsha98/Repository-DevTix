@@ -101,7 +101,8 @@
                 "/../helpers/Image.php",
                 "/../models/User.php",
                 "/../models/Request.php",
-                "/../models/Response.php"
+                "/../models/Response.php",
+                "/../helpers/Date.php"
             ]
         }
     },
