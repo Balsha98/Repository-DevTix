@@ -40,7 +40,11 @@
     },
     {
         "navigation": {
-            "php": ["/../../../source/configuration.php", "/../../../source/classes/handlers/Session.php"]
+            "php": [
+                "/../../../source/configuration.php",
+                "/../../../source/classes/handlers/Session.php",
+                "/../../../source/classes/handlers/Log.php"
+            ]
         }
     },
     {
