@@ -16,6 +16,8 @@ Security:
 	- Prepared SQL statements to prevent query injections. (YES)
 	- Separate interface for Administrators. (NOT GONNA HAPPEN)
 	- Session tokens to prevent CSRF. (YES)
+    - Check user activity based on actions. (FUTURE TASK)
+    - Implement error handling. (FUTURE TASK)
 
 Extras (Gamification):
 	- Assistants Leaderboard; by overall review, or by # of resolved tickets. (YES)
