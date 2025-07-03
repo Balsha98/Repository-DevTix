@@ -74,11 +74,13 @@
 @keyframes notifications-indicator {
     from {
         width: 0.8rem;
+        height: 0.8rem;
         opacity: var(--opacity-full);
     }
 
     to {
         width: 2.4rem;
+        height: 2.4rem;
         opacity: 0;
     }
 }
