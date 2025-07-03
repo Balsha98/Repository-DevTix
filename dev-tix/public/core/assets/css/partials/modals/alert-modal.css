@@ -25,7 +25,7 @@
 .div-alert-modal-icon-container {
     position: relative;
     width: 9.6rem;
-    aspect-ratio: 1 / 1;
+    height: 9.6rem;
     margin: 0 auto 2.4rem;
     background-color: var(--success);
     border-radius: var(--border-radius-circle);
@@ -37,7 +37,7 @@
     top: 50%;
     left: 50%;
     width: inherit;
-    aspect-ratio: inherit;
+    height: inherit;
     background-color: inherit;
     border-radius: inherit;
     transform: translate(-50%, -50%);

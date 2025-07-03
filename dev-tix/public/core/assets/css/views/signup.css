@@ -89,7 +89,7 @@
 
 .circle-indicator-list-item span {
     width: 1.8rem;
-    aspect-ratio: 1 / 1;
+    height: 1.8rem;
     color: var(--white);
     background-color: var(--white);
     box-shadow: 0 0 1.2rem var(--shadow-md);

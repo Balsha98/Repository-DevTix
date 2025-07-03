@@ -118,7 +118,7 @@
     top: 1.2rem;
     left: 1.2rem;
     width: 4.8rem;
-    aspect-ratio: 1 / 1;
+    height: 4.8rem;
     background-color: var(--primary);
     box-shadow: 0 0.4rem 1.2rem var(--shadow-sm);
     border-radius: var(--border-radius-circle);

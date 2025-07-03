@@ -43,7 +43,7 @@
     bottom: 0;
     left: 9.6rem;
     width: 8rem;
-    aspect-ratio: 1 / 1;
+    height: 8rem;
     background-color: var(--primary);
     border-radius: var(--border-radius-circle);
     transform: translateY(50%);
@@ -55,7 +55,7 @@
     top: -2.4rem;
     right: -2.4rem;
     width: 8rem;
-    aspect-ratio: 1 / 1;
+    height: 8rem;
     background-color: var(--primary);
     border-radius: var(--border-radius-circle);
 }
@@ -191,7 +191,7 @@
 .div-none-chart-icon-container {
     right: 3.6rem;
     width: 18rem;
-    aspect-ratio: 1 / 1;
+    height: 18rem;
     background-color: var(--primary);
     border-radius: var(--border-radius-circle);
 }
@@ -199,7 +199,7 @@
 /* NONE CHART ICON MODAL */
 .div-none-chart-icon-modal {
     width: 9.6rem;
-    aspect-ratio: inherit;
+    height: 9.6rem;
     background-color: var(--white);
     box-shadow: 0 0 1.6rem var(--shadow-sm);
     border-radius: var(--border-radius-circle);
@@ -217,6 +217,6 @@
 
 .div-statistics-overview-chart-container canvas {
     width: 20rem;
-    aspect-ratio: 1 / 1;
+    height: 20rem;
     margin-bottom: 0.8rem; /* Even out chart. */
 }

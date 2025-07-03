@@ -32,7 +32,7 @@
     top: -0.8rem;
     right: -0.8rem;
     width: 3.6rem;
-    aspect-ratio: 1 / 1;
+    height: 3.6rem;
     color: var(--white);
     background-color: var(--primary);
     border-radius: var(--border-radius-circle);

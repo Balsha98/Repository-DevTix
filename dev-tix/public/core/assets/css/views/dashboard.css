@@ -51,7 +51,7 @@
     top: -2.4rem;
     left: -2.4rem;
     width: 8rem;
-    aspect-ratio: 1 / 1;
+    height: 8rem;
     background-color: var(--primary);
     border-radius: var(--border-radius-circle);
 }
@@ -253,7 +253,7 @@
 /* IMAGE CONTAINER (OVERRIDE) */
 .div-list-item-user-image-container {
     width: 3.6rem;
-    aspect-ratio: 1 / 1;
+    height: 3.6rem;
     border-radius: var(--border-radius-circle);
 }
 

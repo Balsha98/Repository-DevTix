@@ -63,7 +63,7 @@
 /* LEAGUE ICON CONTAINER */
 .div-league-icon-container {
     width: 3.6rem;
-    aspect-ratio: 1 / 1;
+    height: 3.6rem;
     background-color: var(--primary);
     box-shadow: 0 0.4rem 1.2rem var(--shadow-sm);
     border-radius: var(--border-radius-circle);
@@ -216,7 +216,7 @@
     left: -0.6rem;
     display: block;
     width: 0.8rem;
-    aspect-ratio: 1 / 1;
+    height: 0.8rem;
     font-size: 0.2rem; /* Minimize empty space. */
     background-color: transparent;
     border-radius: var(--border-radius-circle);
@@ -237,7 +237,7 @@
 /* IMAGE CONTAINER (OVERRIDE) */
 .div-list-item-user-image-container {
     width: 3.6rem;
-    aspect-ratio: 1 / 1;
+    height: 3.6rem;
     border-radius: var(--border-radius-circle);
 }
 
