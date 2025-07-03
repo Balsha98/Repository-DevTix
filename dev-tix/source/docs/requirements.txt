@@ -38,7 +38,7 @@ Required Pages:
 
 Optional Features:
     - Chat Popup (YES)
-	- Image Uploads (Using FormData in JS) (YES)
+	- Image Uploads (Using FormData in JS) (FUTURE UPDATE)
 	- Forgot Password (FUTURE TASK)
 	- Email Confirmations (FUTURE TASK)
 	- Blog Page (Follow/Unfollow) (FUTURE TASK (MAYBE))
