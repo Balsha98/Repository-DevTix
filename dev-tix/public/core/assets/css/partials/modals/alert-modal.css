@@ -50,11 +50,13 @@
 @keyframes alert-circle-indicator {
     from {
         width: inherit;
+        height: inherit;
         opacity: var(--opacity-full);
     }
 
     to {
         width: 12.8rem;
+        height: 12.8rem;
         opacity: 0;
     }
 }
