@@ -76,8 +76,8 @@ class LogsView {
         else if (roleID === 3) return "Patron";
     }
 
-    setSpanTotalLogs(totalUsers) {
-        this.#spanTotalLogs.text(totalUsers);
+    setSpanTotalLogs(totalLogs) {
+        this.#spanTotalLogs.text(totalLogs);
     }
 
     addEventChangeFilter(handlerFunction) {

@@ -20,7 +20,7 @@ const controlChangeFilter = function () {
 
     // Show visuals.
     noneDataController.controlHideNoneDataContainer();
-    dataLoaderController.controlShowDataLoader();
+    dataLoaderController.controlShowDataLoader("div-logs-list-container");
 
     // Verify filter.
     const filter = $(this).val();
@@ -36,13 +36,13 @@ const controlChangeFilter = function () {
     // Get difference between filtered data.
     const { length: totalHidden } = $(".logs-list-item.hide-element");
     const totalLogsLeft = logsListItems.length - totalHidden;
-    setTimeout(() => logsView.setSpanTotalUsers(totalLogsLeft), 1000);
+    setTimeout(() => logsView.setSpanTotalLogs(totalLogsLeft), 1000);
 
     // Show none data container if list is empty.
     if (totalLogsLeft === 0) noneDataController.controlShowNoneDataContainer(1);
 
     // Hide data loader.
-    dataLoaderController.controlHideDataLoader(1);
+    dataLoaderController.controlHideDataLoader("div-logs-list-container", 1);
 };
 
 const controlGenerateLogsList = function () {
