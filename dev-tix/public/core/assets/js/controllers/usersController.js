@@ -21,7 +21,7 @@ const controlChangeFilter = function () {
 
     // Show visuals.
     noneDataController.controlHideNoneDataContainer();
-    dataLoaderController.controlShowDataLoader();
+    dataLoaderController.controlShowDataLoader("div-users-list-container");
 
     // Verify filter.
     const filter = isNaN($(this).val()) ? $(this).val() : +$(this).val();
@@ -43,7 +43,7 @@ const controlChangeFilter = function () {
     if (totalUsersLeft === 0) noneDataController.controlShowNoneDataContainer(1);
 
     // Hide data loader.
-    dataLoaderController.controlHideDataLoader(1);
+    dataLoaderController.controlHideDataLoader("div-users-list-container", 1);
 };
 
 const controlViewUserProfile = function () {
