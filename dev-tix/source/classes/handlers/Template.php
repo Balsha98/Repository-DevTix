@@ -79,12 +79,12 @@ class Template
      */
     public static function buildPageModule(string $page)
     {
-        $controller = __DIR__ . "/../../../public/core/assets/js/controllers/{$page}Controller.js";
+        $controller = __DIR__ . "/../../../public/core/assets/javascript/controllers/{$page}Controller.js";
         if (file_exists($controller)) {
             $return = "
                 <script 
                     type='module' 
-                    src='" . SERVER_PATH . "/core/assets/js/controllers/{$page}Controller.js'
+                    src='" . SERVER_PATH . "/core/assets/javascript/controllers/{$page}Controller.js'
                 ></script>
             ";
         }
